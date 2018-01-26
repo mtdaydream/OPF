@@ -1,0 +1,18 @@
+
+*.gz
+
+*.out
+
+*.aux
+
+*.dvi
+
+WriteUps/QuadRobustArticle\.pdf
+
+WriteUps/RobustControlofNonlinearSystems\.pdf
+
+WriteUps/RobustControlofNonlinearSystems\.tex
+
+WriteUps/New Microsoft Access Database\.accdb
+
+WriteUps/Krishnamurthy\.pdf

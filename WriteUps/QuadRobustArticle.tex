@@ -133,14 +133,12 @@ Determine whether for all values of $u$ satisfying \eqref{eq:uLimits}, the syste
 
 \section{Main technical results}
 We now describe the main technical results of this paper. In the first subsection we describe the setting under which the problem can be solved using the results which follow. Our results take advantage of the well studied area of topological degree theory. For an introduction to topological degree theory see {\color{blue}{NEED REFS}}. Suffice it then to say that should $\Omega\in\mathbb{R}^{n}$ be open and bounded, $F:\Omega\rightarrow \mathbb{R}$ continuous, and $F(x)\neq y \quad \forall x\in\delta\Omega$ for some $y\in\mathbb{R}^n$, then $d\left(\Omega,F,y\right)\in\mathbb{Z}$ is defined. 
-As in {\color{blue}{Frommer, Hoxha and Lang Thm1}} we will utilize the following theorem which states 
+As in {\color{blue}{Frommer, Hoxha and Lang Thm1}} we utilize the following two results which we form into the following theorem.
 \begin{thm} \ \\
 \label{thm:Deg}
 \begin{itemize}
-\item[(i)] If $F$ is (Frechet-)differentiable and the Jacobian $F'(x)$ is non-singular at all points $x\in\Omega$ where $F(x)=y$, then 
-$$d\left(\Omega,F,y\right)=\sum\limits_{x\in\Omega, F(x)=y}sign\left(det F'(x)\right)$$
-\item[(ii)] If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous and such that $H(t,x)\neq y \quad \forall t\in[0,1], \quad x\in\delta\Omega$ then $d\left(\Omega,H(t,\cdot),y\right)$ does not depend on $t$.
-\item[(iii)] If $d(\Omega,F,y)\neq 0$, then there exists $x\in\Omega$ s.t. $F(x)=y$.
+\item[(i)] If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous and such that $H(t,x)\neq y \quad \forall t\in[0,1], \quad x\in\delta\Omega$ then $d\left(\Omega,H(t,\cdot),y\right)$ does not depend on $t$.
+\item[(ii)] If $d(\Omega,F,y)\neq 0$, then there exists $x\in\Omega$ s.t. $F(x)=y$.
 \end{itemize}
 
 \end{thm}
@@ -149,8 +147,7 @@ Our problem necessitates $\Omega=\{x| Ax< b\}$, $F(x)=Q(x)+Lx$ and $y=u$. We def
 \begin{align}
 H(t,x) = F(x)-t\cdot u \label{eq:Homo}
 \end{align}
-
-Note: Does this mean we can rely on the degree of $F(X)$ which we know has a solution at $x=0$ in the interior? This doesn't seem correct though. If we rely on the degree of the constant function, is it not 0? 
+Observe that by construction $F(0)=0$ and thus $d(\Omega,F(x),0)\neq 0$. If we wish to guarantee a solution to $F(x)=u$ for some $u\in[u_{min},u_{max}]$ then this is equivalent by (ii) of \cref{thm:Deg} to showing $d(\Omega,H(1,x),0)\neq 0$. However, by (i) of \cref{thm:Deg}, if it can be shown that $H(t,x)\neq 0 \quad \forall t\in[0,1], \quad x\in\delta\Omega$ then $d\left(\Omega,H(t,x),0\right)$ does not depend on $t$ and it follows that $d\left(\Omega,H(t,x),0\right)=d\left(\Omega,H(0,x),0\right)=d(\Omega,F(x),0)\neq 0$. In the next subsection we provide methods for determining inner and outer bounds on the maximum error bound for which one can guarantee robust solvability, i.e. we provide methodology for finding inner and outer bounds on $u_{min}$ and $u_{max}$ s.t. $H(t,x)\neq 0 \quad \forall t\in[0,1], u\in[u_{min},u_{max}] \quad x\in\delta\Omega$. 
 
 
 \section{Numerical studies}
