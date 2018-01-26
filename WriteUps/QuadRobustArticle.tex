@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amstext,amsfonts,amssymb,amsthm,epsfig,epstopdf,url,array}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{times}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{claim}[thm]{Claim}
+
+\theoremstyle{definition}
+\newtheorem{con}{Conjecture}[section]
+\newtheorem{exa}{Example}[section]
+\newtheorem*{sol}{Solution}
+\newtheorem{cdef}{Definition}[section]
+
+
+\theoremstyle{remark}
+\newtheorem*{rem}{\color{red}\textbf{Remark}}
+\newtheorem*{note}{\color{blue}\textbf{Note}}
+\usepackage{qtree}
+
+
+\usepackage{hyperref}
+
+\usepackage[nameinlink,noabbrev,capitalize]{cleveref} 
+\crefalias{subequation}{equation}
+\crefalias{thm}{theorem}
+
+
+% to make cleveref print ``Lemma'' for lemma
+\let\oldlemma\lem
+\renewcommand{\lem}{%
+  \crefalias{thm}{lem}% Theorem counter now looks like Lemma
+  \oldlemma}
+\Crefname{lem}{Lemma}{Lemmas}
+
+% to make cleveref print ``Definition for definition
+\let\olddefn\defn
+\renewcommand{\defn}{%
+  \crefalias{thm}{defn}% Theorem counter now looks like Definition
+  \olddefn}
+\Crefname{defn}{Definition}{Definitions}
+
+% to make cleveref print ``Remark for remark
+\let\oldrem\rem
+\renewcommand{\rem}{%
+  \crefalias{thm}{rem}% Theorem counter now looks like Remark
+  \oldrem}
+\Crefname{rem}{Remark}{Remarks}
+
+% to make cleveref print ``Corollary for corollary
+\let\oldcor\cor
+\renewcommand{\cor}{%
+  \crefalias{thm}{cor}% Theorem counter now looks like Corollary
+  \oldcor}
+\Crefname{cor}{Corollary}{Corollaries}
+
+% to make cleveref print ``Claim for claim
+\let\oldclaim\claim
+\renewcommand{\claim}{%
+  \crefalias{thm}{claim}% Theorem counter now looks like Claim
+  \oldclaim}
+\Crefname{claim}{Claim}{Claims}
+
+% to make cleveref print ``Proposition for prop
+\let\oldprop\prop
+\renewcommand{\prop}{%
+  \crefalias{thm}{prop}% Theorem counter now looks like Prop
+  \oldprop}
+\Crefname{prop}{Proposition}{Propositions}
+
+% to make cleveref print ``Conjecture for conj
+\let\oldcon\con
+\renewcommand{\con}{%
+  \crefalias{thm}{con}% Theorem counter now looks like Con
+  \oldcon}
+\Crefname{con}{Conjecture}{Conjectures}
+
+\bibliographystyle{plain}
+
+\begin{document}
+\begin{center}
+\textbf{Minimum Homotopy Area}
+\end{center}
+
+
+
+\section*{Abstract}
+Systems of quadratic equations appear in several applications from analysis of stochastic processes, machine learning to physical infrastructure systems like the power grid. In recent years, several algorithms have been proposed for the solution of quadratic systems, along with analyses of conditions under which they work. However, in many applications, parameters appearing in the quadratic system of equations are not known perfectly. In these cases, it is of interest to study robust solvability of quadratic systems, that is, whether the quadratic system of equations has a solution (within a certain set) for all realizations within a certain error bound of a given nominal value of the parameters. This problem is NP-hard in general, but we identify special cases that are tractable. Furthermore, we develop a general technique to produce inner and outer bounds on the maximum error bound for which one can guarantee robust solvability (the radius of robust solvability).
+The techniques we use combine ideas from constraint programming, convex optimization and topological degree theory. We evaluate our approach numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid. The results show that our approach can produce tight lower and upper bounds on the radius of robust solvability.
+
+
+\section{Introduction}
+This paper studies quadratic systems of equations with parameters. More concretely, we study a system of $n$ quadratic equations $F(x)=u$ where $F: \mathbb{R}^n \mapsto \mathbb{R}^n, x,u \in \mathbb{R}^n$ and $F$ is quadratic in $x$. We are interested in situations where the parameters $u$ are uncertain and we are still interested in guaranteeing that there is a solution to $F(x) = u$ for $x$ within limits on $x$. Questions of this type arise in a variety of applications from analysis of stochastic processes to infrastructure networks like the power grid and the as grid. For example, in binary markov trees, the parameter $u$ represents the initial probabilities of the Markov chain.
+
+\section{Problem formulation}
+
+\begin{itemize}
+\item[] $\mathbb{R}$: Set of real numbers, $\mathbb{R}^n$: $n$-dimensional Euclidean space 
+\item[] $\mathbb{S}^n$: Set of $n \times n$ symmetric matrices 
+\item[] $\mathbb{R}^{n \times m}$: Set of $n \times m$ real matrices
+\item[] $x \in \mathbb{R}^n$): $x$ is a real vector variable
+\item[] $M \geq 0$ (for $M \in \mathbb{R}^{n \times m}$): $M$ is a matrix with all entries non-negative  
+\item[] $A \in \mathbb{R}^{n\times n}$: $A$ is a potentially sparse condition matrix
+\item[] $b \in \mathbb{R}^n$: $b$ is a non-zero vector with all components non-negative
+\end{itemize}
+
+We study systems of quadratic equations of the form
+\begin{align}
+& Q(x)+Lx=u\label{eq:Quad}
+\end{align}
+where $Q: \mathbb{R}^n \mapsto \mathbb{R}^n$ is a vector-valued quadratic function, that is, there exist symmetric matrices $\mathcal{M}^1,\ldots,\mathcal{M}^{n} \in \mathbb{S}^n$ such that
+\[[Q(x)]_i = x^t \mathcal{M}_{i} x \quad \forall i \in [n]\]
+and $L \in \mathbb{R}^{n\times n}$ is an $n \times n$ matrix and $u \in \mathbb{R}^n$ is a vector. We are interested in solutions to this system of equations such that
+\begin{align}
+(Ax)_i\leq b_i \quad \forall i \in [n]\label{eq:xLimits}
+\end{align}
+However, the parameter $u$ is uncertain and only known upto certain error bounds
+\begin{align}
+u^{\min}_i=u_i^\star-e_i \leq u_i \leq =u_i^\star+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
+\end{align}
+where $u^\star$ is a forecast for $u$ and $e$ denotes the error bounds associated with the forecast. For example, in the case of quadratic equations appearing in infrastructure networks like the power grid, $u_i$ represents uncertain power generation or consumption (for example uncertain weather-dependent power sources like solar or wind power). In the case of stochastic processes, $u^\star$ represents an initial state distribution.
+
+\begin{cdef}[Robust solvability problem]
+Determine whether for all values of $u$ satisfying \eqref{eq:uLimits}, the system of equations \eqref{eq:Quad} has a solution for $x$ satisfying the constraints \eqref{eq:xLimits}. If this is true, the system \eqref{eq:Quad},\eqref{eq:xLimits},\eqref{eq:uLimits} is said to be \emph{Robust feasible}.
+\end{cdef}
+
+\section{Main technical results}
+We now describe the main technical results of this paper. In the first subsection we describe the setting under which the problem can be solved using the results which follow. Our results take advantage of the well studied area of topological degree theory. For an introduction to topological degree theory see {\color{blue}{NEED REFS}}. Suffice it then to say that should $\Omega\in\mathbb{R}^{n}$ be open and bounded, $F:\Omega\rightarrow \mathbb{R}$ continuous, and $F(x)\neq y \quad \forall x\in\delta\Omega$ for some $y\in\mathbb{R}^n$, then $d\left(\Omega,F,y\right)\in\mathbb{Z}$ is defined. 
+As in {\color{blue}{Frommer, Hoxha and Lang Thm1}} we will utilize the following theorem which states 
+\begin{thm} \ \\
+\label{thm:Deg}
+\begin{itemize}
+\item[(i)] If $F$ is (Frechet-)differentiable and the Jacobian $F'(x)$ is non-singular at all points $x\in\Omega$ where $F(x)=y$, then 
+$$d\left(\Omega,F,y\right)=\sum\limits_{x\in\Omega, F(x)=y}sign\left(det F'(x)\right)$$
+\item[(ii)] If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous and such that $H(t,x)\neq y \quad \forall t\in[0,1], \quad x\in\delta\Omega$ then $d\left(\Omega,H(t,\cdot),y\right)$ does not depend on $t$.
+\item[(iii)] If $d(\Omega,F,y)\neq 0$, then there exists $x\in\Omega$ s.t. $F(x)=y$.
+\end{itemize}
+
+\end{thm}
+
+Our problem necessitates $\Omega=\{x| Ax< b\}$, $F(x)=Q(x)+Lx$ and $y=u$. We define a homotopy $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ as 
+\begin{align}
+H(t,x) = F(x)-t\cdot u \label{eq:Homo}
+\end{align}
+
+Note: Does this mean we can rely on the degree of $F(X)$ which we know has a solution at $x=0$ in the interior? This doesn't seem correct though. If we rely on the degree of the constant function, is it not 0? 
+
+
+\section{Numerical studies}
+
+
+\section{Conclusion}
+\end{document}

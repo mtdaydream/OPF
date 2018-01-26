@@ -5,7 +5,7 @@ import time
 import cplex
 import copy
 
-casenumber = 57
+casenumber = 9
 # file1 = "Qscase"+str(casenumber)+".mat";
 # file2 = "Acase"+str(casenumber)+".mat";
 # file3 = "bcase"+str(casenumber)+".mat";
@@ -31,12 +31,19 @@ Q = {}
 q = {}
 c = {}
 
+
+
 for k in range(0,dim):
     Q[k] = Qs[1:,1:,k]
     q[k] = 2*Qs[1:,:1,k]
     c[k] = Qs[0,0,k]
 
 x = transpose(matrix(zeros(shape(Q[0])[1])))
+
+for k in range(0,dim):
+	print Q[k]
+
+quit()
 
 # #### Perform Check
 
