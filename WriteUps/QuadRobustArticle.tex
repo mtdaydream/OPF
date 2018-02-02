@@ -282,7 +282,7 @@ The MIP Model and LP Feasibility model are extremely similar and should theoreti
 \subsection{Outer Bound Formulations}
 
 As a result of the complexity of $\min\limits_{x\in \partial \Omega, u\in\Omega_u}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(F(x)-u\right)$ we derived a sequence of relaxations in order to arrive at a method that was computationally efficient for a non-trivial data set. We can similarly work with $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right)$ to produce computationally efficient models for outer bound approximations of the robustness margin. \\
-\begin{thm}
+\begin{thm}\label{thm:OPTfeasOut} 
 Let $\bar{\Omega}=\{x| Ax\leq b\}$, $\Omega_{u}=\{u| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(x)=Q(x)+L(x)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. Let
 $$z = \min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right).$$
 If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z>0$ then the system is robust feasible and has a robustness margin of at least r.
@@ -292,9 +292,64 @@ Observe by \cref{lem:BdOpt} that if $\min\limits_{||\bold{\lambda}||=1}\max\limi
 \end{proof}
 \end{thm}
 
+We can relax the model in \cref{thm:OPTfeasOut} utilizing the same techniques as before, replacing $xx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite, which transforms the model from a semidefinite program to a linear or mixed integer program depending on how one deals with the condition $||\bold{\lambda}||=1$. 
+
+\begin{subequations}\label{eq:OPTfeasOutRelaxa}
+\begin{align}
+\text{Outer Bound Model A}& \ \min\limits_{||\bold{\lambda}||=1}\max\limits_{x}  \\
+ \text{subject to: } \ & Ax\leq b \\
+ 	&bb^T-Axb^T-b(Ax)^T+A\mathcal{X}A^T\geq O \\
+ 	&\mathcal{X} \text{ is symmtric}
+\end{align}
+\end{subequations}
+
+We can construct the dual of the inner maximal objective of \eqref{eq:OPTfeasOutRelaxa} to produce:
+
+\begin{subequations}\label{eq:OPTfeasOutRelaxb}
+\begin{align}
+\text{Outer Bound Model B}& \ \min\limits_{||\bold{\lambda}||=1,y}B^Ty  \\
+ \text{subject to: } \ & H^Ty=u(\lambda) \\
+ & y\leq 0
+\end{align}
+where \eqref{eq:OPTfeasOutRelaxa}$[b \& c]$ can be written as $Hx\geq B$ and the objective of \eqref{eq:OPTfeasOutRelaxa} as $u(\lambda)^Tx$.
+\end{subequations}
+
 
 \section{Numerical studies}
+We now present computational studies which support the efficiency of the models we have presented. For all the numerical results presented we apply our models to find upper and lower bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software. We will specifically show results for tests conducted on cases 5, 9, 14, 30 and 57. In every case the power flow equations were converted into the format defined by \eqref{eq:Quad}, \eqref{eq:xLimits}, and \eqref{eq:uLimits}. To simulate real life scenarios we allowed the first 5 dimensions of $u$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $u$, while utilizing models \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. The results are presented in table {\color{blue}Need table ref} where each row of the table represents results conducted with $Ax\leq b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. $A$ in this cases is a matrix s.t. $Ax\leq b$ controls the flow between nodes in the power grid (i.e. each row of $Ax\leq b$ has the form $x_i-x_j\leq b_k$. All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores.\\
+
+\begin{table}[h]
+\begin{center}
+\includegraphics[scale=0.5]{Figures/InnerBoundTable}
+\caption{Robustness Margins for inner bound models } 
+\vspace{0.2in}
+\includegraphics[scale=0.5]{Figures/OuterBoundTable}
+\caption{Robustness Margins for outer bound models}
+\end{center}
+\end{table} 
+
+Graphically we can look at this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes (i.e. as $B$ increases). \\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{Figures/Case5}
+\includegraphics[scale=0.4]{Figures/Case9} \\
+\includegraphics[scale=0.4]{Figures/Case14}
+\includegraphics[scale=0.4]{Figures/Case30}
+\caption{Case 5 (Top Left), Case 9 (Top Right), Case 14 (Bottom Left), Case 30 (Bottom Right)}
+\end{center}
+\end{figure} 
+
+\newpage
+
+As evident from the table we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. Certainly one would expect the bound tightening model to out perform the other inner bound models for all cases, but the choice of model parameters has a big effect on the efficiency of the model. For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $b$ will cause in most cases an extremely long running time. Thus in the lower complexity cases it should be expected that the other models will out perform the bound tightening model as these manually set model parameters will have more of an impact on performance. \\
+Of special interest is the difference in performance of the MIP and Feasibility inner bound models as the complexity of the data increases. In particular it was surprising that the Feasibility model was the only inner bound model capable of efficiently computing the robustness margin for case 57. 
 
 
 \section{Conclusion}
+
+We have successfully proposed novel and efficient techniques for determining robust solvability of quadratic systems in this paper. It is worth mentioning that the same machinery can be used to determine robustness margins of solutions to static systems by taking $A$ to be the identity, $e_i=0 \ \forall i$ and simply adjusting $b$ accordingly. The models presented here are in some sense just the tip of the iceberg. More efficient models can certainly be derived using the theory contained here. We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results present here. \\
+
+
+
 \end{document}
