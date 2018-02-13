@@ -16,3 +16,9 @@ WriteUps/RobustControlofNonlinearSystems\.tex
 WriteUps/New Microsoft Access Database\.accdb
 
 WriteUps/Krishnamurthy\.pdf
+
+*.bbl
+
+*.blg
+
+WriteUps/DegreeTheory\.pdf
