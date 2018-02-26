@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage{amsmath,amstext,amsfonts,amssymb,amsthm,epsfig,epstopdf,url,array}
+\usepackage{amsmath,amstext,amsfonts,amssymb,amsthm,epsfig,epstopdf,array}
 \usepackage[margin=1in]{geometry}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -84,13 +84,36 @@
 
 \bibliographystyle{plain}
 
+% BK: Editing commands requiring color package
+\newcommand{\add}[1]{\textcolor{blue}{#1}}
+\newcommand{\delete}[1]{\textcolor{red}{#1}}
+\definecolor{darkgrn}{rgb}{0, 0.75, 0}
+\newcommand{\modified}[1]{\textcolor{darkgrn}{#1}}
+
+
 
 \begin{document}
 \begin{center}
-\textbf{Degree Theory Blog}
+\textbf{\modified{To What Degree Can We Use Degree?}} % Theory Blog}
 \end{center}
+
 \section{Introduction}
-In this post we will concern ourselves with degrees of continuous functions over bounded, "nice" manifolds. In particular we will narrow our focus at the moment to smooth functions over bounded regions in $\mathbb{R}^n$. With that in mind let us define the following: 
+\modified{Intuitively}, the degree of \add{a function} $f$ \add{defined on a set} $\Omega$
+%and $f\left(\Omega\right)$
+is the number of times $f$, in some sense, "wraps" $\Omega$ around the region that is it's image $f\left(\Omega\right)$.
+Of course the way in which you "wrap" around the region matters so our definition will have to take this into account (think clockwise or counterclockwise around a circle).
+
+\medskip
+\noindent \delete{BK: Need to add some more text leading into the main
+  conversation. Why would one care about degree? say something about
+  its potential use in the solvability of systems of (general
+  nonlinear) equations, and about finding robust solutions may be.}
+
+We will keep this conversation light, general and mostly geared towards imparting an intuition concerning what information the degree imparts and in what ways an application oriented person not necessarily familiar with higher level mathematics could use the degree to their general advantage. For the curious mathematician wishing for a more in depth and general derivation and application there are many summaries, blogs, lecture notes etc. awaiting you on the web (Google is always your friend). Here we will not give many proofs, but the ones we do will be, hopefully, well explained and as low level as I can make them. If that is agreeable to you then let us proceed. 
+
+\medskip
+\add{To keep the discussion simple,} %In this post
+we will concern ourselves with degrees of continuous functions over bounded, "nice" manifolds. In particular we will narrow our focus at the moment to smooth functions over bounded regions in $\mathbb{R}^n$. With that in mind let us define the following: 
 \begin{subequations}\label{eq:Vars}
 \begin{align}
 & \Omega\subset\mathbb{R}^n \text{ open and bounded }\\
@@ -98,16 +121,16 @@ In this post we will concern ourselves with degrees of continuous functions over
 & y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ a "regular value" with respect to $f$}
 \end{align}
 \end{subequations}
-In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ s.t. $f(x)=y$ then $x$ is not a critical point of $f$.\\
+In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ s.t. $f(x)=y$ then $x$ is \modified{\emph{not}} a critical point of $f$. \delete{BK: Adding a picture would help a lot here.} \\
 
-We will keep this conversation light, general and mostly geared towards imparting an intuition concerning what information the degree imparts and in what ways an application oriented person not necessarily familiar with higher level mathematics could use the degree to their general advantage. For the curious mathematician wishing for a more in depth and general derivation and application there are many summaries, blogs, lecture notes etc. awaiting you on the web (Google is always your friend). Here we will not give many proofs, but the ones we do will be, hopefully, well explained and as low level as I can make them. If that is agreeable to you then let us proceed. \\
-Topologically speaking the degree of $f$ between $\Omega$ and $f\left(\Omega\right)$ is the number of times $f$, in some sense, "wraps" $\Omega$ around the region $f\left(\Omega\right)$. Of course the way in which you "wrap" around the region matters so our definition will have to take this into account (think clockwise or counterclockwise around a circle). \\
 
+\delete{BK: Declare deg, sign, etc.~as operators using \texttt{operatorname}}
 \begin{cdef}[Degree] \ \\
 $$deg\left(f,\Omega,y\right)=\sum\limits_{x\in f^{-1}(y)}sign\left(J_f(x)\right)$$
 \end{cdef}
 
 Where $sign\left(J_f(x)\right)$ denotes the sign of the Jacobian of $f$ at $x$, i.e.:
+\delete{BK: link to Wikipedia article on Jacobian. Also, here you do mean the determinant of the Jacobian matrix when yo usay $J_f(x)$, right?}
 
 \[sign\left(J_f(x)\right)=   \left\{
 \begin{array}{ll}
@@ -126,7 +149,7 @@ We will show this using a proof by contradiction which will utilize some basic r
 
 Assume $f^{-1}(y)$ defines an infinite set. Then since $f^{-1}(y)\subseteq\Omega\subset\mathbb{R}^n$ and $\Omega$ is bounded we have that there must exist a limit point of $f^{-1}(y)$, i.e. $\exists \alpha\in\mathbb{R}^n$ and infinite sequence $\{x_i\}\subset f^{-1}(y)$ s.t. $\lim\limits_{i\rightarrow\infty}x_i=\alpha$. \\
 
-Now since $\bar{\Omega}$ is a closed and bounded subset of $\mathbb{R}^n$ we have that it is a compact set. By \eqref{eq:Vars} we have that $x_i\in\Omega \ \forall i$, and thus it follows that $\alpha\in\bar{\Omega}$ ($\bar{\Omega}$ is compact and hence contains all of it's limit points). Since $f$ is smooth we have that $y=\lim\limits_{\i\rightarrow\infty}f(x_i)=f\left(\lim\limits_{\i\rightarrow\infty}x_i\right)=f(\alpha)$.\\
+Now since $\bar{\Omega}$ is a closed and bounded subset of $\mathbb{R}^n$ we have that it is a compact set. By \eqref{eq:Vars} we have that $x_i\in\Omega \ \forall i$, and thus it follows that $\alpha\in\bar{\Omega}$ ($\bar{\Omega}$ is compact and hence contains all of it's limit points). Since $f$ is smooth we have that $y=\lim\limits_{i\rightarrow\infty}f(x_i)=f\left(\lim\limits_{i\rightarrow\infty}x_i\right)=f(\alpha)$.\\
 
 Since $f(\alpha)=y$, $\alpha\in\bar{\Omega}$ and by our assumptions in \eqref{eq:Vars} we have that:
 \begin{itemize}
@@ -135,12 +158,15 @@ Since $f(\alpha)=y$, $\alpha\in\bar{\Omega}$ and by our assumptions in \eqref{eq
 \item $\alpha$ is not a critical point
 \end{itemize}
 
-Since $\alpha$ is not a critical point, $f$ is smooth and $\Omega$ is open we have by the Inverse Function Theorem that there exists a neighborhood, $N_{\alpha}$, of $\alpha$ lying in $\Omega$ s.t. $f$ is invertible over $f(N_{\alpha})$. However, since $f(\alpha)=y$ this implies that there does not exist $x\in N_{\alpha}\setminus\{\alpha\}$ s.t. $f(x)=y$ or put another way $N_{\alpha}\bigcap f^{-1}(y)=\alpha$. This is of course a contradiction as $\alpha$ is a limit point of $f^{-1}(y)$ (i.e. every neighborhood of $\alpha$ contains infinitely points of $f^{-1}(y)$). The proposition now follows.
+Since $\alpha$ is not a critical point, $f$ is smooth, and $\Omega$ is open, we have by the Inverse Function Theorem \delete{(BK: link to Wikipedia article on IFT)} that there exists a neighborhood, $N_{\alpha}$, of $\alpha$ lying in $\Omega$ s.t. $f$ is invertible over $f(N_{\alpha})$.
+However, since $f(\alpha)=y$ this implies that there does not exist $x\in N_{\alpha}\setminus\{\alpha\}$ \modified{such that} $f(x)=y$.
+\modified{Put another way, we have that} $N_{\alpha}\bigcap f^{-1}(y)=\alpha$. This is of course a contradiction as $\alpha$ is a limit point of $f^{-1}(y)$ (i.e., every neighborhood of $\alpha$ contains infinitely \add{many} points of $f^{-1}(y)$).
+The proposition now follows.
 \end{proof}
 \end{prop}
 
 Great, \cref{finite} guarantees that the degree under the restrictions in \eqref{eq:Vars} will always exist. Now, how can this benefit us?
-Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $deg\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of a what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$. 
+Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $deg\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$. 
 \begin{center}
 \includegraphics[scale=0.25]{Figures/Curve1}
 \end{center}
