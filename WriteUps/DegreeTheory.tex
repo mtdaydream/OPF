@@ -166,18 +166,21 @@ The proposition now follows.
 \end{prop}
 
 Great, \cref{finite} guarantees that the degree under the restrictions in \eqref{eq:Vars} will always exist. Now, how can this benefit us?
-Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $deg\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$. 
+Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $deg\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$.
 \begin{center}
 \includegraphics[scale=0.25]{Figures/Curve1}
 \end{center}
 
-Here we can define $\Omega\approx (0,8.3)$, giving us $f(\Omega)\approx (-2.8,4.1)$. Observe that certainly $y=0$ is a regular value of $f$ over $\Omega$ which does not lie on the boundary of $f(\Omega)$. Thus we can compute $deg\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$. This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems. 
+Here we can define $\Omega\approx (0,8.3)$, giving us $f(\Omega)\approx (-2.8,4.1)$. \delete{BK: Might help to draw $\Omega$ and $f(\Omega)$ (as thick lines perhaps) on the graph here.}
+Observe that certainly $y=0$ is a regular value of $f$ over $\Omega$ which does not lie on the boundary of $f(\Omega)$.
+Thus we can compute $deg\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$.
+This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems. 
 
 \newpage
 
 \section{Theory for Applications}
 
-For some of you this seems like a waste of time because, by definition, in order to calculate the degree we must have knowledge of solutions to the very equation we are trying to verify solutions to. However, despair not for the following theorem will put your concerns to rest. 
+\add{Alright, so what's the use of all this stuff about degree any way?} For some of you, it might all seem like a waste of time because, by definition, in order to calculate the degree we must have knowledge of solutions to the very equation we are trying to verify solutions to. However, despair not for the following theorem will put your concerns to rest. 
 This theorem is quoted directly from \cite{OrChCh2006}, which we will direct the reader to for details of a proof if interested. 
 
 \begin{thm} \label{DegThm}
