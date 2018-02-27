@@ -167,15 +167,23 @@ The proposition now follows.
 \end{prop}
 
 Great, \cref{finite} guarantees that the degree under the restrictions in \eqref{eq:Vars} will always exist. Now, how can this benefit us?
+<<<<<<< HEAD
 Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $deg\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$.
+=======
+Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $\operatorname{deg}\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$. 
+>>>>>>> c819e5e78d95a6614fc2159a145ef87b8584876c
 \begin{center}
 \includegraphics[scale=0.25]{Figures/Curve1}
 \end{center}
 
+<<<<<<< HEAD
 Here we can define $\Omega\approx (0,8.3)$, giving us $f(\Omega)\approx (-2.8,4.1)$. \delete{BK: Might help to draw $\Omega$ and $f(\Omega)$ (as thick lines perhaps) on the graph here.}
 Observe that certainly $y=0$ is a regular value of $f$ over $\Omega$ which does not lie on the boundary of $f(\Omega)$.
 Thus we can compute $deg\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$.
 This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems. 
+=======
+Here we can define $\Omega\approx (0,8.3)$, giving us $f(\Omega)\approx (-2.8,4.1)$. Observe that certainly $y=0$ is a regular value of $f$ over $\Omega$ which does not lie on the boundary of $f(\Omega)$. Thus we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$. This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems. 
+>>>>>>> c819e5e78d95a6614fc2159a145ef87b8584876c
 
 \newpage
 
@@ -185,13 +193,13 @@ This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice th
 This theorem is quoted directly from \cite{OrChCh2006}, which we will direct the reader to for details of a proof if interested. 
 
 \begin{thm} \label{DegThm}
-Let $\Omega\subset\mathbb{R}^b$ be an open bounded subset and $f:\bar{\Omega}\rightarrow\mathbb{R}^b$ be a continuous mapping. If $p\not\in f\left(\partial\Omega\right)$, then there exists an integer $deg\left(f, \Omega,p\right)$ satisfying the following properties:
+Let $\Omega\subset\mathbb{R}^b$ be an open bounded subset and $f:\bar{\Omega}\rightarrow\mathbb{R}^b$ be a continuous mapping. If $p\not\in f\left(\partial\Omega\right)$, then there exists an integer $\operatorname{deg}\left(f, \Omega,p\right)$ satisfying the following properties:
 \begin{enumerate}
-\item (Normality) $deg\left(I, \Omega,p\right)=1$ if and only if $p\in\Omega$, where $I$ denotes the identity mapping;
-\item (Solvability) If $deg\left(f, \Omega,p\right)\not= 0$, then $f(x)=p$ has a solution in $\Omega$;
-\item (Homotopy) If $f_t(x):[0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^N$ is continuous and $p\not\in \bigcup\limits_{t\in[0,1]}f_t\left(\partial\Omega\right)$, then $deg\left(f, \Omega,p\right)$ does not depend on $t\in[0,1]$. 
-\item (Additivity) Suppose that $\Omega_1, \Omega_2$ are two disjoint open subsets of $\Omega$ and $p\not\in f\left(\bar{\Omega}-\Omega_1\cup\Omega_2\right)$. Then $deg\left(f, \Omega,p\right)=deg\left(f, \Omega_1,p\right)+deg\left(f, \Omega_2,p\right)$;
-\item $deg\left(f, \Omega,p\right)$ is a constant on any connected component of $\mathbb{R}^n\setminus f(\partial\Omega)$. 
+\item (Normality) $\operatorname{deg}\left(I, \Omega,p\right)=1$ if and only if $p\in\Omega$, where $I$ denotes the identity mapping;
+\item (Solvability) If $\operatorname{deg}\left(f, \Omega,p\right)\not= 0$, then $f(x)=p$ has a solution in $\Omega$;
+\item (Homotopy) If $f_t(x):[0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^N$ is continuous and $p\not\in \bigcup\limits_{t\in[0,1]}f_t\left(\partial\Omega\right)$, then $\operatorname{deg}\left(f, \Omega,p\right)$ does not depend on $t\in[0,1]$. 
+\item (Additivity) Suppose that $\Omega_1, \Omega_2$ are two disjoint open subsets of $\Omega$ and $p\not\in f\left(\bar{\Omega}-\Omega_1\cup\Omega_2\right)$. Then $\operatorname{deg}\left(f, \Omega,p\right)=\operatorname{deg}\left(f, \Omega_1,p\right)+\operatorname{deg}\left(f, \Omega_2,p\right)$;
+\item $\operatorname{deg}\left(f, \Omega,p\right)$ is a constant on any connected component of $\mathbb{R}^n\setminus f(\partial\Omega)$. 
 \end{enumerate}
 \end{thm}
 
