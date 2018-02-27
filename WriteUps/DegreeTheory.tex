@@ -181,7 +181,7 @@ This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice th
 
 \section{Theory for Applications}
 
-\add{Alright, so what's the use of all this stuff about degree any way?} For some of you, it might all seem like a waste of time because, by definition, in order to calculate the degree we must have knowledge of solutions to the very equation we are trying to verify solutions to. However, despair not for the following theorem will put your concerns to rest. 
+\add{Alright, so what's the use of all this stuff about degree any way?} For some of you, it might all seem like a waste of time because, by definition, in order to calculate the degree we must have knowledge of solutions to the very equation we are trying to verify solutions to. \modified{Despair not, however,} for the following theorem will put your concerns to rest. 
 This theorem is quoted directly from \cite{OrChCh2006}, which we will direct the reader to for details of a proof if interested. 
 
 \begin{thm} \label{DegThm}
@@ -195,8 +195,16 @@ Let $\Omega\subset\mathbb{R}^b$ be an open bounded subset and $f:\bar{\Omega}\ri
 \end{enumerate}
 \end{thm}
 
-What \cref{DegThm} has done to our assumptions in \eqref{eq:Vars} is relax some of our restrictions placed on the function and the point by only requiring the function be continuous and the point not necessarily regular in all cases. One nice advantage \cref{DegThm} has given us is seen in the homotopy invariance property or part 3. of \cref{DegThm}. What this allows us to do is equate the verification of solutions to one system with solutions to another, potentially much simpler system. For instance, Frommer, Hoxha and Lang were able to develop a test involving interval arithmetic to prove existence of zeros of functions using interval arithmetic, which depends on the homotopy invariance property of the degree. \cite{FrHoLa2007} Of course there is a wide range of theory concerning the computation of the degree outside of utilizing just the properties found in \cref{DegThm}, which I invite you to explore. Here are some quick suggestions to take a look at: \cite{MoVrYa2002}, \cite{OnTh2006}, and of course the book from which we took the theorem \cite{OrChCh2006}.
+What \cref{DegThm} has done to our assumptions in \eqref{eq:Vars} is relax some of \modified{the} restrictions placed on the function and the point by requiring the function be \modified{only} continuous and the point not necessarily regular in all cases.\delete{The previous sentence is too long and unwieldy---consider breaking it up.}
+One nice advantage \cref{DegThm} has given us is seen in the homotopy invariance property or \modified{Result} 3 of \cref{DegThm}.
+What this allows us to do is equate the verification of solutions to one system with solutions to another, potentially much simpler system.
+For instance, Frommer, Hoxha, and Lang were able to develop a test involving interval arithmetic to prove existence of zeros of functions using interval arithmetic, which depends on the homotopy invariance property of the degree \cite{FrHoLa2007}.
+Of course there is a wide range of theory concerning the computation of the degree outside of utilizing just the properties found in \cref{DegThm}, which I invite you to explore.
+Here are some quick suggestions to take a look at: \cite{MoVrYa2002}, \cite{OnTh2006}, and of course the book from which we took the theorem \cite{OrChCh2006}.
 
+
+\delete{BK: You should mention something about what we're doing in the paper with DJ, and may be mention something about how you would write a blog post about the same that the reader could look forward to.}
+  
 \bibliography{degree}
 
 \end{document}
