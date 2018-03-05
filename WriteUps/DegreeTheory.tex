@@ -90,6 +90,9 @@
 \definecolor{darkgrn}{rgb}{0, 0.75, 0}
 \newcommand{\modified}[1]{\textcolor{darkgrn}{#1}}
 
+\newcommand{\p}{\phantom{-}}
+
+
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -106,10 +109,15 @@
 \end{center}
 
 \section{Introduction}
-Intuitively, the degree of a function $f$ defined on a set $\Omega$
+The \emph{degree} of a function $f$ defined on a set $\Omega$
 %and $f\left(\Omega\right)$
-is an extension of the \href{https://en.wikipedia.org/wiki/Winding_number}{winding number}, which counts the number of times $f$, in some sense, "wraps" $\Omega$ around a point in $f\left(\Omega\right)$.   
-So what additional information does the degree tell us and why would you care about the degree? The degree was developed as a way to measure or keep careful count of the number of solutions to nonlinear equations. By careful we mean consistent with respect to some types of perturbation of the system. Degree theory, as we shall see shortly, provides some very nice tools for verifying the existence of solutions to nonlinear systems of equations. 
+is an extension of the \href{https://en.wikipedia.org/wiki/Winding_number}{winding number},
+\add{which counts the number of times a closed curve travels counterclockwise around a given point.
+Intuitively, the degree} counts the number of times $f$, in some sense, ``wraps'' $\Omega$ around a point in $f\left(\Omega\right)$.   
+So what additional information does the degree give, and why would you care about it?
+The degree was developed as a way to measure, or keep careful count of, the number of solutions to a system of nonlinear equations.
+By ``careful'' we mean consistent with respect to some types of perturbation of the system.
+Degree theory, as we shall see shortly, provides some very nice tools for verifying the existence of solutions to nonlinear systems of equations. 
 
 \medskip
 We will keep this conversation light, general and mostly geared towards imparting an intuition concerning what information the degree imparts and in what ways an application oriented person not necessarily familiar with higher level mathematics could use the degree to their general advantage. For the curious mathematician wishing for a more in depth and general derivation and application there are many summaries, blogs, lecture notes, thesis's (check \href{http://jultika.oulu.fi/files/isbn9789514284878.pdf}{this one} out for instance) etc. awaiting you on the web (Google is always your friend). Here we will not give many proofs, but the ones we do will be, hopefully, well explained and as low level as I can make them. If that is agreeable to you then let us proceed. 
@@ -124,7 +132,7 @@ we will concern ourselves with degrees of continuous functions over bounded, "ni
 & y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ a "regular value" with respect to $f$}
 \end{align}
 \end{subequations}
-In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ s.t. $f(x)=y$ then $x$ is \emph{not} a \href{https://en.wikipedia.org/wiki/Critical_point_(mathematics)}{critical point} of $f$.  \\
+In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $x$ is \emph{not} a \href{https://en.wikipedia.org/wiki/Critical_point_(mathematics)}{critical point} of $f$.  \delete{I'd be keen on seeing a cartoon picture of $f$ here, may be with $n=2$.} \\
 
 
 \begin{cdef}[Degree] \ \\
@@ -135,20 +143,22 @@ Where $\operatorname{sign}\left(J_f(x)\right)$ denotes the sign of the \href{htt
 
 \[\operatorname{sign}\left(J_f(x)\right)=   \left\{
 \begin{array}{ll}
-      -1 & J_f(x)< 0 \\
-      0 & J_f(x)= 0 \\
-      1 & J_f(x)> 0 \\
+      -1   & \mbox{if } J_f(x)< 0, \\
+      \p 0 & \mbox{if } J_f(x)= 0,~\mbox{ and } \\
+      \p 1 & \mbox{if } J_f(x)> 0. \\
 \end{array} 
 \right. \]
 
-By restricting ourselves to the parameters of \eqref{eq:Vars} we ensure that $\operatorname{sign}\left(J_f(x)\right)$ exists for each $x\in f^{-1}(y)$. Thus to guarantee $\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)$ exists we need only show that the sum is finite i.e. that  $f^{-1}(y)=\{x\in\Omega|f(x)=y\}$ is finite. We will quickly show this now as it helps to illustrate the concept of the degree. 
+By restricting ourselves to the parameters of \eqref{eq:Vars} we ensure that $\operatorname{sign}\left(J_f(x)\right)$ exists for each $x\in f^{-1}(y)$.
+Thus to guarantee $\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)$ exists, we need only show that the sum is finite, i.e., that  $f^{-1}(y)=\{x\in\Omega|f(x)=y\}$ is finite.
+We will show this result now as it helps to illustrate the concept of degree. 
 
 \begin{prop} \label{finite}
 Given $\Omega$, $f$ and $y$ as defined in \eqref{eq:Vars}, $f^{-1}(y)=\{x\in\Omega|f(x)=y\}$ is finite. 
 \begin{proof}
 We will show this using a proof by contradiction which will utilize some basic results from analysis and the application of the Inverse Function Theorem. \\
 
-Assume $f^{-1}(y)$ defines an infinite set. Then since $f^{-1}(y)\subseteq\Omega\subset\mathbb{R}^n$ and $\Omega$ is bounded we have that there must exist a limit point of $f^{-1}(y)$, i.e. $\exists \alpha\in\mathbb{R}^n$ and infinite sequence $\{x_i\}\subset f^{-1}(y)$ s.t. $\lim\limits_{i\rightarrow\infty}x_i=\alpha$. \\
+Assume $f^{-1}(y)$ defines an infinite set. Then since $f^{-1}(y)\subseteq\Omega\subset\mathbb{R}^n$ and $\Omega$ is bounded we have that there must exist a limit point of $f^{-1}(y)$, i.e. $\exists \alpha\in\mathbb{R}^n$ and infinite sequence $\{x_i\}\subset f^{-1}(y)$ such that $\lim\limits_{i\rightarrow\infty}x_i=\alpha$. \\
 
 Now since $\bar{\Omega}$ is a closed and bounded subset of $\mathbb{R}^n$ we have that it is a compact set. By \eqref{eq:Vars} we have that $x_i\in\Omega \ \forall i$, and thus it follows that $\alpha\in\bar{\Omega}$ ($\bar{\Omega}$ is compact and hence contains all of it's limit points). Since $f$ is smooth we have that $y=\lim\limits_{i\rightarrow\infty}f(x_i)=f\left(\lim\limits_{i\rightarrow\infty}x_i\right)=f(\alpha)$.\\
 
@@ -159,7 +169,7 @@ Since $f(\alpha)=y$, $\alpha\in\bar{\Omega}$ and by our assumptions in \eqref{eq
 \item $\alpha$ is not a critical point
 \end{itemize}
 
-Since $\alpha$ is not a critical point, $f$ is smooth, and $\Omega$ is open, we have by the \href{https://en.wikipedia.org/wiki/Inverse_function_theorem}{Inverse Function Theorem} that there exists a neighborhood, $N_{\alpha}$, of $\alpha$ lying in $\Omega$ s.t. $f$ is invertible over $f(N_{\alpha})$.
+Since $\alpha$ is not a critical point, $f$ is smooth, and $\Omega$ is open, we have by the \href{https://en.wikipedia.org/wiki/Inverse_function_theorem}{Inverse Function Theorem} that there exists a neighborhood, $N_{\alpha}$, of $\alpha$ lying in $\Omega$ such that $f$ is invertible over $f(N_{\alpha})$.
 However, since $f(\alpha)=y$ this implies that there does not exist $x\in N_{\alpha}\setminus\{\alpha\}$ such that $f(x)=y$.
 Put another way, we have that $N_{\alpha}\bigcap f^{-1}(y)=\alpha$. This is of course a contradiction as $\alpha$ is a limit point of $f^{-1}(y)$ (i.e., every neighborhood of $\alpha$ contains infinitely many points of $f^{-1}(y)$).
 The proposition now follows.
@@ -175,9 +185,11 @@ Note that by the definition of the degree we can conclude readily that a solutio
 Here we can define $\color{OliveGreen}{\Omega\approx (0,8.3)}$, giving us $\color{Cyan}{f(\Omega)\approx (-2.8,4.1)}$.
 Observe that certainly $y=0$ is a regular value of $f$ over $\Omega$ which does not lie on the boundary of $f(\Omega)$.
 Thus we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$.
-This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems. 
+This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems.
+\delete{Could you add some intuition about how many times $f$ is ``wrapping'' $\Omega$ around $f(\Omega)$ here?}
+  
 
-\newpage
+%\newpage
 
 \section{Theory for Applications}
 
