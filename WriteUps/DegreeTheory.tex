@@ -112,8 +112,8 @@
 The \emph{degree} of a function $f$ defined on a set $\Omega$
 %and $f\left(\Omega\right)$
 is an extension of the \href{https://en.wikipedia.org/wiki/Winding_number}{winding number},
-\add{which counts the number of times a closed curve travels counterclockwise around a given point.
-Intuitively, the degree} counts the number of times $f$, in some sense, ``wraps'' $\Omega$ around a point in $f\left(\Omega\right)$.   
+which counts the number of times a closed curve travels counterclockwise around a given point.
+Intuitively, the degree counts the number of times $f$, in some sense, ``wraps'' $\Omega$ around a point in $f\left(\Omega\right)$.   
 So what additional information does the degree give, and why would you care about it?
 The degree was developed as a way to measure, or keep careful count of, the number of solutions to a system of nonlinear equations.
 By ``careful'' we mean consistent with respect to some types of perturbation of the system.
@@ -132,7 +132,10 @@ we will concern ourselves with degrees of continuous functions over bounded, "ni
 & y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ a "regular value" with respect to $f$}
 \end{align}
 \end{subequations}
-In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $x$ is \emph{not} a \href{https://en.wikipedia.org/wiki/Critical_point_(mathematics)}{critical point} of $f$.  \delete{I'd be keen on seeing a cartoon picture of $f$ here, may be with $n=2$.} \\
+In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $x$ is \emph{not} a \href{https://en.wikipedia.org/wiki/Critical_point_(mathematics)}{critical point} of $f$. For example in the following figure $F:\mathbb{R}^2\rightarrow\mathbb{R}^2$ with $\Omega$ the filled circle and $F(\Omega)$ the filled triangle. In this simple example $F$ maps the boundary of the circle to the boundary of the triangle, and hence the degree is not defined for any point along the boundary of the triangle. Additionally notice that the points along the red and green curves in the circle corresponding to the red and green curves in the triangle represent critical points for which the degree is not defined. However, every other point in the interior of the triangle is fair game if we assume a smooth map everywhere else.
+\begin{center}
+\includegraphics[scale=0.4]{Figures/R2Ex}
+\end{center}
 
 
 \begin{cdef}[Degree] \ \\
@@ -184,9 +187,9 @@ Note that by the definition of the degree we can conclude readily that a solutio
 
 Here we can define $\color{OliveGreen}{\Omega\approx (0,8.3)}$, giving us $\color{Cyan}{f(\Omega)\approx (-2.8,4.1)}$.
 Observe that certainly $y=0$ is a regular value of $f$ over $\Omega$ which does not lie on the boundary of $f(\Omega)$.
-Thus we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$.
+Thus we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$. Intuitively $f$ takes the set $\Omega$, stretches it out and starts laying it down on $\Omega$ the way you would lay a long sheet down on a short surface (folding back and forth so it fits on the surface). Any regular value lying between the boundary points has the beginning of the sheet below it and the end above it, so $f$ lays over it at least 1 time (something very reminiscent of the intermediate value theorem.)
 This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems.
-\delete{Could you add some intuition about how many times $f$ is ``wrapping'' $\Omega$ around $f(\Omega)$ here?}
+
   
 
 %\newpage
