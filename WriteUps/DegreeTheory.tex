@@ -132,7 +132,7 @@ we will concern ourselves with degrees of continuous functions over bounded, "ni
 & y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ s.t. $J_f(x)$ is defined $\forall x\in\Omega$ s.t. $f(x)=y$}
 \end{align}
 \end{subequations}
-In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $J_f(x)$, the \href{https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant}{Jacobian} of $f$ at $x$, is defined. Lets look at two examples to illustrate the setting described in \eqref{eq:Vars}. 
+In other words we will assume $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $J_f(x)$, the \href{https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant}{Jacobian} of $f$ at $x$, is defined. Lets look at two examples to illustrate the setting described in \eqref{eq:Vars}. 
 
 
 
@@ -150,11 +150,11 @@ In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not i
 \end{figure}
 
 
-Figure 1 represents a continuous mapping from $\mathbb{R}$ to $\mathbb{R}$. In particular ${\color{OliveGreen}\Omega\approx(0,5.2)}$ and ${\color{Fuchsia}F(\Omega)\approx(-1.3,1.45)}$. The values where the degree is not defined are indicated by red x's and correspond to the image of the boundary of $\Omega$, ${\color{red}\{-1.3,1.45\}}$, and points where the derivative don't exist ${\color{red}\{-1,1\}}$. All other points of $F(\omega)$ are fair game including the value ${\color{blue}y=0.5}$, which we will refer back to in an illustration of the calculation of the degree.\\
-Figure 2 represents a continuous mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$ with $\Omega$ the filled circle and $F(\Omega)$ the filled triangle. In this simple example $F$ maps the boundary of the circle to the boundary of the triangle and creates a folding of $\Omega$ along the red and green curves making the jacobian undefined at those points. Thus the degree is not defined along the boundary of the triangle or at any point on the red or green curve. If we assume $F$ is smooth everywhere else then so is the degree. So how do we calculate it? The next definition will answer this. 
+Figure 1 represents a continuous mapping from $\mathbb{R}$ to $\mathbb{R}$. In particular ${\color{OliveGreen}\Omega\approx(0,5.2)}$ and ${\color{Fuchsia}F(\Omega)\approx(-1.3,1.45)}$. The values where the degree is not defined are indicated by red x's and correspond to the image of the boundary of $\Omega$, ${\color{red}\{-1.3,1.45\}}$, and points where the derivative doesn't exist ${\color{red}\{-1,1\}}$. All other points of $F(\Omega)$ are fair game including the value ${\color{blue}y=0.5}$, which we will refer back to in an illustration of the calculation of the degree.\\
+Figure 2 represents a continuous mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$ with $\Omega$ the filled circle and $F(\Omega)$ the filled triangle. In this simple example $F$ maps the boundary of the circle to the boundary of the triangle and creates a folding of $\Omega$ along the red and green curves in such a way as to make the jacobian undefined at point along them. Thus the degree is not defined along the boundary of the triangle or at any point on the red or green curve. If we assume $F$ is smooth everywhere else then so is the degree. So how do we calculate it? The next definition for the degree under the restrictions of \eqref{eq:Vars} will answer this. 
 
 
-\begin{cdef}[Degree] \ \\
+\begin{cdef}[Degree]\label{ddef} \ \\
 $$\operatorname{deg}\left(f,\Omega,y\right)=\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)$$
 \end{cdef}
 
@@ -169,7 +169,7 @@ Where $\operatorname{sign}\left(J_f(x)\right)$ denotes the sign of the \href{htt
 \right. \]
 
 By restricting ourselves to the parameters of \eqref{eq:Vars} we ensure that $\operatorname{sign}\left(J_f(x)\right)$ exists for each $x\in f^{-1}(y)$.
-Thus to guarantee $\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)$ exists, we need only have that the sum be convergent. One way to show this is to require the sum to be finite. In some sense this limits the number of "foldings" that $F$ can do. Okay say we have this restriction and the degree is defined for the values we wish to check, how can this benefit us? Let's illustrate this with our simple example in figure 1.
+Thus all we need to guarantee that $\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)$ exists is that the sum be convergent. One way to provide this is to require the sum to be finite. In some sense this limits the number of "foldings" that $F$ can do. Okay say we have this additional restriction and the degree is defined for the values we wish to check, how can this benefit us? Let's illustrate this with our simple example in figure 1.
 
 %\begin{prop} \label{finite}
 %Given $\Omega$, $f$ and $y$ as defined in \eqref{eq:Vars}, $f^{-1}(y)=\{x\in\Omega|f(x)=y\}$ is finite. 
@@ -199,8 +199,8 @@ Thus to guarantee $\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\r
 %\includegraphics[]{Figures/Curvea}
 %\end{center}
 
-As we observed earlier the degree is defined at $y=0.5$ and we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$. Intuitively $f$ takes the set $\Omega$, stretches it out and starts laying it down on $\Omega$ the way you would lay a long sheet down on a short surface (folding back and forth so it fits on the surface). Any value lying between the boundary points has the beginning of the sheet below it and the end above it, so $f$ lays over it at least 1 time (something very reminiscent of the intermediate value theorem.)
-This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems.
+As we observed earlier the degree is defined at $y=0.5$ and so we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ using definition \ref{ddef} to be $1+(-1)+1+(-1)+1=1$. So how does this conform with our intuition? We can think of $f$ as taking the set $\Omega$, stretching it out and laying it down on $\Omega$ the way you would lay a long sheet down on a short surface (folding back and forth so it fits on the surface). Any value lying between the image of the boundary points has the beginning of the sheet below it and the end above it, so $f$ lays over it at least 1 time with potentially a bunch of additional folds that must come in pairs (something very reminiscent of the intermediate value theorem.)
+This might seem trivial, and it is when broken down here, but when $\Omega$ and $f$  are not so nice, as you may begin to see even in the simple map of figure 2, the degree becomes an invaluable tool with the help of some well meaning theorems. 
 
   
 
@@ -226,7 +226,7 @@ One nice advantage \cref{DegThm} has given us is seen in the homotopy invariance
 What this allows us to do is equate the verification of solutions to one system with solutions to another, potentially much simpler system.
 For instance, Frommer, Hoxha, and Lang were able to develop a test involving interval arithmetic to prove existence of zeros of functions using interval arithmetic, which depends on the homotopy invariance property of the degree \cite{FrHoLa2007}.
 Of course there is a wide range of theory concerning the computation of the degree outside of utilizing just the properties found in \cref{DegThm}, which I invite you to explore. 
-Here are some quick suggestions to take a look at: \cite{MoVrYa2002}, \cite{OnTh2006}, and of course the book from which we took the theorem \cite{OrChCh2006}. Additionally, keep an eye out for my own collaborative research with \href{https://dvij.github.io/}{Dr. Dvijotham}, \href{http://www.math.wsu.edu/math/faculty/bkrishna/}{Dr. Krishnamoorthy} where we take full advantage of the homotopy invariance property of  \cref{DegThm} to construct optimization based techniques for calculating robustness of solutions to systems of quadratic equations. Check \href{http://www.benrapone.com/}{my own website} to see more about myself, and new blog posts about our research on this topic once completed.
+Here are some quick suggestions to take a look at: \cite{MoVrYa2002}, \cite{OnTh2006}, and of course the book from which we took the theorem \cite{OrChCh2006}. Additionally though, keep an eye out for my own collaborative research with \href{https://dvij.github.io/}{Dr. Dvijotham}, \href{http://www.math.wsu.edu/math/faculty/bkrishna/}{Dr. Krishnamoorthy} where we take full advantage of the homotopy invariance property of  \cref{DegThm} to construct optimization based techniques for calculating robustness of solutions to systems of quadratic equations. Check \href{http://www.benrapone.com/}{my own website} to see more about myself, and new blog posts about my research.
 
   
 \bibliography{degree}
