@@ -120,22 +120,38 @@ By ``careful'' we mean consistent with respect to some types of perturbation of 
 Degree theory, as we shall see shortly, provides some very nice tools for verifying the existence of solutions to nonlinear systems of equations. 
 
 \medskip
-We will keep this conversation light, general and mostly geared towards imparting an intuition concerning what information the degree imparts and in what ways an application oriented person not necessarily familiar with higher level mathematics could use the degree to their general advantage. For the curious mathematician wishing for a more in depth and general derivation and application there are many summaries, blogs, lecture notes, thesis's (check \href{http://jultika.oulu.fi/files/isbn9789514284878.pdf}{this one} out for instance) etc. awaiting you on the web (Google is always your friend). Here we will not give many proofs, but the ones we do will be, hopefully, well explained and as low level as I can make them. If that is agreeable to you then let us proceed. 
+We will keep this conversation light, general and mostly geared towards imparting an intuition concerning what information the degree imparts and in what ways an application oriented person not necessarily familiar with higher level mathematics could use the degree to their general advantage. For the curious mathematician wishing for a more in depth and general derivation and application there are many summaries, blogs, lecture notes, thesis's (check \href{http://jultika.oulu.fi/files/isbn9789514284878.pdf}{this one} out for instance) etc. awaiting you on the web (Google is always your friend). Here we will not provide any proofs, but will instead refer the reader to those already given in different venues (why recreate the wheel I ask). If that is agreeable to you then let us proceed. 
 
 \medskip
 To keep the discussion simple, %In this post
-we will concern ourselves with degrees of continuous functions over bounded, "nice" manifolds. In particular we will narrow our focus at the moment to smooth functions over bounded regions in $\mathbb{R}^n$. With that in mind let us define the following: 
+we will concern ourselves with degrees of continuous functions over bounded, "nice" manifolds. In particular we will narrow our focus at the moment to continuous functions over bounded regions in $\mathbb{R}^n$. With that in mind let us define the following setting over which we will define the degree: 
 \begin{subequations}\label{eq:Vars}
 \begin{align}
 & \Omega\subset\mathbb{R}^n \text{ open and bounded }\\
-& f:\bar{\Omega}\rightarrow \mathbb{R}^n \text{ smooth } \\
-& y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ a "regular value" with respect to $f$}
+& f:\bar{\Omega}\rightarrow \mathbb{R}^n \text{ continuous } \\
+& y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ s.t. $J_f(x)$ is defined $\forall x\in\Omega$ s.t. $f(x)=y$}
 \end{align}
 \end{subequations}
-In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $x$ is \emph{not} a \href{https://en.wikipedia.org/wiki/Critical_point_(mathematics)}{critical point} of $f$. For example in the following figure $F:\mathbb{R}^2\rightarrow\mathbb{R}^2$ with $\Omega$ the filled circle and $F(\Omega)$ the filled triangle. In this simple example $F$ maps the boundary of the circle to the boundary of the triangle, and hence the degree is not defined for any point along the boundary of the triangle. Additionally notice that the points along the red and green curves in the circle corresponding to the red and green curves in the triangle represent critical points for which the degree is not defined. However, every other point in the interior of the triangle is fair game if we assume a smooth map everywhere else.
+In other words $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $J_f(x)$, the \href{https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant}{Jacobian} of $f$ at $x$, is defined. Lets look at two examples to illustrate the setting described in \eqref{eq:Vars}. 
+
+
+
+\begin{figure}[h] \label{fig1}
 \begin{center}
-\includegraphics[scale=0.4]{Figures/R2Ex}
+\includegraphics[scale=0.15]{Figures/Curvea} 
 \end{center}
+\caption{$F:\mathbb{R}\rightarrow\mathbb{R}$}
+\end{figure}
+\begin{figure}[h] \label{fig2}
+\begin{center}
+\includegraphics[scale=0.5]{Figures/R2Exa}
+\end{center}
+\caption{$F:\mathbb{R}^2\rightarrow\mathbb{R}^2$}
+\end{figure}
+
+
+Figure 1 represents a continuous mapping from $\mathbb{R}$ to $\mathbb{R}$. In particular ${\color{OliveGreen}\Omega\approx(0,5.2)}$ and ${\color{Fuchsia}F(\Omega)\approx(-1.3,1.45)}$. The values where the degree is not defined are indicated by red x's and correspond to the image of the boundary of $\Omega$, ${\color{red}\{-1.3,1.45\}}$, and points where the derivative don't exist ${\color{red}\{-1,1\}}$. All other points of $F(\omega)$ are fair game including the value ${\color{blue}y=0.5}$, which we will refer back to in an illustration of the calculation of the degree.\\
+Figure 2 represents a continuous mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$ with $\Omega$ the filled circle and $F(\Omega)$ the filled triangle. In this simple example $F$ maps the boundary of the circle to the boundary of the triangle and creates a folding of $\Omega$ along the red and green curves making the jacobian undefined at those points. Thus the degree is not defined along the boundary of the triangle or at any point on the red or green curve. If we assume $F$ is smooth everywhere else then so is the degree. So how do we calculate it? The next definition will answer this. 
 
 
 \begin{cdef}[Degree] \ \\
@@ -153,41 +169,37 @@ Where $\operatorname{sign}\left(J_f(x)\right)$ denotes the sign of the \href{htt
 \right. \]
 
 By restricting ourselves to the parameters of \eqref{eq:Vars} we ensure that $\operatorname{sign}\left(J_f(x)\right)$ exists for each $x\in f^{-1}(y)$.
-Thus to guarantee $\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)$ exists, we need only show that the sum is finite, i.e., that  $f^{-1}(y)=\{x\in\Omega|f(x)=y\}$ is finite.
-We will show this result now as it helps to illustrate the concept of degree. 
+Thus to guarantee $\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)$ exists, we need only have that the sum be convergent. One way to show this is to require the sum to be finite. In some sense this limits the number of "foldings" that $F$ can do. Okay say we have this restriction and the degree is defined for the values we wish to check, how can this benefit us? Let's illustrate this with our simple example in figure 1.
 
-\begin{prop} \label{finite}
-Given $\Omega$, $f$ and $y$ as defined in \eqref{eq:Vars}, $f^{-1}(y)=\{x\in\Omega|f(x)=y\}$ is finite. 
-\begin{proof}
-We will show this using a proof by contradiction which will utilize some basic results from analysis and the application of the Inverse Function Theorem. \\
+%\begin{prop} \label{finite}
+%Given $\Omega$, $f$ and $y$ as defined in \eqref{eq:Vars}, $f^{-1}(y)=\{x\in\Omega|f(x)=y\}$ is finite. 
+%\begin{proof}
+%We will show this using a proof by contradiction which will utilize some basic results from analysis and the application of the Inverse Function Theorem. \\
 
-Assume $f^{-1}(y)$ defines an infinite set. Then since $f^{-1}(y)\subseteq\Omega\subset\mathbb{R}^n$ and $\Omega$ is bounded we have that there must exist a limit point of $f^{-1}(y)$, i.e. $\exists \alpha\in\mathbb{R}^n$ and infinite sequence $\{x_i\}\subset f^{-1}(y)$ such that $\lim\limits_{i\rightarrow\infty}x_i=\alpha$. \\
+%Assume $f^{-1}(y)$ defines an infinite set. Then since $f^{-1}(y)\subseteq\Omega\subset\mathbb{R}^n$ and $\Omega$ is bounded we have that there must exist a limit point of $f^{-1}(y)$, i.e. $\exists \alpha\in\mathbb{R}^n$ and infinite sequence $\{x_i\}\subset f^{-1}(y)$ such that $\lim\limits_{i\rightarrow\infty}x_i=\alpha$. \\
 
-Now since $\bar{\Omega}$ is a closed and bounded subset of $\mathbb{R}^n$ we have that it is a compact set. By \eqref{eq:Vars} we have that $x_i\in\Omega \ \forall i$, and thus it follows that $\alpha\in\bar{\Omega}$ ($\bar{\Omega}$ is compact and hence contains all of it's limit points). Since $f$ is smooth we have that $y=\lim\limits_{i\rightarrow\infty}f(x_i)=f\left(\lim\limits_{i\rightarrow\infty}x_i\right)=f(\alpha)$.\\
+%Now since $\bar{\Omega}$ is a closed and bounded subset of $\mathbb{R}^n$ we have that it is a compact set. By \eqref{eq:Vars} we have that $x_i\in\Omega \ \forall i$, and thus it follows that $\alpha\in\bar{\Omega}$ ($\bar{\Omega}$ is compact and hence contains all of it's limit points). Since $f$ is smooth we have that $y=\lim\limits_{i\rightarrow\infty}f(x_i)=f\left(\lim\limits_{i\rightarrow\infty}x_i\right)=f(\alpha)$.\\
 
-Since $f(\alpha)=y$, $\alpha\in\bar{\Omega}$ and by our assumptions in \eqref{eq:Vars} we have that:
-\begin{itemize}
-\item $\alpha\in f^{-1}(y)$
-\item $\alpha\in \Omega$
-\item $\alpha$ is not a critical point
-\end{itemize}
+%Since $f(\alpha)=y$, $\alpha\in\bar{\Omega}$ and by our assumptions in \eqref{eq:Vars} we have that:
+%\begin{itemize}
+%\item $\alpha\in f^{-1}(y)$
+%\item $\alpha\in \Omega$
+%\item $\alpha$ is not a critical point
+%\end{itemize}
 
-Since $\alpha$ is not a critical point, $f$ is smooth, and $\Omega$ is open, we have by the \href{https://en.wikipedia.org/wiki/Inverse_function_theorem}{Inverse Function Theorem} that there exists a neighborhood, $N_{\alpha}$, of $\alpha$ lying in $\Omega$ such that $f$ is invertible over $f(N_{\alpha})$.
-However, since $f(\alpha)=y$ this implies that there does not exist $x\in N_{\alpha}\setminus\{\alpha\}$ such that $f(x)=y$.
-Put another way, we have that $N_{\alpha}\bigcap f^{-1}(y)=\alpha$. This is of course a contradiction as $\alpha$ is a limit point of $f^{-1}(y)$ (i.e., every neighborhood of $\alpha$ contains infinitely many points of $f^{-1}(y)$).
-The proposition now follows.
-\end{proof}
-\end{prop}
+%Since $\alpha$ is not a critical point, $f$ is smooth, and $\Omega$ is open, we have by the \href{https://en.wikipedia.org/wiki/Inverse_function_theorem}{Inverse Function Theorem} that there exists a neighborhood, $N_{\alpha}$, of $\alpha$ lying in $\Omega$ such that $f$ is invertible over $f(N_{\alpha})$.
+%However, since $f(\alpha)=y$ this implies that there does not exist $x\in N_{\alpha}\setminus\{\alpha\}$ such that $f(x)=y$.
+%Put another way, we have that $N_{\alpha}\bigcap f^{-1}(y)=\alpha$. This is of course a contradiction as $\alpha$ is a limit point of $f^{-1}(y)$ (i.e., every neighborhood of $\alpha$ contains infinitely many points of $f^{-1}(y)$).
+%The proposition now follows.
+%\end{proof}
+%\end{prop}
+%Great, \cref{finite} guarantees that the degree under the restrictions in \eqref{eq:Vars} will always exist. Now, how can this benefit us?
+%Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $\operatorname{deg}\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$. 
+%\begin{center}
+%\includegraphics[]{Figures/Curvea}
+%\end{center}
 
-Great, \cref{finite} guarantees that the degree under the restrictions in \eqref{eq:Vars} will always exist. Now, how can this benefit us?
-Note that by the definition of the degree we can conclude readily that a solution to $f(x)=y \ \text{ for } x\in\Omega$ exists if $\operatorname{deg}\left(f,\Omega,y\right)\neq 0$. Let's illustrate this with a simple example. Consider the following simple graph of what we will assume to be a smooth function $f:\mathbb{R}\rightarrow\mathbb{R}$. 
-\begin{center}
-\includegraphics[]{Figures/Curveb}
-\end{center}
-
-Here we can define $\color{OliveGreen}{\Omega\approx (0,8.3)}$, giving us $\color{Cyan}{f(\Omega)\approx (-2.8,4.1)}$.
-Observe that certainly $y=0$ is a regular value of $f$ over $\Omega$ which does not lie on the boundary of $f(\Omega)$.
-Thus we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$. Intuitively $f$ takes the set $\Omega$, stretches it out and starts laying it down on $\Omega$ the way you would lay a long sheet down on a short surface (folding back and forth so it fits on the surface). Any regular value lying between the boundary points has the beginning of the sheet below it and the end above it, so $f$ lays over it at least 1 time (something very reminiscent of the intermediate value theorem.)
+As we observed earlier the degree is defined at $y=0.5$ and we can compute $\operatorname{deg}\left(f,\Omega,y\right)$ to be $1+(-1)+1+(-1)+1=1$. Intuitively $f$ takes the set $\Omega$, stretches it out and starts laying it down on $\Omega$ the way you would lay a long sheet down on a short surface (folding back and forth so it fits on the surface). Any value lying between the boundary points has the beginning of the sheet below it and the end above it, so $f$ lays over it at least 1 time (something very reminiscent of the intermediate value theorem.)
 This might seem trivial, and it is, but when $\Omega$ and $f$ are not so nice the degree becomes an invaluable tool with the help of some well meaning theorems.
 
   
@@ -210,7 +222,6 @@ Let $\Omega\subset\mathbb{R}^b$ be an open bounded subset and $f:\bar{\Omega}\ri
 \end{enumerate}
 \end{thm}
 
-What \cref{DegThm} has done to our assumptions in \eqref{eq:Vars} is relax some of the restrictions, by only requiring the function to be continuous and the point in consideration not necessarily regular in all cases.
 One nice advantage \cref{DegThm} has given us is seen in the homotopy invariance property or Result 3 of \cref{DegThm}.
 What this allows us to do is equate the verification of solutions to one system with solutions to another, potentially much simpler system.
 For instance, Frommer, Hoxha, and Lang were able to develop a test involving interval arithmetic to prove existence of zeros of functions using interval arithmetic, which depends on the homotopy invariance property of the degree \cite{FrHoLa2007}.
