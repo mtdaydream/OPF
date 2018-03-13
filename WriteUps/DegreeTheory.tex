@@ -129,10 +129,10 @@ we will concern ourselves with degrees of continuous functions over bounded, "ni
 \begin{align}
 & \Omega\subset\mathbb{R}^n \text{ open and bounded }\\
 & f:\bar{\Omega}\rightarrow \mathbb{R}^n \text{ continuous } \\
-& y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ s.t. $J_f(x)$ is defined $\forall x\in\Omega$ s.t. $f(x)=y$}
+& y\in f\left(\bar{\Omega}\right)\setminus f\left(\partial\Omega\right) \text{ s.t. the \href{https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant}{Jacobian}, $J_f(x)$, is defined $\forall x\in\Omega$ s.t. $f(x)=y$}
 \end{align}
 \end{subequations}
-In other words we will assume $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $J_f(x)$, the \href{https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant}{Jacobian} of $f$ at $x$, is defined. Lets look at two examples to illustrate the setting described in \eqref{eq:Vars}. 
+In other words we will assume $y$ is in the range of $f$ over the closure of $\Omega$ but not in the image of $f$ over the boundary of $\Omega$, and if $x\in\Omega$ such that $f(x)=y$ then $J_f(x)$, the Jacobian of $f$ at $x$, is defined. Lets look at two examples to illustrate the setting described in \eqref{eq:Vars}. 
 
 
 
@@ -144,14 +144,14 @@ In other words we will assume $y$ is in the range of $f$ over the closure of $\O
 \end{figure}
 \begin{figure}[h] \label{fig2}
 \begin{center}
-\includegraphics[scale=0.5]{Figures/R2Exa}
+\includegraphics[scale=0.5]{Figures/R2Exb}
 \end{center}
 \caption{$F:\mathbb{R}^2\rightarrow\mathbb{R}^2$}
 \end{figure}
 
 
 Figure 1 represents a continuous mapping from $\mathbb{R}$ to $\mathbb{R}$. In particular ${\color{OliveGreen}\Omega\approx(0,5.2)}$ and ${\color{Fuchsia}F(\Omega)\approx(-1.3,1.45)}$. The values where the degree is not defined are indicated by red x's and correspond to the image of the boundary of $\Omega$, ${\color{red}\{-1.3,1.45\}}$, and points where the derivative doesn't exist ${\color{red}\{-1,1\}}$. All other points of $F(\Omega)$ are fair game including the value ${\color{blue}y=0.5}$, which we will refer back to in an illustration of the calculation of the degree.\\
-Figure 2 represents a continuous mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$ with $\Omega$ the filled circle and $F(\Omega)$ the filled triangle. In this simple example $F$ maps the boundary of the circle to the boundary of the triangle and creates a folding of $\Omega$ along the red and green curves in such a way as to make the jacobian undefined at point along them. Thus the degree is not defined along the boundary of the triangle or at any point on the red or green curve. If we assume $F$ is smooth everywhere else then so is the degree. So how do we calculate it? The next definition for the degree under the restrictions of \eqref{eq:Vars} will answer this. 
+Figure 2 represents a continuous mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$ with $\Omega$ the filled circle and $F(\Omega)$ the filled triangle. In this simple example $F$ maps the boundary of the circle to the boundary of the triangle and creates a folding of $\Omega$ along the red and green curves in such a way as to make the jacobian undefined at point along them. This folding is highlighted using the embedded arrows to show the movement of the space and illustrated by the transformation of the pink curve. It follows then that the degree is not defined along the boundary of the triangle or at any point along the red or green curve. If we assume $F$ is smooth everywhere else then so is the degree. So how do we calculate it? The next definition for the degree under the restrictions of \eqref{eq:Vars} will answer this. 
 
 
 \begin{cdef}[Degree]\label{ddef} \ \\
