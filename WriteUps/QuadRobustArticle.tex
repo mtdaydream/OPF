@@ -299,7 +299,7 @@ We can relax the model in \cref{thm:OPTfeasOut} utilizing the same techniques as
 
 \begin{subequations}\label{eq:OPTfeasOutRelaxa}
 \begin{align}
-\text{Outer Bound Model A}& \ \min\limits_{||\bold{\lambda}||=1}\max\limits_{x}  \\
+\text{Outer Bound Model A}& \ \min\limits_{||\bold{\lambda}||=1}\max\limits_{x}  \bold{\lambda}^T\left(F(x)-u\right)\\
  \text{subject to: } \ & Ax\leq b \\
  	&bb^T-Axb^T-b(Ax)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric}
