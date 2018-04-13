@@ -144,14 +144,17 @@ As in {\color{blue}{Frommer, Hoxha and Lang Thm1}} we utilize the following two 
 
 \end{thm}
 
-Our problem necessitates $\Omega=\{x| Ax< b\}$, $F(x)=Q(x)+L(x)$, and a homotopy $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ defined as 
+Let $\Omega=\{x| Ax< b\}$, $F(x)=Q(x)+L(x)$, and define a homotopy $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ as 
 \begin{align}
 H(t,x) = F(x)-t\cdot u \label{eq:Homo}
 \end{align}
-Observe that by construction $F(\vec{0})=\vec{0}$ and thus $d(\Omega,F(x),\vec{0})\neq 0$. Therefore, if we wish to guarantee a solution to $F(x)=u$ for some $u\in[u_{min},u_{max}]$ then this is equivalent by (ii) of \cref{thm:Deg} to showing that $d(\Omega,H(1,x),\vec{0})\neq 0$. However, by (i) of \cref{thm:Deg}, if it can be shown that $H(t,x)\neq 0, \  \forall t\in[0,1], \  x\in\partial\Omega$, then $d\left(\Omega,H(t,x),0\right)$ does not depend on $t$ and we have that $d\left(\Omega,H(t,x),\vec{0}\right)=d\left(\Omega,H(0,x),\vec{0}\right)=d(\Omega,F(x),\vec{0})\neq 0$. Therefore by \cref{thm:Deg}, it follows that the robust solvability problem can be determined by validating or invalidating the following statement.
+Observe that by construction $F(\vec{0})=\vec{0}$ and thus if no other solutions exist in $\Omega$ we have that $d(\Omega,F(x),\vec{0})\neq 0$. Therefore, if we wish to guarantee a solution to $F(x)=u$ for some $u\in[u_{min},u_{max}]$ then this is equivalent by (ii) of \cref{thm:Deg} to showing that $d(\Omega,H(1,x),\vec{0})\neq 0$. However, by (i) of \cref{thm:Deg}, if it can be shown that $H(t,x)\neq 0, \  \forall t\in[0,1], \  x\in\partial\Omega$, then $d\left(\Omega,H(t,x),0\right)$ does not depend on $t$ and we have that $d\left(\Omega,H(t,x),\vec{0}\right)=d\left(\Omega,H(0,x),\vec{0}\right)=d(\Omega,F(x),\vec{0})\neq 0$. Therefore by \cref{thm:Deg}, if $d(\Omega,F(x),\vec{0})\neq 0$ then it follows that the robust solvability problem can be determined by validating or invalidating the following statement.
 \begin{align}
 \not\exists x\in\partial\Omega, \ s.t. \ F(x)-u=\vec{0}	 \ \ for \ any \ \ u\in[u_{min},u_{max}]. \label{eq:RSForm}
 \end{align}
+
+{\color{red} It is not hard to show that no other solution exists in $\Omega$ using an LP on min/max of each coordinate of $x$. Hopefully this is true and if not then we can give a model that does show this. I believe this was one of the first sets of models that we ran. Once this is established we can focus on \cref{eq:RSForm} }
+
 
 We now provide results which help derive methods for determining inner and outer approximations on the robustness margin.\\
 
