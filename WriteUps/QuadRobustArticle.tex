@@ -133,30 +133,46 @@ Determine whether for all values of $u$ satisfying \eqref{eq:uLimits}, the syste
 \end{cdef}
 
 \section{Main technical results}
-We now describe the main technical results of this paper. In the first subsection we describe the setting under which the problem can be solved using the results which follow. Our results take advantage of the well studied area of topological degree theory. For an introduction to topological degree theory see {\color{blue}{NEED REFS}}. Suffice it then to say that should $\Omega\in\mathbb{R}^{n}$ be open and bounded, $F:\Omega\rightarrow \mathbb{R}$ continuous, and $F(x)\neq y \quad \forall x\in\partial\Omega$ for some $y\in\mathbb{R}^n$, then $d\left(\Omega,F,y\right)\in\mathbb{Z}$ is defined. 
-As in {\color{blue}{Frommer, Hoxha and Lang Thm1}} we utilize the following two results which we form into the following theorem.
-\begin{thm} \ \\
-\label{thm:Deg}
-\begin{itemize}
-\item[(i)] If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous such that $H(t,x)\neq y \quad \forall t\in[0,1], \quad x\in\partial\Omega$ then $d\left(\Omega,H(t,\cdot),y\right)$ does not depend on $t$.
-\item[(ii)] If $d(\Omega,F,y)\neq 0$, then there exists $x\in\Omega$ s.t. $F(x)=y$.
-\end{itemize}
+We now describe the main technical results of this paper. In the first subsection we describe the setting under which the problem can be solved using the results which follow. Our results take advantage of the well studied area of topological degree theory. For an introduction to topological degree theory see \cite{OrChCh2006}, \cite{fonseca1995degree} and \cite{MoVrYa2002}. Suffice it then to say that should $\Omega\in\mathbb{R}^{n}$ be open and bounded, $F:\Omega\rightarrow \mathbb{R}$ continuous, and $F(x)\neq y \quad \forall x\in\partial\Omega$ for some $y\in\mathbb{R}^n$, then $d\left(\Omega,F,y\right)\in\mathbb{Z}$ is defined. 
+We utilize the following three common properties of the topological degree. See \cite{OrChCh2006} \\
 
-\end{thm}
+If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous such that $H(t,x)\neq y \quad \forall t\in[0,1]\quad x\in\partial\Omega$,   \ then 
+\begin{equation}\label{eq:Deg1} 
+d\left(\Omega,H(t,\cdot),y\right)\text{ does not depend on }t.
+\end{equation}
+
+\begin{equation}\label{eq:Deg2}
+\text{If }d(\Omega,F,y)\neq 0,\text{ then there exists }x\in\Omega\text{ s.t. }F(x)=y. 
+\end{equation}
+
+\begin{equation}\label{eq:Deg3}
+\operatorname{deg}\left(f,\Omega,y\right)=\sum\limits_{x\in f^{-1}(y)}\operatorname{sign}\left(J_f(x)\right)
+\end{equation}
+
+Where $\operatorname{sign}\left(J_f(x)\right)$ denotes the sign of the Jacobian of $F$ at $x$, i.e.:
+
+\[\operatorname{sign}\left(J_f(x)\right)=   \left\{
+\begin{array}{ll}
+       \ -1   & \mbox{if } J_f(x)< 0, \\
+      \quad 0 & \mbox{if } J_f(x)= 0,~\mbox{ and } \\
+      \quad 1 & \mbox{if } J_f(x)> 0. \\
+\end{array} 
+\right. \]
 
 Let $\Omega=\{x| Ax< b\}$, $F(x)=Q(x)+L(x)$, and define a homotopy $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ as 
 \begin{align}
 H(t,x) = F(x)-t\cdot u \label{eq:Homo}
 \end{align}
-Observe that by construction $F(\vec{0})=\vec{0}$ and thus if no other solutions exist in $\Omega$ we have that $d(\Omega,F(x),\vec{0})\neq 0$. Therefore, if we wish to guarantee a solution to $F(x)=u$ for some $u\in[u_{min},u_{max}]$ then this is equivalent by (ii) of \cref{thm:Deg} to showing that $d(\Omega,H(1,x),\vec{0})\neq 0$. However, by (i) of \cref{thm:Deg}, if it can be shown that $H(t,x)\neq 0, \  \forall t\in[0,1], \  x\in\partial\Omega$, then $d\left(\Omega,H(t,x),0\right)$ does not depend on $t$ and we have that $d\left(\Omega,H(t,x),\vec{0}\right)=d\left(\Omega,H(0,x),\vec{0}\right)=d(\Omega,F(x),\vec{0})\neq 0$. Therefore by \cref{thm:Deg}, if $d(\Omega,F(x),\vec{0})\neq 0$ then it follows that the robust solvability problem can be determined by validating or invalidating the following statement.
+Therefore, if we wish to guarantee a solution to $F(x)=u$ for some $u\in[u_{min},u_{max}]$ then this is equivalent by \cref{eq:Deg2} to showing that $d(\Omega,H(1,x),\vec{0})\neq 0$. However, by \cref{eq:Deg1}, if it can be shown that $H(t,x)\neq 0, \  \forall t\in[0,1], \  x\in\partial\Omega$, then $d\left(\Omega,H(t,x),0\right)$ does not depend on $t$ and we have that $d\left(\Omega,H(t,x),\vec{0}\right)=d\left(\Omega,H(0,x),\vec{0}\right)=d(\Omega,F(x),\vec{0}), \ \forall t\in[0,1]$. \\
+
+Therefore if $d(\Omega,F(x),\vec{0})\neq 0$ then it follows that the robust solvability problem can be determined by validating or invalidating the following statement.
 \begin{align}
 \not\exists x\in\partial\Omega, \ s.t. \ F(x)-u=\vec{0}	 \ \ for \ any \ \ u\in[u_{min},u_{max}]. \label{eq:RSForm}
 \end{align}
 
-{\color{red} It is not hard to show that no other solution exists in $\Omega$ using an LP on min/max of each coordinate of $x$. Hopefully this is true and if not then we can give a model that does show this. I believe this was one of the first sets of models that we ran. Once this is established we can focus on \cref{eq:RSForm} }
+The methods outlined here assume $\operatorname{sign}\left(J_F(\vec{0})\right)\neq 0$ has been verified. For a review of efficient methods of verification see \cite{GRIEWANK2014}. Thus if we can verify that no other solutions exist in $\Omega$ then by \cref{eq:Deg3} it follows that $d(\Omega,F(x),\vec{0})\neq 0$. From here on we will assume such a verification has taken place using existing methods, or those adopted from the models contained herein. Our focus will now be in the development of methods for validating or invalidating \cref{eq:RSForm}.\\
 
 
-We now provide results which help derive methods for determining inner and outer approximations on the robustness margin.\\
 
 \begin{lem} \ \\
 \label{lem:BdOpt}
@@ -205,7 +221,6 @@ Hence if $z>0$, \eqref{eq:RSForm} is validated, and the system is robust feasibl
 \end{thm}
 
 
-{\color{blue} Need a transition between these theorems. Perhaps $\min\limits_{x\in\partial\Omega_i, u\in \Omega_u} ||F(x)-u||\leq \min\limits_{x\in \partial \Omega, u\in \Omega_{u} }\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(F(x)-u\right)$ and is easier to calculate.}
 
 \begin{thm} \label{thm:RobFeas}
 Let $\partial\Omega_i=\{x| Ax_i = b_i, Ax\leq b\}$, $\Omega_{u}=\{u| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(x)=Q(x)+L(x)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. Define
@@ -322,9 +337,9 @@ where \eqref{eq:OPTfeasOutRelaxa}$[b \& c]$ can be written as $Hx\geq B$ and the
 
 
 \section{Numerical studies}
-We now present computational studies which support the efficiency of the models we have presented. For all the numerical results presented we apply models \eqref{eq:OPTfeasOutRelaxb}, \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2}, and \eqref{eq:OPTfeasrelaxLP3} to find upper and lower bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software. We will specifically show results for tests conducted on cases 5, 9, 14, 30 and 57. In every case the power flow equations were converted into the format defined by \eqref{eq:Quad}, \eqref{eq:xLimits}, and \eqref{eq:uLimits}. To simulate real life scenarios we allowed the first 5 dimensions of $u$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $u$, while utilizing models \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. The results are presented in table {\color{blue}Need table ref} where each row of the table represents results conducted with $Ax\leq b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. $A$ in this cases is a matrix s.t. $Ax\leq b$ controls the flow between nodes in the power grid (i.e. each row of $Ax\leq b$ has the form $x_i-x_j\leq b_k$. All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores.\\
+We now present computational studies which support the efficiency of the models we have presented. For all the numerical results presented we apply models \eqref{eq:OPTfeasOutRelaxb}, \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2}, and \eqref{eq:OPTfeasrelaxLP3} to find upper and lower bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software, see \cite{matpower}. We will specifically show results for tests conducted on cases 5, 9, 14, 30 and 57. In every case the power flow equations were converted into the format defined by \eqref{eq:Quad}, \eqref{eq:xLimits}, and \eqref{eq:uLimits}. To simulate real life scenarios we allowed the first 5 dimensions of $u$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $u$, while utilizing models \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. The results are presented in Table \ref{tbl:Table1} where each row of the table represents results conducted with $Ax\leq b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. $A$ in this cases is a matrix s.t. $Ax\leq b$ controls the flow between nodes in the power grid (i.e. each row of $Ax\leq b$ has the form $x_i-x_j\leq b_k$. All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores.\\
 
-\begin{table}[h]
+\begin{table}[h]\label{tbl:Table1}
 \begin{center}
 \includegraphics[scale=0.5]{Figures/InnerBoundTable}
 \caption{Robustness Margins for inner bound models } 
@@ -348,7 +363,7 @@ Graphically we can look at this data on a case by case basis to highlight the ef
 
 \newpage
 
-As evident from the table we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. Certainly one would expect the bound tightening model to out perform the other inner bound models for all cases, but the choice of model parameters has a big effect on the efficiency of the model. For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $b$ will cause in most cases an extremely long running time. Thus in the lower complexity cases it should be expected that the other models will out perform the bound tightening model as these manually set model parameters will have more of an impact on performance. \\
+As evident from Table \ref{tbl:Table1} we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. Certainly one would expect the bound tightening model to out perform the other inner bound models for all cases, but the choice of model parameters has a big effect on the efficiency of the model. For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $b$ will cause in most cases an extremely long running time. Thus in the lower complexity cases it should be expected that the other models will out perform the bound tightening model as these manually set model parameters will have more of an impact on performance. \\
 Of special interest is the difference in performance of the MIP and Feasibility inner bound models as the complexity of the data increases. In particular it was surprising that the Feasibility model was the only inner bound model capable of efficiently computing the robustness margin for case 57. 
 
 
@@ -356,6 +371,6 @@ Of special interest is the difference in performance of the MIP and Feasibility 
 
 We have successfully proposed novel and efficient techniques for determining robust solvability of quadratic systems in this paper. It is worth mentioning that the same machinery can be used to determine robustness margins of solutions to static systems by taking $A$ to be the identity, $e_i=0 \ \forall i$ and simply adjusting $b$ accordingly. The models presented here are in some sense just the tip of the iceberg. More efficient models can certainly be derived using the theory contained here. We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results present here. \\
 
-
+\bibliography{Ref}
 
 \end{document}
