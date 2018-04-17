@@ -302,14 +302,17 @@ The MIP Model and LP Feasibility model are extremely similar and should theoreti
 
 \subsection{Outer Bound Formulations}
 
+
 As a result of the complexity of $\min\limits_{x\in \partial \Omega, u\in\Omega_u}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(F(x)-u\right)$ we derived a sequence of relaxations in order to arrive at a method that was computationally efficient for a non-trivial data set. We can similarly work with $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right)$ to produce computationally efficient models for outer bound approximations of the robustness margin. \\
 \begin{thm}\label{thm:OPTfeasOut} 
 Let $\bar{\Omega}=\{x| Ax\leq b\}$, $\Omega_{u}=\{u| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(x)=Q(x)+L(x)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. Let
 $$z = \min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right).$$
-If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z>0$ then the system is robust feasible and has a robustness margin of at least r.
+If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z=0$ then the system has robustness margin of no more than r.
 
 \begin{proof} \ \\
-Observe by \cref{lem:BdOpt} that if $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \Omega, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right)=0$, then \eqref{eq:RSForm} is validated. Observe that if \eqref{eq:RSForm} is invalidated then $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in X, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right) \geq \min\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(F(\hat{x})-\hat{u}\right)=0.$$ The theorem now follows.
+Observe by \cref{lem:BdOpt} that if $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \Omega, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right)=0$, then \eqref{eq:RSForm} is invalidated.  
+
+%Observe that if \eqref{eq:RSForm} is invalidated then $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in X, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right) \geq \min\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(F(\hat{x})-\hat{u}\right)=0.$$ The theorem now follows.
 \end{proof}
 \end{thm}
 
@@ -317,7 +320,7 @@ We can relax the model in \cref{thm:OPTfeasOut} utilizing the same techniques as
 
 \begin{subequations}\label{eq:OPTfeasOutRelaxa}
 \begin{align}
-\text{Outer Bound Model A}& \ \min\limits_{||\bold{\lambda}||=1}\max\limits_{x}  \bold{\lambda}^T\left(F(x)-u\right)\\
+\text{Outer Bound Model A}& \ \min\limits_{||\bold{\lambda}||=1}\max\limits_{x}  \bold{\lambda}^T\left(F(x)\right)\\
  \text{subject to: } \ & Ax\leq b \\
  	&bb^T-Axb^T-b(Ax)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric}
@@ -332,7 +335,7 @@ We can construct the dual of the inner maximal objective of \eqref{eq:OPTfeasOut
  \text{subject to: } \ & H^Ty=u(\lambda) \\
  & y\leq 0
 \end{align}
-where \eqref{eq:OPTfeasOutRelaxa}$[b \& c]$ can be written as $Hx\geq B$ and the objective of \eqref{eq:OPTfeasOutRelaxa} as $u(\lambda)^Tx$.
+where \eqref{eq:OPTfeasOutRelaxa}$[b \& c]$ can be written as $Hx\geq B$ and the objective of \eqref{eq:OPTfeasOutRelaxa} as $u(\lambda)^Tx$. Notice that the objective of \eqref{eq:OPTfeasOutRelaxa} is different from that of \cref{thm:OPTfeasOut}. The optimal value of the objectives of  \eqref{eq:OPTfeasOutRelaxa} and \eqref{eq:OPTfeasOutRelaxb} are much easier to find and they allow us to directly solve for the minimal outer bound approximation of $u$. 
 \end{subequations}
 
 
