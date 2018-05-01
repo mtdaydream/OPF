@@ -160,7 +160,7 @@ Where $\operatorname{sign}\left(J_f(x)\right)$ denotes the sign of the Jacobian 
 \right. \]
 Let $F(x)=Q(x)+L(x)$, $\Omega=\{x| Ax< b\}$ and $\hat{x}\in Int(\Omega)$ be a solution to the forecasted system $F(x)=u^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{x})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
 If no solutions exist then certainly the system is not robust feasible. Define $\Omega_u=\{u| u\text{ satisfies }\ref{eq:uLimits}\}$.
-Verify using existing methods or those adopted from this paper so that no other solutions exist in $Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $u$). Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $deg\left(\Omega, F(x), u^*\right)\neq 0$. Note that this is not the only method for verification, but in some sense the easiest to carry out. \\
+Verify using existing methods or those adopted from this paper that no other solutions exist in $Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $u$). Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $deg\left(\Omega, F(x), u^*\right)\neq 0$. Note that this is not the only method for verification, but in some sense the easiest to carry out. \\
 
 Let $L$ represent an arbitrary line passing through $u^*$, and $l_{min},l_{max}$ the two points of intersection between $\partial\Omega_u$ and $L$. 
 Define a homotopy $H_L : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ as 
@@ -169,7 +169,7 @@ H_L(t,x) = F(x)-\left[(1-t)l_{min}+tl_{max}\right] \label{eq:Homo}
 \end{align}
 
 Observe that by construction $H_L\left(\frac{1}{2},\hat{x}\right)=F(\hat{x})-u^*=\vec{0}$. Thus if no other solutions to $H_L\left(\frac{1}{2},x\right)=0$ exist in $\Omega$ and $\operatorname{sign}\left(J_{H_{L,\frac{1}{2}}}(\hat{x})\right)\neq 0$ then we have that $d(\Omega,H_L\left(\frac{1}{2},x\right),\vec{0})\neq 0$ by \ref{eq:Deg3}. Since $L$ was arbitrary this holds for all such lines passing through $u^*$.\\
-Note that for each $\hat{u}\in\Omega_u\setminus\{u^*\}$, $\exists !$ $\hat{L}$ passing through $u^*$ and $t\in[0,1]$,  s.t. $\hat{u}=(1-t)l_{min}+tl_{max}$. Therefore if $d(\Omega,H_L\left(\frac{1}{2},x\right),\vec{0})\neq 0$ for each choice of $L$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement:
+Note that for each $\hat{u}\in\Omega_u\setminus\{u^*\}$, $\exists !$ $\hat{L}$ passing through $u^*$ and $t\in[0,1]$,  s.t. $\hat{u}=(1-t)\hat{l}_{min}+t\hat{l}_{max}$. Therefore if $d(\Omega,H_L\left(\frac{1}{2},x\right),\vec{0})\neq 0$ for each choice of $L$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement:
 \begin{align}
 \not\exists x\in\partial\Omega, \ s.t. \ F(x)-u=\vec{0}	 \ \ for \ any \ \ u\in\Omega_u. \label{eq:RSForm}
 \end{align}
@@ -371,7 +371,7 @@ Of special interest is the difference in performance of the MIP and Feasibility 
 
 \section{Conclusion}
 
-We have successfully proposed novel and efficient techniques for determining robust solvability of quadratic systems in this paper. It is worth mentioning that the same machinery can be used to determine robustness margins of solutions to static systems by taking $A$ to be the identity, $e_i=0 \ \forall i$ and simply adjusting $b$ accordingly. The models presented here are in some sense just the tip of the iceberg. More efficient models can certainly be derived using the theory contained here. We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results we presented. \\
+In this paper we have proposed novel and efficient techniques for determining robust solvability of quadratic systems with uncertainty. It is worth mentioning that the same machinery can be used to determine robustness margins of solutions to static systems by taking $A$ to be the identity, $e_i=0 \ \forall i$ and simply adjusting $b$ accordingly. The models presented here are in some sense just the tip of the iceberg. More efficient models can certainly be derived using the theory contained here. We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results we presented. \\
 
 \bibliography{Ref}
 
