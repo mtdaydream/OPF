@@ -82,28 +82,60 @@
   \oldcon}
 \Crefname{con}{Conjecture}{Conjectures}
 
+% Editing commands requiring color package
+\newcommand{\add}[1]{\textcolor{blue}{#1}}
+\newcommand{\delete}[1]{\textcolor{red}{#1}}
+\definecolor{darkgrn}{rgb}{0, 0.8, 0}
+\newcommand{\modified}[1]{\textcolor{darkgrn}{#1}}
+
+\newcommand{\txbl}[1]{\textcolor{blue}{#1}}
+\newcommand{\txrd}[1]{\textcolor{red}{#1}}
+\newcommand{\txgr}[1]{\textcolor{green}{#1}}
+\newcommand{\txcr}[1]{\textcolor{crimson}{#1}}
+
+
+% shortcut commands
+\newcommand{\sym}[1]{\mathcal{S}^{#1}}
+
+\title{\add{Robust Feasibility of Systems of Quadratic Equations Using Topological Degree Theory}}
+
+
 \bibliographystyle{plain}
 
 \begin{document}
-\begin{center}
-\textbf{Robustness of Solutions to Systems of Quadratic Equations}
-\end{center}
+
+%\begin{center}
+%\textbf{Robustness of Solutions to Systems of Quadratic Equations}
+%\end{center}
+
+\maketitle
 
 
 
-\section*{Abstract}
-Systems of quadratic equations appear in several applications from analysis of stochastic processes, machine learning to physical infrastructure systems like the power grid. In recent years, several algorithms have been proposed for the solution of quadratic systems, along with analyses of conditions under which they work. However, in many applications, parameters appearing in the quadratic system of equations are not known perfectly. In these cases, it is of interest to study robust solvability of quadratic systems, that is, whether the quadratic system of equations has a solution (within a certain set) for all realizations within a certain error bound of a given nominal value of the parameters. This problem is NP-hard in general, but we identify special cases that are tractable. Furthermore, we develop a general technique to produce inner and outer bounds on the maximum error bound for which one can guarantee robust solvability (the radius of robust solvability).
-The techniques we use combine ideas from constraint programming, convex optimization and topological degree theory. We evaluate our approach numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid. The results show that our approach can produce tight lower and upper bounds on the radius of robust solvability.
-
+\begin{abstract}
+  \txgr{Too long right now---could jump directly to our work...}\\
+  \delete{Systems of quadratic equations appear in several applications from analysis of stochastic processes, machine learning to physical infrastructure systems like the power grid. In recent years, several algorithms have been proposed for the solution of quadratic systems, along with analyses of conditions under which they work. However, in many applicatons, parameters appearing in the quadratic system of equations are not known perfectly. In these cases, it is of interest to study robust solvability of quadratic systems, that is, whether the quadratic system of equations has a solution (within a certain set) for all realizations within a certain error bound of a given nominal value of the parameters.}\\
+  \txgr{Define robustness margin informally here... }\\
+  This problem is NP-hard in general, but we identify special cases that are tractable.\delete{ Are we really identifying such special cases? I thought we were only estimating the robustness margin.}
+  Furthermore, we develop a general technique to produce inner and outer bounds on the maximum error bound for which one can guarantee robust solvability (the radius of robust solvability).
+  The techniques we use combine ideas from constraint programming, convex optimization and topological degree theory.\delete{Be more explicit---say topological degree theory, etc., but don't get too technical here.}
+  We evaluate our approach numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid.
+  The results show that our approach can produce tight lower and upper bounds on the radius of robust solvability.
+\end{abstract}
 
 \section{Introduction}
-This paper studies quadratic systems of equations with parameters. More concretely, we study a system of $n$ quadratic equations $F(x)=u$ where $F: \mathbb{R}^n \mapsto \mathbb{R}^n, x,u \in \mathbb{R}^n$ and $F$ is quadratic in $x$. We are interested in situations where the parameters $u$ are uncertain and we are still interested in guaranteeing that there is a solution to $F(x) = u$ for $x$ within limits on $x$ and $u$. Questions of this type arise in a variety of applications from analysis of stochastic processes to infrastructure networks like the power grid and the as grid. For example, in binary markov trees, the parameter $u$ represents the initial probabilities of the Markov chain.
+  This paper studies quadratic systems of equations with parameters.
+  More concretely, we study a system of $n$ quadratic equations $F(x)=u$ where $F: \mathbb{R}^n \mapsto \mathbb{R}^n, x,u \in \mathbb{R}^n$ and $F$ is quadratic in $x$.
+  We are interested in situations where the parameters $u$ are uncertain and we are still interested in guaranteeing that there is a solution to $F(x) = u$ for $x$ within limits on $x$ and $u$.
+  Questions of this type arise in a variety of applications from analysis of stochastic processes to infrastructure networks like the power grid and the gas grid.
+  For example, in binary markov trees, the parameter $u$ represents the initial probabilities of the Markov chain.
 
 \section{Problem formulation}
 
+\delete{no need to specify these as a list... only uncommon notation appears to be that of $\sym{n}$. Could introduce only the required new notation in a paragraph.}
 \begin{itemize}
 \item[] $\mathbb{R}$: Set of real numbers, $\mathbb{R}^n$: $n$-dimensional Euclidean space 
-\item[] $\mathbb{S}^n$: Set of $n \times n$ symmetric matrices 
+\item[] $\modified{\sym{n}}$: Set of $n \times n$ symmetric matrices \delete{$\mathbb{S}$ is often used to denote other spaces.}
 \item[] $\mathbb{R}^{n \times m}$: Set of $n \times m$ real matrices
 \item[] $x \in \mathbb{R}^n$): $x$ is a real vector variable
 \item[] $M \geq 0$ (for $M \in \mathbb{R}^{n \times n}$): $M$ is a matrix with all entries non-negative  
