@@ -172,11 +172,11 @@ We are interested in solutions to this system of equations under linear constrai
 \end{align}
 However, the parameter $\bold u$ is uncertain and only known upto certain error bounds
 \begin{align}
-u^{\min}_i=u_i^\star-e_i \leq u_i \leq =u_i^\star+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
+u^{\min}_i=u_i^*-e_i \leq u_i \leq =u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
 \end{align}
-where $\bold u^\star$ is a forecast for $\bold u$ and $\bold e$ denotes the error bounds associated with the forecast. 
+where $\bold u^*$ is a forecast for $\bold u$ and $\bold e$ denotes the error bounds associated with the forecast. 
 For example, in the case of quadratic equations appearing in infrastructure networks like the power grid, $u_i$ represents uncertain power generation or consumption (for example uncertain weather-dependent power sources like solar or wind power). 
-In the case of stochastic processes, $\bold u^\star$ represents an initial state distribution.
+In the case of stochastic processes, $\bold u^*$ represents an initial state distribution.
 
 \begin{figure}
 \begin{center}
@@ -196,27 +196,18 @@ See \cref{fig:RFeas} for a pictorial depiction.
 
 The definition for robustness margin is left here in its most general form so as to capture all scenarios under which a researcher may find themselves. 
 For instance it very well may be the case that only some of the dimensions of $\bold u$ will have margins of uncertainty. 
-Furthermore, one may have need of computing the robustness margin for only a subset of he dimensions of $\bold u$ which pertain to problem areas or nodes of particular interest to the research. 
+Furthermore, one may have need of computing the robustness margin for only a subset of the dimensions of $\bold u$ which pertain to problem areas or nodes of particular interest to the research. 
 This manual restriction will of course produce a robustness margin greater than or equal to that obtained by considering all dimensions, which certainly remains an option under the current setting. 
 
 \section{Theoretical results}
 We now describe the main technical results of this paper. 
 In the first subsection we describe the setting under which the problem can be solved using the results which follow. Our results take advantage of the well studied area of topological degree theory. 
 For an introduction to topological degree theory see \cite{OrChCh2006}, \cite{fonseca1995degree} and \cite{MoVrYa2002}. 
-Suffice it then to say that should $\Omega\subset\mathbb{R}^{n}$ be open and bounded, $F:\Omega\rightarrow \mathbb{R}$ continuous, and $F(\bold x)\neq \bold y \quad \forall \bold x\in\partial\Omega$ for some $\bold y\in\mathbb{R}^n$, then $d\left(\Omega,F,\bold y\right)\in\mathbb{Z}$ is defined. 
-We utilize the following three common properties of the topological degree. See \cite{OrChCh2006} \\
-
-If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous such that $H(t,\bold x)\neq \bold y \quad \forall t\in[0,1]\quad \bold x\in\partial\Omega$,   \ then 
-\begin{equation}\label{eq:Deg1} 
-d\left(\Omega,H(t,\cdot),\bold y\right)\text{ does not depend on }t.
-\end{equation}
-
-\begin{equation}\label{eq:Deg2}
-\text{If }d(\Omega,F,\bold y)\neq 0,\text{ then there exists }\bold x\in\Omega\text{ s.t. }F(\bold x)=\bold y. 
-\end{equation}
-
+Suffice it then to say that should $\Omega\subset\mathbb{R}^{n}$ be open and bounded, $F:\Omega\rightarrow \mathbb{R}$ continuous, and $F(\bold x)\neq \bold y \quad \forall \bold x\in\partial\Omega$ for some $\bold y\in\mathbb{R}^n$, then the degree of $F$ at $y$ over $\Omega$, denoted $d\left(\Omega,F,\bold y\right)\in\mathbb{Z}$, is defined. 
+For the purposes of this article we utilize the following property for the degree as our definition of the topological degree of a function $F$ at $y$ over a set $\Omega$. 
+See \cite{OrChCh2006} for details.:
 \begin{equation}\label{eq:Deg3}
-\operatorname{deg}\left(f,\Omega,\bold y\right)=\sum\limits_{\bold x\in f^{-1}(\bold y)}\operatorname{sign}\left(J_f(\bold x)\right)
+d\left(f,\Omega,\bold y\right)=\sum\limits_{\bold x\in f^{-1}(\bold y)}\operatorname{sign}\left(J_f(\bold x)\right)
 \end{equation}
 
 Where $\operatorname{sign}\left(J_f(\bold x)\right)$ denotes the sign of the Jacobian of $F$ at $\bold x$, i.e.:
@@ -228,10 +219,23 @@ Where $\operatorname{sign}\left(J_f(\bold x)\right)$ denotes the sign of the Jac
       \quad 1 & \mbox{if } J_f(\bold x)> 0. \\
 \end{array} 
 \right. \]
+
+Additionally we utilize the following two common properties of the topological degree. 
+See \cite{OrChCh2006} for details. \\
+If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous such that $H(t,\bold x)\neq \bold y \quad \forall t\in[0,1]\quad \bold x\in\partial\Omega$,   \ then 
+\begin{equation}\label{eq:Deg1} 
+d\left(\Omega,H(t,\cdot),\bold y\right)\text{ does not depend on }t.
+\end{equation}
+
+\begin{equation}\label{eq:Deg2}
+\text{If }d(\Omega,F,\bold y)\neq 0,\text{ then there exists }\bold x\in\Omega\text{ s.t. }F(\bold x)=\bold y. 
+\end{equation}
+
+
 Let $F(\bold x)=Q(\bold x)+L(\bold x)$, $\Omega=\{\bold x| A\bold x< \bold b\}$ and $\hat{\bold x}\in Int(\Omega)$ be a solution to the forecasted system $F(\bold x)=\bold u^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{\bold x})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
 If no solutions exist then certainly the system is not robust feasible. Define $\Omega_u=\{\bold u| \bold u\text{ satisfies }\ref{eq:uLimits}\}$.
 Verify using existing methods or those adopted from this paper that no other solutions exist in $Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $\bold u$). 
-Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $deg\left(\Omega, F(\bold x), \bold u^*\right)\neq 0$. 
+Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $d\left(\Omega, F(\bold x), \bold u^*\right)\neq 0$. 
 Note that this is not the only method for verification, but in some sense the easiest to carry out. \\
 
 Let $L$ represent an arbitrary line passing through $\bold u^*$, and $\bold l_{min},\bold l_{max}$ the two points of intersection between $\partial\Omega_u$ and $L$. 
@@ -481,6 +485,11 @@ For all the numerical results presented we apply models \eqref{eq:OPTfeasOutRela
 We will specifically show results for tests conducted on cases 5, 9, 14, 30 and 57. 
 In every case the power flow equations were converted into the format defined by \eqref{eq:Quad}, \eqref{eq:xLimits}, and \eqref{eq:uLimits}. 
 To simulate real life scenarios we allowed the first 5 dimensions of $\bold u$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\bold u$, while utilizing models \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. 
+The following subsection will detail specifically how this transformation was conducted.
+\subsection*{OPF to Quadratic System}
+
+
+\subsection*{Test Results}
 The results are presented in tables \ref{tbl:Table1} where each row of the table represents results conducted with $A\bold x\leq \bold b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. 
 $A$ in this cases is a matrix s.t. $A\bold x\leq \bold b$ controls the flow between nodes in the power grid (i.e. each row of $A\bold x\leq \bold b$ has the form $x_i-x_j\leq b_k$. 
 All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores. 
