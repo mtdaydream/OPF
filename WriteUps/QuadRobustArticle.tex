@@ -106,17 +106,7 @@
 
 \maketitle
 
-
-\begin{abstract}
-  \txgr{Too long right now---could jump directly to our work...}\\
-  \delete{Systems of quadratic equations appear in several applications from analysis of stochastic processes, machine learning to physical infrastructure systems like the power grid. In recent years, several algorithms have been proposed for the solution of quadratic systems, along with analyses of conditions under which they work. However, in many applicatons, parameters appearing in the quadratic system of equations are not known perfectly. In these cases, it is of interest to study robust solvability of quadratic systems, that is, whether the quadratic system of equations has a solution (within a certain set) for all realizations within a certain error bound of a given nominal value of the parameters.}\\
-  \txgr{Define robustness margin informally here... }\\
-  This problem is NP-hard in general, but we identify special cases that are tractable.\delete{ Are we really identifying such special cases? I thought we were only estimating the robustness margin.}
-  Furthermore, we develop a general technique to produce inner and outer bounds on the maximum error bound for which one can guarantee robust solvability (the radius of robust solvability).
-  The techniques we use combine ideas from constraint programming, convex optimization and topological degree theory.\delete{Be more explicit---say topological degree theory, etc., but don't get too technical here.}
-  We evaluate our approach numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid.
-  The results show that our approach can produce tight lower and upper bounds on the radius of robust solvability.
-\end{abstract}
+\input{abstract}
 
 \section{Introduction}
   This paper studies quadratic systems of equations with parameters.
@@ -506,16 +496,16 @@ Graphically we can look at this data on a case by case basis to highlight the ef
 \label{fig:Graphs1}
 \end{figure} 
 
-\begin{table}[h]
-\begin{center}
-\includegraphics[scale=0.6]{Figures/InnerBoundTable}
-\caption{Robustness Margins for inner bound models } 
-\vspace{0.2in}
-\includegraphics[scale=0.5]{Figures/OuterBoundTable}
-\caption{Robustness Margins for outer bound models}
-\end{center}
-\label{tbl:Table1}
-\end{table} 
+%\begin{table}[h]
+%\begin{center}
+%\includegraphics[scale=0.6]{Figures/InnerBoundTable}
+%\caption{Robustness Margins for inner bound models } 
+%\vspace{0.2in}
+%\includegraphics[scale=0.5]{Figures/OuterBoundTable}
+%\caption{Robustness Margins for outer bound models}
+%\end{center}
+%\label{tbl:Table1}
+%\end{table} 
 
 As evident from Table 1 we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. 
 Certainly one would expect the bound tightening model to out perform the other inner bound models for all cases, but the choice of model parameters has a big effect on the efficiency of the model. 
@@ -530,7 +520,7 @@ In this paper we have proposed novel and efficient techniques for determining ro
 It is worth mentioning that the same machinery can be used to determine robustness margins of solutions to static systems by taking $A$ to be the identity, $e_i=0 \ \forall i$ and simply adjusting $\bold b$ accordingly. 
 The models presented here are in some sense just the tip of the iceberg. 
 More efficient models can certainly be derived using the theory contained here. 
-We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results we presented. \\
+We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results we presented. 
 
 \bibliography{Ref}
 
