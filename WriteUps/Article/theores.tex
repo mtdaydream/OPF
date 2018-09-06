@@ -1,0 +1,107 @@
+We now describe the main technical results of this paper. 
+In the first subsection we describe the setting under which the problem can be solved using the results which follow. Our results take advantage of the well studied area of topological degree theory. 
+For an introduction to topological degree theory see \cite{OrChCh2006}, \cite{fonseca1995degree} and \cite{MoVrYa2002}. 
+Suffice it then to say that should $\Omega\subset\mathbb{R}^{n}$ be open and bounded, $F:\Omega\rightarrow \mathbb{R}$ continuous, and $F(\bold x)\neq \bold y \quad \forall \bold x\in\partial\Omega$ for some $\bold y\in\mathbb{R}^n$, then the degree of $F$ at $y$ over $\Omega$, denoted $d\left(\Omega,F,\bold y\right)\in\mathbb{Z}$, is defined. 
+For the purposes of this article we utilize the following property for the degree as our definition of the topological degree of a function $F$ at $y$ over a set $\Omega$. 
+See \cite{OrChCh2006} for details.:
+\begin{equation}\label{eq:Deg3}
+d\left(f,\Omega,\bold y\right)=\sum\limits_{\bold x\in f^{-1}(\bold y)}\operatorname{sign}\left(J_f(\bold x)\right)
+\end{equation}
+
+Where $\operatorname{sign}\left(J_f(\bold x)\right)$ denotes the sign of the Jacobian of $F$ at $\bold x$, i.e.:
+
+\[\operatorname{sign}\left(J_f(\bold x)\right)=   \left\{
+\begin{array}{ll}
+       \ -1   & \mbox{if } J_f(\bold x)< 0, \\
+      \quad 0 & \mbox{if } J_f(\bold x)= 0,~\mbox{ and } \\
+      \quad 1 & \mbox{if } J_f(\bold x)> 0. \\
+\end{array} 
+\right. \]
+
+Additionally we utilize the following two common properties of the topological degree. 
+See \cite{OrChCh2006} for details. \\
+If $H : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ is continuous such that $H(t,\bold x)\neq \bold y \quad \forall t\in[0,1]\quad \bold x\in\partial\Omega$,   \ then 
+\begin{equation}\label{eq:Deg1} 
+d\left(\Omega,H(t,\cdot),\bold y\right)\text{ does not depend on }t.
+\end{equation}
+
+\begin{equation}\label{eq:Deg2}
+\text{If }d(\Omega,F,\bold y)\neq 0,\text{ then there exists }\bold x\in\Omega\text{ s.t. }F(\bold x)=\bold y. 
+\end{equation}
+
+
+Let $F(\bold x)=Q(\bold x)+L(\bold x)$, $\Omega=\{\bold x| A\bold x< \bold b\}$ and $\hat{\bold x}\in Int(\Omega)$ be a solution to the forecasted system $F(\bold x)=\bold u^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{\bold x})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
+If no solutions exist then certainly the system is not robust feasible. Define $\Omega_u=\{\bold u| \bold u\text{ satisfies }\ref{eq:uLimits}\}$.
+Verify using existing methods or those adopted from this paper that no other solutions exist in $Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $\bold u$). 
+Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $d\left(\Omega, F(\bold x), \bold u^*\right)\neq 0$. 
+Note that this is not the only method for verification, but in some sense the easiest to carry out. \\
+
+Let $L$ represent an arbitrary line passing through $\bold u^*$, and $\bold l_{min},\bold l_{max}$ the two points of intersection between $\partial\Omega_u$ and $L$. 
+Define a homotopy $H_L : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ as 
+\begin{align}
+H_L(t,\bold x) = F(\bold x)-\left[(1-t)\bold l_{min}+t\bold l_{max}\right] \label{eq:Homo}
+\end{align}
+
+Observe that by construction $H_L\left(\frac{1}{2},\hat{\bold x}\right)=F(\hat{\bold x})-\bold u^*=\textbf{0}$. 
+Thus if no other solutions to $H_L\left(\frac{1}{2},\bold x\right)=0$ exist in $\Omega$ and $\operatorname{sign}\left(J_{H_{L,\frac{1}{2}}}(\hat{\bold x})\right)\neq 0$ then we have that $d(\Omega,H_L\left(\frac{1}{2},\bold x\right),\textbf{0})\neq 0$ by \ref{eq:Deg3}. 
+Since $L$ was arbitrary this holds for all such lines passing through $\bold u^*$.\\
+Note that for each $\hat{\bold u}\in\Omega_u\setminus\{\bold u^*\}$, $\exists !$ $\hat{L}$ passing through $\bold u^*$ and $t\in[0,1]$,  s.t. $\hat{\bold u}=(1-t)\hat{\bold l}_{min}+t\hat{\bold l}_{max}$. 
+Therefore if $d(\Omega,H_L\left(\frac{1}{2},\bold x\right),\bold 0)\neq 0$ for each choice of $L$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement:
+\begin{align}
+\not\exists \bold x\in\partial\Omega, \ s.t. \ F(\bold x)-\bold u=\bold 0	 \ \ for \ any \ \ \bold u\in\Omega_u. \label{eq:RSForm}
+\end{align}
+
+From here on we will assume $d(\Omega,H\left(\frac{1}{2},\bold x\right),\bold 0)\neq 0$ and focus our efforts on the development of methods for validating or invalidating \ref{eq:RSForm}.\\
+
+
+
+\begin{lem} \ \\
+\label{lem:BdOpt}
+Let $X\subset\mathbb{R}^n$ be closed and $\bold{f}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous. 
+If $\bold{f}$ has no singularities and $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+obtains its optimal at $\bold{\hat{x}}$,$\bold{\lambda}_{\bold{\hat{x}}}$ then $\bold{f}(\bold{\hat{x}})\in \partial \bold{f}(X)$. 
+
+\begin{proof} \ \\
+(By contradiction) Assume $\bold{f}(\bold{\hat{x}})\in \bold{f}(X)\setminus\partial \bold{f}(X)$. 
+Let $\theta$ the angle between $\bold{\lambda}_{\bold{\hat{x}}}$ and $\bold{\hat{x}}$. 
+Thus $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in X}\ \bold{\lambda}^T\bold{f}(x)=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{\hat{x}})=|\bold{f}(\bold{\hat{x}})|\cos(\theta)$. 
+Since $X\in\mathbb{R}^n$ is closed it is thus compact which implies $\bold{f}(X)$ is also compact. 
+Thus $\exists r>0$ s.t. (ball of radius $r$ centered at $\bold{f}(\bold{\hat{x}})$) $B_r(\bold{f}(\bold{\hat{x}}))\in \bold{f}(X)\setminus\partial \bold{f}(X)$. 
+Let $y$ be the antipodal point on $\partial B_r(\bold{f}(\bold{\hat{x}}))$ to the point of intersection between the line segment connecting the origin to $\bold{f}(\bold{\hat{x}})$ and $B_r(\bold{f}(\bold{\hat{x}}))$. 
+It follows then that $|y|>|\bold{f}(\bold{\hat{x}})|$ and $\theta$ is the angle between $\bold{\lambda}_x$ and $y$.   
+Let $\bold{x^*}\in X$ s.t. $\bold{f}(\bold{x^*})=y$, such a $\bold{x^*}$ exists as $\bold{f}(X)$ is compact. 
+Therefore $\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{x^*})=|\bold{f}(\bold{x^*})|\cos(\theta)>|\bold{f}(\bold{\hat{x}})|\cos(\theta)=\bold{\lambda}_{\bold{\hat{x}}}^T|\bold{f}(\bold{\hat{x}})|$ which is a contradiction. 
+The lemma now follows.
+\end{proof}
+\end{lem}
+
+\begin{thm} \ \\
+\label{thm:MainIneq}
+Let $X\subset\mathbb{R}^n$ be closed and $\bold{f}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous s.t. $\bold{f}(X)$ contains the origin. 
+If $\bold{f}$ has no singularities then $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)\geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+\begin{proof} \ \\
+If the origin lies on the boundary of $\bold{f}(X)$ then let $\hat{\bold x}\in \partial X$ s.t. $f(\hat{\bold x})=\textbf{0}$. 
+Such an $\hat{\bold x}$ exists as $f$ has no singularities. 
+Then  clearly $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)\geq \min\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T\bold{f}(\hat{\bold x})= 0 = \max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\hat{\bold x}) \geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+Thus assume the origin lies in the interior of $\bold{f}(X)$.
+Let $\bold{\hat{x}}$ be the point and $\bold{\lambda}_{\bold{\hat{x}}}$ the unit vector at which $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+obtains its optimal. \\
+
+Case 1: If the angle, $\theta$, between $\bold{\hat{x}}$ and $\bold{\lambda}_{\bold{\hat{x}}}$ is 0 then $\max\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T\bold{f}(\bold{\hat{x}})=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{\hat{x}})$. 
+Furthermore by \cref{lem:BdOpt} $\bold{f}(\bold{\hat{x}})\in \partial \bold{f}(X)$ and thus $\bold{\hat{x}}\in \partial X$ since $\bold{f}$ has no singularities by hypothesis. 
+It follows now that $$\min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)\leq \max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\hat{\bold x})=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{\hat{x}})=\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+
+Case 2: Assume $\theta \neq 0$. 
+Let $\bold{x^*}$ be a point on the boundary of $X$ s.t. the angle between $\bold{\lambda}_{\bold{\hat{x}}}$ and $\bold{f}(\bold{x^*})$ is 0. 
+Such a point must exist as $\bold{f}(X)$ is compact and by hypothesis $\bold{f}(X)$ contains the origin, has no singularities ($\bold{f}$ maps $\partial X$ to $\partial \bold{f}(X)$) and by assumption the origin lies in the interior of $\bold{f}(X)$. 
+It follows then that $$\min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)\leq \max\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T \bold{f}(\bold{x^*}) =\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{x^*})\leq \max\limits_{\bold x\in X}\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold x)=\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+
+The theorem now follows.
+
+\end{proof}
+\end{thm}
+
+\cref{thm:MainIneq} and \cref{lem:BdOpt} provide us with the theoretical tools we need to develop models for approximating the robustness margin.
+We will use the terminology "inner bound models" to describe the process of verifying robust feasibility while expanding the uncertainty box centered at $\bold u*$ in order to compute the lower bounds on the robustness margin, which these models undertake. 
+We use the terminology "outer bound models" to capture in a similar fashion the procedure used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
+As such we dedicate the remainder of this section to the development of these inner and outer bound formulations. 

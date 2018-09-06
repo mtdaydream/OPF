@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amstext,amsfonts,amssymb,amsthm,epsfig,epstopdf,url,array}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{authblk}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{claim}[thm]{Claim}
+
+\theoremstyle{definition}
+\newtheorem{con}{Conjecture}[section]
+\newtheorem{exa}{Example}[section]
+\newtheorem*{sol}{Solution}
+\newtheorem{cdef}{Definition}[section]
+
+
+\theoremstyle{remark}
+\newtheorem{rem}{\textbf{Remark}}
+\newtheorem*{note}{\color{blue}\textbf{Note}}
+\usepackage{qtree}
+
+
+\usepackage{hyperref}
+
+\usepackage[nameinlink,noabbrev,capitalize]{cleveref} 
+\crefalias{subequation}{equation}
+\crefalias{thm}{theorem}
+
+
+% to make cleveref print ``Lemma'' for lemma
+\let\oldlemma\lem
+\renewcommand{\lem}{%
+  \crefalias{thm}{lem}% Theorem counter now looks like Lemma
+  \oldlemma}
+\Crefname{lem}{Lemma}{Lemmas}
+
+% to make cleveref print ``Definition for definition
+\let\olddefn\defn
+\renewcommand{\defn}{%
+  \crefalias{thm}{defn}% Theorem counter now looks like Definition
+  \olddefn}
+\Crefname{defn}{Definition}{Definitions}
+
+% to make cleveref print ``Remark for remark
+\let\oldrem\rem
+\renewcommand{\rem}{%
+  \crefalias{thm}{rem}% Theorem counter now looks like Remark
+  \oldrem}
+\Crefname{rem}{Remark}{Remarks}
+
+% to make cleveref print ``Corollary for corollary
+\let\oldcor\cor
+\renewcommand{\cor}{%
+  \crefalias{thm}{cor}% Theorem counter now looks like Corollary
+  \oldcor}
+\Crefname{cor}{Corollary}{Corollaries}
+
+% to make cleveref print ``Claim for claim
+\let\oldclaim\claim
+\renewcommand{\claim}{%
+  \crefalias{thm}{claim}% Theorem counter now looks like Claim
+  \oldclaim}
+\Crefname{claim}{Claim}{Claims}
+
+% to make cleveref print ``Proposition for prop
+\let\oldprop\prop
+\renewcommand{\prop}{%
+  \crefalias{thm}{prop}% Theorem counter now looks like Prop
+  \oldprop}
+\Crefname{prop}{Proposition}{Propositions}
+
+% to make cleveref print ``Conjecture for conj
+\let\oldcon\con
+\renewcommand{\con}{%
+  \crefalias{thm}{con}% Theorem counter now looks like Con
+  \oldcon}
+\Crefname{con}{Conjecture}{Conjectures}
+
+% Editing commands requiring color package
+\newcommand{\add}[1]{\textcolor{blue}{#1}}
+\newcommand{\delete}[1]{\textcolor{red}{#1}}
+\definecolor{darkgrn}{rgb}{0, 0.8, 0}
+\newcommand{\modified}[1]{\textcolor{darkgrn}{#1}}
+
+\newcommand{\txbl}[1]{\textcolor{blue}{#1}}
+\newcommand{\txrd}[1]{\textcolor{red}{#1}}
+\newcommand{\txgr}[1]{\textcolor{green}{#1}}
+\newcommand{\txcr}[1]{\textcolor{crimson}{#1}}
+
+
+% shortcut commands
+\newcommand{\sym}[1]{\mathcal{S}^{#1}}
+
+\title{Robust Feasibility of Systems of Quadratic Equations Using Topological Degree Theory}
+
+%\author{Krishnamurthy Dvijotham\thanks{\affil{Google DeepMind}}
+%    \hspace*{0.3in}
+%  Bala~Krishnamoorthy\thanks{\affil{Washington State University}}
+%  \hspace*{0.3in}
+%  Benjamin Rapone\footnotemark[2]
+%}
+
+\author[*]{Krishnamurthy Dvijotham}
+\author[**]{Bala~Krishnamoorthy}
+\author[**]{Benjamin Rapone}
+\affil[*]{Google DeepMind}
+\affil[**]{Wahington State University}
+
+
+\bibliographystyle{plain}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+
+\section{Introduction}
+  
+\input{intro}
+
+\section{Problem formulation}
+
+\input{probform}
+
+\section{Theoretical results}
+
+\input{theores}
+
+\subsection{Inner Bound Formulations}
+
+\input{inbdform}
+
+\subsection{Outer Bound Formulations}
+
+\input{outbdform}
+
+\section{Numerical studies}
+
+\input{numstd}
+
+\section{Conclusion}
+
+\input{conclusion}
+
+\bibliography{Ref}
+
+\end{document}
