@@ -24,11 +24,12 @@ The following subsection will detail specifically how this transformation was co
 
 
 \subsection*{Test Results}
-The results are presented in tables \ref{tbl:Table1} where each row of the table represents results conducted with $A\bold x\leq \bold b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. 
-$A$ in this cases is a matrix s.t. $A\bold x\leq \bold b$ controls the flow between nodes in the power grid (i.e. each row of $A\bold x\leq \bold b$ has the form $x_i-x_j\leq b_k$. 
-All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores. 
-Graphically we can look at this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes (i.e. as $B$ increases).(Figure \ref{fig:Graphs1}) 
-
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{Figures/InnerBoundTable} \includegraphics[scale=0.4]{Figures/OuterBoundTable} 
+\end{center}
+\label{tbl:Table1}
+\end{figure} 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.45]{Figures/Case5}
@@ -39,6 +40,12 @@ Graphically we can look at this data on a case by case basis to highlight the ef
 \end{center}
 \label{fig:Graphs1}
 \end{figure} 
+The results are presented in table \ref{tbl:Table1} where each row of the table represents results conducted with $A\bold x\leq \bold b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. 
+$A$ in this cases is a matrix s.t. $A\bold x\leq \bold b$ controls the flow between nodes in the power grid (i.e. each row of $A\bold x\leq \bold b$ has the form $x_i-x_j\leq b_k$. 
+All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores. 
+Graphically we can look at this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes (i.e. as $B$ increases).(Figure \ref{fig:Graphs1}) 
+
+
 
 %\begin{table}[h]
 %\begin{center}
@@ -51,9 +58,9 @@ Graphically we can look at this data on a case by case basis to highlight the ef
 %\label{tbl:Table1}
 %\end{table} 
 
-As evident from Table 1 we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. 
+As evident from table \ref{tbl:Table1} we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. 
 Certainly one would expect the bound tightening model to out perform the other inner bound models for all cases, but the choice of model parameters has a big effect on the efficiency of the model. 
 For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $\bold b$ will cause in most cases an extremely long running time. 
-Thus in the lower complexity cases it should be expected that the other models will out perform the bound tightening model as these manually set model parameters will have more of an impact on performance. 
+Thus in the extremely low and marginally high complexity cases it should be expected that the other models will out perform the bound tightening model as these manually set model parameters will have more of an impact on performance. 
 Of special interest is the difference in performance of the MIP and Feasibility inner bound models as the complexity of the data increases. 
-In particular it was surprising that the Feasibility model was the only inner bound model capable of efficiently computing the robustness margin for case 57 (see tables 2 and 3). 
+In particular it was surprising that the Feasibility model was the only inner bound model capable of efficiently computing the robustness margin for case 57 (see table \ref{tbl:Table1}). 

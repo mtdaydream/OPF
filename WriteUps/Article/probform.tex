@@ -10,7 +10,7 @@ We are interested in solutions to this system of equations under linear constrai
 \begin{align}
 (A\bold x)_i\leq b_i \quad \forall i \in [n]\label{eq:xLimits}
 \end{align}
-However, the parameter $\bold u$ is uncertain and only known upto certain error bounds
+However, the parameter $\bold u$ is uncertain and only known up to certain error bounds
 \begin{align}
 u^{\min}_i=u_i^*-e_i \leq u_i \leq =u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
 \end{align}
@@ -29,8 +29,8 @@ In the case of stochastic processes, $\bold u^*$ represents an initial state dis
 \begin{cdef}[Robust Feasibility and Robust Margin problem]
 \label{RobustDef}
 Determine whether for all values of $\bold u$ satisfying \eqref{eq:uLimits}, the system of equations \eqref{eq:Quad} has a solution for $\bold x$ satisfying the constraints \eqref{eq:xLimits}. 
-If this is true, the system \eqref{eq:Quad},\eqref{eq:xLimits},\eqref{eq:uLimits} is said to be \emph{robust feasible}. 
-The largest $r$ s.t. $e_i\geq r \ \forall i \ s.t. \ e_i>0$ in \eqref{eq:uLimits} s.t. the system \eqref{eq:Quad},\eqref{eq:xLimits},\eqref{eq:uLimits} is robust feasible is said to be the \emph{robustness margin}. 
+If this is true, the system comprised of \eqref{eq:Quad},\eqref{eq:xLimits},\eqref{eq:uLimits} is said to be \emph{robust feasible}. 
+The largest $r$ s.t. $e_i\geq r \ \forall i \ s.t. \ e_i>0$ in \eqref{eq:uLimits} s.t. the system is robust feasible is said to be the \emph{robustness margin}. 
 See \cref{fig:RFeas} for a pictorial depiction. 
 \end{cdef}
 

@@ -8,9 +8,11 @@ $$z = \min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in \bar{\Omega}, \b
 If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z=0$ then the system has robustness margin of no more than r.
 
 \begin{proof} \ \\
-Observe by \cref{lem:BdOpt} that if $\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in \Omega, \bold u\in\Omega_u}\ \bold{\lambda}^T\left(F(\bold x)-\bold u\right)=0$, then \eqref{eq:RSForm} is invalidated.  
+\begin{itemize}
+\item[] Observe by \cref{lem:BdOpt} that if $\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in \Omega, \bold u\in\Omega_u}\ \bold{\lambda}^T\left(F(\bold x)-\bold u\right)=0$, then \eqref{eq:RSForm} is invalidated.  
 
 %Observe that if \eqref{eq:RSForm} is invalidated then $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in X, u\in\Omega_u}\ \bold{\lambda}^T\left(F(x)-u\right) \geq \min\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(F(\hat{x})-\hat{u}\right)=0.$$ The theorem now follows.
+\end{itemize}
 \end{proof}
 \end{thm}
 

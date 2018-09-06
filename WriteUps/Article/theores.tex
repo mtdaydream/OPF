@@ -34,7 +34,7 @@ Let $F(\bold x)=Q(\bold x)+L(\bold x)$, $\Omega=\{\bold x| A\bold x< \bold b\}$ 
 If no solutions exist then certainly the system is not robust feasible. Define $\Omega_u=\{\bold u| \bold u\text{ satisfies }\ref{eq:uLimits}\}$.
 Verify using existing methods or those adopted from this paper that no other solutions exist in $Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $\bold u$). 
 Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $d\left(\Omega, F(\bold x), \bold u^*\right)\neq 0$. 
-Note that this is not the only method for verification, but in some sense the easiest to carry out. \\
+Note that this is not the only method for verification, but in some sense the easiest to carry out for our purposes. \\
 
 Let $L$ represent an arbitrary line passing through $\bold u^*$, and $\bold l_{min},\bold l_{max}$ the two points of intersection between $\partial\Omega_u$ and $L$. 
 Define a homotopy $H_L : [0,1]\times\bar{\Omega}\rightarrow\mathbb{R}^n$ as 
@@ -60,9 +60,9 @@ From here on we will assume $d(\Omega,H\left(\frac{1}{2},\bold x\right),\bold 0)
 Let $X\subset\mathbb{R}^n$ be closed and $\bold{f}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous. 
 If $\bold{f}$ has no singularities and $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
 obtains its optimal at $\bold{\hat{x}}$,$\bold{\lambda}_{\bold{\hat{x}}}$ then $\bold{f}(\bold{\hat{x}})\in \partial \bold{f}(X)$. 
-
 \begin{proof} \ \\
-(By contradiction) Assume $\bold{f}(\bold{\hat{x}})\in \bold{f}(X)\setminus\partial \bold{f}(X)$. 
+\begin{itemize}
+\item[](By contradiction) Assume $\bold{f}(\bold{\hat{x}})\in \bold{f}(X)\setminus\partial \bold{f}(X)$. 
 Let $\theta$ the angle between $\bold{\lambda}_{\bold{\hat{x}}}$ and $\bold{\hat{x}}$. 
 Thus $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in X}\ \bold{\lambda}^T\bold{f}(x)=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{\hat{x}})=|\bold{f}(\bold{\hat{x}})|\cos(\theta)$. 
 Since $X\in\mathbb{R}^n$ is closed it is thus compact which implies $\bold{f}(X)$ is also compact. 
@@ -72,6 +72,7 @@ It follows then that $|y|>|\bold{f}(\bold{\hat{x}})|$ and $\theta$ is the angle 
 Let $\bold{x^*}\in X$ s.t. $\bold{f}(\bold{x^*})=y$, such a $\bold{x^*}$ exists as $\bold{f}(X)$ is compact. 
 Therefore $\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{x^*})=|\bold{f}(\bold{x^*})|\cos(\theta)>|\bold{f}(\bold{\hat{x}})|\cos(\theta)=\bold{\lambda}_{\bold{\hat{x}}}^T|\bold{f}(\bold{\hat{x}})|$ which is a contradiction. 
 The lemma now follows.
+\end{itemize}
 \end{proof}
 \end{lem}
 
@@ -80,7 +81,8 @@ The lemma now follows.
 Let $X\subset\mathbb{R}^n$ be closed and $\bold{f}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous s.t. $\bold{f}(X)$ contains the origin. 
 If $\bold{f}$ has no singularities then $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)\geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)$$
 \begin{proof} \ \\
-If the origin lies on the boundary of $\bold{f}(X)$ then let $\hat{\bold x}\in \partial X$ s.t. $f(\hat{\bold x})=\textbf{0}$. 
+\begin{itemize}
+\item[] If the origin lies on the boundary of $\bold{f}(X)$ then let $\hat{\bold x}\in \partial X$ s.t. $f(\hat{\bold x})=\textbf{0}$. 
 Such an $\hat{\bold x}$ exists as $f$ has no singularities. 
 Then  clearly $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)\geq \min\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T\bold{f}(\hat{\bold x})= 0 = \max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\hat{\bold x}) \geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)$$
 Thus assume the origin lies in the interior of $\bold{f}(X)$.
@@ -97,11 +99,11 @@ Such a point must exist as $\bold{f}(X)$ is compact and by hypothesis $\bold{f}(
 It follows then that $$\min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)\leq \max\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T \bold{f}(\bold{x^*}) =\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{x^*})\leq \max\limits_{\bold x\in X}\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold x)=\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
 
 The theorem now follows.
-
+\end{itemize}
 \end{proof}
 \end{thm}
 
 \cref{thm:MainIneq} and \cref{lem:BdOpt} provide us with the theoretical tools we need to develop models for approximating the robustness margin.
-We will use the terminology "inner bound models" to describe the process of verifying robust feasibility while expanding the uncertainty box centered at $\bold u*$ in order to compute the lower bounds on the robustness margin, which these models undertake. 
+We will use the terminology "inner bound models" to describe the process of verifying robust feasibility while expanding the uncertainty box centered at $\bold u^*$ in order to compute the lower bounds on the robustness margin, which these models undertake. 
 We use the terminology "outer bound models" to capture in a similar fashion the procedure used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
 As such we dedicate the remainder of this section to the development of these inner and outer bound formulations. 

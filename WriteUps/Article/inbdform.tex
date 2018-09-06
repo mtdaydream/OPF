@@ -6,8 +6,10 @@ $$z = \min\limits_{\bold x\in \partial \Omega, \bold u\in \Omega_{u} }\max\limit
 If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z>0$ then the system is robust feasible and has a robustness margin of at least r.
 
 \begin{proof} \ \\
-If \eqref{eq:RSForm} is invalidated then $\exists \hat{\bold x}\in\partial\Omega$ s.t. $F(\hat{\bold x})=\hat{\bold u}$ for some $\hat{\bold u}\in\Omega_{u}$ and thus $$z = \min\limits_{\bold x\in \partial \Omega}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(\bold{F}(\bold x)-\bold u\right)\leq \max\limits_{||\bold{\lambda}||=1, \bold x=\hat{\bold x}}\ \bold{\lambda}^T\left(\bold{F}(\bold x)-\hat{\bold u}\right)=0.$$ 
+\begin{itemize}
+\item[] If \eqref{eq:RSForm} is invalidated then $\exists \hat{\bold x}\in\partial\Omega$ s.t. $F(\hat{\bold x})=\hat{\bold u}$ for some $\hat{\bold u}\in\Omega_{u}$ and thus $$z = \min\limits_{\bold x\in \partial \Omega}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(\bold{F}(\bold x)-\bold u\right)\leq \max\limits_{||\bold{\lambda}||=1, \bold x=\hat{\bold x}}\ \bold{\lambda}^T\left(\bold{F}(\bold x)-\hat{\bold u}\right)=0.$$ 
 Hence if $z>0$, \eqref{eq:RSForm} is validated, and the system is robust feasible. It follows then by definition that the system has a robustness margin of at least r.
+\end{itemize}
 \end{proof}
 \end{thm}
 
@@ -19,9 +21,11 @@ Let $\partial\Omega_i=\{\bold x| Ax_i = b_i, A\bold x\leq \bold b\}$, $\Omega_{u
 If $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$ (where $m$ is the number of rows of $A$), then the system is robust feasible.
 
 \begin{proof} \ \\
-If \eqref{eq:RSForm} is invalidated then $\exists \hat{\bold x}\in\partial\Omega$, $\Omega=\{\bold x| A\bold x< \bold b\}$, s.t. $F(\hat{\bold x})=\hat{\bold u}$ for some $\hat{\bold u}\in \Omega_u$. 
+\begin{itemize}
+\item[] If \eqref{eq:RSForm} is invalidated then $\exists \hat{\bold x}\in\partial\Omega$, $\Omega=\{\bold x| A\bold x< \bold b\}$, s.t. $F(\hat{\bold x})=\hat{\bold u}$ for some $\hat{\bold u}\in \Omega_u$. 
 Since $\hat{\bold x}\in\partial\Omega$ this implies that $\exists i$ s.t. $A\hat{\bold x}_i=b_i$ and thus $0\leq \mathrm{z}_i \leq ||F(\hat{\bold x})-\hat{\bold u}||=0$.
 Thus if $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$, \eqref{eq:RSForm} is validated, and the system is robust feasible as desired.
+\end{itemize}
 \end{proof}
 \end{thm}
 
@@ -70,7 +74,7 @@ We now present three formulations for this new, relaxed program that we provide 
 This model has the advantage of being a linear program and hence can be solved efficiently, but as noted by the objective $z_i$, one must iterate over each dimension of $A\bold x$ checking feasibility of the model. 
 Of course should the model prove feasible then we have found a solution on the boundary and thus invalidating (\ref{eq:RSForm}). 
 If the model proves infeasible then we are free to push the robust margin higher and test again. 
-An alternative approach would be to deal with all of the dimension of $A\bold x$ simultaneously by introducing some binaries and creating a MIP as follows. 
+An alternative approach would be to deal with all of the dimensions of $A\bold x$ simultaneously by introducing some binaries and creating a MIP as follows. 
 
 \begin{subequations}\label{eq:OPTfeasrelaxLP2}
 \begin{align}
@@ -106,5 +110,5 @@ One way of tackling this issue is by updating the constraints using an iterative
 As noted, what distinguishes the LP Bound Tightening model is its ability to be used iteratively by updating the constraints \eqref{eq:OPTfeasrelaxLP3}[d\& e], replacing $\bold b$ with $\bold z$ (the vector of $z_i$'s found after running the model over all dimensions of $A\bold x$). 
 Since clearly $\bold b\leq \bold z$ we have that the polytope $\{A\bold x\leq \bold z\}\subseteq\{A\bold x\leq \bold b\}$. 
 Thus it follows that any system deemed robust feasible using \eqref{eq:OPTfeasrelaxLP1} or \eqref{eq:OPTfeasrelaxLP2} would certainly be found robust feasible using \eqref{eq:OPTfeasrelaxLP3}, but a system found robust feasible using \eqref{eq:OPTfeasrelaxLP3} may not be found robust feasible using \eqref{eq:OPTfeasrelaxLP1} or \eqref{eq:OPTfeasrelaxLP2}. 
-The drawback, as we shall see in the numerical studies, is choice of modeling parameters which must be manually set to tell the program when to stop running models. 
+The drawback, as we shall see in the numerical studies, is the choice of modeling parameters which must be manually set to tell the program when to stop running models. 
 
