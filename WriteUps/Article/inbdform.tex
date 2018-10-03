@@ -34,8 +34,8 @@ Thus if $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$, \eqref{eq:RSForm} is valid
 
 The optimization problems presented in \cref{thm:RobFeas} are nonlinear and nonconvex.
 Hence it may be difficult to solve them in general.
-However, since $F(\bold )$ is quadratic in $\bold x$, they are quadratically constrained quadratic programs (QCQPs), and we can use well known \emph{semidefinite programming relaxations for QCQPs} %\cite{d2003relaxations} 
-to obtain lower bounds on the optimal values.
+However, since $F(\bold x)$ is quadratic in $\bold x$, they are quadratically constrained quadratic programs (QCQPs), and we can use well known \emph{semidefinite programming relaxations for QCQPs} 
+to obtain lower bounds on the optimal values.\cite{VaBo1996} 
 Since $Q$ is quadratic, it can also be written as a linear function of $\bold x\bold x^T$.
 More concretely, we can write
 $$Q(\bold x)_i=\bold x^TM_i\bold x=Trace(M_i\bold x\bold x^T)$$
