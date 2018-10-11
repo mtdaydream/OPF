@@ -20,16 +20,16 @@ We will specifically show results for tests conducted on cases 5, 9, 14, 30 and 
 In every case the power flow equations were converted into the format defined by \eqref{eq:Quad}, \eqref{eq:xLimits}, and \eqref{eq:uLimits}. 
 To simulate real life scenarios we allowed the first 5 dimensions of $\bold u$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\bold u$, while utilizing models \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. 
 The following subsection will detail specifically how this transformation was conducted.
-\subsection*{OPF to Quadratic System}
+\subsection{OPF to Quadratic System}
+USE SOLVABILITY REGIONS OF AFFINELY PARAMETERIZED QUADRATIC EQUATIONS 
 
-
-\subsection*{Test Results}
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.4]{Figures/InnerBoundTable} \includegraphics[scale=0.4]{Figures/OuterBoundTable} 
-\end{center}
-\label{tbl:Table1}
-\end{figure} 
+\subsection{Computational Results}
+%\begin{figure}[h]
+%\begin{center}
+%\includegraphics[scale=0.4]{Figures/InnerBoundTable} \includegraphics[scale=0.4]{Figures/OuterBoundTable} 
+%\end{center}
+%\label{tbl:Table1}
+%\end{figure} 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.45]{Figures/Case5}
