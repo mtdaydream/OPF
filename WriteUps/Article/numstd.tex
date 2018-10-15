@@ -21,7 +21,17 @@ In every case the power flow equations were converted into the format defined by
 To simulate real life scenarios we allowed the first 5 dimensions of $\bold u$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\bold u$, while utilizing models \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. 
 The following subsection will detail specifically how this transformation was conducted.
 \subsection{OPF to Quadratic System}
-USE SOLVABILITY REGIONS OF AFFINELY PARAMETERIZED QUADRATIC EQUATIONS 
+As described in \cite{DjTuritsyn}, the AC power flow equations can be written as 
+\begin{align}\label{eq:Real1}
+& Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PQ \\
+& Im\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = q_i \ \forall i\in PQ \\
+& Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PV \\
+& |V_i|^2 = v_i, \  \ \forall i \in PV 
+\end{align}
+
+where $V_i$ denotes the complex voltage phasor, $p_i$ the active and $q_i$ the reactive power injection, and $Y$ the admittance matrix at node $i$. $PV$ denotes the set of $PV$ nodes, $PQ$ denotes the set of $PQ$ buses and $v_i$ denotes the squared voltage magnitude setpoints at the $PV$ buses. We can then rewrite \ref{eq:Real1} into the system outlined by \ref{eq:Quad}, \ref{eq:xLimits}, and \ref{eq:uLimits} with 
+$x=\left(Re(V_1), \dots, Re(V_n), Im(V_1),\dots , Im(V_n)\right)$ and $u=\left(p_1, \dots, p_n, q_1, \dots, q_n, v_1, \dots, v_n\right)$. 
+
 
 \subsection{Computational Results}
 %\begin{figure}[h]
@@ -40,7 +50,7 @@ USE SOLVABILITY REGIONS OF AFFINELY PARAMETERIZED QUADRATIC EQUATIONS
 \end{center}
 \label{fig:Graphs1}
 \end{figure} 
-The results are presented in table \ref{tbl:Table1} where each row of the table represents results conducted with $A\bold x\leq \bold b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. 
+The modeling was conducted with $A\bold x\leq \bold b = B*ones$ for $B\in\{0.001, 0.005,0.01\}$ and $ones$ representing the vector of all ones of appropriate dimension. 
 $A$ in this cases is a matrix s.t. $A\bold x\leq \bold b$ controls the flow between nodes in the power grid (i.e. each row of $A\bold x\leq \bold b$ has the form $x_i-x_j\leq b_k$. 
 All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores. 
 Graphically we can look at this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes (i.e. as $B$ increases).(Figure \ref{fig:Graphs1}) 
@@ -58,9 +68,8 @@ Graphically we can look at this data on a case by case basis to highlight the ef
 %\label{tbl:Table1}
 %\end{table} 
 
-As evident from table \ref{tbl:Table1} we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. 
+As evident from the graphs we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. 
 Certainly one would expect the bound tightening model to out perform the other inner bound models for all cases, but the choice of model parameters has a big effect on the efficiency of the model. 
 For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $\bold b$ will cause in most cases an extremely long running time. 
 Thus in the extremely low and marginally high complexity cases it should be expected that the other models will out perform the bound tightening model as these manually set model parameters will have more of an impact on performance. 
 Of special interest is the difference in performance of the MIP and Feasibility inner bound models as the complexity of the data increases. 
-In particular it was surprising that the Feasibility model was the only inner bound model capable of efficiently computing the robustness margin for case 57 (see table \ref{tbl:Table1}). 

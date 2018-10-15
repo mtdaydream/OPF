@@ -6,7 +6,11 @@ In these cases, it is of interest to study robust solvability of quadratic syste
   We are interested in situations where the parameters $\bold u$ are uncertain and we are still interested in guaranteeing that there is a solution to $F(\bold x) = \bold u$ for $\bold x$ within limits on $\bold x$ and $\bold u$.
   Questions of this type arise in a variety of applications from analysis of stochastic processes to infrastructure networks like the power grid and the gas grid.
 \subsection{Our Contributions}
-blah blah
+We develop approaches based on topological degree theory to estimate bounds on the robustness margin of such systems.
+  Our methods use tools from convex analysis and optimization theory to cast the problems of checking the conditions for robust feasibility as a nonlinear optimization problem.
+  We then develop \emph{inner bound} and \emph{outer bound} formulations for this optimization problem, which could be solved efficiently to derive lower and upper bounds, respectively, for the margin of robust feasibility.
+  We evaluate our approach numerically on standard instances taken from the MATPOWER database of AC power flow equations that describe the steady state of the power grid.
+  The results demonstrate that our approach can produce tight lower and upper bounds on the radius of robust feasibility for such instances.
 
 \subsection{Related Work}
 
