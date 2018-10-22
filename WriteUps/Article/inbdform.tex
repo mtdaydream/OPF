@@ -29,7 +29,7 @@ Thus if $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$, \eqref{eq:RSForm} is valid
 \end{proof}
 \end{thm}
 
-%Note that under these circumstances $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \bold{\lambda}^T\left(\bold{F}(x)-\hat{u}\right)> 0$ is possible, especially if $F(\bar{\Omega})$ is highly non-convex. However, should $\exists u^{\prime}$ s.t. $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \bold{\lambda}^T\left(\bold{F}(x)-u^{\prime}\right)=0$ then by \ref{MainInEqLem} we know that there $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=u^{\prime}$. Hence the following formulation of an outer bound approximation on $u_{min}$ and $u_{max}$:
+%Note that under these circumstances $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \bold{\lambda}^T\left(\bold{F}(x)-\hat{u}\right)> 0$ is possible, especially if $F(\bar{\Omega})$ is highly non-convex. However, should $\exists u^{\prime}$ s.t. $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \bold{\lambda}^T\left(\bold{F}(x)-u^{\prime}\right)=0$ then by \ref{MainInEqLem} we know that there $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=u^{\prime}$. Hence the following formulation of an outer bound approximation on $u_i^{min}$ and $u_i^{max}$:
 
 
 The optimization problems presented in \cref{thm:RobFeas} are nonlinear and nonconvex.
@@ -46,14 +46,14 @@ If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\
 \begin{subequations}\label{eq:OPTfeasrelax}
 \begin{align}
 \hat{\mathrm{z}}_{i} = &\min_x b_i-Ax_i  \\
- \text{subject to: } \ &Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \geq \bold u_{min} \\
- & Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \leq \bold u_{max} \\
+ \text{subject to: } \ &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min} \ \ \forall i\\
+ & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max} \ \ \forall i\\
  	&A\bold x\leq \bold b \\
  	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric, positive semidefinite}
 \end{align}
 \end{subequations}
-where $O$ denotes the $2n \times 2n$ matrix of zeros with the constraints understood to be componentwise inequalities. 
+where $L_i$ denotes the $i^{th}$ rows of $L$, and $O$ denotes the $2n \times 2n$ matrix of zeros with the constraints understood to be componentwise inequalities. 
 This is a convex optimization problem (a semidefinite program, in fact) and can be solved efficiently. 
 Since this is a relaxation of the model in \cref{thm:RobFeas}, if $\hat{\mathrm{z}}_i>0$ for each $i$, the condition in \cref{thm:RobFeas} (i.e. $z_i>0 \ \forall i$) is satisfied. 
 We can further relax the model in \eqref{eq:OPTfeasrelax} by dropping the condition that $X$ be positive semidefinite, which transforms the model from a semidefinite program to a linear program. 
@@ -63,8 +63,8 @@ We now present three formulations for this new, relaxed program that we provide 
 \begin{align}
  \text{LP Feasibility Model}& \ z_i  \\
  \text{subject to: } \ &Ax_i= b_i \\
- &Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \geq \bold u_{min} \\
- & Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \leq \bold u_{max} \\
+ &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min}  \ \ \forall i\\
+ & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max}  \ \ \forall i\\
  	&A\bold x\leq \bold b \\
  	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric}
@@ -79,8 +79,8 @@ An alternative approach would be to deal with all of the dimensions of $A\bold x
 \begin{subequations}\label{eq:OPTfeasrelaxLP2}
 \begin{align}
  \text{MIP Model}& \ \max z  \\
- \text{subject to: } \ &Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \geq \bold u_{min} \\
- & Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \leq \bold u_{max} \\
+ \text{subject to: } \ &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min}  \ \ \forall i\\
+ & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max}  \ \ \forall i\\
  	&A\bold x\leq \bold b \\
  	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric} \\
@@ -99,8 +99,8 @@ One way of tackling this issue is by updating the constraints using an iterative
 \begin{subequations}\label{eq:OPTfeasrelaxLP3}
 \begin{align}
 \text{LP Bound Tightening Model}& \ \mathrm{z}_{i} = \max_x Ax_i  \\
- \text{subject to: } \ &Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \geq u_{min} \\
- & Tr\left(M\mathcal{X}\right)+\bold q^t\bold x \leq u_{max} \\
+ \text{subject to: } \ &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min}  \ \ \forall i\\
+ & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max}  \ \ \forall i\\
  	&A\bold x\leq \bold b \\
  	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric}

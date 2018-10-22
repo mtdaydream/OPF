@@ -57,20 +57,20 @@ From here on we will assume $d(\Omega,H\left(\frac{1}{2},\bold x\right),\bold 0)
 
 \begin{lem} \ \\
 \label{lem:BdOpt}
-Let $X\subset\mathbb{R}^n$ be closed and $\bold{f}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous. 
-If $\bold{f}$ has no singularities and $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
-obtains its optimal at $\bold{\hat{x}}$,$\bold{\lambda}_{\bold{\hat{x}}}$ then $\bold{f}(\bold{\hat{x}})\in \partial \bold{f}(X)$. 
+Let $X\subset\mathbb{R}^n$ be closed and $\bold{F}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous. 
+If $\bold{F}$ has no singularities and $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{F}(\bold x)$$
+obtains its optimal at $\bold{\hat{x}}$,$\bold{\lambda}_{\bold{\hat{x}}}$ then $\bold{F}(\bold{\hat{x}})\in \partial \bold{F}(X)$. 
 \begin{proof} \ \\
 \begin{itemize}
-\item[](By contradiction) Assume $\bold{f}(\bold{\hat{x}})\in \bold{f}(X)\setminus\partial \bold{f}(X)$. 
+\item[](By contradiction) Assume $\bold{F}(\bold{\hat{x}})\in \bold{F}(X)\setminus\partial \bold{F}(X)$. 
 Let $\theta$ the angle between $\bold{\lambda}_{\bold{\hat{x}}}$ and $\bold{\hat{x}}$. 
-Thus $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in X}\ \bold{\lambda}^T\bold{f}(x)=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{\hat{x}})=|\bold{f}(\bold{\hat{x}})|\cos(\theta)$. 
-Since $X\in\mathbb{R}^n$ is closed it is thus compact which implies $\bold{f}(X)$ is also compact. 
-Thus $\exists r>0$ s.t. (ball of radius $r$ centered at $\bold{f}(\bold{\hat{x}})$) $B_r(\bold{f}(\bold{\hat{x}}))\in \bold{f}(X)\setminus\partial \bold{f}(X)$. 
-Let $y$ be the antipodal point on $\partial B_r(\bold{f}(\bold{\hat{x}}))$ to the point of intersection between the line segment connecting the origin to $\bold{f}(\bold{\hat{x}})$ and $B_r(\bold{f}(\bold{\hat{x}}))$. 
-It follows then that $|y|>|\bold{f}(\bold{\hat{x}})|$ and $\theta$ is the angle between $\bold{\lambda}_x$ and $y$.   
-Let $\bold{x^*}\in X$ s.t. $\bold{f}(\bold{x^*})=y$, such a $\bold{x^*}$ exists as $\bold{f}(X)$ is compact. 
-Therefore $\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{x^*})=|\bold{f}(\bold{x^*})|\cos(\theta)>|\bold{f}(\bold{\hat{x}})|\cos(\theta)=\bold{\lambda}_{\bold{\hat{x}}}^T|\bold{f}(\bold{\hat{x}})|$ which is a contradiction. 
+Thus $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in X}\ \bold{\lambda}^T\bold{F}(x)=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{F}(\bold{\hat{x}})=|\bold{F}(\bold{\hat{x}})|\cos(\theta)$. 
+Since $X\in\mathbb{R}^n$ is closed it is thus compact which implies $\bold{F}(X)$ is also compact. 
+Thus $\exists r>0$ s.t. (ball of radius $r$ centered at $\bold{F}(\bold{\hat{x}})$) $B_r(\bold{F}(\bold{\hat{x}}))\in \bold{F}(X)\setminus\partial \bold{F}(X)$. 
+Let $y$ be the antipodal point on $\partial B_r(\bold{F}(\bold{\hat{x}}))$ to the point of intersection between the line segment connecting the origin to $\bold{F}(\bold{\hat{x}})$ and $B_r(\bold{F}(\bold{\hat{x}}))$. 
+It follows then that $|y|>|\bold{F}(\bold{\hat{x}})|$ and $\theta$ is the angle between $\bold{\lambda}_x$ and $y$.   
+Let $\bold{x^*}\in X$ s.t. $\bold{F}(\bold{x^*})=y$, such a $\bold{x^*}$ exists as $\bold{F}(X)$ is compact. 
+Therefore $\bold{\lambda}_{\bold{\hat{x}}}^T\bold{F}(\bold{x^*})=|\bold{F}(\bold{x^*})|\cos(\theta)>|\bold{F}(\bold{\hat{x}})|\cos(\theta)=\bold{\lambda}_{\bold{\hat{x}}}^T|\bold{F}(\bold{\hat{x}})|$ which is a contradiction. 
 The lemma now follows.
 \end{itemize}
 \end{proof}
@@ -78,25 +78,25 @@ The lemma now follows.
 
 \begin{thm} \ \\
 \label{thm:MainIneq}
-Let $X\subset\mathbb{R}^n$ be closed and $\bold{f}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous s.t. $\bold{f}(X)$ contains the origin. 
-If $\bold{f}$ has no singularities then $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)\geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+Let $X\subset\mathbb{R}^n$ be closed and $\bold{F}:\mathbb{R}^n\rightarrow\mathbb{R}^n$ be continuous s.t. $\bold{F}(X)$ contains the origin. 
+If $\bold{F}$ has no singularities then $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{F}(\bold x)\geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{F}(\bold x)$$
 \begin{proof} \ \\
 \begin{itemize}
-\item[] If the origin lies on the boundary of $\bold{f}(X)$ then let $\hat{\bold x}\in \partial X$ s.t. $f(\hat{\bold x})=\textbf{0}$. 
+\item[] If the origin lies on the boundary of $\bold{F}(X)$ then let $\hat{\bold x}\in \partial X$ s.t. $f(\hat{\bold x})=\textbf{0}$. 
 Such an $\hat{\bold x}$ exists as $f$ has no singularities. 
-Then  clearly $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)\geq \min\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T\bold{f}(\hat{\bold x})= 0 = \max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\hat{\bold x}) \geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)$$
-Thus assume the origin lies in the interior of $\bold{f}(X)$.
-Let $\bold{\hat{x}}$ be the point and $\bold{\lambda}_{\bold{\hat{x}}}$ the unit vector at which $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+Then  clearly $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{F}(\bold x)\geq \min\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T\bold{F}(\hat{\bold x})= 0 = \max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{F}(\hat{\bold x}) \geq \min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{F}(\bold x)$$
+Thus assume the origin lies in the interior of $\bold{F}(X)$.
+Let $\bold{\hat{x}}$ be the point and $\bold{\lambda}_{\bold{\hat{x}}}$ the unit vector at which $$\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{F}(\bold x)$$
 obtains its optimal. \\
 
-Case 1: If the angle, $\theta$, between $\bold{\hat{x}}$ and $\bold{\lambda}_{\bold{\hat{x}}}$ is 0 then $\max\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T\bold{f}(\bold{\hat{x}})=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{\hat{x}})$. 
-Furthermore by \cref{lem:BdOpt} $\bold{f}(\bold{\hat{x}})\in \partial \bold{f}(X)$ and thus $\bold{\hat{x}}\in \partial X$ since $\bold{f}$ has no singularities by hypothesis. 
-It follows now that $$\min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)\leq \max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\hat{\bold x})=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{\hat{x}})=\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+Case 1: If the angle, $\theta$, between $\bold{\hat{x}}$ and $\bold{\lambda}_{\bold{\hat{x}}}$ is 0 then $\max\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T\bold{F}(\bold{\hat{x}})=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{F}(\bold{\hat{x}})$. 
+Furthermore by \cref{lem:BdOpt} $\bold{F}(\bold{\hat{x}})\in \partial \bold{F}(X)$ and thus $\bold{\hat{x}}\in \partial X$ since $\bold{F}$ has no singularities by hypothesis. 
+It follows now that $$\min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{F}(\bold x)\leq \max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{F}(\hat{\bold x})=\bold{\lambda}_{\bold{\hat{x}}}^T\bold{F}(\bold{\hat{x}})=\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{F}(\bold x)$$
 
 Case 2: Assume $\theta \neq 0$. 
-Let $\bold{x^*}$ be a point on the boundary of $X$ s.t. the angle between $\bold{\lambda}_{\bold{\hat{x}}}$ and $\bold{f}(\bold{x^*})$ is 0. 
-Such a point must exist as $\bold{f}(X)$ is compact and by hypothesis $\bold{f}(X)$ contains the origin, has no singularities ($\bold{f}$ maps $\partial X$ to $\partial \bold{f}(X)$) and by assumption the origin lies in the interior of $\bold{f}(X)$. 
-It follows then that $$\min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{f}(\bold x)\leq \max\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T \bold{f}(\bold{x^*}) =\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold{x^*})\leq \max\limits_{\bold x\in X}\bold{\lambda}_{\bold{\hat{x}}}^T\bold{f}(\bold x)=\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{f}(\bold x)$$
+Let $\bold{x^*}$ be a point on the boundary of $X$ s.t. the angle between $\bold{\lambda}_{\bold{\hat{x}}}$ and $\bold{F}(\bold{x^*})$ is 0. 
+Such a point must exist as $\bold{F}(X)$ is compact and by hypothesis $\bold{F}(X)$ contains the origin, has no singularities ($\bold{F}$ maps $\partial X$ to $\partial \bold{F}(X)$) and by assumption the origin lies in the interior of $\bold{F}(X)$. 
+It follows then that $$\min\limits_{\bold x\in \partial X}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\bold{F}(\bold x)\leq \max\limits_{||\bold{\lambda}||=1}\bold{\lambda}^T \bold{F}(\bold{x^*}) =\bold{\lambda}_{\bold{\hat{x}}}^T\bold{F}(\bold{x^*})\leq \max\limits_{\bold x\in X}\bold{\lambda}_{\bold{\hat{x}}}^T\bold{F}(\bold x)=\min\limits_{||\bold{\lambda}||=1}\max\limits_{\bold x\in X}\ \bold{\lambda}^T\bold{F}(\bold x)$$
 
 The theorem now follows.
 \end{itemize}
@@ -104,6 +104,6 @@ The theorem now follows.
 \end{thm}
 
 \cref{thm:MainIneq} and \cref{lem:BdOpt} provide us with the theoretical tools we need to develop models for approximating the robustness margin.
-We will use the terminology "inner bound models" to describe the process of verifying robust feasibility while expanding the uncertainty box centered at $\bold u^*$ in order to compute the lower bounds on the robustness margin, which these models undertake. 
-We use the terminology "outer bound models" to capture in a similar fashion the procedure used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
+We will use the terminology \enquote{inner bound models} to describe the process of verifying robust feasibility while expanding the uncertainty box centered at $\bold u^*$ in order to compute the lower bounds on the robustness margin, which these models undertake. 
+We use the terminology \enquote{outer bound models} to capture in a similar fashion the procedure used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
 As such we dedicate the remainder of this section to the development of these inner and outer bound formulations. 
