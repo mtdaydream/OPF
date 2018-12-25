@@ -1,21 +1,23 @@
+\section{Problem formulation} \label{sec:probform}
+
 
 We study systems of quadratic equations of the form
 \begin{align}
 & Q(\bold x)+L\bold x=\bold u\label{eq:Quad}
 \end{align}
-where $Q: \mathbb{R}^n \mapsto \mathbb{R}^n$ is a vector-valued quadratic function, that is, there exist symmetric matrices $\mathcal{M}^1,\ldots,\mathcal{M}^{n} \in \sym{n}$, ($\sym{n}$ the set of $n \times n$ symmetric matrices) such that
-\[[Q(\bold x)]_i = \bold x^t \mathcal{M}_{i} \bold x \quad \forall i \in [n]\]
+where $Q: \mathbb{R}^n \mapsto \mathbb{R}^n$ is a vector-valued quadratic function, that is, there exist symmetric matrices $M_1,\dots,$ $M_{n} \in \sym{n}$, the set of $n \times n$ symmetric matrices, such that
+\[[Q(\bold x)]_i = \bold x^t M_{i} \bold x \quad \forall i \in [n],\]
 and $L \in \mathbb{R}^{n\times n}$, $\bold u \in \mathbb{R}^n$. 
 We are interested in solutions to this system of equations under linear constraints of the form
 \begin{align}
-(A\bold x)_i\leq b_i \quad \forall i \in [n]\label{eq:xLimits}
+(A\bold x)_i\leq b_i \quad \forall i \in [n]. \label{eq:xLimits}
 \end{align}
-However, the parameter $\bold u$ is uncertain and only known up to certain error bounds
+However, the parameter $\bold u$ is uncertain and only known up to certain error bounds:
 \begin{align}
-u^{\min}_i=u_i^*-e_i \leq u_i \leq =u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
+u^{\min}_i=u_i^*-e_i \leq ~u_i~ \leq u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
 \end{align}
 where $\bold u^*$ is a forecast for $\bold u$ and $\bold e$ denotes the error bounds associated with the forecast. 
-For example, in the case of quadratic equations appearing in infrastructure networks like the power grid, $u_i$ represents uncertain power generation or consumption (for example uncertain weather-dependent power sources like solar or wind power). 
+For example, in the case of quadratic equations appearing in infrastructure networks like the power grid, $u_i$ represents uncertain power generation or consumption (for example, from uncertain weather-dependent power sources such as solar or wind power). 
 In the case of stochastic processes, $\bold u^*$ represents an initial state distribution.
 
 \begin{figure}

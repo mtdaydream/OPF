@@ -88,6 +88,8 @@
 \newcommand{\delete}[1]{\textcolor{red}{#1}}
 \definecolor{darkgrn}{rgb}{0, 0.8, 0}
 \newcommand{\modified}[1]{\textcolor{darkgrn}{#1}}
+\definecolor{maroon}{rgb}{0.85, 0.0, 0.1}
+\newcommand{\todo}[1]{\textcolor{maroon}{#1}}
 
 \newcommand{\txbl}[1]{\textcolor{blue}{#1}}
 \newcommand{\txrd}[1]{\textcolor{red}{#1}}
@@ -115,7 +117,6 @@
 
 \usepackage{csquotes}
 
-\bibliographystyle{plain}
 
 \begin{document}
 
@@ -123,34 +124,23 @@
 
 \input{abstract}
 
-\section{Introduction}
-  
 \input{intro}
-
-\section{Problem formulation}
 
 \input{probform}
 
-\section{Theoretical results}
-
 \input{theores}
-
-\subsection{Inner Bound Formulations}
 
 \input{inbdform}
 
-\subsection{Outer Bound Formulations}
-
 \input{outbdform}
-
-\section{Numerical studies}
 
 \input{numstd}
 
-\section{Discussion}
+\input{disc}
 
-\input{conclusion}
+\input{ack}
 
+\bibliographystyle{plain}
 \bibliography{Ref}
 
 \end{document}
