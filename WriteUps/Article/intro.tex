@@ -42,3 +42,8 @@ Looking specifically at applications such as the power systems, there has been s
 The driver has been the development of strong convex relaxations of the nonconvex optimization problems combined with ideas from global optimization such as spatial branch-and-cut, bound tightening, etc.~\cite{BiMu2016,coffrin2015strengthening}.
 Uncertainty has been handled in a chance-constrained framework \cite{BiChHa2014,zhang2011chance}.
 However, this approach has typically been applied only to linear approximations or convex relaxations of the AC power flow equations, and does not guarantee feasibility with respect to the true nonlinear power flow equations \cite{BiChHa2014,kocuk2016strong,RoVrOlAn2015,TsBiTa2016}.
+More recently \cite{DjTuritsyn} developed an approach to handle uncertainty which produced inner/lower bounds on the distance from the nominal values of the uncertain parameters for which the system can still be guaranteed to have solutions.
+This approach is most closely aligned with the methods describing our inner bound models, and further can produce a certificate of tightness under special conditions. 
+However, this method depends critically on the choice of norms which is not  straight forward.
+
+
