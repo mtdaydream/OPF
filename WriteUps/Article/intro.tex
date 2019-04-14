@@ -1,29 +1,49 @@
+\section{Introduction} \label{sec:intro}  
 
-\todo{Add detailed intro points from the grant proposal.}
+Solving systems of equations is ubiquitous in computational mathematics.
+In many applications, these problems are made challenging due to the functions in the equations being nonlinear and/or nonconvex.
+Another aspect adding to the problem complexity is the uncertainty in the problem parameters.
+Our work is motivated by two central computations performed as part of power systems operations are power flow (PF) studies and optimal power flow (OPF).
+PF studies ensure the power grid state (i.e., voltages and flows across the network) will remain within acceptable limits in spite of contingencies (e.g., loss of a generator or transmission line) and other uncertainties (e.g., shifting demand or renewable sources of power).
+OPF seeks further to choose values for controllable assets in the system (e.g., generators whose rate of power production could be controlled) so as to meet demand at minimum cost.
+These problems have inherent nonlinearities and nonconvexities, making them hard to solve in their natural form.
+  
+To further complicate the problem, the rapid adoption of renewable energy sources such as wind and solar energy is adding unprecedented uncertainties to modern power systems.
+Since these sources depend on the weather, their energy output is not perfectly controllable.
+In fact, this output can be forecasted with only limited accuracy.
+While demand-side flexibility can be used to balance fluctuations in solar and wind generation, its amount can in turn be difficult to predict \cite{mathieu2011examining,taylor2015uncertainty}.
+Due to all these uncertainties, it is increasingly difficult to ensure there is sufficient power generation to meet demand while accounting for losses and network limits.
 
-This paper studies quadratic systems of equations with parameters.
-In recent years, several algorithms have been proposed for the solution of quadratic systems, along with analyses of conditions under which they work. 
-However, in many applications, parameters appearing in the quadratic system of equations are not known perfectly.
-In these cases, it is of interest to study robust solvability of quadratic systems, that is, whether the quadratic system of equations has a solution (within a certain set) for all realizations within a certain error bound of a given nominal value of the parameters.
-  More concretely, we study a system of $n$ quadratic equations $F(\bold x)=\bold u$ where $F: \mathbb{R}^n \mapsto \mathbb{R}^n,\bold  x,\bold u \in \mathbb{R}^n$ and $F$ is quadratic in $\bold x$.
-  We are interested in situations where the parameters $\bold u$ are uncertain and we are still interested in guaranteeing that there is a solution to $F(\bold x) = \bold u$ for $\bold x$ within limits on $\bold x$ and $\bold u$.
-  Questions of this type arise in a variety of applications from analysis of stochastic processes to infrastructure networks like the power grid and the gas grid.
+\medskip
+We study quadratic systems of equations with parameters, and take a \emph{robust viewpoint} of uncertainty.
+Specifically, we aim to quantify the worst-case impact of uncertainty in parameters on feasibility.
+To this end, We study the \emph{robust feasibility problem}, which includes the robust version of the standard PF problem as a special case.
+The power system can be described by a system of nonlinear equations in a set of variables that capture the state of the power grid, i.e., voltages at every point in the power network, and include the controllable inputs as well as uncertain inputs.
+In the main PF problem, we are given a fixed value of the controllable inputs and an uncertainty set for the uncertain inputs.
+The goal of the robust feasibility problem is to characterize whether the system has a solution within specified bounds (capturing engineering limits on voltages, flows, etc.) for {\em each} choice of the uncertain inputs in the uncertainty set.
+
+\medskip
+More concretely, we study a system of quadratic equations $F(\bold x)=\bold u$ where $F: \mathbb{R}^n \mapsto \mathbb{R}^n$ is quadratic in $\bold x$ for $\bold  x,\bold u \in \mathbb{R}^n$.
+  We consider situations where the parameters $\bold u$ are uncertain, and we are interested in guaranteeing the existence of a solution to $F(\bold x) = \bold u$ within limits on $\bold x$ and $\bold u$.
+We draw on results from topological degree theory and Borsuk's theorem from algebraic topology and nonlinear analysis to develop tests for existence of solutions.
+Using ideas from optimization such as convex relaxations of quadratic constraints, we develop rigorous and efficient algorithms based on these tests for robust feasibility.
+We develop efficient implementations of these algorithms capable of scalably solving large instances of PF problems.
+While we use power systems as the main application area, the methods we develop are fairly general, and could be applied to problems in other domains as well, e.g., stochastic processes and gas distribution networks.
 
 \subsection{Our Contributions}
-\todo{Informally define robustness margin first---as a new way to characterize robust feasibility.}
-We develop approaches based on topological degree theory to estimate bounds on the robustness margin of such systems.
+  We study systems of quadratic equations, and define a \emph{robustness margin} as a measure of the system's robust feasibility (see Definition \ref{RobustDef}).
+  We develop approaches based on topological degree theory to estimate bounds on the robustness margin of such systems.
   Our methods use tools from convex analysis and optimization theory to cast the problems of checking the conditions for robust feasibility as a nonlinear optimization problem.
   We then develop \emph{inner bound} and \emph{outer bound} formulations for this optimization problem, which could be solved efficiently to derive lower and upper bounds, respectively, for the margin of robust feasibility.
-  We evaluate our approach numerically on standard instances taken from the MATPOWER database of AC power flow equations that describe the steady state of the power grid.
-  The results demonstrate that our approach can produce tight lower and upper bounds on the radius of robust feasibility for such instances.
+  We evaluate our approach numerically on standard instances taken from the MatPower database of AC power flow equations that describe the steady state of the power grid.
+  The results demonstrate that our approach can produce tight lower and upper bounds on the robustness margin for such instances.
 
 \subsection{Related Work}
 
-\todo{Add paragraph about related paper "Solvability Regions of Affinely Parameterized Quadratic Equations''.
-Also check for any new/recent papers/preprints presenting related approaches.}
+%\todo{Check for any new/recent papers/preprints presenting related approaches.}
   
 Robust feasibility and optimization have been well-studied by both the optimization and topology communities. 
-What is lacking is an approach that can gaurantee and quantify robust feasibility on large scale systems in an efficient manner. 
+What is lacking is an approach that can guarantee and quantify robust feasibility on large scale systems in an efficient manner. 
 In this article we address this deficiency by developing theory that utilizes results from topological degree theory and convex optimization. 
 We provide a theoretical foundation for determining robust feasibility of systems of quadratic equations and computational methods for producing lower and upper bounds on the maximum error bound for which one can guarantee robust solvability (the radius of robust solvability). 
 To highlight the efficacy of our approach we derive models, which we test numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid with added uncertainty. 
@@ -41,7 +61,7 @@ Looking specifically at applications such as the power systems, there has been s
 The driver has been the development of strong convex relaxations of the nonconvex optimization problems combined with ideas from global optimization such as spatial branch-and-cut, bound tightening, etc.~\cite{BiMu2016,coffrin2015strengthening}.
 Uncertainty has been handled in a chance-constrained framework \cite{BiChHa2014,zhang2011chance}.
 However, this approach has typically been applied only to linear approximations or convex relaxations of the AC power flow equations, and does not guarantee feasibility with respect to the true nonlinear power flow equations \cite{BiChHa2014,kocuk2016strong,RoVrOlAn2015,TsBiTa2016}.
-More recently \cite{DjTuritsyn} developed an approach to handle uncertainty which produced inner/lower bounds on the distance from the nominal values of the uncertain parameters for which the system can still be guaranteed to have solutions.
+More recently, Dvijotham, Nguyen, and Turitsyn \cite{DjTuritsyn} developed an approach to handle uncertainty which produced inner/lower bounds on the distance from the nominal values of the uncertain parameters for which the system can still be guaranteed to have solutions.
 This approach is most closely aligned with the methods describing our inner bound models, and further can produce a certificate of tightness under special conditions. 
 However, this method depends critically on the choice of norms which is not  straight forward.
 

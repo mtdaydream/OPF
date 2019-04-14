@@ -1,10 +1,10 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 \usepackage{amsmath,amstext,amsfonts,amssymb,amsthm,epsfig,epstopdf,url,array}
 \usepackage[margin=1in]{geometry}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{times}
-\usepackage{authblk}
+%\usepackage{authblk}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -109,11 +109,23 @@
 %  Benjamin Rapone\footnotemark[2]
 %}
 
-\author[*]{Krishnamurthy Dvijotham}
-\author[**]{Bala~Krishnamoorthy}
-\author[**]{Benjamin Rapone}
-\affil[*]{Google DeepMind}
-\affil[**]{Wahington State University}
+%\author[1]{Krishnamurthy Dvijotham}
+%\affil[1]{Google DeepMind}
+%\author[2]{Bala Krishnamoorthy}
+%\author[2]{Benjamin Rapone}
+%\affil[2]{Wahington State University}
+
+\author{
+  Krishnamurthy Dvijotham$^\dag$
+  \hspace*{0.15in}
+  Bala Krishnamoorthy$^\ddag$
+  \hspace*{0.15in}
+  Benjamin Rapone$^\ddag$ \\
+  \vspace*{-0.15in} \\
+  $\dag$: Google DeepMind \\
+  $\ddag$: Department of Mathematics and Statistics, Washington State University 
+}
+
 
 \usepackage{csquotes}
 
@@ -123,20 +135,13 @@
 \maketitle
 
 \input{abstract}
-\section{Introduction} \label{sec:intro}  
 \input{intro}
-\section{Problem Formulation} \label{sec:probform}  
 \input{probform}
-\section{Theoretical Results} \label{sec:theory}  
 \input{theores}
-\section{Inner Bound Models} \label{sec:inbdform}  
 \input{inbdform}
-\section{Outer Bound Models} \label{sec:outbdform}  
 \input{outbdform}
-\section{Numerical Studies} \label{sec:numstd}  
 \input{numstd}
 \input{disc}
-
 \input{ack}
 
 \bibliographystyle{plain}
