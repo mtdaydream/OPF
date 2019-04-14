@@ -41,16 +41,19 @@ Since, $A\vx\leq \vb$ this implies that $(\vb-A\vx)(\vb-A\vx)^T\geq 0\Rightarrow
 If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\vx\vx^T$ we can construct the following relaxation of the model presented in \cref{thm:RobFeas}:
  
 \begin{equation}\label{eq:OPTfeasrelax}
-\hat{\mathrm{z}}_{i} = \min_x b_i-(Ax)_i  
+  \begin{array}{rl}
+    \hat{\mathrm{z}}_{i} = & \min\limits_{\vx}  b_i-(A\vx)_i  \\
+    \vspace*{-0.05in} \\
+%\begin{align*}
+    \text{subject to: } \ & \Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{min} \ \ \forall i\\
+    & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max} \ \ \forall i\\
+    &A\vx\leq \vb \\
+    &\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
+    &X \text{ is symmtric, positive semidefinite}
+  \end{array}
 \end{equation}
-\begin{align*}
-\text{subject to: } \ & \Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{min} \ \ \forall i\\
-& \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max} \ \ \forall i\\
-&A\vx\leq \vb \\
-&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
-&X \text{ is symmtric, positive semidefinite}
-\end{align*}
-
+%\end{align*}
+%
 where $L_i$ denotes the $i^{th}$ rows of $L$, and $O$ denotes the $2n \times 2n$ matrix of zeros with the constraints understood to be componentwise inequalities. 
 This is a convex optimization problem (a semidefinite program, in fact) and can be solved efficiently. 
 Since this is a relaxation of the model in \cref{thm:RobFeas}, if $\hat{\mathrm{z}}_i>0$ for each $i$, the condition in \cref{thm:RobFeas} (i.e. $z_i>0 \ \forall i$) is satisfied. 
