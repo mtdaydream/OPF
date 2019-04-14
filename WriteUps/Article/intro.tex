@@ -23,19 +23,19 @@ In the main PF problem, we are given a fixed value of the controllable inputs an
 The goal of the robust feasibility problem is to characterize whether the system has a solution within specified bounds (capturing engineering limits on voltages, flows, etc.) for {\em each} choice of the uncertain inputs in the uncertainty set.
 
 \medskip
-More concretely, we study a system of quadratic equations $F(\bold x)=\bold u$ where $F: \mathbb{R}^n \mapsto \mathbb{R}^n$ is quadratic in $\bold x$ for $\bold  x,\bold u \in \mathbb{R}^n$.
-  We consider situations where the parameters $\bold u$ are uncertain, and we are interested in guaranteeing the existence of a solution to $F(\bold x) = \bold u$ within limits on $\bold x$ and $\bold u$.
+More concretely, we study a system of quadratic equations $F(\vx)=\vu$ where $F: \R^n \mapsto \R^n$ is quadratic in $\vx$ for $\vx,\vu \in \R^n$.
+  We consider situations where the parameters $\vu$ are uncertain, and we are interested in guaranteeing the existence of a solution to $F(\vx) = \vu$ within limits on $\vx$ and $\vu$.
 We draw on results from topological degree theory and Borsuk's theorem from algebraic topology and nonlinear analysis to develop tests for existence of solutions.
 Using ideas from optimization such as convex relaxations of quadratic constraints, we develop rigorous and efficient algorithms based on these tests for robust feasibility.
 We develop efficient implementations of these algorithms capable of scalably solving large instances of PF problems.
 While we use power systems as the main application area, the methods we develop are fairly general, and could be applied to problems in other domains as well, e.g., stochastic processes and gas distribution networks.
 
 \subsection{Our Contributions}
-  We study systems of quadratic equations, and define a \emph{robustness margin} as a measure of the system's robust feasibility (see Definition \ref{RobustDef}).
-  We develop approaches based on topological degree theory to estimate bounds on the robustness margin of such systems.
-  Our methods use tools from convex analysis and optimization theory to cast the problems of checking the conditions for robust feasibility as a nonlinear optimization problem.
-  We then develop \emph{inner bound} and \emph{outer bound} formulations for this optimization problem, which could be solved efficiently to derive lower and upper bounds, respectively, for the margin of robust feasibility.
-  We evaluate our approach numerically on standard instances taken from the MatPower database of AC power flow equations that describe the steady state of the power grid.
+  We study systems of quadratic equations, and define a \emph{robustness margin} as a measure of the system's robust feasibility (see \cref{RobustDef}).
+  We develop approaches based on topological degree theory to estimate bounds on the robustness margin of such systems (see \cref{sec:theory}).
+  We use tools from convex analysis and optimization theory to cast the problems of checking the conditions for robust feasibility as a nonlinear optimization problem.
+  We then develop \emph{inner bound} (\cref{sec:inbdform}) and \emph{outer bound} (\cref{sec:outbdform}) formulations for this optimization problem, which could be solved efficiently to derive lower and upper bounds, respectively, for the margin of robust feasibility.
+  We evaluate our approach numerically on standard instances taken from the MatPower database of AC power flow equations that describe the steady state of the power grid (\cref{sec:numstd}).
   The results demonstrate that our approach can produce tight lower and upper bounds on the robustness margin for such instances.
 
 \subsection{Related Work}

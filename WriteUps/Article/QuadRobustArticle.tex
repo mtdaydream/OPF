@@ -48,6 +48,13 @@
   \olddefn}
 \Crefname{defn}{Definition}{Definitions}
 
+% to make cleveref print ``Definition for definition using cdef
+\let\oldcdef\cdef
+\renewcommand{\cdef}{%
+  \crefalias{thm}{cdef}% Theorem counter now looks like Definition
+  \oldcdef}
+\Crefname{cdef}{Definition}{Definitions}
+
 % to make cleveref print ``Remark for remark
 \let\oldrem\rem
 \renewcommand{\rem}{%
@@ -100,6 +107,25 @@
 % shortcut commands
 \newcommand{\sym}[1]{\mathcal{S}^{#1}}
 
+% vectors
+%\newcommand{\vF}{ \mathbf{F} } % Does nor make sense to bold only F
+\newcommand{\vF}{ F }
+\newcommand{\vb}{ \mathbf{b} }
+\newcommand{\ve}{ \mathbf{e} }
+\newcommand{\vl}{ \mathbf{l} }
+\newcommand{\vu}{ \mathbf{u} }
+\newcommand{\vx}{ \mathbf{x} }
+\newcommand{\vy}{ \mathbf{y} }
+\newcommand{\vz}{ \mathbf{z} }
+\newcommand{\vzero}{ \mathbf{0} }
+\newcommand{\vone}{ \mathbf{1} }
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Int}{\operatorname{Int}}
+%\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Tr}{\operatorname{Trace}}
+
+
 \title{Robust Feasibility of Systems of Quadratic Equations Using Topological Degree Theory}
 
 %\author{Krishnamurthy Dvijotham\thanks{\affil{Google DeepMind}}
@@ -136,6 +162,7 @@
 
 \input{abstract}
 \input{intro}
+\input{notation}
 \input{probform}
 \input{theores}
 \input{inbdform}

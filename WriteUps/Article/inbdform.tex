@@ -1,57 +1,57 @@
 \section{Inner Bound Models} \label{sec:inbdform}  
 
 \begin{thm}
-Let $\Omega=\{\bold x| A\bold x< \bold b\}$, $\Omega_{u}=\{\bold u| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\bold x)=Q(\bold x)+L(\bold x)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. 
+Let $\Omega=\{\vx| A\vx< \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. 
 Let
-$$z = \min\limits_{\bold x\in \partial \Omega, \bold u\in \Omega_{u} }\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(F(\bold x)-\bold u\right).$$
+$$z = \min\limits_{\vx\in \partial \Omega, \vu\in \Omega_{u} }\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right).$$
 If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z>0$ then the system is robust feasible and has a robustness margin of at least r.
 
-\begin{proof} \ \\
+\begin{proof} 
 \begin{itemize}
-\item[] If \eqref{eq:RSForm} is invalidated then $\exists \hat{\bold x}\in\partial\Omega$ s.t. $F(\hat{\bold x})=\hat{\bold u}$ for some $\hat{\bold u}\in\Omega_{u}$ and thus $$z = \min\limits_{\bold x\in \partial \Omega}\max\limits_{||\bold{\lambda}||=1}\ \bold{\lambda}^T\left(\bold{F}(\bold x)-\bold u\right)\leq \max\limits_{||\bold{\lambda}||=1, \bold x=\hat{\bold x}}\ \bold{\lambda}^T\left(\bold{F}(\bold x)-\hat{\bold u}\right)=0.$$ 
+\item[] If \eqref{eq:RSForm} is invalidated then $\exists \hat{\vx}\in\partial\Omega$ s.t. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in\Omega_{u}$ and thus $$z = \min\limits_{\vx\in \partial \Omega}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)\leq \max\limits_{||\boldsymbol{\lambda}||=1, \vx=\hat{\vx}}\ \boldsymbol{\lambda}^T\left(F(\vx)-\hat{\vu}\right)=0.$$ 
 Hence if $z>0$, \eqref{eq:RSForm} is validated, and the system is robust feasible. It follows then by definition that the system has a robustness margin of at least r.
 \end{itemize}
 \end{proof}
 \end{thm}
 
 \begin{thm} \label{thm:RobFeas}
-Let $\partial\Omega_i=\{\bold x| Ax_i = b_i, A\bold x\leq \bold b\}$, $\Omega_{u}=\{\bold u| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\bold x)=Q(\bold x)+L(\bold x)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. Define
+Let $\partial\Omega_i=\{\vx| Ax_i = b_i, A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. Define
 \begin{align}
-\mathrm{z}_i =  \min_{\bold x\in\partial\Omega_i, u\in \Omega_u} ||F(\bold x)-u||. \label{eq:OPTfeas}
+\mathrm{z}_i =  \min_{\vx\in\partial\Omega_i, u\in \Omega_u} ||F(\vx)-u||. \label{eq:OPTfeas}
 \end{align}
 If $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$ (where $m$ is the number of rows of $A$), then the system is robust feasible.
 
-\begin{proof} \ \\
+\begin{proof} 
 \begin{itemize}
-\item[] If \eqref{eq:RSForm} is invalidated then $\exists \hat{\bold x}\in\partial\Omega$, $\Omega=\{\bold x| A\bold x< \bold b\}$, s.t. $F(\hat{\bold x})=\hat{\bold u}$ for some $\hat{\bold u}\in \Omega_u$. 
-Since $\hat{\bold x}\in\partial\Omega$ this implies that $\exists i$ s.t. $A\hat{\bold x}_i=b_i$ and thus $0\leq \mathrm{z}_i \leq ||F(\hat{\bold x})-\hat{\bold u}||=0$.
+\item[] If \eqref{eq:RSForm} is invalidated then $\exists \hat{\vx}\in\partial\Omega$, $\Omega=\{\vx| A\vx< \vb\}$, s.t. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 
+Since $\hat{\vx}\in\partial\Omega$ this implies that $\exists i$ s.t. $A\hat{\vx}_i=b_i$ and thus $0\leq \mathrm{z}_i \leq ||F(\hat{\vx})-\hat{\vu}||=0$.
 Thus if $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$, \eqref{eq:RSForm} is validated, and the system is robust feasible as desired.
 \end{itemize}
 \end{proof}
 \end{thm}
 
-%Note that under these circumstances $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \bold{\lambda}^T\left(\bold{F}(x)-\hat{u}\right)> 0$ is possible, especially if $F(\bar{\Omega})$ is highly non-convex. However, should $\exists u^{\prime}$ s.t. $\min\limits_{||\bold{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \bold{\lambda}^T\left(\bold{F}(x)-u^{\prime}\right)=0$ then by \ref{MainInEqLem} we know that there $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=u^{\prime}$. Hence the following formulation of an outer bound approximation on $u_i^{min}$ and $u_i^{max}$:
+%Note that under these circumstances $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \boldsymbol{\lambda}^T\left(F(x)-\hat{u}\right)> 0$ is possible, especially if $F(\bar{\Omega})$ is highly non-convex. However, should $\exists u^{\prime}$ s.t. $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \boldsymbol{\lambda}^T\left(F(x)-u^{\prime}\right)=0$ then by \ref{MainInEqLem} we know that there $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=u^{\prime}$. Hence the following formulation of an outer bound approximation on $u_i^{\min}$ and $u_i^{\max}$:
 
 
 The optimization problems presented in \cref{thm:RobFeas} are nonlinear and nonconvex.
 Hence it may be difficult to solve them in general.
-However, since $F(\bold x)$ is quadratic in $\bold x$, they are quadratically constrained quadratic programs (QCQPs), and we can use well known \emph{semidefinite programming relaxations for QCQPs} 
+However, since $F(\vx)$ is quadratic in $\vx$, they are quadratically constrained quadratic programs (QCQPs), and we can use well known \emph{semidefinite programming relaxations for QCQPs} 
 to obtain lower bounds on the optimal values.\cite{VaBo1996} 
-Since $Q$ is quadratic, it can also be written as a linear function of $\bold x\bold x^T$.
+Since $Q$ is quadratic, it can also be written as a linear function of $\vx\vx^T$.
 More concretely, we can write
-$$Q(\bold x)_i=\bold x^TM_i\bold x=Trace(M_i\bold x\bold x^T)$$
+$$Q(\vx)_i=\vx^TM_i\vx=\Tr(M_i\vx\vx^T)$$
 where each $M_i$ is as defined in \eqref{eq:Quad}. 
-Since, $A\bold x\leq \bold b$ this implies that $(\bold b-A\bold x)(\bold b-A\bold x)^T\geq 0\Rightarrow \bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A(\bold x\bold x^T)A^T\geq 0$. 
-If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\bold x\bold x^T$ we can construct the following relaxation of the model presented in \cref{thm:RobFeas}:
+Since, $A\vx\leq \vb$ this implies that $(\vb-A\vx)(\vb-A\vx)^T\geq 0\Rightarrow \vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+A(\vx\vx^T)A^T\geq 0$. 
+If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\vx\vx^T$ we can construct the following relaxation of the model presented in \cref{thm:RobFeas}:
  
 \begin{subequations}\label{eq:OPTfeasrelax}
 \begin{align}
 \hat{\mathrm{z}}_{i} = &\min_x b_i-Ax_i  \\
- \text{subject to: } \ &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min} \ \ \forall i\\
- & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max} \ \ \forall i\\
- 	&A\bold x\leq \bold b \\
- 	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
- 	&\mathcal{X} \text{ is symmtric, positive semidefinite}
+ \text{subject to: } \ & \Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{min} \ \ \forall i\\
+ & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max} \ \ \forall i\\
+ 	&A\vx\leq \vb \\
+ 	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
+ 	&X \text{ is symmtric, positive semidefinite}
 \end{align}
 \end{subequations}
 where $L_i$ denotes the $i^{th}$ rows of $L$, and $O$ denotes the $2n \times 2n$ matrix of zeros with the constraints understood to be componentwise inequalities. 
@@ -60,31 +60,39 @@ Since this is a relaxation of the model in \cref{thm:RobFeas}, if $\hat{\mathrm{
 We can further relax the model in \eqref{eq:OPTfeasrelax} by dropping the condition that $X$ be positive semidefinite, which transforms the model from a semidefinite program to a linear program. 
 We now present three formulations for this new, relaxed program that we provide numerical results for in the coming section.
 
+\clearpage
+\delete{{\bfseries ToDo for Ben:} \\
+  If we're not referencing each line within the equation system, we should not be numbering them separately. So, do not use subequations I suppose. The only place where you refer to subequations is in \eqref{eq:OPTfeasrelaxLP3}[d\& e]; may be better to explicitly talk about the subequations in that case. \\
+  Highlight the titles of each model separately, in bold, e.g., {\bfseries LP Feasibility Model}.\\
+  Replace occurences of $Ax_i$ with $(A\vx)_i$.\\
+  Replace instances of $\backslash$ref with $\backslash$cref (wherever you are referencing equations).
+}
+
 \begin{subequations}\label{eq:OPTfeasrelaxLP1}
 \begin{align}
- \text{LP Feasibility Model}& \ z_i  \\
+  \text{LP Feasibility Model}& \ z_i \delete{~~\text{Is a min needed here?}}\\
  \text{subject to: } \ &Ax_i= b_i \\
- &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min}  \ \ \forall i\\
- & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max}  \ \ \forall i\\
- 	&A\bold x\leq \bold b \\
- 	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
- 	&\mathcal{X} \text{ is symmtric}
+ &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
+ & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{\max}  \ \ \forall i\\
+ 	&A\vx\leq \vb \\
+ 	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
+ 	&X \text{ is symmtric}
 \end{align}
 \end{subequations}
 
-This model has the advantage of being a linear program and hence can be solved efficiently, but as noted by the objective $z_i$, one must iterate over each dimension of $A\bold x$ checking feasibility of the model. 
+This model has the advantage of being a linear program and hence can be solved efficiently, but as noted by the objective $z_i$, one must iterate over each dimension of $A\vx$ checking feasibility of the model. 
 Of course should the model prove feasible then we have found a solution on the boundary and thus invalidating (\ref{eq:RSForm}). 
 If the model proves infeasible then we are free to push the robust margin higher and test again. 
-An alternative approach would be to deal with all of the dimensions of $A\bold x$ simultaneously by introducing some binaries and creating a MIP as follows. 
+An alternative approach would be to deal with all of the dimensions of $A\vx$ simultaneously by introducing some binaries and creating a MIP as follows. 
 
 \begin{subequations}\label{eq:OPTfeasrelaxLP2}
 \begin{align}
  \text{MIP Model}& \ \max z  \\
- \text{subject to: } \ &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min}  \ \ \forall i\\
- & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max}  \ \ \forall i\\
- 	&A\bold x\leq \bold b \\
- 	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
- 	&\mathcal{X} \text{ is symmtric} \\
+ \text{subject to: } \ &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
+ & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
+ 	&A\vx\leq \vb \\
+ 	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
+ 	&X \text{ is symmtric} \\
  	& z\leq Ax_i-b_i+R(1-d_i) \ \forall i \ \text{ for some large enough $R$} \\
  	& \sum\limits_i d_i=1 \\
  	& d_i\in\{0,1\}
@@ -100,16 +108,16 @@ One way of tackling this issue is by updating the constraints using an iterative
 \begin{subequations}\label{eq:OPTfeasrelaxLP3}
 \begin{align}
 \text{LP Bound Tightening Model}& \ \mathrm{z}_{i} = \max_x Ax_i  \\
- \text{subject to: } \ &Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \geq \bold u_i^{min}  \ \ \forall i\\
- & Tr\left(M_i\mathcal{X}\right)+\bold L_i\bold x \leq \bold u_i^{max}  \ \ \forall i\\
- 	&A\bold x\leq \bold b \\
- 	&\bold b\bold b^T-A\bold x\bold b^T-\bold b(A\bold x)^T+A\mathcal{X}A^T\geq O \\
- 	&\mathcal{X} \text{ is symmtric}
+ \text{subject to: } \ &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
+ & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
+ 	&A\vx\leq \vb \\
+ 	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
+ 	&X \text{ is symmtric}
 \end{align}
 \end{subequations}
 
-As noted, what distinguishes the LP Bound Tightening model is its ability to be used iteratively by updating the constraints \eqref{eq:OPTfeasrelaxLP3}[d\& e], replacing $\bold b$ with $\bold z$ (the vector of $z_i$'s found after running the model over all dimensions of $A\bold x$). 
-Since clearly $\bold b\leq \bold z$ we have that the polytope $\{A\bold x\leq \bold z\}\subseteq\{A\bold x\leq \bold b\}$. 
+As noted, what distinguishes the LP Bound Tightening model is its ability to be used iteratively by updating the constraints \eqref{eq:OPTfeasrelaxLP3}[d\& e], replacing $\vb$ with $\vz$ (the vector of $z_i$'s found after running the model over all dimensions of $A\vx$). 
+Since clearly $\vb\leq \vz$ we have that the polytope $\{A\vx\leq \vz\}\subseteq\{A\vx\leq \vb\}$. 
 Thus it follows that any system deemed robust feasible using \eqref{eq:OPTfeasrelaxLP1} or \eqref{eq:OPTfeasrelaxLP2} would certainly be found robust feasible using \eqref{eq:OPTfeasrelaxLP3}, but a system found robust feasible using \eqref{eq:OPTfeasrelaxLP3} may not be found robust feasible using \eqref{eq:OPTfeasrelaxLP1} or \eqref{eq:OPTfeasrelaxLP2}. 
 The drawback, as we shall see in the numerical studies, is the choice of modeling parameters which must be manually set to tell the program when to stop running models. 
 
