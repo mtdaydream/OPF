@@ -3,43 +3,44 @@
 As a result of the complexity of $\displaystyle \min\limits_{\vx\in \partial \Omega, \vu\in\Omega_u}\max\limits_{||\boldsymbol{\lambda}||=1 }\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)$ we derived a sequence of relaxations in order to arrive at a method that was computationally efficient for a non-trivial data set. 
 We can similarly work with $\displaystyle \min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \bar{\Omega}, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)$ to produce computationally efficient models for outer bound approximations of the robustness margin. 
 \begin{thm}\label{thm:OPTfeasOut} 
-Let $\bar{\Omega}=\{\vx| A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \eqref{eq:Quad}, \eqref{eq:xLimits} and \eqref{eq:uLimits}. 
+Let $\bar{\Omega}=\{\vx| A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \cref{eq:Quad}, \cref{eq:xLimits} and \cref{eq:uLimits}. 
 Let
 $$z = \min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \bar{\Omega}, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right).$$
 If $r>0$ such that $r\leq e_i \ \forall i \ such that \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z=0$ then the system has robustness margin of no more than r.
 
 \begin{proof} 
-%\begin{itemize}
-%\item[]
-  Observe by \cref{lem:BdOpt} that if $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \Omega, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)=0$, then \eqref{eq:RSForm} is invalidated.  
+  Observe by \cref{lem:BdOpt} that if $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \Omega, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)=0$, then \cref{eq:RSForm} is invalidated.  
 
-%Observe that if \eqref{eq:RSForm} is invalidated then $\exists \hat{x}\in\partial\Omega$ such that $F(\hat{x})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in X, u\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(x)-u\right) \geq \min\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\hat{x})-\hat{u}\right)=0.$$ The theorem now follows.
+%Observe that if \cref{eq:RSForm} is invalidated then $\exists \hat{x}\in\partial\Omega$ such that $F(\hat{x})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in X, u\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(x)-u\right) \geq \min\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\hat{x})-\hat{u}\right)=0.$$ The theorem now follows.
 %\end{itemize}
 \end{proof}
 \end{thm}
 
 We can relax the model in \cref{thm:OPTfeasOut} utilizing the same techniques as before, replacing $\vx\vx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite, which transforms the model from a semidefinite program to a linear or mixed integer program depending on how one deals with the condition $||\boldsymbol{\lambda}||=1$. 
-In our tests we iterate over all possible sign choices for each dimension of $\boldsymbol{\lambda}$ as there are only ten dimensions of variability in our applications. 
+In our tests we iterate over all possible sign choices for each dimension of $\boldsymbol{\lambda}$ as there are only ten dimensions of variability in our applications. \\
 
-
-\begin{subequations}\label{eq:OPTfeasOutRelaxa}
-\begin{align}
-\text{Outer Bound Model A}& \ z=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx}  \boldsymbol{\lambda}^T\left(F(\vx)-\vu^*\right)\\
+\textbf{Outer Bound Model A}
+\begin{equation}\label{eq:OPTfeasOutRelaxa}
+ \ z=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx} \boldsymbol{\lambda}^T\left(F(\vx)-\vu^*\right)
+\end{equation}
+\begin{align*}
  \text{subject to: } \ & A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric}
-\end{align}
-\end{subequations}
+\end{align*}
 
-We can construct the dual of the inner maximal objective of \eqref{eq:OPTfeasOutRelaxa} to produce:
 
-\begin{subequations}\label{eq:OPTfeasOutRelaxb}
-\begin{align}
-\text{Outer Bound Model B}& \ z=\min\limits_{||\boldsymbol{\lambda}||=1,\vy}B^T\vy  \\
+We can construct the dual of the inner maximal objective of \cref{eq:OPTfeasOutRelaxa} to produce: \\
+
+\textbf{Outer Bound Model B} 
+\begin{equation}\label{eq:OPTfeasOutRelaxb}
+\ z=\min\limits_{||\boldsymbol{\lambda}||=1,\vy}B^T\vy  
+\end{equation}
+\begin{align*}
  \text{subject to: } \ & H^T\vy=\vu(\lambda) \\
  & \vy\leq 0
-\end{align}
-where \eqref{eq:OPTfeasOutRelaxa}$[b \& c]$ can be written as $H\vx\geq B$ and the objective of \eqref{eq:OPTfeasOutRelaxa} as $\vu(\lambda)^T\vx$. 
-Notice that the objective of \eqref{eq:OPTfeasOutRelaxa} is different from that of \cref{thm:OPTfeasOut}. 
-The optimal value of the objectives of  \eqref{eq:OPTfeasOutRelaxa} and \eqref{eq:OPTfeasOutRelaxb} are much easier to find and they allow us to directly solve for the minimal outer bound approximation of the robustness margin. 
-\end{subequations}
+\end{align*}
+where the constraints of \cref{eq:OPTfeasOutRelaxa} can be written as $H\vx\geq B$ and the objective of \cref{eq:OPTfeasOutRelaxa} as $\vu(\lambda)^T\vx$. 
+Notice that the objective of \cref{eq:OPTfeasOutRelaxa} is different from that of \cref{thm:OPTfeasOut}. 
+The optimal value of the objectives of  \cref{eq:OPTfeasOutRelaxa} and \cref{eq:OPTfeasOutRelaxb} are much easier to find and they allow us to directly solve for the minimal outer bound approximation of the robustness margin. 
+

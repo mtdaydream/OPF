@@ -55,9 +55,6 @@ Therefore if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each c
 
 From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ and focus our efforts on the development of methods for validating or invalidating \ref{eq:RSForm}.
 
-
-\noindent \delete{{\bfseries ToDo for Ben:} Remove the itemize loops inside {\bfseries all} proofs.}
-
 \begin{lem} 
 \label{lem:BdOpt}
 Let $X\subset\R^n$ be closed and $\vF:\R^n\rightarrow\R^n$ be continuous. 
@@ -66,8 +63,7 @@ obtains its optimal at $\hat{\vx}$,$\boldsymbol{\lambda}_{\hat{\vx}}$ then $\vF(
 
 
 \begin{proof} 
-\begin{itemize}
-\item[](By contradiction) Assume $\vF(\hat{\vx})\in \vF(X)\setminus\partial \vF(X)$. 
+(By contradiction) Assume $\vF(\hat{\vx})\in \vF(X)\setminus\partial \vF(X)$. 
 Let $\theta$ the angle between $\boldsymbol{\lambda}_{\hat{\vx}}$ and $\hat{\vx}$. 
 Thus $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in X}\ \boldsymbol{\lambda}^T\vF(x)=\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\hat{\vx})=|\vF(\hat{\vx})|\cos(\theta)$. 
 Since $X\in\R^n$ is closed it is thus compact which implies $\vF(X)$ is also compact. 
@@ -77,7 +73,6 @@ It follows then that $|y|>|\vF(\hat{\vx})|$ and $\theta$ is the angle between $\
 Let $\vx^*\in X$ such that $\vF(\vx^*)=y$, such a $\vx^*$ exists as $\vF(X)$ is compact. 
 Therefore $\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\vx^*)=|\vF(\vx^*)|\cos(\theta)>|\vF(\hat{\vx})|\cos(\theta)=\boldsymbol{\lambda}_{\hat{\vx}}^T|\vF(\hat{\vx})|$ which is a contradiction. 
 The lemma now follows.
-\end{itemize}
 \end{proof}
 \end{lem}
 
@@ -86,8 +81,7 @@ The lemma now follows.
 Let $X\subset\R^n$ be closed and $\vF:\R^n\rightarrow\R^n$ be continuous such that $\vF(X)$ contains the origin. 
 If $\vF$ has no singularities then $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)\geq \min\limits_{\vx\in \partial X}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\vx)$$
 \begin{proof}
-\begin{itemize}
-\item[] If the origin lies on the boundary of $\vF(X)$ then let $\hat{\vx}\in \partial X$ such that $f(\hat{\vx})=\textbf{0}$. 
+If the origin lies on the boundary of $\vF(X)$ then let $\hat{\vx}\in \partial X$ such that $f(\hat{\vx})=\textbf{0}$. 
 Such an $\hat{\vx}$ exists as $f$ has no singularities. 
 Then  clearly $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)\geq \min\limits_{||\boldsymbol{\lambda}||=1}\boldsymbol{\lambda}^T\vF(\hat{\vx})= 0 = \max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\hat{\vx}) \geq \min\limits_{\vx\in \partial X}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\vx)$$
 Thus assume the origin lies in the interior of $\vF(X)$.
@@ -104,7 +98,6 @@ Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contai
 It follows then that $$\min\limits_{\vx\in \partial X}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\vx)\leq \max\limits_{||\boldsymbol{\lambda}||=1}\boldsymbol{\lambda}^T \vF(\vx^*) =\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\vx^*)\leq \max\limits_{\vx\in X}\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\vx)=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)$$
 
 The theorem now follows.
-\end{itemize}
 \end{proof}
 \end{thm}
 

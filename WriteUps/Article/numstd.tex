@@ -24,15 +24,24 @@ The following subsection will detail specifically how this transformation was co
 
 \subsection{OPF to Quadratic System}
 As described in \cite{DjTuritsyn}, the AC power flow equations can be written as 
-\delete{ToDo for Ben: fix the equation number so that it's centered}
-\begin{align}\label{eq:Real1}
-& Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PQ \\ \nonumber
-& Im\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = q_i \ \forall i\in PQ \\ \nonumber
-& Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PV \\ \nonumber
-& |V_i|^2 = v_i, \  \ \forall i \in PV 
-\end{align}
-%
-where $V_i$ denotes the complex voltage phasor, $p_i$ the active and $q_i$ the reactive power injection, and $Y$ the admittance matrix at node $i$. $PV$ denotes the set of $PV$ nodes, $PQ$ denotes the set of $PQ$ buses and $v_i$ denotes the squared voltage magnitude setpoints at the $PV$ buses. We can then rewrite \ref{eq:Real1} into the system outlined by \ref{eq:Quad}, \ref{eq:xLimits}, and \ref{eq:uLimits} with 
+\begin{center}
+	$Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PQ$ \\
+	\begin{equation}\label{eq:Real1}
+	Im\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = q_i \ \forall i\in PQ 
+	\end{equation}
+	$Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PV$ \\ 
+	
+	$|V_i|^2 = v_i, \  \ \forall i \in PV$ 
+\end{center}
+
+%\begin{align*}\label{eq:Real1}
+%& Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PQ \\ \nonumber
+%& Im\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = q_i \ \forall i\in PQ \\ \nonumber
+%& Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PV \\ \nonumber
+%& |V_i|^2 = v_i, \  \ \forall i \in PV 
+%\end{align*}
+%%
+where $V_i$ denotes the complex voltage phasor, $p_i$ the active and $q_i$ the reactive power injection, and $Y$ the admittance matrix at node $i$. $PV$ denotes the set of $PV$ nodes, $PQ$ denotes the set of $PQ$ buses and $v_i$ denotes the squared voltage magnitude setpoints at the $PV$ buses. We can then rewrite \cref{eq:Real1} into the system outlined by \cref{eq:Quad}, \cref{eq:xLimits}, and \cref{eq:uLimits} with 
 \[
 \begin{array}{rl}
 \vx= & \begin{bmatrix} Re(V_1) & \dots & Re(V_n) & Im(V_1) & \dots  &  Im(V_n) \end{bmatrix}^T ~~\mbox{and} \\
@@ -46,17 +55,9 @@ where $V_i$ denotes the complex voltage phasor, $p_i$ the active and $q_i$ the r
 
 
 The modeling was conducted with $A\vx \leq \vb = B \vone$ for $B\in\{0.001, 0.005,0.01\}$.
-%and $\vone$ representing the vector of all ones of appropriate dimension. 
 $A$ in this cases is a matrix s.t. $A\vx \leq \vb$ controls the flow between nodes in the power grid (i.e. each row of $A\vx \leq \vb$ has the form $x_i-x_j\leq b_k$. 
 All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores. 
 Graphically we can look at this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes (i.e. as $B$ increases).(Figure \ref{fig:Graphs1}) 
-
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics[scale=0.4]{Figures/InnerBoundTable} \includegraphics[scale=0.4]{Figures/OuterBoundTable} 
-%\end{center}
-%\label{tbl:Table1}
-%\end{figure} 
 
 \begin{figure}[htp!]
 \begin{center}
