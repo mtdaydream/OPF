@@ -21,25 +21,25 @@ In our tests we iterate over all possible sign choices for each dimension of $\b
 
 \textbf{Outer Bound Model A}
 \begin{equation}\label{eq:OPTfeasOutRelaxa}
- \ z=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx} \boldsymbol{\lambda}^T\left(F(\vx)-\vu^*\right)
-\end{equation}
-\begin{align*}
+\begin{array}{rl}
+ \ z &=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx} \boldsymbol{\lambda}^T\left(F(\vx)-\vu^*\right) \\
  \text{subject to: } \ & A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+A\mathcal{X}A^T\geq O \\
  	&\mathcal{X} \text{ is symmtric}
-\end{align*}
+\end{array}
+\end{equation}
 
 
 We can construct the dual of the inner maximal objective of \cref{eq:OPTfeasOutRelaxa} to produce: \\
 
 \textbf{Outer Bound Model B} 
 \begin{equation}\label{eq:OPTfeasOutRelaxb}
-\ z=\min\limits_{||\boldsymbol{\lambda}||=1,\vy}B^T\vy  
-\end{equation}
-\begin{align*}
+\begin{array}{rl}
+\ z &=\min\limits_{||\boldsymbol{\lambda}||=1,\vy}B^T\vy  \\
  \text{subject to: } \ & H^T\vy=\vu(\lambda) \\
  & \vy\leq 0
-\end{align*}
+\end{array}
+\end{equation}
 where the constraints of \cref{eq:OPTfeasOutRelaxa} can be written as $H\vx\geq B$ and the objective of \cref{eq:OPTfeasOutRelaxa} as $\vu(\lambda)^T\vx$. 
 Notice that the objective of \cref{eq:OPTfeasOutRelaxa} is different from that of \cref{thm:OPTfeasOut}. 
 The optimal value of the objectives of  \cref{eq:OPTfeasOutRelaxa} and \cref{eq:OPTfeasOutRelaxb} are much easier to find and they allow us to directly solve for the minimal outer bound approximation of the robustness margin. 

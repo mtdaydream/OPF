@@ -13,7 +13,7 @@ Hence if $z>0$, \cref{eq:RSForm} is validated, and the system is robust feasible
 \end{thm}
 
 \begin{thm} \label{thm:RobFeas}
-Let $\partial\Omega_i=\{\vx| (Ax)_i = b_i, A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \cref{eq:Quad}, \cref{eq:xLimits} and \cref{eq:uLimits}. Define
+Let $\partial\Omega_i=\{\vx| (A\vx)_i = b_i, A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \cref{eq:Quad}, \cref{eq:xLimits} and \cref{eq:uLimits}. Define
 \begin{align}
 \mathrm{z}_i =  \min_{\vx\in\partial\Omega_i, u\in \Omega_u} ||F(\vx)-u||. \label{eq:OPTfeas}
 \end{align}
@@ -62,16 +62,16 @@ We now present three formulations for this new, relaxed program that we provide 
 
 \textbf{LP Feasibility Model} 
 \begin{equation} \label{eq:OPTfeasrelaxLP1}
- \vx
-\end{equation}
-\begin{align*}
- \text{subject to: } \ &(Ax)_i= b_i \\
+\begin{array}{rl}
+ &\text{Find a }\vx \\
+ \text{subject to: } \ &(A\vx)_i= b_i \\
  &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
  & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{\max}  \ \ \forall i\\
  	&A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
  	&X \text{ is symmtric}
-\end{align*}
+\end{array}
+\end{equation}
 
 
 This model has the advantage of being a linear program and hence can be solved efficiently, but as noted by the objective $z_i$, one must iterate over each dimension of $A\vx$ checking feasibility of the model. 
@@ -81,18 +81,18 @@ An alternative approach would be to deal with all of the dimensions of $A\vx$ si
 
 \textbf{MIP Model}\
 \begin{equation}\label{eq:OPTfeasrelaxLP2}
- \max z
-\end{equation}
-\begin{align*}
+\begin{array}{rl}
+ & \max z  \\
  \text{subject to: } \ &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
  & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
  	&A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
  	&X \text{ is symmtric} \\
- 	& z\leq (Ax)_i-b_i+R(1-d_i) \ \forall i \ \text{ for some large enough $R$} \\
+ 	& z\leq (A\vx)_i-b_i+R(1-d_i) \ \forall i \ \text{ for some large enough $R$} \\
  	& \sum\limits_i d_i=1 \\
  	& d_i\in\{0,1\}
-\end{align*}
+\end{array}
+\end{equation}
 
 
 The MIP Model and LP Feasibility model are extremely similar and should theoretically give the same results. 
@@ -103,15 +103,15 @@ One way of tackling this issue is by updating the constraints using an iterative
 
 \textbf{LP Bound Tightening Model}
 \begin{equation}\label{eq:OPTfeasrelaxLP3}
-\mathrm{z}_{i} = \max_x (Ax)_i  
-\end{equation}
-\begin{align*}
+\begin{array}{rl}
+\mathrm{z}_{i} &  = \max_x (A\vx)_i  \\
  \text{subject to: } \ &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
  & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
  	&A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
  	&X \text{ is symmtric}
-\end{align*}
+\end{array}
+\end{equation}
 
 
 As noted, what distinguishes the LP Bound Tightening model is its ability to be used iteratively by updating the constraints of \cref{eq:OPTfeasrelaxLP3}, replacing $\vb$ with $\vz$ (the vector of $z_i$'s found after running the model over all dimensions of $A\vx$). 

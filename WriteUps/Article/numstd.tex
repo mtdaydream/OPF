@@ -24,15 +24,17 @@ The following subsection will detail specifically how this transformation was co
 
 \subsection{OPF to Quadratic System}
 As described in \cite{DjTuritsyn}, the AC power flow equations can be written as 
-\begin{center}
-	$Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PQ$ \\
-	\begin{equation}\label{eq:Real1}
-	Im\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = q_i \ \forall i\in PQ 
-	\end{equation}
-	$Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PV$ \\ 
+\begin{equation}\label{eq:Real1}
+	\begin{array}{rl}
+	Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) &= p_i \ \forall i\in PQ \\
 	
-	$|V_i|^2 = v_i, \  \ \forall i \in PV$ 
-\end{center}
+	Im\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) &= q_i \ \forall i\in PQ \\
+	
+	Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) &= p_i \ \forall i\in PV \\ 
+	
+	|V_i|^2 &= v_i, \  \ \forall i \in PV 
+	\end{array}
+\end{equation}
 
 %\begin{align*}\label{eq:Real1}
 %& Re\left(\sum\limits_{k=1}^n V_i\left(\overline{Y_{ik}V_k} + \overline{Y_{i0}V_0}\right)\right) = p_i \ \forall i\in PQ \\ \nonumber
