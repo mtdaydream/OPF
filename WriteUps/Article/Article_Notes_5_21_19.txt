@@ -1,0 +1,81 @@
+Robust Feasibility: Manuscript Comments
+
+ 1. Separate previous results (from topological degree theory listed
+    at the start of Theoretical Results) into its own
+    subsection. Distinguish our (new) work from previously known
+    results.
+
+ 2. Explain why we came up with the new homotopy in Equation (7).
+ 
+ 3. Formally define what we mean when we say "F has no singularities".
+
+ 4. Change section headings to something like "Computing Lower/Upper
+    Bounds on the robustness margin".
+
+ 5. On a related note (to (4) above), do not call the procedures
+    "models". Refer to them as "procedures for computing lower/upper
+    bounds".
+
+ 6. Explain why we need the multiple different models (for lower and
+    upper bounds). There is perhaps a common model that is the
+    tightest (or is exact), but that is computationally
+    intractable. Hence we make several relaxations, to get weaker and
+    weaker bounds while gaining on computational efficiency.
+
+ 5. Check to see if/how we could make Theorem 4.2 and if and only if.
+
+    If z = 0, can we say the system is not robust feasible?
+
+    Setting: We consider balls around x and u. If F has no
+    	     singularities over \Omega, there cannot exist two
+    	     distinct solutions---this result follows since F is
+    	     quadratic (?), and hence there exists at most one
+    	     solution within the set in question. If min(z) = 0, then
+    	     that corresponds to the unique solution for that u. Hence
+    	     if we shrink the ball around x further, there will be no
+    	     solution. Hence, any infinitesimal shrinking will ensure
+    	     there is a u for which there exists no solution, i.e., it
+    	     is not robust feasible.
+ 
+ 6. Problem (9) is a difficult non-convex optimization problem. What
+    is its nature? Can we prove it is NP-hard? That way, we can
+    motivate the need to get convex relaxations.  (Perhaps piggy back
+    on NP-hardness results for standard QCQP problems).
+
+    Essentially, we need to formalize the two lines presented right
+    after the proof of Theorem 4.2.
+ 
+ 7. Add pointer to model in Equation (10) about rank constraint on X
+    (rank(X)=1). If we enforce this constraint, the problem in (10) is
+    an exact formulation. But enforcing the rank constraint is hard to
+    do, so we consider the natural relaxation where we drop it.
+    
+
+ 8. Make it a more coordinated/cohesive story about why why we are
+    presenting 3 different lower bound models and how they relate to
+    Equation (10). They are increasingly looser relaxations.
+
+
+ 9. Change Numerical Studies section heading to something like
+    Implementation on Power Systems.
+
+10. Properly cite the problems from the MATPOWER package (we're not
+    using the package itself, just the instances).
+
+
+11. Move first two paragraphs (minus overlap) of Numerical studies to
+    related work section and replace with motivation for power systems
+    as the domain to test models.
+
+11. Could we provide toy example(s) that illustrate the results of the
+    various models we introduce? So, can we show some pictures?
+
+12. Can we find another application domain that we can easily apply
+    the models to? And test them numerically?
+
+13. If NO for (12), could we test on randomly generated instances?
+
+14. In the discussion, emphasize that estimating robustness is a much
+    harder problem than the original OPF itself.
+
+15. Change DJ's affiliation to just DeepMind (no Google).
