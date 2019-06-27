@@ -1,9 +1,9 @@
 \section{Computing Upper Bounds on the Robustness Margin} \label{sec:outbdform}  
 
 As a result of the complexity of $\displaystyle \min\limits_{\vx\in \partial \Omega, \vu\in\Omega_u}\max\limits_{||\boldsymbol{\lambda}||=1 }\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)$ we derived a sequence of relaxations in order to arrive at a method that was computationally efficient for a non-trivial data set. 
-We can similarly work with $\displaystyle \min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \bar{\Omega}, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)$ to produce computationally efficient models for outer bound approximations of the robustness margin. 
+We can similarly work with $\displaystyle \min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \bar{\Omega}, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)$ to produce computationally efficient procedures for outer bound approximations of the robustness margin. 
 \begin{thm}\label{thm:OPTfeasOut} 
-Let $\bar{\Omega}=\{\vx| A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \cref{eq:Quad}, \cref{eq:xLimits} and \cref{eq:uLimits}. 
+Let $\bar{\Omega}=\{\vx| A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in \cref{eq:Quad}, \cref{eq:xLimits} and \cref{eq:uLimits}. 
 Let
 $$z = \min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \bar{\Omega}, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right).$$
 If $r>0$ such that $r\leq e_i \ \forall i \ such that \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z=0$ then the system has robustness margin of no more than r.
@@ -11,36 +11,262 @@ If $r>0$ such that $r\leq e_i \ \forall i \ such that \ e_i>0$ where $e$ denotes
 \begin{proof} 
   Observe by \cref{lem:BdOpt} that if $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in \Omega, \vu\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)=0$, then \cref{eq:RSForm} is invalidated.  
 
-%Observe that if \cref{eq:RSForm} is invalidated then $\exists \hat{x}\in\partial\Omega$ such that $F(\hat{x})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in X, u\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(x)-u\right) \geq \min\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\hat{x})-\hat{u}\right)=0.$$ The theorem now follows.
+%Observe that if \cref{eq:RSForm} is invalidated then $\exists \hat{\vx}\in\partial\Omega$ such that $F(\hat{\vx})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in X, u\in\Omega_u}\ \boldsymbol{\lambda}^T\left(F(x)-u\right) \geq \min\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\hat{\vx})-\hat{u}\right)=0.$$ The theorem now follows.
 %\end{itemize}
 \end{proof}
 \end{thm}
 
-We can relax the model in \cref{thm:OPTfeasOut} utilizing the same techniques as before, replacing $\vx\vx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite, which transforms the model from a semidefinite program to a linear or mixed integer program depending on how one deals with the condition $||\boldsymbol{\lambda}||=1$. 
-In our tests we iterate over all possible sign choices for each dimension of $\boldsymbol{\lambda}$ as there are only ten dimensions of variability in our applications. \\
+We can relax the procedure in \cref{thm:OPTfeasOut} utilizing the same techniques as before, replacing $\vx\vx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite, which transforms the procedure from a semidefinite program to a linear or mixed integer program depending on how one deals with the condition $||\boldsymbol{\lambda}||=1$. 
+In our tests we use the $\mathcal{L}_1$ norm and introduce variables which capture the absolute value of each $\lambda$.
+%In our tests we iterate over all possible sign choices for each dimension of $\boldsymbol{\lambda}$ as there are only ten dimensions of variability in our applications. \\
 
-\textbf{Outer Bound Model A}
+\textbf{Outer Bound Procedure A}
 \begin{equation}\label{eq:OPTfeasOutRelaxa}
 \begin{array}{rl}
  \ z &=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx} \boldsymbol{\lambda}^T\left(F(\vx)-\vu^*\right) \\
  \text{subject to: } \ & A\vx\leq \vb \\
- 	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+A\mathcal{X}A^T\geq O \\
- 	&\mathcal{X} \text{ is symmtric}
+ 	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
+ 	&X \text{ is symmtric}
 \end{array}
 \end{equation}
 
 
-We can construct the dual of the inner maximal objective of \cref{eq:OPTfeasOutRelaxa} to produce: \\
+%We can construct the dual of the inner maximal objective of \cref{eq:OPTfeasOutRelaxa} as follows: \\
 
-\textbf{Outer Bound Model B} 
+%\textbf{Outer Bound Procedure B} 
+%\begin{equation}\label{eq:OPTfeasOutRelaxb}
+%\begin{array}{rl}
+%\ z &=\min\limits_{||\boldsymbol{\lambda}||=1,\vy}B^T\vy  \\
+% \text{subject to: } \ & H^T\vy=\vu(\lambda) \\
+% & \vy\leq 0
+%\end{array}
+%\end{equation}
+%where the constraints of \cref{eq:OPTfeasOutRelaxa} can be written as $H\vx\geq B$ and the objective of \cref{eq:OPTfeasOutRelaxa} as $\vu(\lambda)^T\vx$. 
+%Notice that the objective of \cref{eq:OPTfeasOutRelaxa} is different from that of \cref{thm:OPTfeasOut}. 
+%The optimal value of the objectives of  \cref{eq:OPTfeasOutRelaxa} and \cref{eq:OPTfeasOutRelaxb} are much easier to find and they allow us to directly solve for the minimal outer bound approximation of the robustness margin. 
+
+%Given the initial equation $$Q(\vx)+L\vx-\vu^* = \textbf{0}$$ with the constraint that $A\vx\leq \vb$ we wish to discover upper bounds on the robust margin of $\vu^*$. We define $Q(\vx)$ to be $[\vx^TQ_1\vx,\vx^TQ_2\vx,...,\vx^TQ_n\vx]^T$ relaxed to $[Tr\left(Q_1X\right),Tr\left(Q_2X\right),...,Tr\left(Q_nX\right)]^T$ where $X$ is a symmetric matrix. 
+%\begin{align*}
+%\min\limits_{||\lambda||=1}\max\limits_{\vx} & \lambda^T\left[Tr\left(QX\right)+L\vx-\vu^*\right]
+%\intertext{\hspace*{0.75in}\textbf{Subject To:}} 
+%(1) \ &A\vx\leq \vb \\
+%(2) \ &\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq 0 \\
+%(3) \ &X \text{ is symmtric, positive semidefinite}
+%\end{align*}
+
+To construct the dual of the inner maximal objective we must first write the constraints as $M\hat{\vx} \leq \vB$ and the objective as $g(Q,L,\lambda)\hat{\vx}-\lambda^T\vu^*$. Where $\hat{\vx}^T=[\vx^T,\hat{X}^T]$ ($\hat{X}$ the vector form of the upper triangular (including diagonal) portion of $X$). 
+We enforce constraint (3) by utilizing only the upper triangular portion of $X$. We can write $M\hat{\vx}\leq B$ taking only the upper triangular entries including the diagonal as follows\\
+
+$\left[
+\scalebox{0.5}{%
+	\begin{tabular}{ c c c c c c c c}
+	$A_{11}$ & $A_{12}$ & $\dots$ & $A_{1n}$ & $0$ & $0$ & $\dots$ & $0$ \\ 
+	$A_{21}$ & $A_{22}$ & $\dots$ & $A_{2n}$ & $0$ & $0$ & $\dots$ & $0$ \\  
+	$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$\\
+	$A_{m1}$ & $A_{m2}$ & $\dots$ & $A_{mn}$ & $0$ & $0$ & $\dots$ & $0$ \\
+	$\vb_1A_{11}+\vb_1A_{11}$ & $\vb_1A_{12}+\vb_1A_{12}$ & $\dots$ & $\vb_1A_{1n}+\vb_1A_{1n}$ & $-A_{11}A_{11}$ & $-A_{12}A_{11}-A_{11}A_{12}$ & $\dots$ & $-A_{1n}A_{1n}$ \\ 
+	$\vb_2A_{11}+\vb_1A_{21}$ & $\vb_2A_{12}+\vb_1A_{22}$ & $\dots$ & $\vb_2A_{1n}+\vb_1A_{2n}$ & $-A_{11}A_{21}$ & $-A_{12}A_{21}-A_{11}A_{22}$ & $\dots$ & $-A_{1n}A_{2n}$ \\ 
+	$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$\\
+	$\vb_rA_{q1}+\vb_qA_{r1}$ & $\vb_rA_{q2}+\vb_qA_{r2}$ & $\dots$ & $\vb_rA_{qn}+\vb_qA_{rn}$ & $-A_{q1}A_{r1}$ & $-A_{q2}A_{r1}-A_{q1}A_{r2}$ & $\dots$ & $-A_{1n}A_{2n}$ \\ 
+	$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$\\
+	$\vb_mA_{m1}+\vb_mA_{m1}$ & $\vb_mA_{m2}+\vb_mA_{m2}$ & $\dots$ & $\vb_mA_{mn}+\vb_mA_{mn}$ & $-A_{m1}A_{m1}$ & $-A_{m2}A_{m1}-A_{m1}A_{m2}$ & $\dots$ & $-A_{mn}A_{mn}$ 
+	\end{tabular}%
+} 
+\right]$
+$\large{\left[
+	\scalebox{0.6}{%
+		\begin{tabular}{ c }
+		$\vx_1$ \\ 
+		$\vx_2$ \\  
+		$\vdots$ \\
+		$\vx_n$ \\
+		$X_{11}$ \\ 
+		$X_{12}$  \\
+		$\vdots$ \\
+		$X_{22}$\\
+		$X_{23}$\\
+		$\vdots$ \\
+		$X_{nn}$ 
+		\end{tabular}%
+	} 
+	\right]\leq \left[
+	\scalebox{0.6}{%
+		\begin{tabular}{ c }
+		$\vb_1$ \\ 
+		$\vb_2$ \\  
+		$\vdots$ \\
+		$\vb_m$ \\
+		$\vb_1\vb_1$ \\ 
+		$\vb_1\vb_2$  \\
+		$\vdots$ \\
+		$\vb_2\vb_2$\\
+		$\vb_2\vb_3$\\
+		$\vdots$ \\
+		$\vb_m\vb_m$ 
+		\end{tabular}%
+	} 
+	\right]}$
+
+\ \\
+We can write the objective function as $g(Q,L,\lambda)\hat{\vx}-\lambda^T\vu^*$:\\
+
+$\left[
+\scalebox{0.6}{%
+	\begin{tabular}{ c c c c c c c c}
+	$\sum\limits_{j=1}^nL_{j,1}\lambda_j$ & $\sum\limits_{j=1}^nL_{j,2}\lambda_j$ & $\dots$ & $\sum\limits_{j=1}^nL_{j,n}\lambda_j$ & $\sum\limits_{j=1}^n\lambda_jQ_{11}^j$ & $\sum\limits_{j=1}^n\lambda_j(Q_{12}^j+Q_{21}^j)$ & $\dots$ & $\sum\limits_{j=1}^n\lambda_jQ_{nn}^j$ \\ 
+	\end{tabular}
+}
+\right] \left[
+\scalebox{0.6}{%
+	\begin{tabular}{ c }
+	$\vx_1$ \\ 
+	$\vx_2$ \\  
+	$\vdots$ \\
+	$\vx_n$ \\
+	$X_{11}$ \\ 
+	$X_{12}$  \\
+	$\vdots$ \\
+	$X_{22}$\\
+	$X_{23}$\\
+	$\vdots$ \\
+	$X_{nn}$ 
+	\end{tabular}%
+}
+\right] 
+-
+\left[
+\scalebox{0.6}{%
+	\begin{tabular}{ c c c c c c c c}
+	$\lambda_1$ & $\lambda_2$ & $\dots$ & $\lambda_n$ \\ 
+	\end{tabular}
+}
+\right] \left[
+\scalebox{0.6}{%
+	\begin{tabular}{ c }
+	$\vu^*_1$ \\ 
+	$\vu^*_2$ \\  
+	$\vdots$ \\
+	$\vu^*_n$ \\
+	\end{tabular}%
+}
+\right] 
+$
+
+If $\vu^*=\textbf{0}$ the objective function reduces to just $g(Q,L,\lambda)\hat{\vx}$.
+
+\ \\
+
+If on the other hand $\vu^*\neq \textbf{0}$ then we can add an extra dummy variable $\vx_{n+1}$ with the constraint $\vx_{n+1}=1$, as follows:
+
+$\left[
+\scalebox{0.5}{%
+	\begin{tabular}{ c c c c c c c c c}
+	$A_{11}$ & $A_{12}$ & $\dots$ & $A_{1n}$ & $A_{1n+1}$ & $0$ & $0$ & $\dots$ & $0$ \\ 
+	$A_{21}$ & $A_{22}$ & $\dots$ & $A_{2n}$ & $A_{2n+1}$ & $0$ & $0$ & $\dots$ & $0$ \\  
+	$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$\\
+	$A_{m1}$ & $A_{m2}$ & $\dots$ & $A_{mn}$ & $A_{mn+1}$ & $0$ & $0$ & $\dots$ & $0$ \\
+	$0$ & $0$ & $\dots$ & $0$ & $1$ & $0$ & $0$ & $\dots$ & $0$ \\
+	$0$ & $0$ & $\dots$ & $0$ & $-1$ & $0$ & $0$ & $\dots$ & $0$ \\
+	$\vb_1A_{11}+\vb_1A_{11}$ & $\vb_1A_{12}+\vb_1A_{12}$ & $\dots$ & $\vb_1A_{1n}+\vb_1A_{1n}$ & $0$ & $-A_{11}A_{11}$ & $-A_{12}A_{11}-A_{11}A_{12}$ & $\dots$ & $-A_{1n}A_{1n}$ \\ 
+	$\vb_2A_{11}+\vb_1A_{21}$ & $\vb_2A_{12}+\vb_1A_{22}$ & $\dots$ & $\vb_2A_{1n}+\vb_1A_{2n}$ & $0$ & $-A_{11}A_{21}$ & $-A_{12}A_{21}-A_{11}A_{22}$ & $\dots$ & $-A_{1n}A_{2n}$ \\ 
+	$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\ddots$ & $\vdots$\\
+	$\vb_rA_{q1}+\vb_qA_{r1}$ & $\vb_rA_{q2}+\vb_qA_{r2}$ & $\dots$ & $\vb_rA_{qn}+\vb_qA_{rn}$ & $0$ &$-A_{q1}A_{r1}$ & $-A_{q2}A_{r1}-A_{q1}A_{r2}$ & $\dots$ & $-A_{1n}A_{2n}$ \\ 
+	$\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$\\
+	$\vb_mA_{m1}+\vb_mA_{m1}$ & $\vb_mA_{m2}+\vb_mA_{m2}$ & $\dots$ & $\vb_mA_{mn}+\vb_mA_{mn}$ & $0$ & $-A_{m1}A_{m1}$ & $-A_{m2}A_{m1}-A_{m1}A_{m2}$ & $\dots$ & $-A_{mn}A_{mn}$ 
+	\end{tabular}%
+} 
+\right]$
+$\large{\left[
+	\scalebox{0.5}{%
+		\begin{tabular}{ c }
+		$\vx_1$ \\ 
+		$\vx_2$ \\  
+		$\vdots$ \\
+		$\vx_n$ \\
+		$\vx_{n+1} $\\
+		$X_{11}$ \\ 
+		$X_{12}$  \\
+		$\vdots$ \\
+		$X_{22}$\\
+		$X_{23}$\\
+		$\vdots$ \\
+		$X_{nn}$ 
+		\end{tabular}%
+	} 
+	\right]\leq \left[
+	\scalebox{0.5}{%
+		\begin{tabular}{ c }
+		$\vb_1$ \\ 
+		$\vb_2$ \\  
+		$\vdots$ \\
+		$\vb_m$ \\
+		$1$ \\
+		$-1$ \\
+		$\vb_1\vb_1$ \\ 
+		$\vb_1\vb_2$  \\
+		$\vdots$ \\
+		$\vb_2\vb_2$\\
+		$\vb_2\vb_3$\\
+		$\vdots$ \\
+		$\vb_q\vb_r$\\
+		$\vdots$ \\
+		$\vb_m\vb_m$ 
+		\end{tabular}%
+	} 
+	\right]}$
+
+\ \\
+We can then write the objective function $g(Q,L,\lambda)\hat{\vx}$ as:\\
+
+$\left[
+\scalebox{0.6}{%
+	\begin{tabular}{ c c c c c c c c c}
+	$\sum\limits_{j=1}^nL_{j,1}\lambda_j$ & $\sum\limits_{j=1}^nL_{j,2}\lambda_j$ & $\dots$ & $\sum\limits_{j=1}^nL_{j,n}\lambda_j$ & $\sum\limits_{j=1}^n-\lambda_j\vu^*_j$ & $\sum\limits_{j=1}^n\lambda_jQ_{11}^j$ & $\sum\limits_{j=1}^n\lambda_j(Q_{12}^j+Q_{21}^j)$ & $\dots$ & $\sum\limits_{j=1}^n\lambda_jQ_{nn}^j$ \\ 
+	\end{tabular}
+}
+\right] \left[
+\scalebox{0.6}{%
+	\begin{tabular}{ c }
+	$\vx_1$ \\ 
+	$\vx_2$ \\  
+	$\vdots$ \\
+	$\vx_n$ \\
+	$\vx_{n+1}$ \\
+	$X_{11}$ \\ 
+	$X_{12}$  \\
+	$\vdots$ \\
+	$X_{22}$\\
+	$X_{23}$\\
+	$\vdots$ \\
+	$X_{nn}$ 
+	\end{tabular}%
+}
+\right] 
+$
+\ \\
+In either case the dual and procedure we use in our tests is given by:
+
+\textbf{Outer Bound Procedure B} 
 \begin{equation}\label{eq:OPTfeasOutRelaxb}
 \begin{array}{rl}
-\ z &=\min\limits_{||\boldsymbol{\lambda}||=1,\vy}B^T\vy  \\
- \text{subject to: } \ & H^T\vy=\vu(\lambda) \\
- & \vy\leq 0
+\ z &=\min\limits_{||\lambda||=1, \vy}\vB^T\vy  \\
+ \text{subject to: } \ & M^T\vy \geq g(Q,L,\lambda)^T \\
+ & \vy\geq 0
 \end{array}
 \end{equation}
-where the constraints of \cref{eq:OPTfeasOutRelaxa} can be written as $H\vx\geq B$ and the objective of \cref{eq:OPTfeasOutRelaxa} as $\vu(\lambda)^T\vx$. 
-Notice that the objective of \cref{eq:OPTfeasOutRelaxa} is different from that of \cref{thm:OPTfeasOut}. 
-The optimal value of the objectives of  \cref{eq:OPTfeasOutRelaxa} and \cref{eq:OPTfeasOutRelaxb} are much easier to find and they allow us to directly solve for the minimal outer bound approximation of the robustness margin. 
+
+%$$\min\limits_{||\lambda||=1, \vy}\vB^T\vy$$
+%\begin{align*}
+%\intertext{\textbf{Subject To:}}
+%(1) \ & M^T\vy \geq g(Q,L,\lambda)^T \\ 
+%(2) \ & \vy\geq 0\\
+%\end{align*}
+
+
+
+
+
+
+
+
 

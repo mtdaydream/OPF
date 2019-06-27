@@ -44,7 +44,7 @@ Robust feasibility and optimization have been well-studied by both the optimizat
 What is lacking is an approach that can guarantee and quantify robust feasibility on large scale systems in an efficient manner. 
 In this article we address this deficiency by developing theory that utilizes results from topological degree theory and convex optimization. 
 We provide a theoretical foundation for determining robust feasibility of systems of quadratic equations and computational methods for producing lower and upper bounds on the maximum error bound for which one can guarantee robust solvability (the radius of robust solvability). 
-To highlight the efficacy of our approach we derive models, which we test numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid with added uncertainty. 
+To highlight the efficacy of our approach we derive procedures, which we test numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid with added uncertainty. 
 The results show that our approach can be applied to large scale systems to produce tight lower and upper bounds on the radius of robust solvability, which we shall define as the robustness margin of the system.
 
 In optimization, the focus has been on robust \emph{convex} optimization where uncertainty sets are specified for the parameters of a convex optimization problem (typically an LP or conic program) \cite{ben2009robust}.
@@ -60,7 +60,7 @@ The driver has been the development of strong convex relaxations of the nonconve
 Uncertainty has been handled in a chance-constrained framework \cite{BiChHa2014,zhang2011chance}.
 However, this approach has typically been applied only to linear approximations or convex relaxations of the AC power flow equations, and does not guarantee feasibility with respect to the true nonlinear power flow equations \cite{BiChHa2014,kocuk2016strong,RoVrOlAn2015,TsBiTa2016}.
 More recently, Dvijotham, Nguyen, and Turitsyn \cite{DjTuritsyn} developed an approach to handle uncertainty which produced inner/lower bounds on the distance from the nominal values of the uncertain parameters for which the system can still be guaranteed to have solutions.
-This approach is most closely aligned with the methods describing our inner bound models, and further can produce a certificate of tightness under special conditions. 
+This approach is most closely aligned with the methods describing our inner bound procedures, and further can produce a certificate of tightness under special conditions. 
 However, this method depends critically on the choice of norms which is not  straight forward.
 
 

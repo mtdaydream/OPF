@@ -3,7 +3,7 @@ Robust Feasibility: Manuscript Comments
  1. Separate previous results (from topological degree theory listed
     at the start of Theoretical Results) into its own
     subsection. Distinguish our (new) work from previously known
-    results.
+    results. 
 
  2. Explain why we came up with the new homotopy in Equation (7).
  

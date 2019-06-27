@@ -1,5 +1,11 @@
 \section{Numerical Studies} \label{sec:numstd}  
+\subsection{Illustrative Example}
+We provide here a toy example to illustrate the upper bound approximation method and the lower bounded feasibility procedure. 
+This example 
 
+
+
+\subsection{Adaptation to Optimal Power Flow Equations}
 Robust feasibility of systems of nonlinear equations has been studied in a series of recent papers \cite{FrKr2015,FrKrWa2016}.
 These studies show that the problem is decidable (a terminating algorithm guaranteed to produce an answer exists) as long as the number of variables is not more than twice the number of equations minus $3$.
 In our main application domain, we are primarily concerned with the AC power flow equations
@@ -15,14 +21,14 @@ There has been recent work on specifying conditions on the power injections over
 However, they do not directly address the robust feasibility problem, and using these regions to assess robust feasibility can produce very conservative results.
 Further, they do not address uncertainty in the quadratic and linear objective terms.
 
-We now present computational studies which support the efficiency of the models we have presented, which address the aforementioned short comings of previous work. 
-For all the numerical results presented we apply models \eqref{eq:OPTfeasOutRelaxb}, \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2}, and \eqref{eq:OPTfeasrelaxLP3} to find upper and lower bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software, see \cite{matpower}. 
+We now present computational studies which support the efficiency of the procedures we have presented, which address the aforementioned short comings of previous work. 
+For all the numerical results presented we apply procedures \eqref{eq:OPTfeasOutRelaxb}, \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2}, and \eqref{eq:OPTfeasrelaxLP3} to find upper and lower bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software, see \cite{matpower}. 
 We will specifically show results for tests conducted on cases 5, 9, 14, 30 and 57. 
 In every case the power flow equations were converted into the format defined by \eqref{eq:Quad}, \eqref{eq:xLimits}, and \eqref{eq:uLimits}. 
-To simulate real life scenarios we allowed the first 5 dimensions of $\vu$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\vu$, while utilizing models \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. 
+To simulate real life scenarios we allowed the first 5 dimensions of $\vu$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\vu$, while utilizing procedures \eqref{eq:OPTfeasOutRelaxb} for the outer bound, and \eqref{eq:OPTfeasrelaxLP1}, \eqref{eq:OPTfeasrelaxLP2} and \eqref{eq:OPTfeasrelaxLP3} for the inner bound verification to verify robust feasibility. 
 The following subsection will detail specifically how this transformation was conducted.
 
-\subsection{OPF to Quadratic System}
+\subsubsection{OPF to Quadratic System}
 As described in \cite{DjTuritsyn}, the AC power flow equations can be written as 
 \begin{equation}\label{eq:Real1}
 	\begin{array}{rl}
@@ -53,10 +59,10 @@ where $V_i$ denotes the complex voltage phasor, $p_i$ the active and $q_i$ the r
 
 
 
-\subsection{Computational Results}
+\subsubsection{Computational Results}
 
 
-The modeling was conducted with $A\vx \leq \vb = B \vone$ for $B\in\{0.001, 0.005,0.01\}$.
+The procedures were conducted with $A\vx \leq \vb = B \vone$ for $B\in\{0.001, 0.005,0.01\}$.
 $A$ in this cases is a matrix s.t. $A\vx \leq \vb$ controls the flow between nodes in the power grid (i.e. each row of $A\vx \leq \vb$ has the form $x_i-x_j\leq b_k$. 
 All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel i-7 processor, 16 GB of Ram and 4 cores. 
 Graphically we can look at this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes (i.e. as $B$ increases).(Figure \ref{fig:Graphs1}) 
@@ -72,12 +78,12 @@ Graphically we can look at this data on a case by case basis to highlight the ef
 \end{center}
 \end{figure}
 
-Case 57 is not included in the graphs as the only inner bound model to run in any reasonable time was the Feasibility model that produced a max robust margin of $\approx$0.003 with a computational time of $\approx$489224 and a gap to the outer bound model, which had a running time $\approx$45144, of $\approx 0.030$ when $B=0.001$.
-As evident from the graphs we have that the bound tightening model produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. 
-Certainly one would expect the bound tightening model to out perform the other inner bound models for all cases, but the choice of model parameters has a big effect on the efficiency of the model. 
+Case 57 is not included in the graphs as the only inner bound procedure to run in any reasonable time was the Feasibility procedure that produced a max robust margin of $\approx$0.003 with a computational time of $\approx$489224 and a gap to the outer bound procedure, which had a running time $\approx$45144, of $\approx 0.030$ when $B=0.001$.
+As evident from the graphs we have that the bound tightening procedure produces a better approximation of the inner bound on the robustness margin as the complexity of the data set increases. 
+Certainly one would expect the bound tightening procedure to out perform the other inner bound procedures for all cases, but the choice of procedure parameters has a big effect on the efficiency of the procedure. 
 For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $\vb$ will cause in most cases an extremely long running time. 
-Thus in the extremely low and marginally high complexity cases it should be expected that the other models will out perform the bound tightening model as these manually set model parameters will have more of an impact on performance. 
-Of special interest is the difference in performance of the MIP and Feasibility inner bound models as the complexity of the data increases. 
+Thus in the extremely low and marginally high complexity cases it should be expected that the other procedures will out perform the bound tightening procedure as these manually set parameters will have more of an impact on performance. 
+Of special interest is the difference in performance of the MIP and Feasibility inner bound procedures as the complexity of the data increases. 
 
 
 
