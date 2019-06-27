@@ -33,23 +33,23 @@ d\left(\Omega,H(t,\cdot),\vy\right)\text{ does not depend on }t.
 \end{equation}
 
 \subsection{Contributions}
-Let $F(\vx)=Q(\vx)+L(\vx)$, $\Omega=\{\vx| A\vx \leq \vb\}$ and $\hat{\vx}\in \Int(\Omega)$ be a solution to the forecasted system $F(\vx)=\vu^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{\vx})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
+Let $F(\vx)=Q(\vx)+L\vx$, $\Omega=\{\vx| A\vx \leq \vb\}$ and $\hat{\vx}\in \Int(\Omega)$ be a solution to the forecasted system $F(\vx)=\vu^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{\vx})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
 If no solutions exist then certainly the system is not robust feasible. Define $\Omega_u=\{\vu| \vu\text{ satisfies }\ref{eq:uLimits}\}$.
 Verify using existing methods or those adopted from this paper that no other solutions exist in $\Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $\vu$). 
 Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$. 
 Note that this is not the only method for verification, but in some sense the easiest to carry out for our purposes. 
 
-Let $L$ represent an arbitrary line passing through $\vu^*$, and $\vl_{min},\vl_{max}$ the two points of intersection between $\partial\Omega_u$ and $L$. 
-Define a homotopy $H_L : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
+Let $L_{\vu^*}$ represent an arbitrary line passing through $\vu^*$, and $\vl_{min},\vl_{max}$ the two points of intersection between $\partial\Omega_u$ and $L_{\vu^*}$. 
+Define a homotopy $H_{L_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
 \begin{align}
-H_L(t,\vx) = F(\vx)-\left[(1-t)\vl_{min}+t\vl_{max}\right] \label{eq:Homo}
+H_{L_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{min}+t\vl_{max}\right] \label{eq:Homo}
 \end{align}
 
-Observe that by construction $H_L\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\textbf{0}$. 
-Thus if no other solutions to $H_L\left(\frac{1}{2},\vx\right)=0$ exist in $\Omega$ and $\operatorname{sign}\left(J_{H_{L,\frac{1}{2}}}(\hat{\vx})\right)\neq 0$ then we have that $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\textbf{0})\neq 0$ by \ref{eq:Deg3}. 
-Since $L$ was arbitrary this holds for all such lines passing through $\vu^*$.
-Note that for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, $\exists !$ $\hat{L}$ passing through $\vu^*$ and $t\in[0,1]$,  such that $\hat{\vu}=(1-t)\hat{\vl}_{min}+t\hat{\vl}_{max}$. 
-Therefore if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement:
+Observe that by construction $H_{L_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\textbf{0}$. 
+Thus if no other solutions to $H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right)=0$ exist in $\Omega$ and $\operatorname{sign}\left(J_{H_{L_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right)\neq 0$ then we have that $d(\Omega,H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right),\textbf{0})\neq 0$ by \ref{eq:Deg3}. 
+Since $L_{\vu^*}$ was arbitrary this holds for all such lines passing through $\vu^*$.
+Note that for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, $\exists !$ $\hat{L}_{\alpha}$ passing through $\vu^*$ and $t\in[0,1]$,  such that $\hat{\vu}=(1-t)\hat{\vl}_{min}+t\hat{\vl}_{max}$. 
+Therefore if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L_{\vu^*}$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement:
 \begin{align}
 \not\exists \vx\in\partial\Omega, \vu\in\Omega_u \ \ \mbox{ such that } \ F(\vx)-\vu=\vzero. \label{eq:RSForm}
 \end{align}

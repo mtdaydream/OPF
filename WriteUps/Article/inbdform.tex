@@ -35,8 +35,8 @@ However, since $F(\vx)$ is quadratic in $\vx$, they are quadratically constraine
 to obtain lower bounds on the optimal values.\cite{VaBo1996} 
 Since $Q$ is quadratic, it can also be written as a linear function of $\vx\vx^T$.
 More concretely, we can write
-$$Q(\vx)_i=\vx^TM_i\vx=\Tr(M_i\vx\vx^T)$$
-where each $M_i$ is as defined in \cref{eq:Quad}. 
+$$Q(\vx)_i=\vx^TQ_i\vx=\Tr(Q_i\vx\vx^T)$$
+where each $Q_i$ is as defined in \cref{eq:Quad}. 
 Since, $A\vx\leq \vb$ this implies that $(\vb-A\vx)(\vb-A\vx)^T\geq 0\Rightarrow \vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+A(\vx\vx^T)A^T\geq 0$. 
 If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\vx\vx^T$ we can construct the following relaxation of the procedure presented in \cref{thm:RobFeas}:
  
@@ -45,8 +45,8 @@ If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\
     \hat{\mathrm{z}}_{i} = & \min\limits_{\vx}  b_i-(A\vx)_i  \\
     \vspace*{-0.05in} \\
 %\begin{align*}
-    \text{subject to: } \ & \Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{min} \ \ \forall i\\
-    & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max} \ \ \forall i\\
+    \text{subject to: } \ & \Tr\left(Q_iX\right)+ L_i\vx \geq \vu_i^{min} \ \ \forall i\\
+    & \Tr\left(Q_iX\right)+ L_i\vx \leq \vu_i^{max} \ \ \forall i\\
     &A\vx\leq \vb \\
     &\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
     &X \text{ is symmtric, positive semidefinite}
@@ -65,8 +65,8 @@ We now present three formulations for this new, relaxed program that we provide 
 \begin{array}{rl}
  &\text{Find a }\vx \\
  \text{subject to: } \ &(A\vx)_i= b_i \\
- &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
- & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{\max}  \ \ \forall i\\
+ &\Tr\left(Q_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
+ & \Tr\left(Q_iX\right)+ L_i\vx \leq \vu_i^{\max}  \ \ \forall i\\
  	&A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
  	&X \text{ is symmtric}
@@ -83,8 +83,8 @@ An alternative approach would be to deal with all of the dimensions of $A\vx$ si
 \begin{equation}\label{eq:OPTfeasrelaxLP2}
 \begin{array}{rl}
  & \max z  \\
- \text{subject to: } \ &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
- & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
+ \text{subject to: } \ &\Tr\left(Q_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
+ & \Tr\left(Q_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
  	&A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
  	&X \text{ is symmtric} \\
@@ -105,8 +105,8 @@ One way of tackling this issue is by updating the constraints using an iterative
 \begin{equation}\label{eq:OPTfeasrelaxLP3}
 \begin{array}{rl}
 \mathrm{z}_{i} &  = \max_x (A\vx)_i  \\
- \text{subject to: } \ &\Tr\left(M_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
- & \Tr\left(M_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
+ \text{subject to: } \ &\Tr\left(Q_iX\right)+ L_i\vx \geq \vu_i^{\min}  \ \ \forall i\\
+ & \Tr\left(Q_iX\right)+ L_i\vx \leq \vu_i^{max}  \ \ \forall i\\
  	&A\vx\leq \vb \\
  	&\vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+AXA^T\geq O \\
  	&X \text{ is symmtric}
