@@ -61,6 +61,7 @@ Robust Feasibility: Manuscript Comments
 
 10. Properly cite the problems from the MATPOWER package (we're not
     using the package itself, just the instances).
+(According to MATPOWER website "We request that publications derived from the use of MATPOWER, or the included data files, explicitly acknowledge that fact by citing the appropriate paper(s) and the software itself." thus the problems are properly cited).
 
 
 11. Move first two paragraphs (minus overlap) of Numerical studies to

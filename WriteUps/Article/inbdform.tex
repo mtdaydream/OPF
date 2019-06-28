@@ -1,7 +1,11 @@
 \section{Computing Lower Bounds on the Robustness Margin} \label{sec:inbdform}  
+In this section we will derive procedures for computing a lower bound on the robustness margin. 
+We start with an exact implementation then relax the procedures until they become computationally tractable. 
+We end the section by providing three different implementations of our final derived, relaxed, computationally tractable procedure \ref{eq:OPTfeasrelax}.
+Each of these three practical implementations bring a unique set of attributes, which makes none of them the clear universally preferred procedure.
 
 \begin{thm}
-Let $\Omega=\{\vx| A\vx< \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in \cref{eq:Quad}, \cref{eq:xLimits} and \cref{eq:uLimits}. 
+Let $\Omega=\{\vx| A\vx< \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in \ref{eq:Quad}, \ref{eq:xLimits} and \ref{eq:uLimits}. 
 Let
 $$z = \min\limits_{\vx\in \partial \Omega, \vu\in \Omega_{u} }\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right).$$
 If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z>0$ then the system is robust feasible and has a robustness margin of at least r.
@@ -17,12 +21,22 @@ Let $\partial\Omega_i=\{\vx| (A\vx)_i = b_i, A\vx\leq \vb\}$, $\Omega_{u}=\{\vu|
 \begin{align}
 \mathrm{z}_i =  \min_{\vx\in\partial\Omega_i, u\in \Omega_u} ||F(\vx)-u||. \label{eq:OPTfeas}
 \end{align}
-If $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$ (where $m$ is the number of rows of $A$), then the system is robust feasible.
+The system is robust feasible if and only if $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$ (where $m$ is the number of rows of $A$).
+%If $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$ (where $m$ is the number of rows of $A$), then the system is robust feasible.
 
-\begin{proof} 
-If \cref{eq:RSForm} is invalidated then $\exists \hat{\vx}\in\partial\Omega$, $\Omega=\{\vx| A\vx< \vb\}$, s.t. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 
-Since $\hat{\vx}\in\partial\Omega$ this implies that $\exists i$ s.t. $A\hat{\vx}_i=b_i$ and thus $0\leq \mathrm{z}_i \leq ||F(\hat{\vx})-\hat{\vu}||=0$.
-Thus if $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$, \cref{eq:RSForm} is validated, and the system is robust feasible as desired.
+\begin{proof} \ \\
+$\boxed{\Rightarrow}$ \\ 
+If the system is not robust feasible then $\exists\hat{\vu}'\in \Omega_u$ s.t. $F(\vx)=\hat{\vu}'$ has no solution. 
+Since $F(\vx)=\vu^*$ has a solution and $F$ is continuous over a compact domain we have that $\exists \hat{\vx}\in\Omega$, $\Omega=\{\vx| A\vx< \vb\}$, s.t. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 
+Since $F$ is injective we have that $\hat{\vx}\in\partial\Omega$, which implies that $\exists i$ s.t. $A\hat{\vx}_i=b_i$ and thus $0\leq \mathrm{z}_i \leq ||F(\hat{\vx})-\hat{\vu}||=0$.\\
+$\boxed{\Leftarrow}$ \\ 
+If $\exists i$ s.t. $z_i = 0$ then this implies $\exists\hat{\vx}\in\partial\Omega $ and $\hat{\vu}\in \Omega_u$ s.t. $F(\hat{\vx})=\hat{\vu}$. 
+Since $F$ is injective we have that $\not\exists\hat{\vx}'\in\Int\Omega $ s.t. $F(\hat{\vx}')=\hat{\vu}$ and thus by definition the system is not robust feasible.
+
+%\cref{eq:RSForm} is invalidated, which implies $\exists \hat{\vx}\in\partial\Omega$, $\Omega=\{\vx| A\vx< \vb\}$, s.t. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 
+%Since $\hat{\vx}\in\partial\Omega$ this implies that $\exists i$ s.t. $A\hat{\vx}_i=b_i$ and thus $0\leq \mathrm{z}_i \leq ||F(\hat{\vx})-\hat{\vu}||=0$.
+%Thus if $\mathrm{z}_i>0$ for each $i = 1, \ldots, m$, \cref{eq:RSForm} is validated, and the system is robust feasible.
+
 \end{proof}
 \end{thm}
 
@@ -38,7 +52,7 @@ More concretely, we can write
 $$Q(\vx)_i=\vx^TQ_i\vx=\Tr(Q_i\vx\vx^T)$$
 where each $Q_i$ is as defined in \cref{eq:Quad}. 
 Since, $A\vx\leq \vb$ this implies that $(\vb-A\vx)(\vb-A\vx)^T\geq 0\Rightarrow \vb\vb^T-A\vx\vb^T-\vb(A\vx)^T+A(\vx\vx^T)A^T\geq 0$. 
-If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\vx\vx^T$ we can construct the following relaxation of the procedure presented in \cref{thm:RobFeas}:
+If we allow a symmetric positive semidefinite matrix $X$ to take the place of $\vx\vx^T$ and drop the rank constraint (rank$(X)=1$)) we can construct the following relaxation of the exact formulation presented in \cref{thm:RobFeas}:
  
 \begin{equation}\label{eq:OPTfeasrelax}
   \begin{array}{rl}
@@ -76,7 +90,7 @@ We now present three formulations for this new, relaxed program that we provide 
 
 This procedure has the advantage of being a linear program and hence can be solved efficiently, but as noted by the objective $z_i$, one must iterate over each dimension of $A\vx$ checking feasibility of the procedure. 
 Of course should the procedure prove feasible then we have found a solution on the boundary and thus invalidating (\cref{eq:RSForm}). 
-If the procedure proves infeasible then we are free to push the robust margin higher and test again. 
+If the procedure proves infeasible then we are free to push the robustness margin higher and test again. 
 An alternative approach would be to deal with all of the dimensions of $A\vx$ simultaneously by introducing some binaries and creating a MIP as follows. \\
 
 \textbf{MIP Procedure}\

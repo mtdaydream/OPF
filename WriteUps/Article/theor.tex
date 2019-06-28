@@ -23,6 +23,7 @@ Where $\operatorname{sign}\left(J_F(\vx)\right)$ denotes the sign of the Jacobia
 
 Additionally we utilize the following two common properties of the topological degree. 
 See \cite{OrChCh2006} for details. 
+
 If $H : [0,1]\times\bar{\Omega}\rightarrow\R^n$ is continuous such that $H(t,\vx)\neq \vy \quad \forall t\in[0,1]\quad \vx\in\partial\Omega$,   \ then 
 \begin{equation}\label{eq:Deg1} 
 d\left(\Omega,H(t,\cdot),\vy\right)\text{ does not depend on }t.
@@ -33,10 +34,17 @@ d\left(\Omega,H(t,\cdot),\vy\right)\text{ does not depend on }t.
 \end{equation}
 
 \subsection{Contributions}
-Let $F(\vx)=Q(\vx)+L\vx$, $\Omega=\{\vx| A\vx \leq \vb\}$ and $\hat{\vx}\in \Int(\Omega)$ be a solution to the forecasted system $F(\vx)=\vu^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{\vx})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
+In this section we will take full advantage of properties \ref{eq:Deg3}, \ref{eq:Deg1}, and \ref{eq:Deg2} as they apply to the Robust Feasibility Problem.
+We begin by assuming there is a unique solution to the forcasted system at which point the jacobian is non-zero.
+We conclude by \ref{eq:Deg3} that the degree is non-zero at $u^*$ to the forcasted system. 
+We then utilize \ref{eq:Deg1} to equate the degree of $u$ to the degree of $u^*$ for all $u$ in \ref{eq:uLimits} (under a proposed robustness margin), which by \ref{eq:Deg2} allows us to guarantee solutions to the system under all realizations of $u$ in \ref{eq:uLimits} (i.e. verify the system is robust feasible for a given robustness margin).
+Invoking \ref{eq:Deg1}, however, requires us to develop a homotopy that captures the system under all possible realizations of $u$ within \ref{eq:uLimits}.
+Once we define such a homotopy we reduce the Robust Feasibility Problem to the problem of verifying the hypothesis of \ref{eq:Deg1}. 
+
+To that end let $F(\vx)=Q(\vx)+L\vx$, $\Omega=\{\vx| A\vx \leq \vb\}$ and $\hat{\vx}\in \Int(\Omega)$ be a solution to the forecasted system $F(\vx)=\vu^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{\vx})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
 If no solutions exist then certainly the system is not robust feasible. Define $\Omega_u=\{\vu| \vu\text{ satisfies }\ref{eq:uLimits}\}$.
 Verify using existing methods or those adopted from this paper that no other solutions exist in $\Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $\vu$). 
-Thus by \ref{eq:Deg2} and \ref{eq:Deg3} we have verified that $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$. 
+Thus by \ref{eq:Deg3} we have verified that $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$. 
 Note that this is not the only method for verification, but in some sense the easiest to carry out for our purposes. 
 
 Let $L_{\vu^*}$ represent an arbitrary line passing through $\vu^*$, and $\vl_{min},\vl_{max}$ the two points of intersection between $\partial\Omega_u$ and $L_{\vu^*}$. 
@@ -48,8 +56,8 @@ H_{L_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{min}+t\vl_{max}\right] \label{eq:H
 Observe that by construction $H_{L_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\textbf{0}$. 
 Thus if no other solutions to $H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right)=0$ exist in $\Omega$ and $\operatorname{sign}\left(J_{H_{L_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right)\neq 0$ then we have that $d(\Omega,H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right),\textbf{0})\neq 0$ by \ref{eq:Deg3}. 
 Since $L_{\vu^*}$ was arbitrary this holds for all such lines passing through $\vu^*$.
-Note that for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, $\exists !$ $\hat{L}_{\alpha}$ passing through $\vu^*$ and $t\in[0,1]$,  such that $\hat{\vu}=(1-t)\hat{\vl}_{min}+t\hat{\vl}_{max}$. 
-Therefore if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L_{\vu^*}$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement:
+Note that for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, $\exists !$ $\hat{L}_{\vu^*}$ passing through $\vu^*$ and $t\in[0,1]$,  such that $\hat{\vu}=(1-t)\hat{\vl}_{min}+t\hat{\vl}_{max}$. 
+Therefore if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L_{\vu^*}$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement (i.e. the hypothesis of \ref{eq:Deg1}):
 \begin{align}
 \not\exists \vx\in\partial\Omega, \vu\in\Omega_u \ \ \mbox{ such that } \ F(\vx)-\vu=\vzero. \label{eq:RSForm}
 \end{align}
@@ -103,6 +111,8 @@ The theorem now follows.
 \end{thm}
 
 \cref{thm:MainIneq} and \cref{lem:BdOpt} provide us with the theoretical tools we need to develop procedures for approximating the robustness margin.
-We will use the terminology \enquote{inner bound procedures} to describe the process of verifying robust feasibility while expanding the uncertainty box centered at $\vu^*$ in order to compute the lower bounds on the robustness margin, which these procedures undertake. 
-We use the terminology \enquote{outer bound procedures} to capture in a similar fashion the procedure used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
+The hypothesis of \cref{thm:MainIneq} does however require us to assume the system is injective under the constraints in \ref{eq:xLimits} which we carry with us throughout the rest of the article. 
+%There is room to improve here especially if there is a unique solution at u^* as this will still gaurantee the validity of the lower bd, but not necessarily that of the upper bd
+We will use the terminology \enquote{lower bound procedures} to describe the processes of verifying robust feasibility while expanding the uncertainty box centered at $\vu^*$ in order to compute the lower bounds on the robustness margin, which these procedures undertake. 
+We use the terminology \enquote{upper bound procedures} to capture in a similar fashion the procedures used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
 As such we dedicate the remainder of this section to the development of these inner and outer bound formulations. 
