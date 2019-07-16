@@ -1,17 +1,18 @@
 \section{Computing Lower Bounds on the Robustness Margin} \label{sec:inbdform}  
 In this section we will derive procedures for computing a lower bound on the robustness margin. 
-We start with an exact implementation then relax the procedures until they become computationally tractable. 
-We end the section by providing three different implementations of our final derived, relaxed, computationally tractable procedure \ref{eq:OPTfeasrelax}.
-Each of these three practical implementations bring a unique set of attributes, which makes none of them the clear universally preferred procedure.
+We start with an exact formulation, which turns out to be hard to implement efficiently in practice.
+Hence we relax the procedures until they become computationally tractable. 
+We end the section by providing three different implementations of our final derived, relaxed, computationally tractable procedure specified in Equation (\ref{eq:OPTfeasrelax}).
+Each of these three practical implementations bring a unique set of attributes, which makes none of them the clear universally preferred one.
 
 \begin{thm}
 Let $\Omega=\{\vx| A\vx< \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in \ref{eq:Quad}, \ref{eq:xLimits} and \ref{eq:uLimits}. 
 Let
-$$z = \min\limits_{\vx\in \partial \Omega, \vu\in \Omega_{u} }\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right).$$
+$$z = \min\limits_{\vx\in \partial \Omega, \vu\in \Omega_{u} }\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\vx)-\vu\right).$$
 If $r>0$ s.t. $r\leq e_i \ \forall i \ s.t. \ e_i>0$ where $e$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z>0$ then the system is robust feasible and has a robustness margin of at least r.
 
 \begin{proof} 
-If \cref{eq:RSForm} is invalidated then $\exists \hat{\vx}\in\partial\Omega$ s.t. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in\Omega_{u}$ and thus $$z = \min\limits_{\vx\in \partial \Omega}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\left(F(\vx)-\vu\right)\leq \max\limits_{||\boldsymbol{\lambda}||=1, \vx=\hat{\vx}}\ \boldsymbol{\lambda}^T\left(F(\vx)-\hat{\vu}\right)=0.$$ 
+If \cref{eq:RSForm} is invalidated then $\exists \hat{\vx}\in\partial\Omega$ s.t. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in\Omega_{u}$ and thus $$z = \min\limits_{\vx\in \partial \Omega}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\vx)-\vu\right)\leq \max\limits_{\norm{\vlambda}=1, \vx=\hat{\vx}}\ \vlambda^T\left(F(\vx)-\hat{\vu}\right)=0.$$ 
 Hence if $z>0$, \cref{eq:RSForm} is validated, and the system is robust feasible. It follows then by definition that the system has a robustness margin of at least r.
 \end{proof}
 \end{thm}
@@ -40,7 +41,7 @@ Since $F$ is injective we have that $\not\exists\hat{\vx}'\in\Int\Omega $ s.t. $
 \end{proof}
 \end{thm}
 
-%Note that under these circumstances $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \boldsymbol{\lambda}^T\left(F(x)-\hat{u}\right)> 0$ is possible, especially if $F(\bar{\Omega})$ is highly non-convex. However, should $\exists u^{\prime}$ s.t. $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in \bar{\Omega}}\ \boldsymbol{\lambda}^T\left(F(x)-u^{\prime}\right)=0$ then by \ref{MainInEqLem} we know that there $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=u^{\prime}$. Hence the following formulation of an outer bound approximation on $u_i^{\min}$ and $u_i^{\max}$:
+%Note that under these circumstances $\min\limits_{\norm{\vlambda}=1}\max\limits_{x\in \bar{\Omega}}\ \vlambda^T\left(F(x)-\hat{u}\right)> 0$ is possible, especially if $F(\bar{\Omega})$ is highly non-convex. However, should $\exists u^{\prime}$ s.t. $\min\limits_{\norm{\vlambda}=1}\max\limits_{x\in \bar{\Omega}}\ \vlambda^T\left(F(x)-u^{\prime}\right)=0$ then by \ref{MainInEqLem} we know that there $\exists \hat{x}\in\partial\Omega$ s.t. $F(\hat{x})=u^{\prime}$. Hence the following formulation of an outer bound approximation on $u_i^{\min}$ and $u_i^{\max}$:
 
 
 The optimization problems presented in \cref{thm:RobFeas} are nonlinear and nonconvex.

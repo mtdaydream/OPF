@@ -1,20 +1,31 @@
 Robust Feasibility: Manuscript Comments
+Status updates: July 16, 2019
 
  1. Separate previous results (from topological degree theory listed
     at the start of Theoretical Results) into its own
     subsection. Distinguish our (new) work from previously known
-    results. 
+    results.
+
+    > DONE.
 
  2. Explain why we came up with the new homotopy in Equation (7).
+
+    > DONE.
  
  3. Formally define what we mean when we say "F has no singularities".
+
+    > DONE.
 
  4. Change section headings to something like "Computing Lower/Upper
     Bounds on the robustness margin".
 
+    > DONE.
+
  5. On a related note (to (4) above), do not call the procedures
     "models". Refer to them as "procedures for computing lower/upper
     bounds".
+
+    > DONE.
 
  6. Explain why we need the multiple different models (for lower and
     upper bounds). There is perhaps a common model that is the
@@ -59,24 +70,48 @@ Robust Feasibility: Manuscript Comments
  9. Change Numerical Studies section heading to something like
     Implementation on Power Systems.
 
+    > DONE.
+
 10. Properly cite the problems from the MATPOWER package (we're not
     using the package itself, just the instances).
-(According to MATPOWER website "We request that publications derived from the use of MATPOWER, or the included data files, explicitly acknowledge that fact by citing the appropriate paper(s) and the software itself." thus the problems are properly cited).
+
+    > DONE.
+
+    BR: According to MATPOWER website "We request that publications
+    derived from the use of MATPOWER, or the included data files,
+    explicitly acknowledge that fact by citing the appropriate
+    paper(s) and the software itself." Thus the problems are properly
+    cited.
 
 
 11. Move first two paragraphs (minus overlap) of Numerical studies to
     related work section and replace with motivation for power systems
     as the domain to test models.
 
+    > DONE.
+
 11. Could we provide toy example(s) that illustrate the results of the
     various models we introduce? So, can we show some pictures?
+
+    > DONE For now.
+
+    The current example may be a bit on the simpler side. Ben is
+    trying to come up with a more nontrivial example where the
+    picture/figure might actually look nonlinear.
 
 12. Can we find another application domain that we can easily apply
     the models to? And test them numerically?
 
 13. If NO for (12), could we test on randomly generated instances?
 
+    > SKIP?
+
+    I suggest we push the manuscript with the MATPOWER instances for
+    now. We will consider other application domains and/or problem
+    instances in the future.
+
 14. In the discussion, emphasize that estimating robustness is a much
     harder problem than the original OPF itself.
 
 15. Change DJ's affiliation to just DeepMind (no Google).
+    > DONE.

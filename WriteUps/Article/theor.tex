@@ -33,86 +33,126 @@ d\left(\Omega,H(t,\cdot),\vy\right)\text{ does not depend on }t.
 \text{If }d(\Omega,F,\vy)\neq 0,\text{ then there exists }\vx\in\Omega\text{ such that }F(\vx)=\vy. 
 \end{equation}
 
-\subsection{Contributions}
-In this section we will take full advantage of properties \ref{eq:Deg3}, \ref{eq:Deg1}, and \ref{eq:Deg2} as they apply to the Robust Feasibility Problem.
-We begin by assuming there is a unique solution to the forcasted system at which point the jacobian is non-zero.
-We conclude by \ref{eq:Deg3} that the degree is non-zero at $u^*$ to the forcasted system. 
-We then utilize \ref{eq:Deg1} to equate the degree of $u$ to the degree of $u^*$ for all $u$ in \ref{eq:uLimits} (under a proposed robustness margin), which by \ref{eq:Deg2} allows us to guarantee solutions to the system under all realizations of $u$ in \ref{eq:uLimits} (i.e. verify the system is robust feasible for a given robustness margin).
-Invoking \ref{eq:Deg1}, however, requires us to develop a homotopy that captures the system under all possible realizations of $u$ within \ref{eq:uLimits}.
-Once we define such a homotopy we reduce the Robust Feasibility Problem to the problem of verifying the hypothesis of \ref{eq:Deg1}. 
+\subsection{New Theoretical Results}
+In this section we will take full advantage of properties (\ref{eq:Deg3}), (\ref{eq:Deg1}), and (\ref{eq:Deg2}) as they apply to the Robust Feasibility Problem.
+We begin by assuming there is a unique solution to the forcasted system at which point the Jacobian is non-zero.
+We conclude by property (\ref{eq:Deg3}) that the degree is non-zero at $\vu^*$ for the forcasted system. 
+We then utilize property (\ref{eq:Deg1}) to equate the degree of $\vu$ to the degree of $\vu^*$ for all $\vu$ satisfying the limits specified in Equation (\ref{eq:uLimits}) (under a proposed robustness margin), which by property (\ref{eq:Deg2}) allows us to guarantee solutions to the system under all realizations of $\vu$ satisfying the limits (in \ref{eq:uLimits}), i.e., verify the system is robust feasible for a given robustness margin.
+Invoking property (\ref{eq:Deg1}), however, requires us to develop a homotopy that captures the system under all possible realizations of $\vu$ satisfying the limits in (\ref{eq:uLimits}).
+Once we define such a homotopy we reduce the Robust Feasibility Problem to the problem of verifying the hypothesis of property (\ref{eq:Deg1}). 
 
-To that end let $F(\vx)=Q(\vx)+L\vx$, $\Omega=\{\vx| A\vx \leq \vb\}$ and $\hat{\vx}\in \Int(\Omega)$ be a solution to the forecasted system $F(\vx)=\vu^*$ in \ref{eq:Quad}, such that $\operatorname{sign}\left(J_{F}(\hat{\vx})\right)\neq 0$ (for a review of efficient methods of verification see \cite{GRIEWANK2014}). 
-If no solutions exist then certainly the system is not robust feasible. Define $\Omega_u=\{\vu| \vu\text{ satisfies }\ref{eq:uLimits}\}$.
-Verify using existing methods or those adopted from this paper that no other solutions exist in $\Int(\Omega)$ (this may require further restricting the domain or even a slight perturbation of the forcasted $\vu$). 
-Thus by \ref{eq:Deg3} we have verified that $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$. 
-Note that this is not the only method for verification, but in some sense the easiest to carry out for our purposes. 
+\medskip
+To that end let $F(\vx)=Q(\vx)+L\vx$, $\Omega=\{\vx| A\vx \leq \vb\}$ and $\hat{\vx}\in \Int(\Omega)$ be a solution to the forecasted system $F(\vx)=\vu^*$ given in Equation (\ref{eq:Quad}), such that $\operatorname{sign}\left(J_{F}(\hat{\vx})\right) \neq 0$.
+For a review of efficient methods of verification that could be used here, see the work of Griewank \cite{GRIEWANK2014}. 
+If no solution exists, then certainly the system is not robust feasible.
+We define $\Omega_u=\{\vu \,|\,\vu \text{ satisfies limits in Equation} \ref{eq:uLimits}\}$.
+Our task is then to verify using existing methods or those we propose in this paper that no other solutions exist in $\Int(\Omega)$.
+This step may require further restricting the domain or even a slight perturbation of the forcasted $\vu$. 
+Thus by property (\ref{eq:Deg3}) we have verified that $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$. 
+Note that this is not the only method for verification, but in some sense is the easiest to carry out for our purposes. 
 
-Let $L_{\vu^*}$ represent an arbitrary line passing through $\vu^*$, and $\vl_{min},\vl_{max}$ the two points of intersection between $\partial\Omega_u$ and $L_{\vu^*}$. 
+Let $L_{\vu^*}$ represent an arbitrary line passing through $\vu^*$, and $\vl_{\min},\vl_{\max}$ the two points of intersection between $\partial\Omega_u$ and $L_{\vu^*}$. 
 Define a homotopy $H_{L_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
 \begin{align}
-H_{L_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{min}+t\vl_{max}\right] \label{eq:Homo}
+H_{L_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{\min}+t\vl_{\max}\right]\,. \label{eq:Homo}
 \end{align}
 
-Observe that by construction $H_{L_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\textbf{0}$. 
-Thus if no other solutions to $H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right)=0$ exist in $\Omega$ and $\operatorname{sign}\left(J_{H_{L_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right)\neq 0$ then we have that $d(\Omega,H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right),\textbf{0})\neq 0$ by \ref{eq:Deg3}. 
-Since $L_{\vu^*}$ was arbitrary this holds for all such lines passing through $\vu^*$.
-Note that for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, $\exists !$ $\hat{L}_{\vu^*}$ passing through $\vu^*$ and $t\in[0,1]$,  such that $\hat{\vu}=(1-t)\hat{\vl}_{min}+t\hat{\vl}_{max}$. 
-Therefore if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L_{\vu^*}$, it follows by \ref{eq:Deg1} that the robust solvability problem can be determined by validating or invalidating the following statement (i.e. the hypothesis of \ref{eq:Deg1}):
+Observe that by construction $H_{L_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\vzero$. 
+Thus if no other solutions to $H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right)=\vzero$ exist in $\Omega$ and $ \operatorname{sign}\left(J_{H_{L_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right) \neq 0$ then we have that $ d(\Omega,H_{L_{\vu^*}}\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ by property (\ref{eq:Deg3}). 
+Since the line $L_{\vu^*}$ is arbitrary, this property holds for all such lines passing through $\vu^*$.
+Note that for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, there exists a line $\hat{L}_{\vu^*}$ passing through $\vu^*$ and $t\in[0,1]$,  such that $\hat{\vu}=(1-t)\hat{\vl}_{\min}+t\hat{\vl}_{\max}$. 
+Therefore if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L_{\vu^*}$, it follows by property (\ref{eq:Deg1}) that the robust solvability problem can be determined by validating or invalidating the following statement, i.e., the hypothesis of property (\ref{eq:Deg1}).
 \begin{align}
 \not\exists \vx\in\partial\Omega, \vu\in\Omega_u \ \ \mbox{ such that } \ F(\vx)-\vu=\vzero. \label{eq:RSForm}
 \end{align}
 
-From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ and focus our efforts on the development of methods for validating or invalidating \ref{eq:RSForm}.
+From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ and focus our efforts on the development of methods for validating or invalidating the statement (\ref{eq:RSForm}).
 
 \begin{lem} 
 \label{lem:BdOpt}
 Let $X\subset\R^n$ be closed. If $\vF:\R^n\rightarrow\R^n$ is continuous, and 
-$$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)$$
-obtains its optimal at $\hat{\vx}$,$\boldsymbol{\lambda}_{\hat{\vx}}$ then $\vF(\hat{\vx})\in \partial \vF(X)$. 
+\[
+\min\limits_{\norm{\vlambda}=1} \, \max\limits_{\vx\in X} \, \vlambda^T\vF(\vx)
+\]
+obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\hat{\vx})\in \partial \vF(X)$. 
 
 
 \begin{proof} 
-(By contradiction) Assume $\vF(\hat{\vx})\in \vF(X)\setminus\partial \vF(X)$. 
-Let $\theta$ the angle between $\boldsymbol{\lambda}_{\hat{\vx}}$ and $\hat{\vx}$. 
-Thus $\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{x\in X}\ \boldsymbol{\lambda}^T\vF(x)=\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\hat{\vx})=|\vF(\hat{\vx})|\cos(\theta)$. 
-Since $X\in\R^n$ is closed it is thus compact which implies $\vF(X)$ is also compact. 
-Thus $\exists r>0$ such that (ball of radius $r$ centered at $\vF(\hat{\vx})$) $B_r(\vF(\hat{\vx}))\in \vF(X)\setminus\partial \vF(X)$. 
-Let $y$ be the antipodal point on $\partial B_r(\vF(\hat{\vx}))$ to the point of intersection between the line segment connecting the origin to $\vF(\hat{\vx})$ and $B_r(\vF(\hat{\vx}))$. 
-It follows then that $|y|>|\vF(\hat{\vx})|$ and $\theta$ is the angle between $\boldsymbol{\lambda}_x$ and $y$.   
-Let $\vx^*\in X$ such that $\vF(\vx^*)=y$, such a $\vx^*$ exists as $\vF(X)$ is compact. 
-Therefore $\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\vx^*)=|\vF(\vx^*)|\cos(\theta)>|\vF(\hat{\vx})|\cos(\theta)=\boldsymbol{\lambda}_{\hat{\vx}}^T|\vF(\hat{\vx})|$ which is a contradiction. 
-The lemma now follows.
+  We get the result by arriving at a contradiction.
+  Assume $\vF(\hat{\vx})\in \vF(X)\setminus\partial \vF(X)$. 
+  Let $\theta$ the angle between $\vlambda_{\hat{\vx}}$ and $\hat{\vx}$. 
+  Thus
+  \[
+  \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~=~ \vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~ |\vF(\hat{\vx})|\cos(\theta).
+  \]
+  Since $X\in\R^n$ is closed it is thus compact, which implies $\vF(X)$ is also compact. 
+  Hence there exists an $r>0$ such that  $B_r(\vF(\hat{\vx}))$, the ball of radius $r$ centered at $\vF(\hat{\vx})$, is in $\vF(X)\setminus\partial \vF(X)$. 
+  Let $\vy$ be the antipodal point on $\partial B_r(\vF(\hat{\vx}))$ to the point of intersection between the line segment connecting the origin to $\vF(\hat{\vx})$ and $B_r(\vF(\hat{\vx}))$. 
+  It follows then that $\norm{\vy}>\norm{\vF(\hat{\vx})}$ and $\theta$ is the angle between $\vlambda_{\hat{\vx}}$ and $\vy$.   
+  Let $\vx^*\in X$ be such that $\vF(\vx^*)=\vy$.
+  Such an $\vx^*$ exists since $\vF(X)$ is compact. 
+  Therefore $\vlambda_{\hat{\vx}}^T\vF(\vx^*)=\norm{\vF(\vx^*)} \cos(\theta) > \norm{\vF(\hat{\vx})} \cos(\theta) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$, which is a contradiction. 
+  The lemma now follows.
 \end{proof}
 \end{lem}
 
 \begin{thm} 
-\label{thm:MainIneq}
-Let $X\subset\R^n$ be compact, $\vF:\R^n\rightarrow\R^n$ be continuous such that $\vF(X)$ contains the origin. 
-If $\vF$ is injective over $X$ then $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)\geq \min\limits_{\vx\in \partial X}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\vx)$$
-\begin{proof}
-If the origin lies on the boundary of $\vF(X)$ then let $\hat{\vx}\in \partial X$ such that $f(\hat{\vx})=\textbf{0}$. 
-Such an $\hat{\vx}$ exist since $\delta f(X) = f(\delta X)$ by the Invariance of Domain theorem as $f$ is continuous and injective over a compact set. 
-Then  clearly $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)\geq \min\limits_{||\boldsymbol{\lambda}||=1}\boldsymbol{\lambda}^T\vF(\hat{\vx})= 0 = \max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\hat{\vx}) \geq \min\limits_{\vx\in \partial X}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\vx)$$
-Thus assume the origin lies in the interior of $\vF(X)$.
-Let $\hat{\vx}$ be the point and $\boldsymbol{\lambda}_{\hat{\vx}}$ the unit vector at which $$\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)$$
-obtains its optimal. 
+  \label{thm:MainIneq}
+  Let $X\subset\R^n$ be compact, $\vF:\R^n\rightarrow\R^n$ be continuous such that $\vF(X)$ contains the origin. 
+  If $\vF$ is injective over $X$ then
+  \[
+  \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~\geq~ \min\limits_{\vx\in \partial X} \max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).
+  \]
+%
+  \begin{proof}
+    Consider the origin lies on the boundary of $\vF(X)$, and let $\hat{\vx} \in \partial X$ such that $F(\hat{\vx})=\vzero$. 
+    Such an $\hat{\vx}$ exists since $\partial F(X) = F(\partial X)$ by the Invariance of Domain theorem, as $F$ is continuous and injective over a compact set. 
+    Then  clearly
+    \[
+    \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~\geq~
+    \min\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) ~=~ 0 ~=~
+    \max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\hat{\vx}) ~\geq~
+    \min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).
+\]
+Hence assume the origin lies in the interior of $\vF(X)$.
+Let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ the unit vector at which
+\[
+\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx)
+\]
+obtains its optimal value.
+We consider two cases.
 
-Case 1: If the angle, $\theta$, between $\hat{\vx}$ and $\boldsymbol{\lambda}_{\hat{\vx}}$ is 0 then $\max\limits_{||\boldsymbol{\lambda}||=1}\boldsymbol{\lambda}^T\vF(\hat{\vx})=\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\hat{\vx})$. 
-Furthermore by \cref{lem:BdOpt} $\vF(\hat{\vx})\in \partial \vF(X)$ and thus $\hat{\vx}\in \partial X$ since $\vF$ has no singularities by hypothesis. 
-It follows now that $$\min\limits_{\vx\in \partial X}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\vx)\leq \max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\hat{\vx})=\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\hat{\vx})=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)$$
+Case 1: If the angle $\theta$ between $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ is $0$, then $\displaystyle \max\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$. 
+Furthermore by \cref{lem:BdOpt}, $\vF(\hat{\vx}) \in \partial \vF(X)$ and thus $\hat{\vx}\in \partial X$ since $\vF$ has no singularities, i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$, by hypothesis. 
+It follows now that
+\[
+\min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx) ~\leq~
+\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\hat{\vx}) ~=~
+\vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~
+\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx).
+\]
 
-Case 2: Assume $\theta \neq 0$. 
-Let $\vx^*$ be a point on the boundary of $X$ such that the angle between $\boldsymbol{\lambda}_{\hat{\vx}}$ and $\vF(\vx^*)$ is 0. 
-Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contains the origin, has no singularities ($\vF$ maps $\partial X$ to $\partial \vF(X)$) and by assumption the origin lies in the interior of $\vF(X)$. 
-It follows then that $$\min\limits_{\vx\in \partial X}\max\limits_{||\boldsymbol{\lambda}||=1}\ \boldsymbol{\lambda}^T\vF(\vx)\leq \max\limits_{||\boldsymbol{\lambda}||=1}\boldsymbol{\lambda}^T \vF(\vx^*) =\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\vx^*)\leq \max\limits_{\vx\in X}\boldsymbol{\lambda}_{\hat{\vx}}^T\vF(\vx)=\min\limits_{||\boldsymbol{\lambda}||=1}\max\limits_{\vx\in X}\ \boldsymbol{\lambda}^T\vF(\vx)$$
+Case 2: Assume the angle $\theta \neq 0$ (between $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$). 
+Let $\vx^*$ be a point on the boundary of $X$ such that the angle between $\vlambda_{\hat{\vx}}$ and $\vF(\vx^*)$ is 0. 
+Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contains the origin, has no singularities,
+%i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$,
+and by assumption the origin lies in the interior of $\vF(X)$. 
+It follows then that
+\[
+\min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx) ~\leq~
+\max\limits_{\norm{\vlambda}=1}\vlambda^T \vF(\vx^*) ~=
+\vlambda_{\hat{\vx}}^T\vF(\vx^*) ~\leq
+\max\limits_{\vx\in X}\vlambda_{\hat{\vx}}^T\vF(\vx) ~=~
+\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx).
+\]
 
 The theorem now follows.
 \end{proof}
 \end{thm}
 
 \cref{thm:MainIneq} and \cref{lem:BdOpt} provide us with the theoretical tools we need to develop procedures for approximating the robustness margin.
-The hypothesis of \cref{thm:MainIneq} does however require us to assume the system is injective under the constraints in \ref{eq:xLimits} which we carry with us throughout the rest of the article. 
+The hypothesis of \cref{thm:MainIneq} does however require us to assume the system is injective under the constraints in Equation (\ref{eq:xLimits}), which we carry with us throughout the rest of the article. 
 %There is room to improve here especially if there is a unique solution at u^* as this will still gaurantee the validity of the lower bd, but not necessarily that of the upper bd
 We will use the terminology \enquote{lower bound procedures} to describe the processes of verifying robust feasibility while expanding the uncertainty box centered at $\vu^*$ in order to compute the lower bounds on the robustness margin, which these procedures undertake. 
 We use the terminology \enquote{upper bound procedures} to capture in a similar fashion the procedures used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
-As such we dedicate the remainder of this section to the development of these inner and outer bound formulations. 
+As such we dedicate the next two sections to the development of these inner and outer bound formulations. 

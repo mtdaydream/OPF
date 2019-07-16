@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{amsmath,amstext,amsfonts,amssymb,amsthm,epsfig,epstopdf,url,array}
+\usepackage{amsmath,amstext,amsfonts,amssymb,amsthm,epsfig,epstopdf,url,array,mathtools}
 \usepackage[margin=1in]{geometry}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -120,11 +120,13 @@
 \newcommand{\vz}{ \mathbf{z} }
 \newcommand{\vzero}{ \mathbf{0} }
 \newcommand{\vone}{ \mathbf{1} }
+\newcommand{\vlambda}{ \boldsymbol{\lambda} }
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Int}{\operatorname{Int}}
 %\newcommand{\Tr}{\operatorname{Tr}}
 \newcommand{\Tr}{\operatorname{Trace}}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
 
 \title{Robust Feasibility of Systems of Quadratic Equations Using Topological Degree Theory}
@@ -168,6 +170,7 @@
 \input{theor}
 \input{inbdform}
 \input{outbdform}
+\input{example}
 \input{numstd}
 \input{disc}
 \input{ack}
