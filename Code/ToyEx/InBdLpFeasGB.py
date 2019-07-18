@@ -9,12 +9,18 @@ outfile = "CS"+str(casenumber)+"InBdLpFeas"+".csv"
 Q = {}
 q = {}
 c = {}
+# Q[0] = array([[1,0],[0,0]])
+# Q[1] = array([[0,0],[0,1]])
+# q[0] = [-1,0]
+# q[1] = [0,1]
+# c[0] = 2
+# c[1] = 2
 Q[0] = array([[1,0],[0,0]])
 Q[1] = array([[0,0],[0,1]])
-q[0] = [-1,0]
-q[1] = [0,1]
-c[0] = 2
-c[1] = 2
+q[0] = [1,-3]
+q[1] = [2,-1]
+c[0] = -2
+c[1] = 4
 
 if casenumber == "toy":
     clist = [h for h in range(2)]
@@ -156,6 +162,8 @@ expr1 = [(M[shape(M)[0]-1,i],x[i]) for i in range(shape(M)[1])]
 Constraints[k+2] = model.addLConstr(LinExpr(expr1),GRB.LESS_EQUAL, B[shape(M)[0]-1], 'c'+str(k+2))
 c_start = shape(A)[0]+len(bqr)
 eps = [0.000001,0.00001,0.0001,0.001,0.01,0.1,0.5]
+
+model.update()
 
 while eps:
 	success = True

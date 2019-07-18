@@ -1,0 +1,3 @@
+upbdrad = 2.63462
+lwbdfeasrad = 1.20454
+lwbdtightrad = 1.706649
