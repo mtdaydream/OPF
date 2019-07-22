@@ -33,6 +33,11 @@ Status updates: July 16, 2019
     intractable. Hence we make several relaxations, to get weaker and
     weaker bounds while gaining on computational efficiency.
 
+    > DONE.
+
+    But the models do not get weaker and weaker - they each bring
+    unique advantages and challenges
+
  5. Check to see if/how we could make Theorem 4.2 and if and only if.
 
     If z = 0, can we say the system is not robust feasible?
@@ -47,6 +52,9 @@ Status updates: July 16, 2019
     	     solution. Hence, any infinitesimal shrinking will ensure
     	     there is a u for which there exists no solution, i.e., it
     	     is not robust feasible.
+
+    > DONE. Changed the statement to iff.
+	     
  
  6. Problem (9) is a difficult non-convex optimization problem. What
     is its nature? Can we prove it is NP-hard? That way, we can
@@ -55,17 +63,26 @@ Status updates: July 16, 2019
 
     Essentially, we need to formalize the two lines presented right
     after the proof of Theorem 4.2.
+
+    > TODO: Show Problem (9) is NP-hard using original arguments?
+
+    > DONE - everything else. For now, we mention this problem is a
+      QCQP, which is NP-hard in general.
+    
  
  7. Add pointer to model in Equation (10) about rank constraint on X
     (rank(X)=1). If we enforce this constraint, the problem in (10) is
     an exact formulation. But enforcing the rank constraint is hard to
     do, so we consider the natural relaxation where we drop it.
+
+    > DONE.
     
 
  8. Make it a more coordinated/cohesive story about why why we are
     presenting 3 different lower bound models and how they relate to
     Equation (10). They are increasingly looser relaxations.
 
+    > DONE. They're not necessarily increasingly looser relaxations.
 
  9. Change Numerical Studies section heading to something like
     Implementation on Power Systems.
@@ -106,8 +123,8 @@ Status updates: July 16, 2019
 
     > SKIP?
 
-    I suggest we push the manuscript with the MATPOWER instances for
-    now. We will consider other application domains and/or problem
+    BK: I suggest we push the manuscript with the MATPOWER instances
+    for now. We will consider other application domains and/or problem
     instances in the future.
 
 14. In the discussion, emphasize that estimating robustness is a much
