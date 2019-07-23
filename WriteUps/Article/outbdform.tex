@@ -174,16 +174,16 @@ On the other hand, if $\vu^*\neq \vzero$ then we can add an extra dummy variable
   \begin{bmatrix}
     A_{11} & \dots & A_{1n} & A_{1,n+1} & 0 & \dots & 0 \\ 
     %A_{21} & \dots & A_{2n} & A_{2,n+1} & 0 & \dots & 0 \\  
-    \vdots & \ddots & \vdots & \phantom{-} \vdots & \vdots & \ddots & \vdots\\
+    \vdots & \ddots & \vdots & \p \vdots & \vdots & \ddots & \vdots\\
     A_{m1} & \dots & A_{mn} & A_{mn+1} & 0 & \dots & 0 \\
-    0 & \dots & 0 & \phantom{-} 1 & 0 & \dots & 0 \\
+    0 & \dots & 0 & \p 1 & 0 & \dots & 0 \\
     0 & \dots & 0 & -1 & 0 & \dots & 0 \\
-    \vb_1A_{11}+\vb_1A_{11} & \dots & \vb_1A_{1n}+\vb_1A_{1n} & \phantom{-} 0 & -A_{11}A_{11} & \dots & -A_{1n}A_{1n} \\ 
+    \vb_1A_{11}+\vb_1A_{11} & \dots & \vb_1A_{1n}+\vb_1A_{1n} & \p 0 & -A_{11}A_{11} & \dots & -A_{1n}A_{1n} \\ 
     %\vb_2A_{11}+\vb_1A_{21} & \dots & \vb_2A_{1n}+\vb_1A_{2n} &  0 & -A_{11}A_{21} & \dots & -A_{1n}A_{2n} \\ 
-    \vdots & \ddots & \vdots & \phantom{-} \vdots & \vdots & \ddots & \vdots\\
-    \vb_rA_{q1}+\vb_qA_{r1} & \dots & \vb_rA_{qn}+\vb_qA_{rn} & \phantom{-} 0 & -A_{q1}A_{r1} & \dots & -A_{1n}A_{2n} \\ 
-    \vdots & \ddots & \vdots & \phantom{-} \vdots & \vdots & \ddots & \vdots\\
-    \vb_mA_{m1}+\vb_mA_{m1} & \dots & \vb_mA_{mn}+\vb_mA_{mn} & \phantom{-} 0 & -A_{m1}A_{m1} & \dots & -A_{mn}A_{mn} 
+    \vdots & \ddots & \vdots & \p \vdots & \vdots & \ddots & \vdots\\
+    \vb_rA_{q1}+\vb_qA_{r1} & \dots & \vb_rA_{qn}+\vb_qA_{rn} & \p 0 & -A_{q1}A_{r1} & \dots & -A_{1n}A_{2n} \\ 
+    \vdots & \ddots & \vdots & \p \vdots & \vdots & \ddots & \vdots\\
+    \vb_mA_{m1}+\vb_mA_{m1} & \dots & \vb_mA_{mn}+\vb_mA_{mn} & \p 0 & -A_{m1}A_{m1} & \dots & -A_{mn}A_{mn} 
   \end{bmatrix}%
 
   \begin{bmatrix}
@@ -204,20 +204,20 @@ On the other hand, if $\vu^*\neq \vzero$ then we can add an extra dummy variable
   ~\leq~
   
   \begin{bmatrix}
-    \phantom{-} b_1 \\ 
+    \p b_1 \\ 
     %b_2 \\  
-    \phantom{-} \vdots \\
-    \phantom{-} b_m \\
-    \phantom{-} 1 \\
+    \p \vdots \\
+    \p b_m \\
+    \p 1 \\
     -1 \\
-    \phantom{-} b_1b_1 \\ 
+    \p b_1b_1 \\ 
     %b_1b_2  \\
-    %\phantom{-} \vdots \\
+    %\p \vdots \\
     %b_2b_2\\
     %b_2b_3\\
-    \phantom{-} \vdots \\
+    \p \vdots \\
     b_qb_r\\
-    \phantom{-} \vdots \\
+    \p \vdots \\
     b_mb_m 
   \end{bmatrix}.%
 }
