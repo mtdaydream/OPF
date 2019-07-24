@@ -1,8 +1,24 @@
 \section{Discussion} \label{sec:disc}
 
-\delete{Need to add mode details...}
+%\delete{Need to add mode details...}
 
 We have proposed novel and efficient techniques for determining robust solvability of quadratic systems with uncertainty. 
-It is worth mentioning that the same machinery can be used to determine robustness margins of solutions to static systems by taking $A$ to be the identity, $e_i=0 \ \forall i$ and simply adjusting $\vb$ accordingly.  
-More efficient models can certainly be derived using the theory contained here. 
-We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results we presented. 
+It is worth mentioning that the same machinery can be used to determine robustness margins of solutions to static systems by taking $A$ to be the identity, $e_i=0 \ \forall i$, and simply adjusting $\vb$ accordingly.
+
+We have employed results on the computational complexity of QCQPs to shed some light on the hardness of the optimization problems in the key \cref{thm:RobFeas}.
+It would be interesting to prove NP-hardness of the optimization problems in \cref{eq:OPTfeas} using direct arguments.
+
+Our implementation on power systems in \cref{sec:numstd} is just one direct application of the general (theoretical) framework we have developed.
+We are exploring other avenues for applying our framework including gas and water flow networks.
+
+In the context of our application to power systems, we must point out that finding the robustness margin of an OPF instance is inherently harder than solving the original OPF instance itself.
+Hence it is expected that larger sized instances of the default OPF problem are solved in practice than ones for which our inner and outer bound procedures are run efficiently.
+
+We have presented (in \cref{ssec:compres}) bounds on the robustness margins for solutions of OPF instances.
+One generalization we could consider is that of combining measures of robustness and optimality.
+In practice, a near optimal solution with a large robustness margin might be more desirable than an optimal solution with a small robustness margin.
+
+
+
+%More efficient models can certainly be derived using the theory contained here. 
+%We present these models only as examples of how efficient algorithms could be constructed utilizing the theoretical results we presented. 

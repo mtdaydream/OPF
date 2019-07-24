@@ -1,5 +1,5 @@
 Robust Feasibility: Manuscript Comments
-Status updates: July 16, 2019
+Status updates: July 24, 2019
 
  1. Separate previous results (from topological degree theory listed
     at the start of Theoretical Results) into its own
@@ -65,6 +65,7 @@ Status updates: July 16, 2019
     after the proof of Theorem 4.2.
 
     > TODO: Show Problem (9) is NP-hard using original arguments?
+      Added a note to this effect in the Discussion.
 
     > DONE - everything else. For now, we mention this problem is a
       QCQP, which is NP-hard in general.
@@ -110,14 +111,12 @@ Status updates: July 16, 2019
 11. Could we provide toy example(s) that illustrate the results of the
     various models we introduce? So, can we show some pictures?
 
-    > DONE For now.
-
-    The current example may be a bit on the simpler side. Ben is
-    trying to come up with a more nontrivial example where the
-    picture/figure might actually look nonlinear.
+    > DONE.
 
 12. Can we find another application domain that we can easily apply
     the models to? And test them numerically?
+
+    > NO. See below.
 
 13. If NO for (12), could we test on randomly generated instances?
 
@@ -129,6 +128,8 @@ Status updates: July 16, 2019
 
 14. In the discussion, emphasize that estimating robustness is a much
     harder problem than the original OPF itself.
+
+    > DONE.
 
 15. Change DJ's affiliation to just DeepMind (no Google).
     > DONE.

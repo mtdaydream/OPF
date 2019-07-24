@@ -22,14 +22,15 @@ If there is an $r>0$ such that $r \leq e_i \ \mbox{ for all } i \mbox{ with } e_
 \end{thm}
 
 \bigskip
-We can relax the procedure in \cref{thm:OPTfeasOut} utilizing the same techniques as before, replacing $\vx\vx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite.
-This step transforms the procedure from a semidefinite program to a linear or mixed integer program depending on how one deals with the condition $\norm{\vlambda}=1$. 
-In our tests we use the $\ell_1$ norm and introduce variables which capture the absolute value of each $\lambda_i$.
+We can relax the computation suggested in \cref{thm:OPTfeasOut} utilizing the same techniques as before, replacing $\vx\vx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite.
+This step transforms the computation from a semidefinite program to a linear or mixed integer program depending on how one deals with the constraint $\norm{\vlambda}=1$. 
+In our tests we use the $\ell_1$ norm and introduce variables that capture the absolute value of each $\lambda_i$.
+We obtain the following procedure.
 %In our tests we iterate over all possible sign choices for each dimension of $\vlambda$ as there are only ten dimensions of variability in our applications. \\
 
 \bigskip
 \bigskip
-\textbf{Outer Bound Procedure A}
+\textit{Outer Bound Procedure}: Formulation
 \begin{equation}\label{eq:OPTfeasOutRelaxa}
 \begin{array}{rl}
  \ z &=\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx} \, \vlambda^T\left(F(\vx)-\vu^* \right) \\
@@ -259,7 +260,7 @@ We can then write the objective function $g(Q,L,\lambda)\hat{\vx}$ as follows.
 In either case, the final optimization problem, and hence the procedure we use in our tests, is given as follows.
 
 \medskip
-\textbf{Outer Bound Procedure B} 
+\textbf{Outer Bound Procedure} 
 \begin{equation}\label{eq:OPTfeasOutRelaxb}
 \begin{array}{rl}
   \ z &=\min\limits_{\norm{\vlambda}=1, \vy}\vB^T\vy  \\
