@@ -17,7 +17,7 @@ Due to all these uncertainties, it is increasingly difficult to ensure there is 
 \medskip
 We study quadratic systems of equations with parameters, and take a \emph{robust viewpoint} of uncertainty.
 Specifically, we aim to quantify the worst-case impact of uncertainty in parameters on feasibility.
-To this end, We study the \emph{robust feasibility problem}, which includes the robust version of the standard PF problem as a special case.
+To this end, we study the \emph{robust feasibility problem}, which includes the robust version of the standard PF problem as a special case.
 The power system can be described by a system of nonlinear equations in a set of variables that capture the state of the power grid, i.e., voltages at every point in the power network, and include the controllable inputs as well as uncertain inputs.
 In the main PF problem, we are given a fixed value of the controllable inputs and an uncertainty set for the uncertain inputs.
 The goal of the robust feasibility problem is to characterize whether the system has a solution within specified bounds (capturing engineering limits on voltages, flows, etc.) for {\em each} choice of the uncertain inputs in the uncertainty set.
@@ -33,7 +33,7 @@ While we use power systems as the main application area, the methods we develop 
 \subsection{Our Contributions}
   We study systems of quadratic equations, and define a \emph{robustness margin} as a measure of the system's robust feasibility (see \cref{RobustDef}).
   We develop approaches based on topological degree theory to estimate bounds on the robustness margin of such systems (see \cref{sec:theory}).
-  We use tools from convex analysis and optimization theory to cast the problems of checking the conditions for robust feasibility as a nonlinear optimization problem.
+  We use tools from convex analysis and optimization theory to cast the problem of checking the conditions for robust feasibility as a nonlinear optimization problem.
   We then develop \emph{inner bound} (\cref{sec:inbdform}) and \emph{outer bound} (\cref{sec:outbdform}) formulations for this optimization problem, which could be solved efficiently to derive lower and upper bounds, respectively, for the margin of robust feasibility.
   We evaluate our approach numerically on standard instances taken from the MatPower database of AC power flow equations that describe the steady state of the power grid (\cref{sec:numstd}).
   The results demonstrate that our approach can produce tight lower and upper bounds on the robustness margin for such instances.

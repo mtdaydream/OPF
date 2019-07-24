@@ -3,9 +3,9 @@
 %\subsection{Adaptation to Optimal Power Flow Equations}
 We now present results from computational studies that demonstrate the efficiency of the bounding procedures we have introduced.
 %presented, which address the aforementioned short comings of previous work. 
-For all the numerical results presented, we apply the LP and MIP feasibility procedures (\cref{eq:OPTfeasrelaxLP1,eq:OPTfeasrelaxLP2}), the LP bound tightening procedure (\cref{eq:OPTfeasrelaxLP3}), and the Outer bound procedure (\cref{eq:OPTfeasOutRelaxb}) to find lower and upper bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software \cite{matpower}. 
+For all the numerical results presented, we apply the MIP and LP feasibility procedures (\cref{eq:OPTfeasrelaxLP1,eq:OPTfeasrelaxLP2}), the LP bound tightening procedure (\cref{eq:OPTfeasrelaxLP3}), and the Outer bound procedure (\cref{eq:OPTfeasOutRelaxb}) to find lower and upper bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software \cite{matpower}. 
 We will specifically show results for tests conducted on cases 5, 9, 14, 30 and 57. 
-In every case the power flow equations were converted into the form of system of quadratic equations we study (as described in \cref{eq:Quad,eq:xLimits,eq:uLimits}). 
+In every case the power flow equations were converted into the form of a system of quadratic equations we study (as described in \cref{eq:Quad,eq:xLimits,eq:uLimits}). 
 To simulate real life scenarios we allowed the first 5 dimensions of $\vu$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\vu$, while utilizing procedures for the upper and lower bound verification to verify robust feasibility. 
 We first detail specifically how this transformation was conducted.
 
@@ -65,14 +65,9 @@ We display this data on a case by case basis to highlight the effect of allowing
 
 Case 57 is not included in the graphs as the only inner bound procedure to run in a reasonable time was the Feasibility procedure that produced a maximum robustness margin of $\approx$0.003 with a computational time of $\approx$489224 seconds, and a gap to the outer bound procedure of $\approx 0.030$ when $B=0.001$, which had a running time of $\approx$45144 seconds.
 
-As evident from the graphs, the LP Bound Tightening Procedure produces a better approximation of the inner (lower) bound on the robustness margin as the complexity of the data set increases. 
-Certainly one would expect the bound tightening procedure to out perform the other inner bound procedures for all cases, but the choice of procedure parameters has a big effect on the efficiency of the procedure. 
-For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $\vb$ will result in an extremely long running time for most cases. 
-Thus in the low as well as marginally high complexity cases, it should be expected that the other procedures will out perform the bound tightening procedure as these manually set parameters will have more of an impact on performance. 
-Of special interest is the difference in performance of the MIP and the LP Feasibility Inner Bound Procedures as the complexity of the data increases. \delete{BK: Can you add some more details on how exactly do these performances differ (as described in the last line)?}
-
-
-
-
+As evident from the graphs, the LP Bound Tightening Procedure produces a better approximation of the lower bound on the robustness margin as the complexity of the data set increases. 
+Certainly one would expect the bound tightening procedure to out perform the other inner bound procedures for all cases, but the choice of procedure parameters has a big effect on the efficiency and capability of the procedure. 
+For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $\vb$ will result in a better lower bound approximation, but an extremely long running time for most cases. 
+Thus in the low as well as marginally high complexity cases, it should be expected that the other procedures will out perform the bound tightening procedure as these manually set parameters will have more of an impact. 
 
 

@@ -49,7 +49,7 @@ These components of data correspond to the following quadratic system.
 \[
 F(\vx) =
 \begin{bmatrix}
-  x_1^2 + ~~x_1 - x_2 \\
+  x_1^2 + ~~x_1 - 3x_2 \\
   x_2^2 +  2x_1 - x_2
 \end{bmatrix}
 =
@@ -77,11 +77,20 @@ F(\vx) =
 \end{bmatrix}
 \right\}.
 \]
-
-\delete{What is a feasible $\vx$ for this system?}
-Running the Outer Bound Procedure B (\cref{eq:OPTfeasOutRelaxb}) gives an upper bound on the robustness margin of $2.63462$.
-Running the LP Feasibility procedure results in an lower bound on the robustness margin of $1.20454$, while the bound tightening yields a lower bound of $1.706649$. 
-
+%
+This system has a unique solution within $\Omega_{\vx}$ as follows.
+\[\begin{bmatrix}
+x_1 \\
+x_2
+\end{bmatrix}
+\approxeq
+\begin{bmatrix}
+1.36 \\
+1.74
+\end{bmatrix}
+\] 
+Running the Outer Bound Procedure (\cref{eq:OPTfeasOutRelaxb}) gives an upper bound on the robustness margin of $2.63462$.
+Running the LP feasibility procedure results in an lower bound on the robustness margin of $1.20454$, while the bound tightening yields a lower bound of $1.706649$. 
 We illustrate $F(\Omega_{\vx})$ with $\vu^*$ in \cref{fig:FOmega}.
 Notice that the bound tightening procedure produces a better lower bound approximation as theoretically predicted.
 
@@ -90,7 +99,7 @@ Notice that the bound tightening procedure produces a better lower bound approxi
     \includegraphics[scale=0.45]{Figures/newex} % {Figures/Rfeas}
   \end{center}
   \caption{\label{fig:FOmega}
-    Illustration of $F(\Omega_x)$ (dark blue surface), $\vu^*$, and $\Omega_{u^*}$ (center of the boxes) with radii given by the upper bound procedure (light blue box), bound tightening procedure (turquoise box), and feasibility procedure (yellow box).
+    Illustration of $F(\Omega_x)$ (dark blue surface), $\vu^*$ (center of the boxes), and $\Omega_{u^*}$  with radii given by the upper bound procedure (light blue box), bound tightening procedure (turquoise box), and feasibility procedure (yellow box).
   }
 \end{figure}
 

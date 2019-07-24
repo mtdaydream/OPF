@@ -3,7 +3,7 @@ In this section we will derive procedures for computing a lower bound on the rob
 We start with an exact formulation, which turns out to be hard to implement efficiently in practice.
 Hence we relax the procedures until they become computationally tractable. 
 We end the section by providing three different implementations of our final derived, relaxed, computationally tractable procedure specified in Equation (\ref{eq:OPTfeasrelax}).
-Each of these three practical implementations bring a unique set of attributes, which makes none of them the clearly preferred one.
+Each of these three practical implementations bring a unique set of attributes, which makes none of them the clearly preferred candidate.
 
 \begin{thm}
   Let $\Omega=\{\vx| A\vx< \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). 
@@ -35,12 +35,12 @@ Each of these three practical implementations bring a unique set of attributes, 
   \begin{proof} \ \\
     $\boxed{\Rightarrow}$ \\ 
     If the system is not robust feasible then there exists $\hat{\vu}'\in \Omega_u$ such that $F(\vx)=\hat{\vu}'$ has no solution. 
-    Since $F(\vx)=\vu^*$ has a solution and $F$ is continuous over a compact domain, there must exist an $\hat{\vx} \in \Omega = \{\vx| A\vx < \vb\}$ such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 
-    Since $F$ is injective we have that $\hat{\vx}\in\partial\Omega$, which implies that there is an $i$ such that $A\hat{\vx}_i=b_i$, and thus $0 \leq \rz_i \leq \norm{F(\hat{\vx})-\hat{\vu}}=0$.\\
+    Since $F(\vx)=\vu^*$ has a solution and $F$ is continuous over a compact domain, there must exist an $\hat{\vx} \in \Omega = \{\vx| A\vx \leq \vb\}$ such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u\cap \partial F(X)$. 
+    Since $\partial F(X) = F(\partial X)$ we have that $\hat{\vx}\in\partial\Omega$, which implies that there is an $i$ such that $A\hat{\vx}_i=b_i$, and thus $0 \leq \rz_i \leq \norm{F(\hat{\vx})-\hat{\vu}}=0$.\\
     %
     $\boxed{\Leftarrow}$ \\ 
     If there exists an $i$ such that $\rz_i = 0$, then there must exist an $\hat{\vx} \in \partial\Omega $ and $\hat{\vu}\in \Omega_u$ such that $F(\hat{\vx})=\hat{\vu}$. 
-    Since $F$ is injective, there cannot exist an $\hat{\vx}' \in \Int\Omega$ such that $F(\hat{\vx}')=\hat{\vu}$, and hence by definition the system is not robust feasible.
+    Since $\partial F(X) = F(\partial X)$, there cannot exist an $\hat{\vx}' \in \Int\Omega$ such that $F(\hat{\vx}')=\hat{\vu}$, and hence by definition the system is not robust feasible.
     %\cref{eq:RSForm} is invalidated, which implies $\exists \hat{\vx}\in\partial\Omega$, $\Omega=\{\vx| A\vx< \vb\}$, such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 
     %Since $\hat{\vx}\in\partial\Omega$ this implies that $\exists i$ such that $A\hat{\vx}_i=b_i$ and thus $0\leq \rz_i \leq ||F(\hat{\vx})-\hat{\vu}||=0$.
     %Thus if $\rz_i>0$ for each $i = 1, \ldots, m$, \cref{eq:RSForm} is validated, and the system is robust feasible.
@@ -127,7 +127,7 @@ An alternative approach is to consider all of the dimensions of $A\vx$ simultane
 
 
 The MIP and LP Feasibility procedures are similar and should theoretically give the same results. 
-However, as we will show in our numerical studies, the LP Feasibility procedure could outperform the MIP procedure in terms of speed at higher dimensions. 
+However, as we will show in our numerical studies, the LP Feasibility procedure could outperform the MIP procedure by producing higher robustness margins and running faster in higher dimensions. 
 In both procedures, the process ends after a boundary solution is found. 
 This solution may not be a boundary solution to the actual system, but may be an artifact of the relaxations used to create the procedures. 
 One way of tackling this issue is by updating the constraints using an iterative process as outlined in the following procedure.
@@ -146,7 +146,7 @@ One way of tackling this issue is by updating the constraints using an iterative
 \end{equation}
 
 What distinguishes the LP Bound Tightening procedure from the other two procedures is the ability to use it iteratively by updating the constraints of \cref{eq:OPTfeasrelaxLP3}, replacing $\vb$ with $\vz$, the vector of $z_i$'s found after running the procedure over all dimensions of $A\vx$. 
-Since clearly $\vb \leq \vz$, we have that the polytope $\{\vx ~|~ A\vx\leq \vz\} \, \subseteq \, \{\vx ~|~ A\vx\leq \vb\}$. 
+Since clearly $\vz \leq \vb$, we have that the polytope $\{\vx ~|~ A\vx\leq \vz\} \, \subseteq \, \{\vx ~|~ A\vx\leq \vb\}$. 
 Thus it follows that any system deemed robust feasible using \cref{eq:OPTfeasrelaxLP1} or \cref{eq:OPTfeasrelaxLP2} will certainly be found robust feasible using \cref{eq:OPTfeasrelaxLP3}, but a system found robust feasible using \cref{eq:OPTfeasrelaxLP3} may not be found robust feasible using \cref{eq:OPTfeasrelaxLP1} or \cref{eq:OPTfeasrelaxLP2}. 
-The drawback of the bound tightening procedure, as we shall see in the Computational Results (\cref{ssec:compres}), is the large number of choices for parameters to be manually set in order to tell the procedure when to stop. 
+The drawback of the bound tightening procedure, as we shall see in the Computational Results (\cref{ssec:compres}), is choice of parameters to be manually set in order to tell the procedure when to stop. 
 

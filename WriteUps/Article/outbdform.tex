@@ -22,7 +22,7 @@ If there is an $r>0$ such that $r \leq e_i \ \mbox{ for all } i \mbox{ with } e_
 \end{thm}
 
 \bigskip
-We can relax the computation suggested in \cref{thm:OPTfeasOut} utilizing the same techniques as before, replacing $\vx\vx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite.
+We can relax the computation suggested in \cref{thm:OPTfeasOut} by utilizing the same techniques as before, replacing $\vx\vx^T$ with a positive semidefinite matrix $X$, with the option of dropping the condition that $X$ be positive semidefinite.
 This step transforms the computation from a semidefinite program to a linear or mixed integer program depending on how one deals with the constraint $\norm{\vlambda}=1$. 
 In our tests we use the $\ell_1$ norm and introduce variables that capture the absolute value of each $\lambda_i$.
 We obtain the following procedure.

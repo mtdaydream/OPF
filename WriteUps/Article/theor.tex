@@ -4,8 +4,8 @@ In the first subsection we describe the setting under which the problem can be s
 \subsection{Topological Degree Theory}
 Our results take advantage of the well studied area of topological degree theory. 
 For an introduction to topological degree theory see \cite{OrChCh2006}, \cite{fonseca1995degree} and \cite{MoVrYa2002}. 
-Suffice it to say that should $\Omega\subset\R^{n}$ be open and bounded, $F:\Omega\rightarrow \R$ continuous, and $F(\vx) \neq \vy \quad \forall \vx\in\partial\Omega$ for some $\vy\in\R^n$, then the degree of $F$ at $y$ over $\Omega$, denoted $d\left(\Omega,F,\vy\right)\in\mathbb{Z}$, is defined. 
-For the purposes of this article we utilize the following property for the degree as our definition of the topological degree of a function $F$ at $y$ over a set $\Omega$. 
+Suffice it to say that should $\Omega\subset\R^{n}$ be open and bounded, $F:\Omega\rightarrow \R$ continuous, and $F(\vx) \neq \vy \quad \forall \vx\in\partial\Omega$ for some $\vy\in\R^n$, then the degree of $F$ at $\vy$ over $\Omega$, denoted $d\left(\Omega,F,\vy\right)\in\mathbb{Z}$, is defined. 
+For the purposes of this article we utilize the following property for the degree as our definition of the topological degree of a function $F$ at $\vy$ over a set $\Omega$. 
 See \cite{OrChCh2006} for details.:
 \begin{equation}\label{eq:Deg3}
 d\left(\Omega,F,\vy\right)=\sum\limits_{\vx\in F^{-1}(\vy)}\operatorname{sign}\left(J_F(\vx)\right)
@@ -123,7 +123,7 @@ obtains its optimal value.
 We consider two cases.
 
 Case 1: If the angle $\theta$ between $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ is $0$, then $\displaystyle \max\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$. 
-Furthermore by \cref{lem:BdOpt}, $\vF(\hat{\vx}) \in \partial \vF(X)$ and thus $\hat{\vx}\in \partial X$ since $\vF$ has no singularities, i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$, by hypothesis. 
+Furthermore by \cref{lem:BdOpt}, $\vF(\hat{\vx}) \in \partial \vF(X)$ and thus $\hat{\vx}\in \partial X$ since $\vF$ is injective, i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$, by hypothesis. 
 It follows now that
 \[
 \min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx) ~\leq~
@@ -134,7 +134,7 @@ It follows now that
 
 Case 2: Assume the angle $\theta \neq 0$ (between $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$). 
 Let $\vx^*$ be a point on the boundary of $X$ such that the angle between $\vlambda_{\hat{\vx}}$ and $\vF(\vx^*)$ is 0. 
-Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contains the origin, has no singularities,
+Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contains the origin, is injective,
 %i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$,
 and by assumption the origin lies in the interior of $\vF(X)$. 
 It follows then that
@@ -151,8 +151,10 @@ The theorem now follows.
 \end{thm}
 
 \cref{thm:MainIneq} and \cref{lem:BdOpt} provide us with the theoretical tools we need to develop procedures for approximating the robustness margin.
-The hypothesis of \cref{thm:MainIneq} does however require us to assume the system is injective under the constraints in Equation (\ref{eq:xLimits}), which we carry with us throughout the rest of the article. 
+The hypothesis of \cref{thm:MainIneq} does however require us to assume the system is injective under the constraints in Equation (\ref{eq:xLimits}).
+However, injectivity is only required to ensure $\partial F(X) = F(\partial X)$, and thus we can generalize to systems that are not necessarily injective if they yet retain $\partial F(X) = F(\partial X)$ as an applicable property. 
+With this in mind we carry with us the necessary property $\partial F(X) = F(\partial X)$ throughout the rest of the article. 
 %There is room to improve here especially if there is a unique solution at u^* as this will still gaurantee the validity of the lower bd, but not necessarily that of the upper bd
-We will use the terminology \enquote{lower bound procedures} to describe the processes of verifying robust feasibility while expanding the uncertainty box centered at $\vu^*$ in order to compute the lower bounds on the robustness margin, which these procedures undertake. 
-We use the terminology \enquote{upper bound procedures} to capture in a similar fashion the procedures used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
+We will use the terminology \enquote{inner bound procedures} to describe the processes of verifying robust feasibility while expanding the uncertainty box centered at $\vu^*$ in order to compute the lower bounds on the robustness margin, which these procedures undertake. 
+We use the terminology \enquote{outer bound procedures} to capture in a similar fashion the procedures used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
 As such we dedicate the next two sections to the development of these inner and outer bound formulations. 
