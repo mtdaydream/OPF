@@ -96,6 +96,10 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
 \end{proof}
 \end{lem}
 
+\medskip
+We now present the main theorem characterizing the structure of the function $F$, which used \cref{lem:BdOpt} in the proof.
+
+
 \begin{thm} 
   \label{thm:MainIneq}
   Let $X\subset\R^n$ be compact, $\vF:\R^n\rightarrow\R^n$ be continuous such that $\vF(X)$ contains the origin. 
@@ -103,7 +107,8 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
   \[
   \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~\geq~ \min\limits_{\vx\in \partial X} \max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).
   \]
-%
+  %
+  %\smallskip
   \begin{proof}
     Consider the origin lies on the boundary of $\vF(X)$, and let $\hat{\vx} \in \partial X$ such that $F(\hat{\vx})=\vzero$. 
     Such an $\hat{\vx}$ exists since $\partial F(X) = F(\partial X)$ by the Invariance of Domain theorem, as $F$ is continuous and injective over a compact set. 
@@ -155,6 +160,7 @@ The hypothesis of \cref{thm:MainIneq} does however require us to assume the syst
 However, injectivity is only required to ensure $\partial F(X) = F(\partial X)$, and thus we can generalize to systems that are not necessarily injective if they yet retain $\partial F(X) = F(\partial X)$ as an applicable property. 
 With this in mind we carry with us the necessary property $\partial F(X) = F(\partial X)$ throughout the rest of the article. 
 %There is room to improve here especially if there is a unique solution at u^* as this will still gaurantee the validity of the lower bd, but not necessarily that of the upper bd
+
 We will use the terminology \enquote{inner bound procedures} to describe the processes of verifying robust feasibility while expanding the uncertainty box centered at $\vu^*$ in order to compute the lower bounds on the robustness margin, which these procedures undertake. 
 We use the terminology \enquote{outer bound procedures} to capture in a similar fashion the procedures used to compute the upper bounds on the robustness margin by contracting the uncertainty box until the system may be robust feasible. 
 As such we dedicate the next two sections to the development of these inner and outer bound formulations. 

@@ -1,18 +1,21 @@
-\section{Computing Lower Bounds on the Robustness Margin} \label{sec:inbdform}  
+\section{Computing Lower Bounds on the Robustness Margin} \label{sec:inbdform}
+
 In this section we will derive procedures for computing a lower bound on the robustness margin. 
 We start with an exact formulation, which turns out to be hard to implement efficiently in practice.
 Hence we relax the procedures until they become computationally tractable. 
 We end the section by providing three different implementations of our final derived, relaxed, computationally tractable procedure specified in Equation (\ref{eq:OPTfeasrelax}).
-Each of these three practical implementations bring a unique set of attributes, which makes none of them the clearly preferred candidate.
+Each of these three practical implementations brings a unique set of attributes, which makes none of them the clearly preferred candidate.
 
+\smallskip
 \begin{thm}
-  Let $\Omega=\{\vx| A\vx< \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). 
+  Let $\Omega=\{\vx| A\vx \leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). 
   Let
   \[
   z = \min\limits_{\vx\in \partial \Omega, \vu\in \Omega_{u} }\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\vx)-\vu\right).
   \]
   If there is an $r>0$ such that $r \leq e_i \ \forall i$ with $\ e_i>0$, where $e_i$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z > 0$ then the system is robust feasible and has a robustness margin of at least $r$.
 
+  \medskip
   \begin{proof} 
     If \cref{eq:RSForm} is invalidated then there exists $\hat{\vx} \in \partial\Omega$ such that. $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in\Omega_{u}$ and thus
     \[
@@ -23,6 +26,7 @@ Each of these three practical implementations bring a unique set of attributes, 
   \end{proof}
 \end{thm}
 
+  \medskip
 \begin{thm} \label{thm:RobFeas}
   Let $\partial\Omega_i=\{\vx| (A\vx)_i = b_i, A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \cref{eq:Quad,eq:xLimits,eq:uLimits}.
   Define
