@@ -75,8 +75,7 @@ We can write $M \hat{\vx} \leq \vB$ using only the upper triangular entries incl
 %\noindent
 %\scalebox{0.8}{
 \[
-\resizebox{\hsize}{!}
-{
+\resizebox{\hsize}{!}{%
   \begin{bmatrix}
     A_{11} & \dots & A_{1n} & 0 & \dots & 0 \\ 
     %	A_{21} & A_{22} & \dots & A_{2n} & 0 & 0 & \dots & 0 \\  
@@ -119,7 +118,7 @@ We can write $M \hat{\vx} \leq \vB$ using only the upper triangular entries incl
     \vdots \\
     b_mb_m 
   \end{bmatrix}.%
-}
+  }%
 \]
 %\bigskip
 %
@@ -127,8 +126,8 @@ We can write the objective function as $g(Q,L,\lambda)\hat{\vx}-\lambda^T\vu^*$ 
 %
 %\bigskip
 \[
-\resizebox{\hsize}{!}
-{
+%\resizebox{\hsize}{!}
+%{
   \begin{bmatrix}
     \sum\limits_{j=1}^nL_{j,1}\lambda_j & %\sum\limits_{j=1}^nL_{j,2}\lambda_j &
     \dots &
@@ -151,7 +150,7 @@ We can write the objective function as $g(Q,L,\lambda)\hat{\vx}-\lambda^T\vu^*$ 
     %\vdots \\
     X_{nn} 
   \end{bmatrix}%
-  --
+  -
   \begin{bmatrix}
     \lambda_1 &  \dots & \lambda_n 
   \end{bmatrix}
@@ -162,7 +161,7 @@ We can write the objective function as $g(Q,L,\lambda)\hat{\vx}-\lambda^T\vu^*$ 
     \vdots \\
     u^*_n \\
   \end{bmatrix}.%
-}
+%}
 \]
 If $\vu^*=\vzero$, then the objective function reduces to just $g(Q,L,\lambda)\hat{\vx}$.
 
@@ -170,8 +169,7 @@ If $\vu^*=\vzero$, then the objective function reduces to just $g(Q,L,\lambda)\h
 On the other hand, if $\vu^*\neq \vzero$ then we can add an extra dummy variable $\vx_{n+1}$ with the constraint $\vx_{n+1}=1$, to obtain the following system.
 
 \[
-\resizebox{\hsize}{!}
-{
+\resizebox{\hsize}{!}{%
   \begin{bmatrix}
     A_{11} & \dots & A_{1n} & A_{1,n+1} & 0 & \dots & 0 \\ 
     %A_{21} & \dots & A_{2n} & A_{2,n+1} & 0 & \dots & 0 \\  
@@ -227,8 +225,8 @@ On the other hand, if $\vu^*\neq \vzero$ then we can add an extra dummy variable
 We can then write the objective function $g(Q,L,\lambda)\hat{\vx}$ as follows.
 %
 \[
-\resizebox{0.9\hsize}{!}
-{
+%\resizebox{0.9\hsize}{!}
+%{
   \begin{bmatrix}
     \sum\limits_{j=1}^nL_{j,1}\lambda_j &
     \dots &
@@ -254,7 +252,7 @@ We can then write the objective function $g(Q,L,\lambda)\hat{\vx}$ as follows.
 	\vdots \\
 	X_{nn} 
   \end{bmatrix}.%
-}
+%}
 \] 
 
 In either case, the final optimization problem, and hence the procedure we use in our tests, is given as follows.
