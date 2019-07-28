@@ -71,11 +71,12 @@ To construct the dual of the inner maximum objective function, we first write th
 We enforce the constraint that $X$ is symmetric by utilizing only the upper triangular portion of $X$.
 We can write $M \hat{\vx} \leq \vB$ using only the upper triangular entries including the diagonal as follows.
 
-\medskip
+\vspace*{0.3in}
 %\noindent
 %\scalebox{0.8}{
-\[
+\noindent
 \resizebox{\hsize}{!}{%
+$
   \begin{bmatrix}
     A_{11} & \dots & A_{1n} & 0 & \dots & 0 \\ 
     %	A_{21} & A_{22} & \dots & A_{2n} & 0 & 0 & \dots & 0 \\  
@@ -118,10 +119,12 @@ We can write $M \hat{\vx} \leq \vB$ using only the upper triangular entries incl
     \vdots \\
     b_mb_m 
   \end{bmatrix}.%
-  }%
-\]
+$
+}%
 %\bigskip
 %
+
+\vspace*{0.3in}
 We can write the objective function as $g(Q,L,\lambda)\hat{\vx}-\lambda^T\vu^*$ in the following way.
 %
 %\bigskip
@@ -165,11 +168,15 @@ We can write the objective function as $g(Q,L,\lambda)\hat{\vx}-\lambda^T\vu^*$ 
 \]
 If $\vu^*=\vzero$, then the objective function reduces to just $g(Q,L,\lambda)\hat{\vx}$.
 
-\smallskip
+\vspace*{0.3in}
 On the other hand, if $\vu^*\neq \vzero$ then we can add an extra dummy variable $\vx_{n+1}$ with the constraint $\vx_{n+1}=1$, to obtain the following system.
 
-\[
+\vspace*{0.3in}
+%\vfill
+%\[
+\noindent
 \resizebox{\hsize}{!}{%
+  $
   \begin{bmatrix}
     A_{11} & \dots & A_{1n} & A_{1,n+1} & 0 & \dots & 0 \\ 
     %A_{21} & \dots & A_{2n} & A_{2,n+1} & 0 & \dots & 0 \\  
@@ -219,8 +226,9 @@ On the other hand, if $\vu^*\neq \vzero$ then we can add an extra dummy variable
     \p \vdots \\
     b_mb_m 
   \end{bmatrix}.%
+  $
 }
-\]
+%\]
 %
 We can then write the objective function $g(Q,L,\lambda)\hat{\vx}$ as follows.
 %
