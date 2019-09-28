@@ -48,7 +48,7 @@ We can then rewrite \cref{eq:Real1} into the system outlined in \cref{eq:Quad,eq
 
 
 The procedures were computed with $A \vx \leq \vb = B \vone$ for $B \in\{0.001, 0.005,0.01\}$.
-$A$ in these cases is a matrix such that. $A \vx \leq \vb$ controls the flow between nodes in the power grid, i.e., each row of $A\vx \leq \vb$ has the form $x_i-x_j\leq b_k$. 
+$A$ in these cases is a matrix such that $A \vx \leq \vb$ controls the flow between nodes in the power grid, i.e., each row of $A\vx \leq \vb$ has the form $x_i-x_j\leq b_k$. 
 All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel Core I7 processor, 16 GB RAM, and 4 cores. 
 We display this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes, i.e., as $B$ increases, in Figure \ref{fig:Graphs1}.
 \medskip
@@ -64,7 +64,7 @@ We display this data on a case by case basis to highlight the effect of allowing
 \end{center}
 \end{figure}
 
-Case 57 is not included in the graphs as the only inner bound procedure to run in a reasonable time was the Feasibility procedure that produced a maximum robustness margin of $\approx$0.003 with a computational time of $\approx$489224 seconds, and a gap to the outer bound procedure of $\approx 0.030$ when $B=0.001$, which had a running time of $\approx$45144 seconds.
+Case 57 is not included in the graphs as the only inner bound procedure to run in a reasonable time was the Feasibility procedure that produced a maximum robustness margin of $\approx$0.003 with a computational time of $\approx$48924 seconds, and a gap to the outer bound procedure of $\approx 0.030$ when $B=0.001$, which had a running time of $\approx$45144 seconds.
 
 As evident from the graphs, the LP Bound Tightening Procedure produces a better approximation of the lower bound on the robustness margin as the complexity of the data set increases. 
 Certainly one would expect the bound tightening procedure to out perform the other inner bound procedures for all cases, but the choice of procedure parameters has a big effect on the efficiency and capability of the procedure. 
