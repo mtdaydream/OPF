@@ -15,7 +15,7 @@ If there is an $r>0$ such that $r \leq e_i \ \mbox{ for all } i \mbox{ with } e_
 \medskip
 \begin{proof} 
 % Observe by \cref{lem:BdOpt} that if $\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in \bar{\Omega}, \vu \in \Omega_u}\ \vlambda^T\left(F(\vx)-\vu\right)=0$, then the statement in \cref{eq:RSForm} is invalidated.
-  Observe by \cref{lem:BdOpt}, if $z_i = \min_{\|\lam\|=1}\max_{\bx\in\bar{\Omega}, \bu\in\Omega_u}\lam^T(F(\bx)-\bu^*)=0$, then we have $F(\hat{\bx})\in \partial F(X)=F(\partial X)$. Thus, it's followed by the statement that there exist a $\bx\in \partial X$ such that $F(\bx)-\bu=0$ for some $u\in \Omega_u$ which invalids \cref{eq:RSForm}.
+  Observe by \cref{lem:BdOpt}, if $z_i = \min_{\|\lam\|=1}\max_{\vx\in\bar{\Omega}, \vu\in\Omega_u}\lam^T(F(\vx)-\vu^*)=0$, then we have $F(\hat{\vx})\in \partial F(X)=F(\partial X)$. Thus, it's followed by the statement that there exist a $\vx\in \partial X$ such that $F(\vx)-\vu=0$ for some $u\in \Omega_u$ which invalids \cref{eq:RSForm}.
 %
 %Observe that if \cref{eq:RSForm} is invalidated then $\exists \hat{\vx}\in\partial\Omega$ such that $F(\hat{\vx})=\hat{u}$ for some $\hat{u}\in\Omega_{u}$ and thus certainly $$\min\limits_{\norm{\vlambda}=1}\max\limits_{x\in X, u\in\Omega_u}\ \vlambda^T\left(F(x)-u\right) \geq \min\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\hat{\vx})-\hat{u}\right)=0.$$ The theorem now follows.
 %\end{itemize}
