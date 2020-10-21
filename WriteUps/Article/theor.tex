@@ -70,7 +70,7 @@ From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 
 
 \begin{lem} 
 \label{lem:BdOpt}
-Let $X\subset\R^n$ be closed. If $\vF:\R^n\rightarrow\R^n$ is continuous, and 
+Let $X\subset\R^n$ be compact. If $\vF:\R^n\rightarrow\R^n$ is continuous, and 
 \[
 \min\limits_{\norm{\vlambda}=1} \, \max\limits_{\vx\in X} \, \vlambda^T\vF(\vx)
 \]
@@ -85,7 +85,7 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
   \[
   \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~=~ \vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~ |\vF(\hat{\vx})|\cos(\theta).
   \]
-  Since $X\in\R^n$ is closed it is thus compact, which implies $\vF(X)$ is also compact. 
+  Since $X\in\R^n$ is compact, $\vF(X)$ is also compact. 
   Hence there exists an $r>0$ such that  $B_r(\vF(\hat{\vx}))$, the ball of radius $r$ centered at $\vF(\hat{\vx})$, is in $\vF(X)\setminus\partial \vF(X)$. 
   Let $\vy$ be the antipodal point on $\partial B_r(\vF(\hat{\vx}))$ to the point of intersection between the line segment connecting the origin to $\vF(\hat{\vx})$ and $B_r(\vF(\hat{\vx}))$. 
   It follows then that $\norm{\vy}>\norm{\vF(\hat{\vx})}$ and $\theta$ is the angle between $\vlambda_{\hat{\vx}}$ and $\vy$.   
@@ -111,7 +111,7 @@ We now present the main theorem characterizing the structure of the function $F$
   %\smallskip
   \begin{proof}
     Consider the origin lies on the boundary of $\vF(X)$, and let $\hat{\vx} \in \partial X$ such that $F(\hat{\vx})=\vzero$. 
-    Such an $\hat{\vx}$ exists since $\partial F(X) = F(\partial X)$ by the Invariance of Domain theorem, as $F$ is continuous and injective over a compact set. 
+    Such an $\hat{\vx}$ exists since $\partial F(X) = F(\partial X)$ by the Invariance of Domain theorem, as $F$ is continuous and injective over a compact set (so, an interior point cannot get mapped to a boundary point). 
     Then  clearly
     \[
     \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~\geq~
