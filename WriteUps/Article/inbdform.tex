@@ -43,8 +43,9 @@ Each of these three practical implementations brings a unique set of attributes,
     Since $\partial F(X) = F(\partial X)$ we have that $\hat{\vx}\in\partial\Omega$, which implies that there is an $i$ such that $A\hat{\vx}_i=b_i$, and thus $0 \leq \rz_i \leq \norm{F(\hat{\vx})-\hat{\vu}}=0$.\\
     %
     $\boxed{\Leftarrow}$ \\ 
-    If there exists an $i$ such that $\rz_i = 0$, then there must exist an $\hat{\vx} \in \partial\Omega $ and $\hat{\vu}\in \Omega_u$ such that $F(\hat{\vx})=\hat{\vu}$. 
-    Since $\partial F(X) = F(\partial X)$, there cannot exist an $\hat{\vx}' \in \Int\Omega$ such that $F(\hat{\vx}')=\hat{\vu}$, and hence by definition the system is not robust feasible.
+    If there exists a $i$ such that $z_i=0$, then it follows that there must be the $\hat{x}\in \partial \Omega$ which contains $\hat{x_i}$ as an element such that $F(\hat{x})=\hat{u}$ for some $\hat{u}\in \Omega_u$. Thus there is no interior point $x$ to make the equation $F(x)=\hat{u}$ holds. Then based on \cref{RobustDef}, the system is not robust feasible. 
+    %If there exists an $i$ such that $\rz_i = 0$, then there must exist an $\hat{\vx} \in \partial\Omega $ and $\hat{\vu}\in \Omega_u$ such that $F(\hat{\vx})=\hat{\vu}$. 
+    %Since $\partial F(X) = F(\partial X)$, there cannot exist an $\hat{\vx}' \in \Int\Omega$ such that $F(\hat{\vx}')=\hat{\vu}$, and hence by definition the system is not robust feasible.
     %\cref{eq:RSForm} is invalidated, which implies $\exists \hat{\vx}\in\partial\Omega$, $\Omega=\{\vx| A\vx< \vb\}$, such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 
     %Since $\hat{\vx}\in\partial\Omega$ this implies that $\exists i$ such that $A\hat{\vx}_i=b_i$ and thus $0\leq \rz_i \leq ||F(\hat{\vx})-\hat{\vu}||=0$.
     %Thus if $\rz_i>0$ for each $i = 1, \ldots, m$, \cref{eq:RSForm} is validated, and the system is robust feasible.

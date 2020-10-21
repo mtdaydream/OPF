@@ -6,7 +6,7 @@ Another aspect adding to the problem complexity is the uncertainty in the proble
 Our work is motivated by two central computations performed as part of power systems operations are power flow (PF) studies and optimal power flow (OPF).
 PF studies ensure the power grid state (i.e., voltages and flows across the network) will remain within acceptable limits in spite of contingencies (e.g., loss of a generator or transmission line) and other uncertainties (e.g., shifting demand or renewable sources of power).
 OPF seeks further to choose values for controllable assets in the system (e.g., generators whose rate of power production could be controlled) so as to meet demand at minimum cost.
-These problems have inherent nonlinearities and nonconvexities, making them hard to solve in their natural form.
+These problems have inherent nonlinearities and nonconvexities, making them hard to solve in their general form.
   
 To further complicate the problem, the rapid adoption of renewable energy sources such as wind and solar energy is adding unprecedented uncertainties to modern power systems.
 Since these sources depend on the weather, their energy output is not perfectly controllable.
@@ -47,7 +47,7 @@ We provide a theoretical foundation for determining robust feasibility of system
 To highlight the efficacy of our approach we derive procedures, which we test numerically on several quadratic systems constructed from the AC power flow equations that describe the steady state of the power grid with added uncertainty. 
 The results show that our approach can be applied to large scale systems to produce tight lower and upper bounds on the radius of robust solvability, which we shall define as the robustness margin of the system.
 
-In optimization, the focus has been on robust \emph{convex} optimization where uncertainty sets are specified for the parameters of a convex optimization problem (typically an LP or conic program) \cite{ben2009robust}.
+In optimization, the focus has been on robust \emph{convex} optimization where uncertainty sets are specified for the parameters of a convex optimization problem (typically an LP or conic program) \cite{ben2009robust}, while the robust versions of generic polynomial programming problem are related by a hierarchy of SDP relaxations \cite{Lasserre2006,Lasserre2011}.
 Robust \emph{nonconvex} optimization has received only limited attention (a notable exception is the work of Bertsimas et al.~\cite{BeNoTe2010}).
 These approaches do not provide rigorous guarantees for robust feasibility with nonconvex constraints.
 
