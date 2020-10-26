@@ -49,8 +49,41 @@ We can then rewrite \cref{eq:Real1} into the system outlined in \cref{eq:Quad,eq
 
 The procedures were computed with $A \vx \leq \vb = B \vone$ for $B \in\{0.001, 0.005,0.01\}$.
 $A$ in these cases is a matrix such that $A \vx \leq \vb$ controls the flow between nodes in the power grid, i.e., each row of $A\vx \leq \vb$ has the form $x_i-x_j\leq b_k$. 
-All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel Core I7 processor, 16 GB RAM, and 4 cores. 
-We display this data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes, i.e., as $B$ increases, in Figure \ref{fig:Graphs1}.
+%All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel Core I7 processor, 16 GB RAM, and 4 cores. 
+\modified{All computations were performed on a laptop running the  64bit MacOS Catalina operating system containing an 2.3GHz dual-core Intel Core i5, Turbo Boost up to 3.6GHz, with 64MB of eDRAM}
+\add{The details on computation are given as \ref{tab:exp} for determining the practical scaling properties of these procedures with the fixed $B=0.001$}
+We display \modified{the} data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes, i.e., as $B$ increases, in Figure \ref{fig:Graphs1}. 
+ 
+\add{
+	\begin{table}[!htbp]
+        \resizebox{\textwidth}{15mm}{        
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multirow{2}*{Case \#}& 
+        \multicolumn{3}{c|}{BdTgtLower}&
+        \multicolumn{3}{c|}{MIPLower}&
+        \multicolumn{3}{c|}{LPLower}&
+        \multicolumn{3}{c|}{LPUpper}
+        \cr\cline{2-13}
+        &Time(s)& Var &Cons\#&Time(s)& Var\# &Cons\#&Time(s)& Var\# &Cons\#&Time(s)& Var\# &Cons\#
+        \cr\hline
+        5 &10.91 &44 &616 & 0.32 &69 &641 &0.43 &44 &616
+        &0.518645 &615 &88
+        \cr\hline
+        9 &35.82 &152 &1364 &6.88 &189 &1401 &2.82 &152 &1364 &
+        2.95 &1347 &288
+        \cr\hline
+        14 &743.11 &377 &6532 &93.31 &458 & 6613 &468.55 &377 &6532&35.73 &6495 &718
+        \cr\hline
+        30& 9888.07 &1769 &27176 &3674.53 &1934  &27341 &9484.48 &1769 &27176 &531.31 &27075 &3438
+        \cr\hline
+\end{tabular}}
+\caption{Solving times, number of variables and constraints of procedures for MatPower Case 5, 9, 14, and 30}
+\label{tab:exp}
+\end{table}
+}
+
 \medskip
 
 \begin{figure}[htp!]

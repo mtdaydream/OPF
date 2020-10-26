@@ -96,9 +96,17 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
 \end{proof}
 \end{lem}
 
-\medskip
-We now present the main theorem characterizing the structure of the function $F$, which used \cref{lem:BdOpt} in the proof.
+\add{As shown in Figure \cref{fig:illustration}, for the compact $X\subset\R^n$ and continuous $\vF:\R^n\rightarrow\R^n$, let $\vlambda_{\hat{\vx}}$ be the point and $\vlambda_{\hat{\vx}}$ be the unit vectors such that it gives the optimal value of $\min_{\norm{\vlambda}=1} \, \max_{\vx\in X} \, \vlambda^T\vF(\vx)$  as $\vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$  based on \cref{lem:BdOpt}. Then when the origin lines in $\vF(\vx)$, there exist other point $\vx$ and unit vector $\vlambda_{\vx}$ satisfying $\vF(\vx)\in \partial \vF(X)$ (and thus $\vx\in \partial X$)such that we can get the lower bound of $\min_{\norm{\vlambda}=1}\max_{\vx\in X}\ \vlambda^T\vF(\vx)$ as $\min_{\vx\in \partial X} \max_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).$ }
 
+\begin{figure}[h!]
+\begin{center}
+ 	\includegraphics[width=8cm]{Figures/illustration.png}
+\end{center}
+\caption{Illustration of Theorem 3.2. The unit vectors $\vlambda_{\hat{\vx}}$ and $\vlambda_{\vx}$ are given as the red and green arrow respectively.}
+\label{fig:illustration}
+\end{figure}
+
+\modified{We now clarify this main theorem and present it characterizing the structure of the function $\vF$.}
 
 \begin{thm} 
   \label{thm:MainIneq}
