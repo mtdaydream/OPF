@@ -50,8 +50,8 @@ We can then rewrite \cref{eq:Real1} into the system outlined in \cref{eq:Quad,eq
 The procedures were computed with $A \vx \leq \vb = B \vone$ for $B \in\{0.001, 0.005,0.01\}$.
 $A$ in these cases is a matrix such that $A \vx \leq \vb$ controls the flow between nodes in the power grid, i.e., each row of $A\vx \leq \vb$ has the form $x_i-x_j\leq b_k$. 
 %All computations were performed on a laptop running the 64bit Windows 10 operating system containing an Intel Core I7 processor, 16 GB RAM, and 4 cores. 
-\modified{All computations were performed on a laptop running the  64bit MacOS Catalina operating system containing an 2.3GHz dual-core Intel Core i5, Turbo Boost up to 3.6GHz, with 64MB of eDRAM}
-\add{The details on computation are given as \ref{tab:exp} for determining the practical scaling properties of these procedures with the fixed $B=0.001$}
+\modified{All computations were performed on a laptop running the  64bit MacOS Catalina operating system containing an 2.3GHz dual-core Intel Core i5, Turbo Boost up to 3.6GHz, with 64MB of eDRAM.}
+\add{The details on computation are given as \cref{tab:exp} for determining the practical scaling properties of these procedures with the fixed $B=0.001$.}
 We display \modified{the} data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes, i.e., as $B$ increases, in Figure \ref{fig:Graphs1}. 
  
 \add{
@@ -69,7 +69,7 @@ We display \modified{the} data on a case by case basis to highlight the effect o
         &Time(s)& Var &Cons\#&Time(s)& Var\# &Cons\#&Time(s)& Var\# &Cons\#&Time(s)& Var\# &Cons\#
         \cr\hline
         5 &10.91 &44 &616 & 0.32 &69 &641 &0.43 &44 &616
-        &0.518645 &615 &88
+        &0.52&615 &88
         \cr\hline
         9 &35.82 &152 &1364 &6.88 &189 &1401 &2.82 &152 &1364 &
         2.95 &1347 &288
@@ -85,19 +85,19 @@ We display \modified{the} data on a case by case basis to highlight the effect o
 }
 
 \medskip
-
+\modified{
 \begin{figure}[htp!]
 \begin{center}
-\includegraphics[scale=0.45]{Figures/Case5.png}
-\includegraphics[scale=0.45]{Figures/Case9.png} \\
-\includegraphics[scale=0.45]{Figures/Case14.png}
-\includegraphics[scale=0.45]{Figures/Case30.png}
+  \includegraphics[width=.5\linewidth - 0.2mm]{Figures/newcase5.png}\hfill
+  \includegraphics[width=.5\linewidth - 0.2mm]{Figures/newcase9.png}\\[0.5mm]
+  \includegraphics[width=.5\linewidth - 0.2mm]{Figures/newcase14.png}\hfill
+  \includegraphics[width=.5\linewidth - 0.2mm]{Figures/newcase30.png}
 \caption{Lower and upper bound estimates on the robustness margin for MatPower Case 5 (Top Left), Case 9 (Top Right), Case 14 (Bottom Left), Case 30 (Bottom Right).} 
 \label{fig:Graphs1} 
 \end{center}
-\end{figure}
+\end{figure}}
 
-Case 57 is not included in the graphs as the only inner bound procedure to run in a reasonable time was the Feasibility procedure that produced a maximum robustness margin of $\approx$0.003 with a computational time of $\approx$48924 seconds, and a gap to the outer bound procedure of $\approx 0.030$ when $B=0.001$, which had a running time of $\approx$45144 seconds.
+Case 57 is not included in the graphs as the only inner bound procedure to run in a reasonable time was the Feasibility procedure that produced a maximum robustness margin of \modified{$\approx 0.003$} with a computational time of \modified{$\approx 48924$} seconds, and a gap to the outer bound procedure of $\approx 0.030$ when $B=0.001$, which had a running time of $\approx \modified{27080}$ seconds.
 
 As evident from the graphs, the LP Bound Tightening Procedure produces a better approximation of the lower bound on the robustness margin as the complexity of the data set increases. 
 Certainly one would expect the bound tightening procedure to out perform the other inner bound procedures for all cases, but the choice of procedure parameters has a big effect on the efficiency and capability of the procedure. 
