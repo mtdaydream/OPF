@@ -51,23 +51,33 @@ This step may require further restricting the domain or even a slight perturbati
 Thus by property (\ref{eq:Deg3}) we have verified that $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$. 
 Note that this is not the only method for verification, but in some sense is the easiest to carry out for our purposes. 
 
+\medskip
+\add{Let  $\ell_{\vu^*}$ represent an arbitrary line passing through $\vu^*$ and $\vl_{\min},\vl_{\max}$ be two points of intersection between $\partial\Omega_u$ and $\ell_{\vu^*}$. Define a homotopy $H_{\ell_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
+	\begin{align}
+		H_{\ell_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{\min}+t\vl_{\max}\right]\,. \label{eq:Homo}
+	\end{align}
+Based on the homotopy, we give the verification of robust solvability problem as \cref{lem:NaScondition}.
+}
+
 \add{
 \begin{lem}
 \label{lem:NaScondition}
-	Let $\Omega=\{\vx| A\vx \leq \vb \}$, $\Omega_u=\{\vu \,|\,\vu\, \text{satisfies limits in \cref{eq:uLimits}}\}$ and $F(\vx)=Q(\vx)+L\vx$,  as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). Let  $L_{\vu^*}$ represent an arbitrary line passing through $\vu^*$, and $\vl_{\min},\vl_{\max}$ the two points of intersection between $\partial\Omega_u$ and $L_{\vu^*}$.  If $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L_{\vu^*}$, then the system is robust solvable if and only if the following statement, i.e., the hypothesis of property (\ref{eq:Deg1}).
+	Let $\Omega=\{\vx| A\vx \leq \vb \}$, $\Omega_u=\{\vu \,|\,\vu\, \text{satisfies limits in \cref{eq:uLimits}}\}$ and $F(\vx)=Q(\vx)+L\vx$,  as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). 
+%Let  $\ell_{\vu^*}$ represent an arbitrary line passing through $\vu^*$. 
+If $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $\ell = \ell_{\vu^*}$, then the system is robust solvable if and only if the following statement, i.e., the hypothesis of property (\ref{eq:Deg1}).
 \begin{align}
 \not\exists \vx\in\partial\Omega, \vu\in\Omega_u \ \ \mbox{ such that } \ F(\vx)-\vu=\vzero \label{eq:RSForm}
 \end{align}
 holds.
 \end{lem}
 \begin{proof}
-Define a homotopy $H_{L_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
-	\begin{align}
-		H_{L_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{\min}+t\vl_{\max}\right]\,. \label{eq:Homo}
-	\end{align}
-Based on $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$ verified by property (\ref{eq:Deg3}), to show the problem is robust solvable, it follows by the fact that there exists a unique solution $\hat{\vx}\in \Int(\Omega)$ to the forecasted system given in \cref{eq:Quad} such that  $H_{L_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\vzero$ and $ \operatorname{sign}\left(J_{H_{L_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right) \neq 0$, which holds if and only if $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ according to property (\ref{eq:Deg2}). Note that this property holds for all such lines passing through $\vu^*$ since for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, there exists a line $\hat{L}_{\vu^*}$ passing through $\vu^*$ and $t\in[0,1]$, such that $\hat{\vu}=(1-t)\hat{\vl}_{\min}+t\hat{\vl}_{\max}$. Thus, when $d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $L_{\vu^*}$,   we have 
+%Let $\vl_{\min},\vl_{\max}$ be two points of intersection between $\partial\Omega_u$ and $\ell_{\vu^*}$. We define a homotopy $H_{\ell_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
+%	\begin{align}
+%		H_{\ell_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{\min}+t\vl_{\max}\right]\,. \label{eq:Homo}
+%	\end{align}
+Since $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$ verified by property (\ref{eq:Deg3}), to show the problem is robust solvable, it follows by the fact that there exists a unique solution $\hat{\vx}\in \Int(\Omega)$ to the forecasted system given in \cref{eq:Quad} such that  $H_{\ell_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\vzero$ and $ \operatorname{sign}\left(J_{H_{\ell_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right) \neq 0$, which holds if and only if $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ according to property (\ref{eq:Deg2}). Note that this property holds for all such lines passing through $\vu^*$ since for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, there exists a line $\hat{\ell}_{\vu^*}$ passing through $\vu^*$ and $t\in[0,1]$, such that $\hat{\vu}=(1-t)\hat{\vl}_{\min}+t\hat{\vl}_{\max}$. Thus, when $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $\ell_{\vu^*}$,   we have 
 $$
-d(\Omega,H_L\left(\frac{1}{2},\vx\right),\vzero)\neq 0  \Longleftrightarrow F(x) - u \neq 0, \forall \vx\in \partial\Omega, \vu\in\Omega_u
+d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0  \Longleftrightarrow F(x) - u \neq 0, \forall \vx\in \partial\Omega, \vu\in\Omega_u
 $$
 such that that the system is robust solvable if and only if the statement  (\ref{eq:RSForm}) holds.
 \end{proof}}
@@ -102,7 +112,7 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
 \end{proof}
 \end{lem}
 
-\add{As shown in Figure \cref{fig:illustration}, for the compact $X\subset\R^n$ and continuous $\vF:\R^n\rightarrow\R^n$, let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ be the unit vectors such that it gives the optimal value of $\min_{\norm{\vlambda}=1} \, \max_{\vx\in X} \, \vlambda^T\vF(\vx)$  as $\vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$  based on \cref{lem:BdOpt}. In ths case when the origin is contained in $\vF(\vx)$, there exist other point $\vx$ and unit vector $\vlambda_{\vx}$ satisfying $\vF(\vx)\in \partial \vF(X)$ (and thus $\vx\in \partial X$)such that we can get the lower bound of $\min_{\norm{\vlambda}=1}\max_{\vx\in X}\ \vlambda^T\vF(\vx)$ as $\min_{\vx\in \partial X} \max_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).$ }
+\add{As shown in Figure \cref{fig:illustration}, for the compact $X\subset\R^n$ and continuous $\vF:\R^n\rightarrow\R^n$, let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ be the unit vectors such that it gives the optimal value of $\min_{\norm{\vlambda}=1} \, \max_{\vx\in X} \, \vlambda^T\vF(\vx)$  as $\vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$  based on \cref{lem:BdOpt}. In ths case when the origin is contained in $\vF(\vx)$, there exist other point $\vx$ and unit vector $\vlambda_{\vx}$ satisfying $\vF(\vx)\in \partial \vF(X)$ (and thus $\vx\in \partial X$) such that we can get the lower bound of $\min_{\norm{\vlambda}=1}\max_{\vx\in X}\ \vlambda^T\vF(\vx)$ as $\min_{\vx\in \partial X} \max_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).$ }
 
 \begin{figure}[h!]
 \begin{center}
