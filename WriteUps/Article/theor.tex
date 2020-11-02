@@ -86,10 +86,10 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
 \begin{proof} 
   We get the result by arriving at a contradiction.
   Assume $\vF(\hat{\vx})\in \vF(X)\setminus\partial \vF(X)$. 
-  Let $\theta$ the angle between $\vlambda_{\hat{\vx}}$ and $\hat{\vx}$. 
+  Let $\theta$ the angle between $\vlambda_{\hat{\vx}}$ and $F(\hat{\vx})$. 
   Thus
   \[
-  \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~=~ \vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~ |\vF(\hat{\vx})|\cos(\theta).
+  \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~=~ \vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~ \norm{\vF(\hat{\vx})}\cos(\theta).
   \]
   Since $X\in\R^n$ is compact, $\vF(X)$ is also compact. 
   Hence there exists an $r>0$ such that  $B_r(\vF(\hat{\vx}))$, the ball of radius $r$ centered at $\vF(\hat{\vx})$, is in $\vF(X)\setminus\partial \vF(X)$. 
@@ -141,7 +141,7 @@ Let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ the unit vector at which
 obtains its optimal value.
 We consider two cases.
 
-Case 1: If the angle $\theta$ between $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ is $0$, then $\displaystyle \max\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$. 
+Case 1: If the angle $\theta$ between $F(\hat{\vx})$ and $\vlambda_{\hat{\vx}}$ is $0$, then $\displaystyle \max\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$. 
 Furthermore by \cref{lem:BdOpt}, $\vF(\hat{\vx}) \in \partial \vF(X)$ and thus $\hat{\vx}\in \partial X$ since $\vF$ is injective, i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$, by hypothesis. 
 It follows now that
 \[
@@ -151,7 +151,7 @@ It follows now that
 \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx).
 \]
 
-Case 2: Assume the angle $\theta \neq 0$ (between $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$). 
+Case 2: Assume the angle $\theta \neq 0$ (between $F(\hat{\vx})$ and $\vlambda_{\hat{\vx}}$). 
 Let $\vx^*$ be a point on the boundary of $X$ such that the angle between $\vlambda_{\hat{\vx}}$ and $\vF(\vx^*)$ is 0. 
 Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contains the origin, is injective,
 %i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$,

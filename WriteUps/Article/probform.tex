@@ -11,15 +11,14 @@ We are interested in solutions to this system of equations under linear constrai
 \begin{align}
 (A\vx)_i\leq b_i \quad \forall i \in [n]\label{eq:xLimits}
 \end{align}
-Where we assume the $(A\vx)\leq b$ for each $i$ is free of redundant constriants and $\vx$ and $\vu$ have the same dimension.
-However, the parameter $\vu$ is uncertain and only known up to certain error bounds
-
-\modified{
+where we assume that $(A\vx)_i \leq b_i$ for each $i$ is free of redundant constraints and $\vx$ and $\vu$ have the same dimension.
+However, the parameter $\vu$ is uncertain and known only up to certain error bounds:
+%
 \begin{align}
 %u^{\min}_i=u_i^*-e_i \leq u_i \leq =u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
 u^{\min}_i=u_i^*-e_i \leq u_i \leq u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
-\end{align}}
-
+\end{align}
+%
 where $\vu^*$ is a forecast for $\vu$ and $\ve$ denotes the error bounds associated with the forecast. 
 For example, in the case of quadratic equations appearing in infrastructure networks like the power grid, $u_i$ represents uncertain power generation or consumption (for example uncertain weather-dependent power sources like solar or wind power). 
 In the case of stochastic processes, $\vu^*$ represents an initial state distribution. Further, note that if the polyhedron given by $A\vx \leq b$ is not full dimensional, then there would exist at least a $i\in[1,\dotsb, n]$ such that $x_i$ could be any number as long as satisfies \eqref{eq:Quad}. In this case,for the corresponding uncertain parameter $u_i$, there are no $u_i^{min}$ and $u_i^{\max}$.

@@ -1,0 +1,19 @@
+Nov 13, 2019
+
+Page 6. Lemma 3.1: \theta is angle between \lambda_x and *F(x)*
+     	      	   ||F(\hat{\vx})||
+
+
+Page 7. Theorem 3.2: Case 1, Case 2: angle \theta between *F(x)* and
+
+
+Page 8. Proof of Thm 4.1 (middle): _{,\vu \in \Omega_u}..
+     	Theorem 4.2: *Lx* and not L(x)
+
+
+Page 9. Line 1. : no *interior* solution.
+        Line 2: u* -> u^'
+	Line 8: Int(\Omega)
+
+
+Fixed these typos on Nov 1, 2020 (D'oH!!).
