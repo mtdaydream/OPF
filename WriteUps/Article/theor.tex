@@ -3,16 +3,16 @@ We now describe the main technical results of this paper.
 In the first subsection we describe the setting under which the problem can be solved using the results which follow. 
 \subsection{Topological Degree Theory}
 Our results take advantage of the well studied area of topological degree theory. 
-For an introduction to topological degree theory see \cite{OrChCh2006}, \cite{fonseca1995degree} and \cite{MoVrYa2002}. 
-Suffice it to say that should $\Omega\subset\R^{n}$ be open and bounded, $F:\Omega\rightarrow \R$ continuous, differentiable and $F(\vx) \neq \vy \quad \forall \vx\in\partial\Omega$ for some $\vy\in\R^n$, then the degree of $F$ at $\vy$ over $\Omega$, denoted $d\left(\Omega,F,\vy\right)\in\mathbb{Z}$, is defined. 
-For the purposes of this article we utilize the following property for the degree as our definition of the topological degree of a function $F$ at $\vy$ over a set $\Omega$. 
-See \cite{OrChCh2006} for details.:
+For an introduction to topological degree theory see the works of \cite{fonseca1995degree}, \cite{MoVrYa2002}, and \cite{OrChCh2006}.
+It suffices to say that should $\Omega\subset\R^{n}$ be open and bounded, $F:\Omega\rightarrow \R$ continuous, differentiable, and $F(\vx) \neq \vy~\forall \vx\in\partial\Omega$ for some $\vy\in\R^n$, then the degree of $F$ at $\vy$ over $\Omega$, denoted $d\left(\Omega,F,\vy\right)\in\mathbb{Z}$, is defined. 
+For the purposes of this article we utilize the following property of degree as our definition of the topological degree of a function $F$ at $\vy$ over a set $\Omega$. 
+See O'Regan et al.~\cite{OrChCh2006} for details.
 \begin{equation}\label{eq:Deg3}
-d\left(\Omega,F,\vy\right)=\sum\limits_{\vx\in F^{-1}(\vy)}\operatorname{sign}\left(J_F(\vx)\right)
+  d\left(\Omega,F,\vy\right)=\sum\limits_{\vx\in F^{-1}(\vy)}\operatorname{sign}\left(J_F(\vx)\right)
 \end{equation}
-
-Where $\operatorname{sign}\left(J_F(\vx)\right)$ denotes the sign of the Jacobian of $F$ at $\vx$, i.e.:
-
+%
+where $\operatorname{sign}\left(J_F(\vx)\right)$ denotes the sign of the Jacobian of $F$ at $\vx$, i.e.,
+%
 \[\operatorname{sign}\left(J_F(\vx)\right)=   \left\{
 \begin{array}{ll}
        \ -1   & \mbox{if } J_F(\vx)< 0, \\
@@ -20,17 +20,17 @@ Where $\operatorname{sign}\left(J_F(\vx)\right)$ denotes the sign of the Jacobia
       \quad 1 & \mbox{if } J_F(\vx)> 0. \\
 \end{array} 
 \right. \]
-
+%
 Additionally we utilize the following two common properties of the topological degree. 
-See \cite{OrChCh2006} for details. 
+Again, see O'Regan et al.~\cite{OrChCh2006} for details. 
 
-If $H : [0,1]\times\bar{\Omega}\rightarrow\R^n$ is continuous such that $H(t,\vx)\neq \vy \quad \forall t\in[0,1]\quad \vx\in\partial\Omega$,   \ then 
+If $H : [0,1]\times\bar{\Omega}\rightarrow\R^n$ is continuous such that $H(t,\vx)\neq \vy~\forall t\in[0,1],~\vx\in\partial\Omega$,  then 
 \begin{equation}\label{eq:Deg1} 
-d\left(\Omega,H(t,\cdot),\vy\right)\text{ does not depend on }t.
+  d\left(\Omega,H(t,\cdot),\vy\right)\text{ does not depend on }t.
 \end{equation}
 
 \begin{equation}\label{eq:Deg2}
-\text{If }d(\Omega,F,\vy)\neq 0,\text{ then there exists }\vx\in\Omega\text{ such that }F(\vx)=\vy. 
+  \text{If } d(\Omega,F,\vy) \neq 0, \text{ then there exists } \vx \in \Omega \text{ such that } F(\vx)=\vy. 
 \end{equation}
 
 \subsection{New Theoretical Results}
@@ -52,46 +52,53 @@ Thus by property (\ref{eq:Deg3}) we have verified that $d\left(\Omega, F(\vx), \
 Note that this is not the only method for verification, but in some sense is the easiest to carry out for our purposes. 
 
 \medskip
-\add{Let  $\ell_{\vu^*}$ represent an arbitrary line passing through $\vu^*$ and $\vl_{\min},\vl_{\max}$ be two points of intersection between $\partial\Omega_u$ and $\ell_{\vu^*}$. Define a homotopy $H_{\ell_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
-	\begin{align}
-		H_{\ell_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{\min}+t\vl_{\max}\right]\,. \label{eq:Homo}
-	\end{align}
-Based on the homotopy, we give the verification of robust solvability problem as \cref{lem:NaScondition}.
-}
-
-\add{
-\begin{lem}
-\label{lem:NaScondition}
-	Let $\Omega=\{\vx| A\vx \leq \vb \}$, $\Omega_u=\{\vu \,|\,\vu\, \text{satisfies limits in \cref{eq:uLimits}}\}$ and $F(\vx)=Q(\vx)+L\vx$,  as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). 
-%Let  $\ell_{\vu^*}$ represent an arbitrary line passing through $\vu^*$. 
-If $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $\ell = \ell_{\vu^*}$, then the system is robust solvable if and only if the following statement, i.e., the hypothesis of property (\ref{eq:Deg1}).
+We now introduce the homotopy we use to invoke property (\ref{eq:Deg1}).
+Let  $\ell_{\vu^*}$ represent an arbitrary line passing through $\vu^*$ and let $\vl_{\min}$ and $\vl_{\max}$ be the two points of intersection of $\partial\Omega_u$ and $\ell_{\vu^*}$.
+We define a homotopy $H_{\ell_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
 \begin{align}
-\not\exists \vx\in\partial\Omega, \vu\in\Omega_u \ \ \mbox{ such that } \ F(\vx)-\vu=\vzero \label{eq:RSForm}
+  H_{\ell_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{\min}+t\vl_{\max}\right]\,. \label{eq:Homo}
 \end{align}
-holds.
+Based on this homotopy, we present the key result on verification of robust solvability problem.
+%in \cref{lem:NaScondition}.
+%
+%\add{
+\begin{lem}
+  \label{lem:NaScondition}
+  Let $\Omega=\{\vx| A\vx \leq \vb \}$, $\Omega_u=\{\vu \,|\,\vu\, \text{satisfies limits in \cref{eq:uLimits}}\}$ and $F(\vx)=Q(\vx)+L\vx$,  as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). 
+  If $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right), \vzero) \neq 0$ for each choice of $\ell = \ell_{\vu^*}$, then the system is robust solvable if and only if the following statement holds:
+  \begin{align}
+    \not\exists \vx\in\partial\Omega, \vu\in\Omega_u \ \ \mbox{ such that } \ F(\vx)-\vu=\vzero \,. \label{eq:RSForm}
+  \end{align}
 \end{lem}
+
 \begin{proof}
 %Let $\vl_{\min},\vl_{\max}$ be two points of intersection between $\partial\Omega_u$ and $\ell_{\vu^*}$. We define a homotopy $H_{\ell_{\vu^*}} : [0,1]\times\bar{\Omega}\rightarrow\R^n$ as 
 %	\begin{align}
 %		H_{\ell_{\vu^*}}(t,\vx) = F(\vx)-\left[(1-t)\vl_{\min}+t\vl_{\max}\right]\,. \label{eq:Homo}
 %	\end{align}
-Since $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$ verified by property (\ref{eq:Deg3}), to show the problem is robust solvable, it follows by the fact that there exists a unique solution $\hat{\vx}\in \Int(\Omega)$ to the forecasted system given in \cref{eq:Quad} such that  $H_{\ell_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\vzero$ and $ \operatorname{sign}\left(J_{H_{\ell_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right) \neq 0$, which holds if and only if $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ according to property (\ref{eq:Deg2}). Note that this property holds for all such lines passing through $\vu^*$ since for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, there exists a line $\hat{\ell}_{\vu^*}$ passing through $\vu^*$ and $t\in[0,1]$, such that $\hat{\vu}=(1-t)\hat{\vl}_{\min}+t\hat{\vl}_{\max}$. Thus, when $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $\ell_{\vu^*}$,   we have 
-$$
-d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0  \Longleftrightarrow F(x) - u \neq 0, \forall \vx\in \partial\Omega, \vu\in\Omega_u
-$$
-such that that the system is robust solvable if and only if the statement  (\ref{eq:RSForm}) holds.
-\end{proof}}
+  Since $d\left(\Omega, F(\vx), \vu^*\right)\neq 0$ is verified by property (\ref{eq:Deg3}), to show the problem is robust solvable, it follows by the fact that there exists a unique solution $\hat{\vx}\in \Int(\Omega)$ to the forecasted system given in \cref{eq:Quad} such that  $H_{\ell_{\vu^*}}\left(\frac{1}{2},\hat{\vx}\right)=F(\hat{\vx})-\vu^*=\vzero$ and $ \operatorname{sign}\left(J_{H_{\ell_{\vu^*},\frac{1}{2}}}(\hat{\vx})\right) \neq 0$.
+  And this condition holds if and only if $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ according to property (\ref{eq:Deg2}).
+  Note that this property holds for all such lines passing through $\vu^*$ since for each $\hat{\vu}\in\Omega_u\setminus\{\vu^*\}$, there exists a line $\hat{\ell}_{\vu^*}$ passing through $\vu^*$ and $t\in[0,1]$, such that $\hat{\vu}=(1-t)\hat{\vl}_{\min}+t\hat{\vl}_{\max}$.
+  Thus, when $d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ for each choice of $\ell_{\vu^*}$,   we have 
+  \[
+    d(\Omega,H_\ell\left(\frac{1}{2},\vx\right),\vzero)\neq 0 \, \Longleftrightarrow \,
+    F(\vx) - \vu \neq \vzero, \forall \vx \in \partial\Omega, \vu \in \Omega_u \,.
+  \]
+  Hence the system is robust solvable if and only if the statement  (\ref{eq:RSForm}) holds.
+\end{proof}
+%}
 
+Note that the statement (\ref{eq:RSForm}) is equivalent to property (\ref{eq:Deg1}) holding.
 From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 0$ and focus our efforts on the development of methods for validating or invalidating the statement (\ref{eq:RSForm}).
 
 \begin{lem} 
-\label{lem:BdOpt}
-Let $X\subset\R^n$ be compact. If $\vF:\R^n\rightarrow\R^n$ is continuous, and 
-\[
-\min\limits_{\norm{\vlambda}=1} \, \max\limits_{\vx\in X} \, \vlambda^T\vF(\vx)
-\]
-obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\hat{\vx})\in \partial \vF(X)$. 
-
+  \label{lem:BdOpt}
+  Let $X\subset\R^n$ be compact. If $\vF:\R^n\rightarrow\R^n$ is continuous, and 
+  \[
+  \min\limits_{\norm{\vlambda}=1} \, \max\limits_{\vx\in X} \, \vlambda^T\vF(\vx)
+  \]
+  obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\hat{\vx})\in \partial \vF(X)$. 
+\end{lem}
 
 \begin{proof} 
   We get the result by arriving at a contradiction.
@@ -110,19 +117,26 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
   Therefore $\vlambda_{\hat{\vx}}^T\vF(\vx^*)=\norm{\vF(\vx^*)} \cos(\theta) > \norm{\vF(\hat{\vx})} \cos(\theta) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$, which is a contradiction. 
   The lemma now follows.
 \end{proof}
-\end{lem}
 
-\add{As shown in Figure \cref{fig:illustration}, for the compact $X\subset\R^n$ and continuous $\vF:\R^n\rightarrow\R^n$, let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ be the unit vectors such that it gives the optimal value of $\min_{\norm{\vlambda}=1} \, \max_{\vx\in X} \, \vlambda^T\vF(\vx)$  as $\vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$  based on \cref{lem:BdOpt}. In ths case when the origin is contained in $\vF(\vx)$, there exist other point $\vx$ and unit vector $\vlambda_{\vx}$ satisfying $\vF(\vx)\in \partial \vF(X)$ (and thus $\vx\in \partial X$) such that we can get the lower bound of $\min_{\norm{\vlambda}=1}\max_{\vx\in X}\ \vlambda^T\vF(\vx)$ as $\min_{\vx\in \partial X} \max_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).$ }
+%\add{
+We illustrate \cref{lem:BdOpt} in \cref{fig:illustration}.
+The compact set $X\subset\R^2$ is shown in pink with boundary shown in blue.
+For continuous $\vF:\R^2 \rightarrow \R^2$, let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ the unit vector that give the optimal value of $\min_{\norm{\vlambda}=1} \, \max_{\vx\in X} \, \vlambda^T\vF(\vx)$ as $\vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$ based on \cref{lem:BdOpt}.
+These vectors are shown in red.
+In the case when the origin is contained in $\vF(\vx)$, as it happens here, we observe that there exists another point $\vx$ and unit vector $\vlambda_{\vx}$ satisfying $\vF(\vx) \in \partial \vF(X)$ (and thus $\vx\in \partial X$) such that we can get the lower bound of $\min_{\norm{\vlambda}=1}\max_{\vx\in X}\ \vlambda^T\vF(\vx)$ as $\min_{\vx\in \partial X} \max_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx)$ (shown in green).
+%}
 
-\begin{figure}[h!]
+\begin{figure}[htp!]
 \begin{center}
- 	\includegraphics[width=8cm]{Figures/illustration.png}
+  \includegraphics[scale=0.32]{illustration.png}
 \end{center}
-\caption{Illustration of Theorem 3.2. The unit vectors $\vlambda_{\hat{\vx}}$ and $\vlambda_{\vx}$ are shown as the red and green arrows, respectively.}
-\label{fig:illustration}
+\caption{\label{fig:illustration}
+  Illustration of \cref{lem:BdOpt}.
+  The unit vectors $\vlambda_{\hat{\vx}}$ and $\vlambda_{\vx}$ are shown as the red and green arrows, respectively.
+}
 \end{figure}
 
-\modified{We now clarify this main theorem and present it characterizing the structure of the function $\vF$.}
+We formalize the last observation for the general case in our main theorem, which characterizes the structure of the function $\vF$.
 
 \begin{thm} 
   \label{thm:MainIneq}
@@ -138,45 +152,44 @@ obtains its optimal value at $\hat{\vx}$ and $\vlambda_{\hat{\vx}}$ then $\vF(\h
     Such an $\hat{\vx}$ exists since $\partial F(X) = F(\partial X)$ by the Invariance of Domain theorem, as $F$ is continuous and injective over a compact set (so, an interior point cannot get mapped to a boundary point). 
     Then  clearly
     \[
-    \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~\geq~
-    \min\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) ~=~ 0 ~=~
-    \max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\hat{\vx}) ~\geq~
-    \min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).
-\]
-Hence assume the origin lies in the interior of $\vF(X)$.
-Let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ the unit vector at which
-\[
-\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx)
-\]
-obtains its optimal value.
-We consider two cases.
+       \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~\geq~
+       \min\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) ~=~ 0 ~=~
+       \max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\hat{\vx}) ~\geq~
+       \min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).
+    \]
+    Hence assume the origin lies in the interior of $\vF(X)$.
+    Let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ the unit vector at which
+    \[
+    \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx)
+    \]
+    obtains its optimal value.
+    We consider two cases.
 
-Case 1: If the angle $\theta$ between $F(\hat{\vx})$ and $\vlambda_{\hat{\vx}}$ is $0$, then $\displaystyle \max\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$. 
-Furthermore by \cref{lem:BdOpt}, $\vF(\hat{\vx}) \in \partial \vF(X)$ and thus $\hat{\vx}\in \partial X$ since $\vF$ is injective, i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$, by hypothesis. 
-It follows now that
-\[
-\min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx) ~\leq~
-\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\hat{\vx}) ~=~
-\vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~
-\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx).
-\]
+    Case 1: If the angle $\theta$ between $F(\hat{\vx})$ and $\vlambda_{\hat{\vx}}$ is $0$, then $\displaystyle \max\limits_{\norm{\vlambda}=1}\vlambda^T\vF(\hat{\vx}) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$. 
+    Furthermore by \cref{lem:BdOpt}, $\vF(\hat{\vx}) \in \partial \vF(X)$ and thus $\hat{\vx}\in \partial X$ since $\vF$ is injective, i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$, by hypothesis. 
+    It follows now that
+    \[
+      \min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx) ~\leq~
+      \max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\hat{\vx}) ~=~
+      \vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~
+      \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx).
+    \]
 
-Case 2: Assume the angle $\theta \neq 0$ (between $F(\hat{\vx})$ and $\vlambda_{\hat{\vx}}$). 
-Let $\vx^*$ be a point on the boundary of $X$ such that the angle between $\vlambda_{\hat{\vx}}$ and $\vF(\vx^*)$ is 0. 
-Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contains the origin, is injective,
-%i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$,
-and by assumption the origin lies in the interior of $\vF(X)$. 
-It follows then that
-\[
-\min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx) ~\leq~
-\max\limits_{\norm{\vlambda}=1}\vlambda^T \vF(\vx^*) ~=
-\vlambda_{\hat{\vx}}^T\vF(\vx^*) ~\leq
-\max\limits_{\vx\in X}\vlambda_{\hat{\vx}}^T\vF(\vx) ~=~
-\min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx).
-\]
-
-The theorem now follows.
-\end{proof}
+    Case 2: Assume the angle $\theta \neq 0$ (between $F(\hat{\vx})$ and $\vlambda_{\hat{\vx}}$). 
+    Let $\vx^*$ be a point on the boundary of $X$ such that the angle between $\vlambda_{\hat{\vx}}$ and $\vF(\vx^*)$ is 0. 
+    Such a point must exist as $\vF(X)$ is compact and by hypothesis $\vF(X)$ contains the origin, is injective,
+    %i.e., $\vF$ maps $\partial X$ to $\partial \vF(X)$,
+    and by assumption the origin lies in the interior of $\vF(X)$. 
+    It follows then that
+    \[
+      \min\limits_{\vx\in \partial X}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx) ~\leq~
+      \max\limits_{\norm{\vlambda}=1}\vlambda^T \vF(\vx^*) ~=
+      \vlambda_{\hat{\vx}}^T\vF(\vx^*) ~\leq
+      \max\limits_{\vx\in X}\vlambda_{\hat{\vx}}^T\vF(\vx) ~=~
+      \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx).
+    \]
+    The theorem now follows.
+  \end{proof}
 \end{thm}
 
 \cref{thm:MainIneq} and \cref{lem:BdOpt} provide us with the theoretical tools we need to develop procedures for approximating the robustness margin.
