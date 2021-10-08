@@ -108,7 +108,7 @@ From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 
   \[
   \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~=~ \vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~ \norm{\vF(\hat{\vx})}\cos(\theta).
   \]
-  Since $X\in\R^n$ is compact, $\vF(X)$ is also compact. 
+  Since $X\subset\R^n$ is compact, $\vF(X)$ is also compact. 
   Hence there exists an $r>0$ such that  $B_r(\vF(\hat{\vx}))$, the ball of radius $r$ centered at $\vF(\hat{\vx})$, is in $\vF(X)\setminus\partial \vF(X)$. 
   Let $\vy$ be the antipodal point on $\partial B_r(\vF(\hat{\vx}))$ to the point of intersection between the line segment connecting the origin to $\vF(\hat{\vx})$ and $B_r(\vF(\hat{\vx}))$. 
   It follows then that $\norm{\vy}>\norm{\vF(\hat{\vx})}$ and $\theta$ is the angle between $\vlambda_{\hat{\vx}}$ and $\vy$.   
@@ -123,7 +123,7 @@ We illustrate \cref{lem:BdOpt} in \cref{fig:illustration}.
 The compact set $X\subset\R^2$ is shown in pink with boundary shown in blue.
 For continuous $\vF:\R^2 \rightarrow \R^2$, let $\hat{\vx}$ be the point and $\vlambda_{\hat{\vx}}$ the unit vector that give the optimal value of $\min_{\norm{\vlambda}=1} \, \max_{\vx\in X} \, \vlambda^T\vF(\vx)$ as $\vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$ based on \cref{lem:BdOpt}.
 These vectors are shown in red.
-In the case when the origin is contained in $\vF(\vx)$, as it happens here, we observe that there exists another point $\vx$ and unit vector $\vlambda_{\vx}$ satisfying $\vF(\vx) \in \partial \vF(X)$ (and thus $\vx\in \partial X$) such that we can get the lower bound of $\min_{\norm{\vlambda}=1}\max_{\vx\in X}\ \vlambda^T\vF(\vx)$ as $\min_{\vx\in \partial X} \max_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx)$ (shown in green).
+In the case when the origin is contained in $\vF(X)$, as it happens here, we observe that there exists another point $\vx$ and unit vector $\vlambda_{\vx}$ satisfying $\vF(\vx) \in \partial \vF(X)$ (and thus $\vx\in \partial X$) such that we can get the lower bound of $\min_{\norm{\vlambda}=1}\max_{\vx\in X}\ \vlambda^T\vF(\vx)$ as $\min_{\vx\in \partial X} \max_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx)$ (shown in green).
 %}
 
 \begin{figure}[htp!]
