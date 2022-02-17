@@ -4,6 +4,7 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{times}
+\usepackage{multirow}
 %\usepackage{authblk}
 \graphicspath{{Figures/}}
   
@@ -151,19 +152,21 @@
 %\author[2]{Benjamin Rapone}
 %\affil[2]{Wahington State University}
 
-\author{\hspace*{-0.07in}
+\author{\hspace*{-0.15in}
   Krishnamurthy Dvijotham$^\dag$,
   %\hspace*{0.05in}
-  Bala Krishnamoorthy$^\ddag$,
+  Bala Krishnamoorthy$^{\ddag,\diamond}$,
   %\hspace*{0.05in}
   Yunqi Luo$^\ddag$,
   %\hspace*{0.05in}
-  Benjamin Rapone$^\ddag$\footnote{Authors are listed alphabetically.} \\
+  Benjamin Rapone$^\S$\footnote{Authors are listed alphabetically.} \\
   \vspace*{-0.15in} \\
   $\dag$: DeepMind \\
-  $\ddag$: Department of Mathematics and Statistics, Washington State University 
+  $\ddag$: Department of Mathematics and Statistics, Washington State University \\
+  $\S$: Washington State Governor's Office \\
+  $\diamond$: Corresponding author, \href{mailto:kbala@wsu.edu}{kbala@wsu.edu}
 }
-
+\date{}
 
 \usepackage{csquotes}
 
@@ -184,8 +187,9 @@
 \input{disc}
 \input{ack}
 
-\bibliographystyle{plain}
-\bibliography{Ref_RobFeas}
-%\input{QuadRobustArticle.bbltex}
+\clearpage
+%\bibliographystyle{plain}
+%\bibliography{Ref_RobFeas}
+\input{QuadRobustArticle.bbltex}
 
 \end{document}

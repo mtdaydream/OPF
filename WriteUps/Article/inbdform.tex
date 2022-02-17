@@ -11,7 +11,7 @@ Each of these three practical implementations brings a unique set of attributes,
   Let $\Omega=\{\vx| A\vx \leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in Equations (\ref{eq:Quad}), (\ref{eq:xLimits}), and (\ref{eq:uLimits}). 
   Let
   \[
-  z = \min\limits_{\vx\in \partial \Omega, \vu\in \Omega_{u} }\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\vx)-\vu\right).
+  z = \min\limits_{\vx \in \partial \Omega, \vu \in \Omega_{u} }\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\vx)-\vu\right).
   \]
   If there is an $r>0$ such that $r \leq e_i \ \forall i$ with $\ e_i>0$, where $e_i$ denotes the error bounds associated with $ u^{\min}_i$ and $ u^{\max}_i$, and if $z > 0$ then the system is robust feasible and has a robustness margin of at least $r$.
 
@@ -19,7 +19,7 @@ Each of these three practical implementations brings a unique set of attributes,
   \begin{proof} 
     If \cref{eq:RSForm} is invalidated then there exists $\hat{\vx} \in \partial\Omega$ such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in\Omega_{u}$ and thus
     \[
-    z = \min\limits_{\vx\in \partial \Omega}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\vx)-\vu\right) ~\leq~ \max\limits_{\norm{\vlambda}=1, \vx=\hat{\vx}}\ \vlambda^T\left(F(\vx)-\hat{\vu}\right) ~=~ 0.
+    z = \min\limits_{\vx \in \partial \Omega, \vu \in \Omega_{u}}\max\limits_{\norm{\vlambda}=1}\ \vlambda^T\left(F(\vx)-\vu\right) ~\leq~ \max\limits_{\norm{\vlambda}=1, \vx=\hat{\vx}}\ \vlambda^T\left(F(\vx)-\hat{\vu}\right) ~=~ 0.
     \]
     Hence if $z>0$, \cref{eq:RSForm} is validated, and the system is robust feasible.
     It follows then by definition that the system has a robustness margin of at least $r$.
@@ -28,7 +28,7 @@ Each of these three practical implementations brings a unique set of attributes,
 
   \medskip
 \begin{thm} \label{thm:RobFeas}
-  Let $\partial\Omega_i=\{\vx| (A\vx)_i = b_i, A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L(\vx)$ as described in \cref{eq:Quad,eq:xLimits,eq:uLimits}.
+  Let $\partial\Omega_i=\{\vx| (A\vx)_i = b_i, A\vx\leq \vb\}$, $\Omega_{u}=\{\vu| u^{\min}_i\leq u_i \leq u^{\max}_i \ \forall i \}$, and $F(\vx)=Q(\vx)+L\vx$ as described in \cref{eq:Quad,eq:xLimits,eq:uLimits}.
   Define
   \begin{align}
     \rz_i =  \min_{\vx\in\partial\Omega_i, \vu \in \Omega_u} \norm{F(\vx)-\vu}. \label{eq:OPTfeas}
@@ -38,12 +38,14 @@ Each of these three practical implementations brings a unique set of attributes,
 
   \begin{proof} \ \\
     $\boxed{\Rightarrow}$ \\ 
-    If the system is not robust feasible then there exists $\hat{\vu}'\in \Omega_u$ such that $F(\vx)=\hat{\vu}'$ has no solution. 
-    Since $F(\vx)=\vu^*$ has a solution and $F$ is continuous over a compact domain, there must exist an $\hat{\vx} \in \Omega = \{\vx| A\vx \leq \vb\}$ such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u\cap \partial F(X)$. 
+    If the system is not robust feasible then there exists $\hat{\vu}'\in \Omega_u$ such that $F(\vx)=\hat{\vu}'$ has no interior solution. 
+    Since $F(\vx)=\hat{\vu}'$ has a solution and $F$ is continuous over a compact domain, there must exist an $\hat{\vx} \in \Omega = \{\vx| A\vx \leq \vb\}$ such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u\cap \partial F(X)$. 
     Since $\partial F(X) = F(\partial X)$ we have that $\hat{\vx}\in\partial\Omega$, which implies that there is an $i$ such that $A\hat{\vx}_i=b_i$, and thus $0 \leq \rz_i \leq \norm{F(\hat{\vx})-\hat{\vu}}=0$.\\
     %
     $\boxed{\Leftarrow}$ \\ 
-    If there exists a $i$ such that $z_i=0$, then it follows that there must be the $\hat{x}\in \partial \Omega$ which contains $\hat{x_i}$ as an element such that $F(\hat{x})=\hat{u}$ for some $\hat{u}\in \Omega_u$. Thus there is no interior point $x$ to make the equation $F(x)=\hat{u}$ holds. Then based on \cref{RobustDef}, the system is not robust feasible. 
+    If there exists a $i$ such that $z_i=0$, then it follows that there must be the $\hat{\vx}\in \partial \Omega$ which contains $\hat{x_i}$ as an element such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$.
+    Thus there is no \emph{interior} point $\vx$ to make the equation $F(\vx)=\hat{\vu}$ hold.
+    Then based on \cref{RobustDef}, the system is not robust feasible. 
     %If there exists an $i$ such that $\rz_i = 0$, then there must exist an $\hat{\vx} \in \partial\Omega $ and $\hat{\vu}\in \Omega_u$ such that $F(\hat{\vx})=\hat{\vu}$. 
     %Since $\partial F(X) = F(\partial X)$, there cannot exist an $\hat{\vx}' \in \Int\Omega$ such that $F(\hat{\vx}')=\hat{\vu}$, and hence by definition the system is not robust feasible.
     %\cref{eq:RSForm} is invalidated, which implies $\exists \hat{\vx}\in\partial\Omega$, $\Omega=\{\vx| A\vx< \vb\}$, such that $F(\hat{\vx})=\hat{\vu}$ for some $\hat{\vu}\in \Omega_u$. 

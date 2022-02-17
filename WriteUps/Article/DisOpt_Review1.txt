@@ -1,0 +1,64 @@
+Reviewer #1: This paper is concerned with finding robust feasible
+solutions to a system of quadratic equations, which has applications
+in several areas including the power systems.
+
+In my opinion, the paper is not well-written.
+* Many abbreviations are used before defined (LP, SDP, etc.)
+* There are several sentences needed to be rewritten. 
+* The manuscript requires significant amount of editing.
+
+The technical part of the paper is very unclear. This is the reason I
+was unable to understand some parts of the paper and verify the
+correctness of the theoretical results. Here are some concrete
+examples from Section 3.1:
+
+* F is assumed to be a real-valued function. But then H (a vector
+  valued function) is used in place of F in Eq. (5).
+* The Jacobian of a general function is a matrix in general. Hence,
+  sign(J_F(x)) is not well-defined.
+* Many notations are used without proper notation (interior, closure,
+  boundary etc.).
+
+Here are some concrete examples from Section 3.2:
+* Assuming that "there is a unique solution to the forecasted system
+  at which point the Jacobian is non-zero" might be too restrictive in
+  the application problem since there are infinitely many solutions in
+  power flow problem by simply shifting the phase angles.
+* It is unclear whether the line \ell_{u^*} is well-defined or not.
+* It was not clear to me at all the connection between topological
+  degree theory and robust feasibility.
+* Theorem 3.3: As before, in the power systems application, it might
+  be restrictive to assume F is injective.
+
+Here are some concrete examples from Section 4:
+
+* The relation between the robustness margin of r and the several
+  optimization problems in this section is not clear.
+* Problem (10): The condition X=xx^T is equivalent to rank(Y)=1 and Y
+  \succeq 0, where Y=[X x \\ x^T 1]. Although rank(Y)=1is nonconvex,
+  constraint Y \succeq 0 is convex. It is not clear why the authors
+  did not prefer to solve an SDP to get better bounds.
+* The two sentences are Eq. (12) are contradictory.
+
+Although solving robust version of PF or OPF is quite relevant from an
+application point of view, I am not entirely convinced that the
+problem studied in this paper has the same practical
+relevance. Knowing the robustness margin does not necessarily
+translate to solving the robust version of OPF efficiently or
+accurately. Especially since even approximating the robustness margin
+is quite expensive, I am not sure how that information can be used in
+practice.
+
+Finally, the computational results are not very satisfactory.
+
+* Due to the comments I have about the assumptions mentioned before, I
+  am a bit concerned about the applicability of the theory developed.
+* I would like to repeat that it is quite expensive to obtain lower
+  and upper bounds as reported in Table 1.
+* It is not clear whether the results reported in Fig. 4 are "good" or
+  "bad". It seems that the difference between lower and upper bounds
+  get larger with the instance size.
+* It seems that LP and LP-bounding have similar performance, which
+  dominates IP approach. This seems quite counter-intuitive since the
+  authors mention that LP and IP should have the same success.
+

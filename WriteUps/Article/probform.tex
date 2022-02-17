@@ -11,20 +11,23 @@ We are interested in solutions to this system of equations under linear constrai
 \begin{align}
 (A\vx)_i\leq b_i \quad \forall i \in [n]\label{eq:xLimits}
 \end{align}
-Where we assume the $(A\vx)\leq b$ for each $i$ is free of redundant constriants and $\vx$ and $\vu$ have the same dimension.
-However, the parameter $\vu$ is uncertain and only known up to certain error bounds
+where we assume that $(A\vx)_i \leq b_i$ for each $i$ is free of redundant constraints and $\vx$ and $\vu$ have the same dimension.
+However, the parameter $\vu$ is uncertain and known only up to certain error bounds:
+%
 \begin{align}
-u^{\min}_i=u_i^*-e_i \leq u_i \leq =u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
+%u^{\min}_i=u_i^*-e_i \leq u_i \leq =u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
+u^{\min}_i=u_i^*-e_i \leq u_i \leq u_i^*+e_i=u^{\max}_i \quad \forall i \in [n] \label{eq:uLimits}
 \end{align}
+%
 where $\vu^*$ is a forecast for $\vu$ and $\ve$ denotes the error bounds associated with the forecast. 
 For example, in the case of quadratic equations appearing in infrastructure networks like the power grid, $u_i$ represents uncertain power generation or consumption (for example uncertain weather-dependent power sources like solar or wind power). 
 In the case of stochastic processes, $\vu^*$ represents an initial state distribution. Further, note that if the polyhedron given by $A\vx \leq b$ is not full dimensional, then there would exist at least a $i\in[1,\dotsb, n]$ such that $x_i$ could be any number as long as satisfies \eqref{eq:Quad}. In this case,for the corresponding uncertain parameter $u_i$, there are no $u_i^{min}$ and $u_i^{\max}$.
 
-\begin{cdef}[Robust Feasibility and Robust Margin problem]  \label{RobustDef}
-Determine whether for all values of $\vu$ satisfying \eqref{eq:uLimits}, the system of equations \eqref{eq:Quad} has a solution lying within the interior of the set of all  $\vx$ satisfying the constraints in \eqref{eq:xLimits}. 
-If this is true, the system comprised of \eqref{eq:Quad},\eqref{eq:xLimits},\eqref{eq:uLimits} is said to be \emph{robust feasible}. 
-The largest $r$ such that $e_i\geq r \ \forall i~$ such that $~e_i>0$ in \eqref{eq:uLimits} such that the system is robust feasible is said to be the \emph{robustness margin}. 
-See \cref{fig:RobFeas(r)} for a pictorial depiction. 
+\begin{cdef}[Robust Feasibility and Robustness Margin problem]  \label{RobustDef}
+  Determine whether for all values of $\vu$ satisfying \eqref{eq:uLimits}, the system of equations \eqref{eq:Quad} has a solution lying within the interior of the set of all  $\vx$ satisfying the constraints in \eqref{eq:xLimits}. 
+  If this is true, the system comprised of \eqref{eq:Quad},\eqref{eq:xLimits},\eqref{eq:uLimits} is said to be \emph{robust feasible}. 
+  The largest $r$ such that $e_i\geq r \ \forall i~$ such that $~e_i>0$ in \eqref{eq:uLimits} such that the system is robust feasible is said to be the \emph{robustness margin}. 
+  See \cref{fig:RobFeas(r)} for a pictorial depiction. 
 \end{cdef}
 
 \begin{figure}[htp!]
@@ -37,7 +40,7 @@ The system is robust feasible at the level of $r$ (left), but is not robust feas
 \label{fig:RobFeas(r)}
 \end{figure}
 
-The definition for robustness margin is left here in its most general form so as to capture all scenarios under which a researcher may find themselves. 
-For instance it very well may be the case that only some of the dimensions of $\vu$ will have margins of uncertainty. 
-Furthermore, one may have need of computing the robustness margin for only a subset of the dimensions of $\vu$ which pertain to problem areas or nodes of particular interest to the research. 
-This manual restriction will of course produce a robustness margin greater than or equal to that obtained by considering all dimensions, which certainly remains an option under the current setting. 
+The definition for robustness margin is left here in its most general form so as to capture all scenarios under which a researcher may find themselves.
+For instance it very well may be the case that only some of the dimensions of $\vu$ will have margins of uncertainty.
+Furthermore, one may have need of computing the robustness margin for only a subset of the dimensions of $\vu$ which pertain to problem areas or nodes of particular interest to the research.
+This manual restriction will of course produce a robustness margin greater than or equal to that obtained by considering all dimensions, which certainly remains an option under the current setting.

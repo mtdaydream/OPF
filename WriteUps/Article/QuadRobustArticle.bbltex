@@ -119,15 +119,15 @@ Burak Kocuk, Santanu~S. Dey, and Andy~X. Sun.
 \newblock {Strong SOCP relaxations for the optimal power flow problem}.
 \newblock {\em Operations Research}, 64(6):1177--1196, 2016.
 
-\bibitem{Lasserre2011}
-J.~Lasserre.
-\newblock Min-max and robust polynomial optimization.
-\newblock {\em Journal of Global Optimization}, 51:1--10, 2011.
-
 \bibitem{Lasserre2006}
 Jean~B Lasserre.
 \newblock Robust global optimization with polynomials.
 \newblock {\em Mathematical programming}, 107(1-2):275--293, 2006.
+
+\bibitem{Lasserre2011}
+Jean~B. Lasserre.
+\newblock Min-max and robust polynomial optimization.
+\newblock {\em Journal of Global Optimization}, 51:1--10, 2011.
 
 \bibitem{mathieu2011examining}
 Johanna~L Mathieu, Duncan~S Callaway, and Sila Kiliccote.
@@ -142,7 +142,7 @@ Juan~M Morales and Juan Perez-Ruiz.
 \newblock {\em IEEE Transactions on Power Systems}, 22(4):1594--1601, 2007.
 
 \bibitem{MoVrYa2002}
-B.~Mourraina1, M.N. Vrahatisb, and J.C. Yakoubsohnc.
+B.~Mourrain, M.N. Vrahatis, and J.C. Yakoubsohn.
 \newblock On the complexity of isolating real roots and computing with
   certainty the topological degree.
 \newblock {\em {Journal of Complexity}}, 18(2):612--640, 2002.
