@@ -11,7 +11,7 @@ See O'Regan et al.~\cite{OrChCh2006} for details.
   d\left(\Omega,F,\vy\right)=\sum\limits_{\vx\in F^{-1}(\vy)}\operatorname{sign}\left(J_F(\vx)\right)
 \end{equation}
 %
-where $\operatorname{sign}\left(J_F(\vx)\right)$ denotes the sign of the Jacobian of $F$ at $\vx$, i.e.,
+where $\operatorname{sign}\left(J_F(\vx)\right)$ denotes the sign of the determinant of the Jacobian of $F$ at $\vx$, i.e.,
 %
 \[\operatorname{sign}\left(J_F(\vx)\right)=   \left\{
 \begin{array}{ll}
@@ -21,7 +21,8 @@ where $\operatorname{sign}\left(J_F(\vx)\right)$ denotes the sign of the Jacobia
 \end{array} 
 \right. \]
 %
-Additionally we utilize the following two common properties of the topological degree. 
+We assume that the sum in \cref{eq:Deg3} evaluates to $0$ if $F^{-1}(\vy) = \emptyset$.
+Additionally we utilize the following common properties of the topological degree. 
 Again, see O'Regan et al.~\cite{OrChCh2006} for details. 
 
 If $H : [0,1]\times\bar{\Omega}\rightarrow\R^n$ is continuous such that $H(t,\vx)\neq \vy~\forall t\in[0,1],~\vx\in\partial\Omega$,  then 
@@ -93,7 +94,7 @@ From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 
 
 \begin{lem} 
   \label{lem:BdOpt}
-  Let $X\subset\R^n$ be compact. If $\vF:\R^n\rightarrow\R^n$ is continuous, and 
+  Let $X\subset\R^n$ be full-dimensional and compact. If $\vF:\R^n\rightarrow\R^n$ is continuous, and 
   \[
   \min\limits_{\norm{\vlambda}=1} \, \max\limits_{\vx\in X} \, \vlambda^T\vF(\vx)
   \]
@@ -108,12 +109,13 @@ From here on we will assume $d(\Omega,H\left(\frac{1}{2},\vx\right),\vzero)\neq 
   \[
   \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~=~ \vlambda_{\hat{\vx}}^T\vF(\hat{\vx}) ~=~ \norm{\vF(\hat{\vx})}\cos(\theta).
   \]
-  Since $X\subset\R^n$ is compact, $\vF(X)$ is also compact. 
+  Since $X\subset\R^n$ is full-dimensional and compact, it has nonempty interior \cite{Ma1973}.
+  And since $\vF$ is continuous, $\vF(X)$ is also nonempty and compact. 
   Hence there exists an $r>0$ such that  $B_r(\vF(\hat{\vx}))$, the ball of radius $r$ centered at $\vF(\hat{\vx})$, is in $\vF(X)\setminus\partial \vF(X)$. 
   Let $\vy$ be the antipodal point on $\partial B_r(\vF(\hat{\vx}))$ to the point of intersection between the line segment connecting the origin to $\vF(\hat{\vx})$ and $B_r(\vF(\hat{\vx}))$. 
   It follows then that $\norm{\vy}>\norm{\vF(\hat{\vx})}$ and $\theta$ is the angle between $\vlambda_{\hat{\vx}}$ and $\vy$.   
   Let $\vx^*\in X$ be such that $\vF(\vx^*)=\vy$.
-  Such an $\vx^*$ exists since $\vF(X)$ is compact. 
+  Such an $\vx^*$ exists since $\vy$ lies inside $\vF(x)$ which is nonepty and $\vF$ is continuous. 
   Therefore $\vlambda_{\hat{\vx}}^T\vF(\vx^*)=\norm{\vF(\vx^*)} \cos(\theta) > \norm{\vF(\hat{\vx})} \cos(\theta) = \vlambda_{\hat{\vx}}^T\vF(\hat{\vx})$, which is a contradiction. 
   The lemma now follows.
 \end{proof}
@@ -140,7 +142,7 @@ We formalize the last observation for the general case in our main theorem, whic
 
 \begin{thm} 
   \label{thm:MainIneq}
-  Let $X\subset\R^n$ be compact, $\vF:\R^n\rightarrow\R^n$ be continuous such that $\vF(X)$ contains the origin. 
+  Let $X\subset\R^n$ be full-dimensional and compact, $\vF:\R^n\rightarrow\R^n$ be continuous such that $\vF(X)$ contains the origin. 
   If $\vF$ is injective over $X$ then
   \[
   \min\limits_{\norm{\vlambda}=1}\max\limits_{\vx\in X}\ \vlambda^T\vF(\vx) ~\geq~ \min\limits_{\vx\in \partial X} \max\limits_{\norm{\vlambda}=1}\ \vlambda^T\vF(\vx).

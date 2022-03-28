@@ -129,6 +129,12 @@ Jean~B. Lasserre.
 \newblock Min-max and robust polynomial optimization.
 \newblock {\em Journal of Global Optimization}, 51:1--10, 2011.
 
+\bibitem{Ma1973}
+Sibe Marde{\v{s}}i{\'c}.
+\newblock Compact subsets of $\mathbb{R}^n$ and dimension of their projections.
+\newblock {\em Proceedings of the American Mathematical Society},
+  41(2):631--633, 1973.
+
 \bibitem{mathieu2011examining}
 Johanna~L Mathieu, Duncan~S Callaway, and Sila Kiliccote.
 \newblock Examining uncertainty in demand response baseline models and
