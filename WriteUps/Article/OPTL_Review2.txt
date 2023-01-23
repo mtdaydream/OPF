@@ -1,0 +1,11 @@
+Reviewer #2: Motived by the complexity and difficulties to solve the AC power flow equations, this paper studies the robust feasible solutions to such kind systems of nonlinear equations. More specifically, this paper develops inner bound and outer bound formulations for such problems. Some numerical experiments are performed based on the Matpower cases. Although the analysis on the lower/upper bounds can be clear, the numerical experiments are not adequate to show the effectiveness and efficiency of the proposed methods.
+
+Some suggestions to improve the paper:
+
+(1) As solving AC OPF was widely considered in the literature (although considered as the major application of the proposed approaches of this paper), the renewable energy and load uncertainty is not well modeled in this paper. The formulation (3) itself cannot address the such issues. For example, the solar output, wind output and load demand have quite different types of uncertainty. Additionally, it would suggest you should add such discussions and explanations in Section 7 before numerical experiments.
+
+(2) Computational time issue. In Table 1 (also the Case 57, not shown in this Table), the time to solve cases 14, 30 and 57 is high. As approaches existed in literature (like reviewed in Section 1.2, page 3), some benchmark studies should be carried for comparison. The time to solve cases 30 and 57 has a big gap to be applied in power industry.
+
+(3) Gap between bounds. The Figure 4 shows the bounds are relatively large, and the explanations are not adequate.
+
+For issues in (2) and (3), more numerical experiments should performed (like IEEE 30-bus, IEEE-118 systems studies in many papers, and other cases in Matpower) to show the advantage or benefits of the proposed approach, which your current case studies cannot validate them.

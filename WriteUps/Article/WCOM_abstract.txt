@@ -1,0 +1,5 @@
+Title: Robust Feasibility Using Topological Degree Theory 
+
+We consider the problem of measuring the margin of robust feasibility of solutions to a system of nonlinear equations. We study the special case of a system of quadratic equations, which shows up in many practical applications such as the power grid and other infrastructure networks. This problem is a generalization of quadratically constrained quadratic programming (QCQP), which is NP-Hard in general. We develop approaches based on topological degree theory to estimate bounds on the robustness margin of such systems. We cast the problem of checking the conditions for robust feasibility as a nonlinear optimization problem. We then develop inner and outer bound procedures for this optimization problem, which could be solved efficiently to derive lower and upper bounds, respectively, for the margin of robust feasibility. We evaluate our approach numerically on instances taken from the MATPOWER database of AC power flow equations.
+
+A preprint is available at https://arxiv.org/abs/1907.12206. 

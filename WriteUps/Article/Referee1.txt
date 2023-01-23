@@ -1,0 +1,52 @@
+Referee 1 (Remarks to the Author):
+
+The paper considers robust feasibility of systems of linear and nonconvex quadratic constraints, where uncertainty in right-hand side constants is present in some or all of the quadratics. The uncertainty set is defined as a symmetric box about the nominal forecasted set of constants. Closely related is the notion of robust margin, r, which is the maximum feasible deviation that can be applied to all uncertain constants. LP-based inner and outer approximation procedures are proposed for estimating said margin.
+
+The idea of robust nonconvex QCQP is interesting, and the paper presents a nice formulation for robustness margin via theorems 4.1 and 4.2. However, I feel the paper stands to gain by more thorough examination both theoretically and algorithmically.
+
+major questions/comments
+1) The application example is power flow with uncertainty in generation. What is the justification/realism for using box uncertainty? This would be assuming worst-case production values across e.g. multiple wind sites, and such a scenario would be highly unlikely across a large geographic region.
+
+2) I don't understand the motivation for developing the MIP procedure. It requires Big-Ms and doesn't seem to achieve anything that your sequence of m LPs can achieve.
+
+3) If I understand correctly, it seems your robustness margin can be computed via (9), which can be reformulated in turn as a sequence of nonconvex QCQP. In this case your lower/upper bound methods should be benchmarked against the best practice for such problems (e.g. global solvers like SCIP, BARON). Furthermore, it seems during the development of LP methods you repetedly refer to the SDP relaxation. How does the LP approach compare to using SDP relaxations?
+
+4) What happens in the case that x and u have different dimensions? It seems we can convert back to your standard form (1)-(3) with auxiliary variables/constraints, but can the results simply be extended directly?
+
+5) The algorithmic procedures are described in an ad hoc manner, and would benefit from something a little more formal like pseudocode.
+
+6) The following should be cited, as the techniques seem directly applicable to your problem:
+Lasserre JB. Robust global optimization with polynomials. Mathematical programming. 2006 Jun 1;107(1-2):275-93.
+
+Lasserre JB. Min-max and robust polynomial optimization. Journal of Global Optimization. 2011 Sep 1;51(1):1-0.
+
+There is a survey that may be helpful as well:
+Leyffer S, Menickelly M, Munson T, Vanaret C, Wild SM. A survey of nonlinear robust optimization. INFOR: Information Systems and Operational Research. 2020 Mar 16:1-32.
+
+7) What happens if the polyhedron given by Ax<=b is not full dimensional? I think there is a workaround, but feel this is worth addressing explicitly.
+
+8) Are there major hurdles preventing you from extending your framework to robust optimization instead of feasibility? At the very least there is a straightforward (likely impractical) approach via optimization-separation.
+
+minor questions/comments
+1) Your problem may be relevant to voltage stability analysis, a classic problem in power systems engineering, and a major extension of power flow. Some mention of this connection could enhance the paper's relevance to that community.
+
+2) It would be easier to follow if you introduced an index set for the set of e_i>0, i.e. the quadratic constraints you are targeting with robustness.
+
+3) More details on computations would be helpful for understanding the practical scaling properties of these methods. A table of solve times, number of constraints/variables, number of iterations, etc.
+
+4) p2 "...solve in their natural form." What is meant by natural form?
+
+5) figures are hard to read, especially font
+
+6) You are assuming Ax <= b, is free of redundant constraints, correct? I did not see the assumption stated. Otherwise delta Omega_i is empty, and z_i is no longer properly defined.
+
+minor errata
+p1 "...operations are..." maybe "...operations:..."
+
+p4 "...the power systems..." remove 'the'
+
+p5 F maps to R^n not R
+
+p11 thm 5.1 isn't bar Omega the same as Omega?
+
+'forcast' instead of 'forecast' in several places 
