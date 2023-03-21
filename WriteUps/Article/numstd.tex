@@ -5,8 +5,8 @@
 %\subsection{Adaptation to Optimal Power Flow Equations}
 We now present results from computational studies that demonstrate the efficiency of the bounding procedures we have introduced.
 %presented, which address the aforementioned short comings of previous work. 
-For all the numerical results presented, we apply the LP and MIP feasibility procedures (\cref{eq:OPTfeasrelaxLP1,eq:OPTfeasrelaxLP2}), the LP bound tightening procedure (\cref{eq:OPTfeasrelaxLP3}), and the Outer bound procedure (\cref{eq:OPTfeasOutRelaxb}) to find lower and upper bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software \cite{matpower}. 
-We will specifically show results for tests conducted on cases 5, 9, 14, 30, and 57. 
+For all the numerical results presented, we apply the LP and MIP feasibility procedures (\cref{eq:OPTfeasrelaxLP1,eq:OPTfeasrelaxLP2}), the LP bound tightening procedure (\cref{eq:OPTfeasrelaxLP3}), and the Outer bound procedure (\cref{eq:OPTfeasOutRelaxb}) to find lower and upper bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software \cite{matpower} and \txbl{the NICTA Energy System Test Case Archive(NESTA) \cite{Coffrin2014NESTATN}.}
+We will specifically show results for tests conducted on cases 5, 9, 14, \txbl{29}, 30, \txbl{39} and 57. 
 In every case the power flow equations were converted into the form of a system of quadratic equations we study (as described in \cref{eq:Quad,eq:xLimits,eq:uLimits}). 
 To simulate real life scenarios we allowed the first 5 dimensions of $\vu$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\vu$, while utilizing procedures for the upper and lower bound verification to verify robust feasibility. 
 We first detail specifically how this transformation was conducted.
@@ -85,7 +85,7 @@ We display the data on a case by case basis to highlight the effect of allowing 
       \cr\hline
   \end{tabular}}
   \caption{  \label{tab:exp}
-    Solution times, number of variables, and \add{number of} constraints for the procedures we considered on the MatPower Cases 5, 9, 14, \add{29}, 30, \add{and 39.}
+    Solution times, number of variables, and \add{number of} constraints for the procedures we considered on the Cases 5, 9, 14, \add{29}, 30, \add{and 39.}
     }
     
 \end{table}
@@ -99,7 +99,7 @@ We display the data on a case by case basis to highlight the effect of allowing 
   \includegraphics[width=.45\linewidth-0.2mm]{Figures/newcase29.png}\\[0.5mm]
   \includegraphics[width=.45\linewidth-0.2mm]{Figures/newcase30.png}\hfill
   \includegraphics[width=.45\linewidth-0.2mm]{Figures/newcase39.png}\\
-\caption{Lower and upper bound estimates on the robustness margin for MatPower Case 5 (Top Left), Case 9 (Top Right), Case 14 (Middle Left), \add{Case 29 (Middle Right)}, Case 30 (Bottom left), and \add{Case 39 (Bottom right)}. }
+\caption{Lower and upper bound estimates on the robustness margin for Case 5 (Top Left), Case 9 (Top Right), Case 14 (Middle Left), \add{Case 29 (Middle Right)}, Case 30 (Bottom left), and \add{Case 39 (Bottom right)}. }
 \label{fig:Graphs1} 
 \end{center}
 \end{figure}
