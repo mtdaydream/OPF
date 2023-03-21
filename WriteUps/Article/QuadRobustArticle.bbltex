@@ -1,9 +1,26 @@
 \begin{thebibliography}{10}
 
+\bibitem{bandi2012tractable}
+\add{Chaithanya Bandi and Dimitris Bertsimas.
+\newblock Tractable stochastic analysis in high dimensions via robust
+  optimization.
+\newblock {\em Mathematical Programming}, 134:23--70, 2012.}
+
+\bibitem{bandi2014optimal}
+\add{Chaithanya Bandi and Dimitris Bertsimas.
+\newblock Optimal design for multi-item auctions: a robust optimization
+  approach.
+\newblock {\em Mathematics of Operations Research}, 39(4):1012--1038, 2014.}
+
 \bibitem{ben2009robust}
 Aharon Ben-Tal, Laurent El~Ghaoui, and Arkadi Nemirovski.
 \newblock {\em Robust optimization}.
 \newblock Princeton University Press, 2009.
+
+\bibitem{ben1999robust}
+\add{Aharon Ben-Tal and Arkadi Nemirovski.
+\newblock Robust solutions of uncertain linear programs.
+\newblock {\em Operations Research Letters}, 25(1):1--13, 1999.}
 
 \bibitem{BeEdMoPa2010}
 Paul Bendich, Herbert Edelsbrunner, Dmitriy Morozov, and Amit Patel.
@@ -16,6 +33,16 @@ Paul Bendich, Herbert Edelsbrunner, Dmitriy Morozov, and Amit Patel.
 Dimitris Bertsimas, Omid Nohadani, and Kwong~Meng Teo.
 \newblock Nonconvex robust optimization for problems with constraints.
 \newblock {\em INFORMS Journal on Computing}, 22(1):44--58, 2010.
+
+\bibitem{bertsimas2004robust}
+\add{Dimitris Bertsimas, Dessislava Pachamanova, and Melvyn Sim.
+\newblock Robust linear optimization under general norms.
+\newblock {\em Operations Research Letters}, 32(6):510--516, 2004.}
+
+\bibitem{bertsimas2004price}
+\add{Dimitris Bertsimas and Melvyn Sim.
+\newblock The price of robustness.
+\newblock {\em Operations Research}, 52(1):35--53, 2004.}
 
 \bibitem{BiChHa2014}
 Daniel Bienstock, Michael Chertkov, and Sean Harnett.
@@ -97,7 +124,7 @@ Peter Franek and Stefan Ratschan.
 \newblock {\em Mathematics of Computation}, 84:1265--1290, 2015.
 
 \bibitem{FrHoLa2007}
-A.~Frommer, F.~Hoxha, and B~Lang.
+Andreas Frommer, Fatmir Hoxha, and Bruno Lang.
 \newblock Proving the existence of zeros using the topological degree and
   interval arithmetic.
 \newblock {\em {Journal of Computational and Applied Mathematics}},
@@ -129,11 +156,18 @@ Jean~B. Lasserre.
 \newblock Min-max and robust polynomial optimization.
 \newblock {\em Journal of Global Optimization}, 51:1--10, 2011.
 
+\bibitem{lotfi2022data}
+\add{Reza Lotfi, Bahareh Kargar, Alireza Gharehbaghi, Mohamad Afshar, Mohammad~Sadra
+  Rajabi, and Nooshin Mardani.
+\newblock A data-driven robust optimization for multi-objective renewable
+  energy location by considering risk.
+\newblock {\em Environment, Development and Sustainability}, pages 1--22, 2022.}
+
 \bibitem{Ma1973}
-Sibe Marde{\v{s}}i{\'c}.
+\add{Sibe Marde{\v{s}}i{\'c}.
 \newblock Compact subsets of $\mathbb{R}^n$ and dimension of their projections.
 \newblock {\em Proceedings of the American Mathematical Society},
-  41(2):631--633, 1973.
+  41(2):631--633, 1973.}
 
 \bibitem{mathieu2011examining}
 Johanna~L Mathieu, Duncan~S Callaway, and Sila Kiliccote.
@@ -148,7 +182,7 @@ Juan~M Morales and Juan Perez-Ruiz.
 \newblock {\em IEEE Transactions on Power Systems}, 22(4):1594--1601, 2007.
 
 \bibitem{MoVrYa2002}
-B.~Mourrain, M.N. Vrahatis, and J.C. Yakoubsohn.
+Bernard Mourrain, Michael~N. Vrahatis, and Jean-Claude Yakoubsohn.
 \newblock On the complexity of isolating real roots and computing with
   certainty the topological degree.
 \newblock {\em {Journal of Complexity}}, 18(2):612--640, 2002.
@@ -179,7 +213,7 @@ Joshua~A Taylor and Johanna~L Mathieu.
   2015.
 
 \bibitem{TsBiTa2016}
-S.~H. Tseng, E.~Bitar, and A.~Tang.
+Shih-Hao Tseng, Eilyan Bitar, and Ao~Tang.
 \newblock Random convex approximations of ambiguous chance constrained
   programs.
 \newblock In {\em 2016 IEEE 55th Conference on Decision and Control (CDC)},
@@ -191,16 +225,16 @@ Lieven Vandenberghe and Stephen Boyd.
 \newblock {\em SIAM review}, 38(1):49--95, 1996.
 
 \bibitem{EPFLA}
-C.~Wang, A.~Bernstein, J.~Y.~Le Boudec, and M.~Paolone.
-\newblock Existence and uniqueness of load-flow solutions in three-phase
-  distribution networks.
-\newblock {\em IEEE Transactions on Power Systems}, PP(99):1--1, 2016.
+Cong Wang, Andrey Bernstein, Jean-Yves Le~Boudec, and Mario Paolone.
+\newblock {Existence and Uniqueness of Load-Flow Solutions in Three-Phase
+  Distribution Networks}.
+\newblock {\em IEEE Transactions on Power Systems}, 32(4):3319--3320, 2017.
 
 \bibitem{EPFLB}
-C.~Wang, A.~Bernstein, J.~Y.~Le Boudec, and M.~Paolone.
-\newblock Explicit conditions on existence and uniqueness of load-flow
-  solutions in distribution networks.
-\newblock {\em IEEE Transactions on Smart Grid}, PP(99):1--1, 2016.
+Cong Wang, Andrey Bernstein, Jean-Yves Le~Boudec, and Mario Paolone.
+\newblock {Explicit Conditions on Existence and Uniqueness of Load-Flow
+  Solutions in Distribution Networks}.
+\newblock {\em IEEE Transactions on Smart Grid}, 9(2):953--962, 2018.
 
 \bibitem{wang1992interval}
 Zian Wang and Fernando~L Alvarado.
@@ -220,3 +254,4 @@ Ray~Daniel Zimmerman, Carlos~Edmundo Murillo-Sanchez, and Robert~John Thomas.
 \newblock {\em IEEE Transactions on Power Systems}, 26(1):12--19, Feb 2011.
 
 \end{thebibliography}
+

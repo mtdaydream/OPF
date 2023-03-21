@@ -1,8 +1,10 @@
 % Renamed from Ref.bib
-% Originally from DJ, with additions/updates from Ben, Bala, Rosemary
-% Last updated Sep 28, 2022
+% Originally from DJ, with additions/updates from Ben, Bala, Rosemary, Yunqi
+% Last updated Mar 20, 2023
 %
-% Mar 14, 2023: ben1999robust, bertsimas2004robust, bertsimas2004price, bandi2012tractable, bandi2014optimal, lotfi2022data
+% Mar 20, 2023: EPFLB, EPFLA, TsBiTa2016, MoVrYa2002, FrHoLa2007, FrHoLa2007 updated
+% Mar 14, 2023: ben1999robust, bertsimas2004robust, bertsimas2004price,
+%               bandi2012tractable, bandi2014optimal, lotfi2022data
 % Sep 28, 2022: KiBa1997, BaKiChLu1999, KiBa2000, PeLo2014, PeLo2015, PeLo2016, 
 %               KoKiSo2005, ChKiHu2011, SuPhGh2013, Er2014, MhVeCh2019, SuSu2021
 % Aug 09, 2022: maple
@@ -81,25 +83,26 @@ month={Jan},}
 }
 
 @ARTICLE{EPFLB,
-author={C. Wang and A. Bernstein and J. Y. Le Boudec and M. Paolone},
+author={Wang, Cong and Bernstein, Andrey and Le Boudec, Jean-Yves and Paolone, Mario},
 journal={IEEE Transactions on Smart Grid},
-title={Explicit Conditions on Existence and Uniqueness of Load-Flow Solutions in Distribution Networks},
-year={2016},
-volume={PP},
-number={99},
-pages={1-1},
+title={{Explicit Conditions on Existence and Uniqueness of Load-Flow Solutions in Distribution Networks}},
+year={2018},
+volume={9},
+number={2},
+pages={953--962},
 keywords={Admittance;Network topology;Reactive power;Real-time systems;Topology;Voltage control;distribution networks;existence and uniqueness;fixed point method;load flow solution},
 doi={10.1109/TSG.2016.2572060},
 ISSN={1949-3053},
 month={},}
+
 @ARTICLE{EPFLA,
-author={C. Wang and A. Bernstein and J. Y. Le Boudec and M. Paolone},
+author={Wang, Cong and Bernstein, Andrey and Le Boudec, Jean-Yves and Paolone, Mario},
 journal={IEEE Transactions on Power Systems},
-title={Existence and Uniqueness of Load-Flow Solutions in Three-Phase Distribution Networks},
-year={2016},
-volume={PP},
-number={99},
-pages={1-1},
+title={{Existence and Uniqueness of Load-Flow Solutions in Three-Phase Distribution Networks}},
+year={2017},
+volume={32},
+number={4},
+pages={3319--3320},
 keywords={Admittance;Core loss;Indexes;Network topology;Power demand;Power transmission lines;Transmission line matrix methods;distribution networks;existence and uniqueness;fixed point method;load flow solution},
 doi={10.1109/TPWRS.2016.2623979},
 ISSN={0885-8950},
@@ -315,7 +318,7 @@ url="http://dx.doi.org/10.1007/s10601-016-9253-y"
 
 
 @INPROCEEDINGS{TsBiTa2016,
-author={S. H. Tseng and E. Bitar and A. Tang},
+author={Tseng, Shih-Hao and Bitar, Eilyan and Tang, Ao},
 booktitle={2016 IEEE 55th Conference on Decision and Control (CDC)},
 title={Random convex approximations of ambiguous chance constrained programs},
 year={2016},
@@ -518,22 +521,25 @@ isbn="1-58488-648-X",
 }
 
 @article{FrHoLa2007,
-author    = {A. Frommer and F. Hoxha and B Lang},
+author    = {Andreas Frommer and Fatmir Hoxha and Bruno Lang},
 title     = {Proving the existence of zeros using the topological degree and interval arithmetic},
 year      = {2007},
 journal= {{Journal of Computational and Applied Mathematics}},
 pages = {397--402},
 volume= {199},
+issue = {2},
+doi = {10.1016/j.cam.2005.07.030},
 }
 
 @article{MoVrYa2002,
-author    = {B. Mourrain and M.N. Vrahatis and J.C. Yakoubsohn},
+author    = {Bernard Mourrain and Michael N. Vrahatis and Jean-Claude Yakoubsohn},
 title     = {On the Complexity of Isolating Real Roots and Computing with Certainty the Topological Degree},
 year      = {2002},
 journal= {{Journal of Complexity}},
 pages = {612--640},
 volume = "18",
 number = "2",
+doi = {10.1006/jcom.2001.0636},
 }
 
 @article{GRIEWANK2014,
@@ -1001,6 +1007,30 @@ abstract = {This paper calls attention to the core issue as to the multi-area ge
   doi={10.1109/TPWRS.2018.2886344}
   }
   
+
+@ARTICLE{SuSu2021,
+  author={Sun, Kaizhao and Sun, Xu Andy},
+  journal={IEEE Transactions on Power Systems}, 
+  title={{A Two-Level ADMM Algorithm for AC OPF With Global Convergence Guarantees}}, 
+  year={2021},
+  volume={36},
+  number={6},
+  pages={5271--5281},
+  doi={10.1109/TPWRS.2021.3073116}
+  }
+
+@Inbook{La2010,
+author="Lange, Kenneth",
+title="{Local and Global Convergence}",
+bookTitle="Numerical Analysis for Statisticians",
+year="2010",
+publisher="Springer New York",
+address="New York, NY",
+pages="277--296",
+abstract="Proving convergence of the various optimization algorithms is a delicate exercise. In general, it is helpful to consider local and global convergence patterns separately. The local convergence rate of an algorithm provides a useful benchmark for comparing it to other algorithms. On this basis, Newton's method wins hands down. However, the tradeoffs are subtle. Besides the sheer number of iterations until convergence, the computational complexity and numerical stability of an algorithm are critically important. The MM algorithm is often the epitome of numerical stability and computational simplicity. Scoring lies somewhere between these two extremes. It tends to converge more quickly than the MM algorithm and to behave more stably than Newton's method. Quasi-Newton methods also occupy this intermediate zone. Because the issues are complex, all of these algorithms survive and prosper in certain computational niches.",
+isbn="978-1-4419-5945-4",
+doi="10.1007/978-1-4419-5945-4_15",
+}
  
   % March 4, 2023 by YL
   

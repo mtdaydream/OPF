@@ -1,4 +1,6 @@
+\vspace*{-0.15in}
 \section{Implementation on Power Systems} \label{sec:numstd}  
+\vspace*{-0.05in}
 
 %\subsection{Adaptation to Optimal Power Flow Equations}
 We now present results from computational studies that demonstrate the efficiency of the bounding procedures we have introduced.
@@ -10,6 +12,7 @@ To simulate real life scenarios we allowed the first 5 dimensions of $\vu$ to re
 We first detail specifically how this transformation was conducted.
 
 %\clearpage
+\vspace*{-0.10in}
 \subsection{OPF to Quadratic System} \label{ssec:opf2qsys}
 
 As described by Dvijotham et al.~\cite{DjTuritsyn}, the AC power flow equations can be written as follows.
@@ -55,7 +58,7 @@ Details on the computation are given in \cref{tab:exp}, for determining the prac
 We display the data on a case by case basis to highlight the effect of allowing more fluctuation between the nodes, i.e., as $B$ increases, in Figure \ref{fig:Graphs1}. 
  
 \begin{table}[!htbp]
-  \resizebox{\textwidth}{15mm}{        
+  \resizebox{\textwidth}{16mm}{        
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
       \hline
@@ -74,15 +77,15 @@ We display the data on a case by case basis to highlight the effect of allowing 
       \cr\hline
       14 &743.11 &377 &6532 &93.31 &458 & 6613 &468.55 &377 &6532&35.73 &6495 &718
       \cr\hline
-      29& 9436.28& 1536& 25477& 3164.68& 1703& 25816& 9236.42 &1536& 25477& 483.72& 24377 &3126
+      \add{29} & \add{9436.28} & \add{1536} & \add{25477} & \add{3164.68} & \add{1703} & \add{25816} & \add{9236.42} & \add{1536} & \add{25477} & \add{483.72} & \add{24377} & \add{3126}
       \cr\hline
-      30& 9888.07 &1769 &27176 &3674.53 &1934  &27341 &9484.48 &1769 &27176 &531.31 &27075 &3438
+      30 & 9888.07 & 1769 & 27176 & 3674.53 & 1934  & 27341 & 9484.48 & 1769 & 27176 & 531.31 & 27075 & 3438
       \cr\hline
-      39& 21764.43 & 3248 & 39265 & 9436.08 & 3771&  41026&  18329.58& 3248 & 39265 &1442.36 & 41342 & 4855 
+      \add{39} & \add{21764.43} & \add{3248} & \add{39265} & \add{9436.08} & \add{3771} & \add{41026} & \add{18329.58} & \add{3248} & \add{39265} & \add{1442.36} & \add{41342} & \add{4855}
       \cr\hline
   \end{tabular}}
   \caption{  \label{tab:exp}
-    \txbl{Solution times, number of variables, and constraints for the procedures we considered on the MatPower Cases 5, 9, 14, 29, 30 and 39.}
+    \txbl{Solution times, number of variables, and number of constraints for the procedures we considered on the MatPower Cases 5, 9, 14, 29, 30, and 39.}
     }
 \end{table}
 
@@ -95,7 +98,7 @@ We display the data on a case by case basis to highlight the effect of allowing 
   \includegraphics[width=.45\linewidth-0.2mm]{Figures/newcase29.png}\\[0.5mm]
   \includegraphics[width=.45\linewidth-0.2mm]{Figures/newcase30.png}\hfill
   \includegraphics[width=.45\linewidth-0.2mm]{Figures/newcase39.png}\\
-\caption{\txbl{Lower and upper bound estimates on the robustness margin for MatPower Case 5 (Top Left), Case 9 (Top Right), Case 14 (Middle Left), Case 29 (Middle Right), Case 30 (Bottom left), Case 39(Bottom right).} }
+\caption{Lower and upper bound estimates on the robustness margin for MatPower Case 5 (Top Left), Case 9 (Top Right), Case 14 (Middle Left), \add{Case 29 (Middle Right)}, Case 30 (Bottom left), and \add{Case 39 (Bottom right)}. }
 \label{fig:Graphs1} 
 \end{center}
 \end{figure}
@@ -103,7 +106,8 @@ We display the data on a case by case basis to highlight the effect of allowing 
 Case 57 is not included in the table and graphs as the only inner bound procedure to run in a reasonable time was the Feasibility procedure that produced a maximum robustness margin of $\approx 0.003$ with a computational time of $\approx 48924$ seconds, and a gap to the outer bound procedure of $\approx 0.030$ when $B=0.001$, which had a running time of $\approx 27080$ seconds.
 
 As evident from the graphs, the LP Bound Tightening Procedure produces a better approximation of the lower bound on the robustness margin as the complexity of the data set increases. 
-\txbl{Given that the \cref{eq:OPTfeasOutRelaxb} is derived with two-round relaxations from \cref{eq:OPTfeasOutRelaxa} (e.g. first relaxed to the SDP and further relaxed to the LP or MIP), it's reasonable that the upper bound produced is not as tight as the other lower bounds.}
+\txbl{The outer bound procedure (in \cref{eq:OPTfeasOutRelaxb}) is derived using looser relaxations of the original problem compared to any of those used to derive lower bounds (in \cref{eq:OPTfeasrelaxLP1,eq:OPTfeasrelaxLP2,eq:OPTfeasrelaxLP3}).
+  Hence we expect that the upper bound produced is not as tight as the lower bounds.}
 Certainly one would expect the bound tightening procedure to out perform the other inner bound procedures for all cases, but the choice of procedure parameters has a big effect on the efficiency and capability of the procedure. 
 For instance, setting a low tolerance for a minimal sufficient change in the dimensions of $\vb$ will result in a better lower bound approximation, but an extremely long running time for most cases. 
 Thus in the low as well as marginally high complexity cases, it should be expected that the other procedures will out perform the bound tightening procedure as these manually set parameters will have more of an impact. 
