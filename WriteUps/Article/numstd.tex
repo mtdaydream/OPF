@@ -5,8 +5,8 @@
 %\subsection{Adaptation to Optimal Power Flow Equations}
 We now present results from computational studies that demonstrate the efficiency of the bounding procedures we have introduced.
 %presented, which address the aforementioned short comings of previous work. 
-For all the numerical results presented, we apply the LP and MIP feasibility procedures (\cref{eq:OPTfeasrelaxLP1,eq:OPTfeasrelaxLP2}), the LP bound tightening procedure (\cref{eq:OPTfeasrelaxLP3}), and the Outer bound procedure (\cref{eq:OPTfeasOutRelaxb}) to find lower and upper bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software \cite{matpower} and \txbl{the NICTA Energy System Test Case Archive(NESTA) \cite{Coffrin2014NESTATN}.}
-We will specifically show results for tests conducted on cases 5, 9, 14, \txbl{29}, 30, \txbl{39} and 57. 
+For all the numerical results presented, we apply the LP and MIP feasibility procedures (\cref{eq:OPTfeasrelaxLP1,eq:OPTfeasrelaxLP2}), the LP bound tightening procedure (\cref{eq:OPTfeasrelaxLP3}), and the Outer bound procedure (\cref{eq:OPTfeasOutRelaxb}) to find lower and upper bounds for the robustness margins with respect to the optimal power flow equations derived using datasets obtained from the MatPower package found in the MATLAB software \cite{matpower} and \txbl{the NICTA Energy System Test Case Archive (NESTA) \cite{CoGoSc2019}.}
+We specifically show results for tests conducted on cases 5, 9, 14, \txbl{29}, 30, \txbl{39} and 57. 
 In every case the power flow equations were converted into the form of a system of quadratic equations we study (as described in \cref{eq:Quad,eq:xLimits,eq:uLimits}). 
 To simulate real life scenarios we allowed the first 5 dimensions of $\vu$ to represent renewable energy, and the others representing no variation. We then slowly increased the variation of the first 5 dimensions of $\vu$, while utilizing procedures for the upper and lower bound verification to verify robust feasibility. 
 We first detail specifically how this transformation was conducted.

@@ -69,6 +69,12 @@ Fr\'{e}d\'{e}ric Chazal, Primoz Skraba, and Amit Patel.
 \newblock Computing well diagrams for vector fields on $\mathbb{R}^n$.
 \newblock {\em Applied Mathematics Letters}, 25(11):1725--1728, 2012.
 
+\bibitem{CoGoSc2019}
+\add{Carleton Coffrin, Dan Gordon, and Paul Scott.
+\newblock {NESTA, The NICTA Energy System Test Case Archive}.
+\newblock {\em ArXiv}, 2019.
+\newblock \href{https://arxiv.org/abs/1411.0359}{arXiv:1411.0359}.}
+
 \bibitem{coffrin2015strengthening}
 Carleton Coffrin, Hassan~L Hijazi, and Pascal Van~Hentenryck.
 \newblock Strengthening convex relaxations with bound tightening for power
